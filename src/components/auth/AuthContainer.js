@@ -36,6 +36,7 @@ export default function AuthContainer() {
       <form onSubmit={handleSubmit}>
         <h2>First Name</h2>
         <TextField
+          className="auth_text_field"
           required
           id="outlined-basic"
           placeholder="First Name"
@@ -47,6 +48,7 @@ export default function AuthContainer() {
 
         <h2>Last Name</h2>
         <TextField
+          className="auth_text_field"
           id="outlined-basic"
           placeholder="Last Name"
           variant="outlined"
@@ -59,6 +61,7 @@ export default function AuthContainer() {
         <h2>Phone Number</h2>
         <FormControl fullWidth variant="outlined">
           <OutlinedInput
+            className="auth_text_field"
             id="outlined-adornment-amount"
             placeholder="Mobile Number"
             startAdornment={<InputAdornment position="start"></InputAdornment>}
