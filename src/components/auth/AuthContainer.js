@@ -10,6 +10,9 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 
+import { authentication } from "../../firebase";
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth"
+
 export default function AuthContainer() {
   // state management
   const [values, setValues] = useState({
@@ -18,14 +21,51 @@ export default function AuthContainer() {
     number: "",
     role: "tutor",
   });
+  // Will move to verify code
+  const [code, setCode] = useState('');
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
 
+  const generateRecaptcha = () => {
+    window.recaptchaVerifier = new RecaptchaVerifier('get-code', {
+        'size': 'invisible',
+        'callback': (response) => {
+
+        }
+      }, authentication)
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(values);
+    console.log(values)
+    generateRecaptcha()
+    let appVerifier = window.recaptchaVerifier
+    signInWithPhoneNumber(authentication, values.number, appVerifier)
+    .then(confirmationResult => {
+      window.confirmationResult = confirmationResult
+      //window.location.href = "./verify"
+    }).catch((error) => {
+      console.log(error)
+    })
+  }
+  // Will move to verify code
+  const handleChange2 = (event) => {
+    event.preventDefault();
+    setCode(event.target.value);
+  };
+  // Will move to verify code
+  const handleSubmit2 = (event) => {
+    event.preventDefault();
+    console.log(code);
+    console.log(code.length);
+    let confirmationResult = window.confirmationResult
+    confirmationResult.confirm(code).then((result) => {
+      const user = result.user
+    }).catch((error) => {
+      
+    })
   };
 
   // firebase auth
@@ -118,6 +158,17 @@ export default function AuthContainer() {
 
         <button id="get-code">Get started</button>
       </form>
+    <form onSubmit={handleSubmit2}>
+      <h2>Verification Code</h2>
+      <TextField
+        id="outlined-name"
+        label="Code"
+        value={code}
+        onChange={handleChange2}
+      />
+
+      <button id="get-otp">Verify</button>
+    </form>
     </div>
   );
 }
