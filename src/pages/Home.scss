@@ -1,3 +1,14 @@
 .home {
-    
+  margin: 40px;
+  .home_action_box {
+    margin: 0px;
+  }
+}
+
+@media (min-width: 800px) {
+  .home {
+    .home_action_box {
+      margin: 30px;
+    }
+  }
 }
