@@ -28,12 +28,12 @@
 .navbar-links li a {
   display: block;
   text-decoration: none;
-  color: black;
+  color: #1F026B;
   padding: 1rem 2rem;
 }
 
 .navbar-links li:hover {
-  background-color: #f8f9fa;
+  background-color: #F8F9FA;
 }
 
 .toggle-button {
@@ -50,7 +50,7 @@
 .toggle-button .bar {
   height: 3px;
   width: 100%;
-  background-color: black;
+  background-color: white;
   border-radius: 10px;
 }
 
@@ -60,7 +60,6 @@
     align-items: flex-start;
     border-bottom: none;
     position: relative;
-    box-shadow: none;
   }
 
   .toggle-button {
