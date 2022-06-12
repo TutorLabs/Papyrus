@@ -22,6 +22,9 @@ function Navbar() {
           <li>
             <Link to="/authentication">Authentication</Link>
           </li>
+          <li>
+            <Link to="/home">Home</Link>
+          </li>
         </ul>
       </div>
     </nav>

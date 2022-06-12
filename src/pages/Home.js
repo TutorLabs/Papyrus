@@ -10,11 +10,23 @@ export default function Home() {
     <div className="home">
       <Header title="Home" subtitle="View information important to you" />
       <div className="home_action_box">
-      <ActionBox img={Create} title="Posting" subtitle="Make a new posting"/>
-      <ActionBox img={Create} title="Props" subtitle="I'm passing props ok"/>
+        <ActionBox img={Create} title="Create" subtitle="Make a new post" />
+        <ActionBox
+          img={Create}
+          title="Tutors"
+          subtitle="View more Tutor profiles"
+        />
+        <ActionBox
+          img={Create}
+          title="Your Posts"
+          subtitle="Postings you have made"
+        />
+        <ActionBox
+          img={Create}
+          title="Saved Posts"
+          subtitle="Postings you have saved"
+        />
       </div>
-     
-      
     </div>
   );
 }
