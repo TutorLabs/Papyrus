@@ -20,7 +20,10 @@ function Navbar() {
       <div className={isActive ? "active navbar-links" : "navbar-links"}>
         <ul>
           <li>
-            <Link to="/authentication">Authentication</Link>
+            <Link to="/signup">Sign Up</Link>
+          </li>
+          <li>
+            <Link to="/signin">Sign In</Link>
           </li>
           <li>
             <Link to="/home">Home</Link>

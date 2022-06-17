@@ -1,7 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/layout/Navbar";
-import Auth from "./pages/Auth";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
 import Verify from "./pages/Verify";
 import Home from "./pages/Home";
 import Create from "./pages/Create";
@@ -12,7 +13,8 @@ function App() {
       <Navbar />
       <main>
         <Routes>
-          <Route path="/authentication" element={<Auth />} exact></Route>
+          <Route path="/signup" element={<SignUp />} exact></Route>
+          <Route path="/signin" element={<SignIn />} exact></Route>
           <Route path="/verify" element={<Verify />} exact></Route>
           <Route path="/home" element={<Home />} exact></Route>
           <Route path="/create" element={<Create />} exact></Route>

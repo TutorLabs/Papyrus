@@ -62,7 +62,8 @@ export default function AuthContainer() {
     console.log(code.length);
     let confirmationResult = window.confirmationResult
     confirmationResult.confirm(code).then((result) => {
-      const user = result.user
+       const user = result.user 
+       console.log(user);
     }).catch((error) => {
       
     })
@@ -72,7 +73,7 @@ export default function AuthContainer() {
 
   return (
     <div className="auth_container">
-      <h1>Register or Login below!</h1>
+      <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <h2>First Name</h2>
         <TextField
@@ -156,7 +157,7 @@ export default function AuthContainer() {
           </RadioGroup>
         </FormControl>
 
-        <button id="get-code">Get started</button>
+        <button id="get-code">Sign Up</button>
       </form>
     <form onSubmit={handleSubmit2}>
       <h2>Verification Code</h2>
