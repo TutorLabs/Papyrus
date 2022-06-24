@@ -34,6 +34,9 @@ function Navbar() {
           <li>
             <Link to="/apply">Apply</Link>
           </li>
+          <li>
+            <Link to="/tutorlist">Tutor List</Link>
+          </li>
         </ul>
       </div>
     </nav>
