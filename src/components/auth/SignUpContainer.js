@@ -11,7 +11,7 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 
 import { authentication } from "../../firebase";
-import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth"
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 
 export default function AuthContainer() {
   // state management
@@ -19,37 +19,40 @@ export default function AuthContainer() {
     first_name: "",
     last_name: "",
     number: "",
-    role: "tutor",
+    role: "student",
   });
   // Will move to verify code
-  const [code, setCode] = useState('');
+  const [code, setCode] = useState("");
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
 
   const generateRecaptcha = () => {
-    window.recaptchaVerifier = new RecaptchaVerifier('get-code', {
-        'size': 'invisible',
-        'callback': (response) => {
-
-        }
-      }, authentication)
-  }
+    window.recaptchaVerifier = new RecaptchaVerifier(
+      "get-code",
+      {
+        size: "invisible",
+        callback: (response) => {},
+      },
+      authentication
+    );
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(values)
-    generateRecaptcha()
-    let appVerifier = window.recaptchaVerifier
+    console.log(values);
+    generateRecaptcha();
+    let appVerifier = window.recaptchaVerifier;
     signInWithPhoneNumber(authentication, values.number, appVerifier)
-    .then(confirmationResult => {
-      window.confirmationResult = confirmationResult
-      //window.location.href = "./verify"
-    }).catch((error) => {
-      console.log(error)
-    })
-  }
+      .then((confirmationResult) => {
+        window.confirmationResult = confirmationResult;
+        //window.location.href = "./verify"
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   // Will move to verify code
   const handleChange2 = (event) => {
     event.preventDefault();
@@ -60,13 +63,14 @@ export default function AuthContainer() {
     event.preventDefault();
     console.log(code);
     console.log(code.length);
-    let confirmationResult = window.confirmationResult
-    confirmationResult.confirm(code).then((result) => {
-       const user = result.user 
-       console.log(user);
-    }).catch((error) => {
-      
-    })
+    let confirmationResult = window.confirmationResult;
+    confirmationResult
+      .confirm(code)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {});
   };
 
   return (
@@ -103,7 +107,9 @@ export default function AuthContainer() {
             className="auth_text_field"
             id="outlined-adornment-amount"
             placeholder="Mobile Number"
-            startAdornment={<InputAdornment position="start">+88</InputAdornment>}
+            startAdornment={
+              <InputAdornment position="start">+88</InputAdornment>
+            }
             value={values.number}
             onChange={handleChange("number")}
             required
@@ -118,23 +124,6 @@ export default function AuthContainer() {
             value={values.role}
             onChange={handleChange("role")}
           >
-            <FormControlLabel
-              value="tutor"
-              control={
-                <Radio
-                  sx={{
-                    color: "#59C1A9",
-                    "&.Mui-checked": {
-                      color: "#59C1A9",
-                    },
-                    "& .MuiSvgIcon-root": {
-                      fontSize: 28,
-                    },
-                  }}
-                />
-              }
-              label="Tutor"
-            />
             <FormControlLabel
               value="student"
               control={
@@ -152,22 +141,39 @@ export default function AuthContainer() {
               }
               label="Student/Parent"
             />
+            <FormControlLabel
+              value="tutor"
+              control={
+                <Radio
+                  sx={{
+                    color: "#59C1A9",
+                    "&.Mui-checked": {
+                      color: "#59C1A9",
+                    },
+                    "& .MuiSvgIcon-root": {
+                      fontSize: 28,
+                    },
+                  }}
+                />
+              }
+              label="Tutor"
+            />
           </RadioGroup>
         </FormControl>
 
         <button id="get-code">Sign Up</button>
       </form>
-    <form onSubmit={handleSubmit2}>
-      <h2>Verification Code</h2>
-      <TextField
-        id="outlined-name"
-        label="Code"
-        value={code}
-        onChange={handleChange2}
-      />
+      <form onSubmit={handleSubmit2}>
+        <h2>Verification Code</h2>
+        <TextField
+          id="outlined-name"
+          label="Code"
+          value={code}
+          onChange={handleChange2}
+        />
 
-      <button id="get-otp">Verify</button>
-    </form>
+        <button id="get-otp">Verify</button>
+      </form>
     </div>
   );
 }
