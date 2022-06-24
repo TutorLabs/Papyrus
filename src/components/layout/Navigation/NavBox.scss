@@ -1,0 +1,27 @@
+.navbox {
+  position: absolute;
+  right: 0px;
+  top: 56px;
+  height: 400px;
+  width: 434px;
+  background-color: #d0e6f0;
+  padding: 1rem 2rem;
+  align-items: center;
+  overflow: scroll;
+  border-radius: 5px;
+  p {
+    padding-top: 15px;
+    font-size: 15px;
+    span {
+      font-weight: 600;
+    }
+  }
+  h6 {
+    color: #6e757c;
+    padding-bottom: 15px;
+    font-size: 15px;
+    font-weight: 400;
+  }
+}
+
+

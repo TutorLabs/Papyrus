@@ -1,12 +1,20 @@
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import { useState } from "react";
+import Badge from "@mui/material/Badge";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import NavBox from "./NavBox";
 
 function Navbar() {
   const [isActive, setActive] = useState(false);
+  const [notifications, setNotifications] = useState(false);
 
   const toggleNavbar = () => {
     setActive(!isActive);
+  };
+
+  const showNotifications = () => {
+    setNotifications((prevNotif) => !prevNotif);
   };
 
   return (
@@ -17,6 +25,7 @@ function Navbar() {
         <span className="bar"></span>
         <span className="bar"></span>
       </div>
+      
       <div className={isActive ? "active navbar-links" : "navbar-links"}>
         <ul>
           <li>
@@ -40,6 +49,12 @@ function Navbar() {
           <li>
             <Link to="/edit">Edit</Link>
           </li>
+          <div className="notifications" onClick={showNotifications}>
+            <Badge badgeContent={4} color="primary">
+              <NotificationsIcon sx={{ color: "#221F20" }} />
+            </Badge>
+          </div>
+          {notifications ? <NavBox /> : null}
         </ul>
       </div>
     </nav>
