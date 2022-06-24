@@ -105,7 +105,7 @@ export default function AuthContainer() {
             className="auth_text_field"
             id="outlined-adornment-amount"
             placeholder="Mobile Number"
-            startAdornment={<InputAdornment position="start"></InputAdornment>}
+            startAdornment={<InputAdornment position="start">+88</InputAdornment>}
             value={values.number}
             onChange={handleChange("number")}
             required

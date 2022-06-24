@@ -36,7 +36,7 @@ export default function AuthContainer() {
             required
           />
         </FormControl>
-        <button id="get-code">Sign In</button>
+        <button >Sign In</button>
       </form>
     </div>
   );

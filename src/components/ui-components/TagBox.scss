@@ -1,0 +1,13 @@
+.tag_box {
+  background-color: white;
+  padding: 5px 8px;
+  border-radius: 15px;
+  white-space: nowrap;
+  margin: 5px 3px;
+}
+
+@media (min-width: 1200px) {
+  .tag_box {
+    margin: 10px 3px;
+  }
+}

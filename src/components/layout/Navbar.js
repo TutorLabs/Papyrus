@@ -31,6 +31,9 @@ function Navbar() {
           <li>
             <Link to="/create">Create</Link>
           </li>
+          <li>
+            <Link to="/apply">Apply</Link>
+          </li>
         </ul>
       </div>
     </nav>
