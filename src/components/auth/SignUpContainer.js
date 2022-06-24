@@ -69,8 +69,6 @@ export default function AuthContainer() {
     })
   };
 
-  // firebase auth
-
   return (
     <div className="auth_container">
       <h1>Sign Up</h1>

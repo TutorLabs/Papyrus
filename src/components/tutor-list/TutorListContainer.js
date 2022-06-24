@@ -41,9 +41,9 @@ export default function TutorListContainer() {
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs value={value} onChange={handleChange}>
-            <Tab label="Liked" />
+            <Tab label="✅ Liked" />
             <Tab label="Applied" />
-            <Tab label="Rejected" />
+            <Tab label="❌ Rejected" />
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
