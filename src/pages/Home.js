@@ -1,6 +1,8 @@
 import "./Home.scss";
 
-import Create from "../images/create_posting.svg";
+import Create from "../images/home/create.svg";
+import Tutors from "../images/home/tutors.svg";
+import Saved from "../images/home/saved.svg";
 
 import Header from "../components/layout/Header";
 import ActionBox from "../components/home/ActionBox";
@@ -12,7 +14,7 @@ export default function Home() {
       <div className="home_action_box">
         <ActionBox img={Create} title="Create" subtitle="Make a new post" />
         <ActionBox
-          img={Create}
+          img={Tutors}
           title="Tutors"
           subtitle="View more Tutor profiles"
         />
@@ -22,7 +24,7 @@ export default function Home() {
           subtitle="Postings you have made"
         />
         <ActionBox
-          img={Create}
+          img={Saved}
           title="Saved Posts"
           subtitle="Postings you have saved"
         />
