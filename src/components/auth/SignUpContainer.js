@@ -163,17 +163,6 @@ export default function AuthContainer() {
 
         <button id="get-code">Sign Up</button>
       </form>
-      <form onSubmit={handleSubmit2}>
-        <h2>Verification Code</h2>
-        <TextField
-          id="outlined-name"
-          label="Code"
-          value={code}
-          onChange={handleChange2}
-        />
-
-        <button id="get-otp">Verify</button>
-      </form>
     </div>
   );
 }

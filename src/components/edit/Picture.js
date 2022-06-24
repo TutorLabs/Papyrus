@@ -4,7 +4,7 @@ export default function Picture() {
   return (
     <div className="picture">
       <img src={ProfilePicture} alt="avatar"></img>
-      <p>Add Profile Picture</p>
+      <p>Change Profile Picture</p>
     </div>
   );
 }

@@ -37,6 +37,9 @@ function Navbar() {
           <li>
             <Link to="/tutorlist">Tutor List</Link>
           </li>
+          <li>
+            <Link to="/edit">Edit</Link>
+          </li>
         </ul>
       </div>
     </nav>
