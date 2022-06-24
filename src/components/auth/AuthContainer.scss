@@ -3,11 +3,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+  background-color: white;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+
   // for mobile
-  width: 100%;
+  width: 90%;
   padding: 20px;
-  box-shadow: none;
 
   .auth_text_field {
     background-color: white;
@@ -18,6 +19,9 @@
     text-align: center;
     font-weight: 600;
     font-size: 28px; // for mobile
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.25;
   }
 
   h2 {
@@ -31,7 +35,7 @@
     margin-top: 20px;
     width: 100%;
     border-radius: 20px;
-    background-color: #59c1a9;
+    background-color: #2cc3a0;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -43,7 +47,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: #5cc8af;
+      background-color: rgb(78, 204, 175);
     }
   }
 }
@@ -53,10 +57,6 @@
   .auth_container {
     width: 50%;
     padding: 40px;
-    background-color: white;
-    background-image: none;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
-
     h1 {
       font-size: 35px;
     }
