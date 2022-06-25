@@ -52,6 +52,9 @@ function Navbar() {
           <li>
             <Link to="/edit">Edit</Link>
           </li>
+          <li>
+            <Link to="/profile">Profile</Link>
+          </li>
           <div className="notifications" onClick={showNotifications}>
             <Badge badgeContent={4} color="primary">
               <NotificationsIcon sx={{ color: "#221F20" }} />

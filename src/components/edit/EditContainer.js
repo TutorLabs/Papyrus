@@ -4,6 +4,7 @@ import Picture from "./Picture";
 import FirstSection from "./FirstSection";
 import SecondSection from "./SecondSection";
 import Button from "../ui-components/Button";
+import RedButton from "../ui-components/RedButton";
 
 import Grid from "@mui/material/Grid";
 
@@ -32,7 +33,10 @@ export default function EditContainer() {
           <Picture />
         </Grid>
         <Grid item sm={12} lg={7} className="first_text_field">
-          <FirstSection first_name={data.first_name} last_name={data.last_name}/>
+          <FirstSection
+            first_name={data.first_name}
+            last_name={data.last_name}
+          />
         </Grid>
       </Grid>
       <hr />
@@ -41,6 +45,9 @@ export default function EditContainer() {
 
       <div className="button_container">
         <Button text="Edit" />
+        <div className="delete">
+          <RedButton text="Delete" />
+        </div>
       </div>
     </div>
   );
