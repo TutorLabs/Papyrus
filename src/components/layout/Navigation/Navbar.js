@@ -25,9 +25,12 @@ function Navbar() {
         <span className="bar"></span>
         <span className="bar"></span>
       </div>
-      
+
       <div className={isActive ? "active navbar-links" : "navbar-links"}>
         <ul>
+          <li>
+            <Link to="/">Landing</Link>
+          </li>
           <li>
             <Link to="/signup">Sign Up</Link>
           </li>

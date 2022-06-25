@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/layout/Navigation/Navbar";
+import Landing from "./pages/Landing";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Verify from "./pages/Verify";
@@ -16,6 +17,7 @@ function App() {
       <Navbar />
       <main>
         <Routes>
+          <Route path="/" element={<Landing />} exact></Route>
           <Route path="/signup" element={<SignUp />} exact></Route>
           <Route path="/signin" element={<SignIn />} exact></Route>
           <Route path="/verify" element={<Verify />} exact></Route>
