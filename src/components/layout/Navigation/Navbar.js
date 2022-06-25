@@ -3,7 +3,7 @@ import "./Navbar.scss";
 import { useState } from "react";
 import Badge from "@mui/material/Badge";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import NavBox from "./NavBox";
+import NavBox from "./NotifBox";
 
 function Navbar() {
   const [isActive, setActive] = useState(false);

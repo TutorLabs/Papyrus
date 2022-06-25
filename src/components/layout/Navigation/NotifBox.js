@@ -1,8 +1,8 @@
-import "./NavBox.scss";
+import "./NotifBox.scss";
 
 export default function NavBox() {
   return (
-    <div className="navbox">
+    <div className="notif_box">
       <p>
         You created a posting to teach <span>Mahzabin Rashid</span>.
       </p>
