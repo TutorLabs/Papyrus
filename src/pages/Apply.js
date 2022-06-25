@@ -14,6 +14,7 @@ export default function Apply() {
         subjects="English, Mathematics, Biology, Chemistry, Bangla, Science, Computer Science"
         locations="Dhanmondi, Gulshan, Banani"
         salary="6,000-15,000"
+        days="3"
       />
       <ApplyBox
         img="https://www.w3schools.com/css/trolltunga.jpg"
@@ -22,6 +23,7 @@ export default function Apply() {
         subjects="English, Mathematics, Biology, Chemistry"
         locations="Dhanmondi, Gulshan, Banani"
         salary="6,000-15,000"
+        days="5"
       />
     </div>
   );

@@ -13,6 +13,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Box from "@mui/material/Box";
 
 const subjects = [
+  "All",
   "Mathematics",
   "Biology",
   "Chemistry",
@@ -29,9 +30,12 @@ export default function SecondSection() {
     medium: "",
     online: "",
     location: "",
+    days: "",
     subject: [],
     max_salary: "",
     min_salary: "",
+    preferred_gender: "",
+    student_gender: "",
   });
 
   const handleChange = (prop) => (event) => {
@@ -61,24 +65,25 @@ export default function SecondSection() {
             />
           </Grid>
           <Grid item sm={12} lg={6} className="second_text_field">
-          <div className="second_section_left_margin">
-            <h2>Medium</h2>
-            <FormControl
-              className="form_control"
-              required
-              variant="outlined"
-              fullWidth
-            >
-              <Select
-                labelId="demo-simple-select-outlined-label"
-                onChange={handleChange("medium")}
-                value={values.medium}
+            <div className="second_section_left_margin">
+              <h2>Medium</h2>
+              <FormControl
+                className="form_control"
+                required
+                variant="outlined"
+                fullWidth
               >
-                <MenuItem value={"english_medium"}>English Medium</MenuItem>
-                <MenuItem value={"english_version"}>English Version</MenuItem>
-                <MenuItem value={"bangla_medium"}>Bangla Medium</MenuItem>
-              </Select>
-            </FormControl>
+                <Select
+                  labelId="demo-simple-select-outlined-label"
+                  onChange={handleChange("medium")}
+                  value={values.medium}
+                >
+                  <MenuItem value={"english_medium_cambridge"}>English Medium (Cambridge)</MenuItem>
+                  <MenuItem value={"english_medium_edexcel"}>English Medium (Edexcel)</MenuItem>
+                  <MenuItem value={"english_version"}>English Version</MenuItem>
+                  <MenuItem value={"bangla_medium"}>Bangla Medium</MenuItem>
+                </Select>
+              </FormControl>
             </div>
           </Grid>
           <Grid item sm={12} lg={6} className="second_text_field">
@@ -111,6 +116,49 @@ export default function SecondSection() {
           </Grid>
         </Grid>
 
+        <Grid container>
+          <Grid item sm={12} lg={6} className="second_text_field">
+            <div>
+              <h2>Preferred Gender</h2>
+              <FormControl
+                className="form_control"
+                required
+                variant="outlined"
+                fullWidth
+              >
+                <Select
+                  onChange={handleChange("preferred_gender")}
+                  value={values.online}
+                >
+                  <MenuItem value={"male"}>Male</MenuItem>
+                  <MenuItem value={"female"}>Female</MenuItem>
+                  <MenuItem value={"unstated"}>Won't state?</MenuItem>
+                </Select>
+              </FormControl>
+            </div>
+          </Grid>
+          <Grid item sm={12} lg={6} className="second_text_field">
+            <div className="second_section_left_margin">
+              <h2>Student's Gender</h2>
+              <FormControl
+                className="form_control"
+                required
+                variant="outlined"
+                fullWidth
+              >
+                <Select
+                  onChange={handleChange("student_gender")}
+                  value={values.online}
+                >
+                  <MenuItem value={"male"}>Male</MenuItem>
+                  <MenuItem value={"female"}>Female</MenuItem>
+                  <MenuItem value={"unstated"}>Won't state?</MenuItem>
+                </Select>
+              </FormControl>
+            </div>
+          </Grid>
+        </Grid>
+
         <h2>Location</h2>
         <TextField
           className="text_field"
@@ -121,6 +169,21 @@ export default function SecondSection() {
           value={values.location}
           required
         />
+
+        <h2>How many days a week?</h2>
+        <FormControl className="form_control" variant="outlined" fullWidth>
+          <OutlinedInput
+            type="number"
+            value={values.min_salary}
+            onChange={handleChange("days")}
+            placeholder="Days"
+            endAdornment={<InputAdornment position="end">/week</InputAdornment>}
+            aria-describedby="outlined-weight-helper-text"
+            inputProps={{
+              "aria-label": "weight",
+            }}
+          />
+        </FormControl>
 
         <h2>Which subjects do you want to learn?</h2>
         <FormControl className="form_control" fullWidth>
@@ -166,26 +229,26 @@ export default function SecondSection() {
             </FormControl>
           </Grid>
           <Grid item sm={12} lg={6}>
-          <div className="second_section_left_margin salary_space">
-            <FormControl
-              className="form_control"
-              variant="outlined"
-              fullWidth
-            >
-              <OutlinedInput
-                type="number"
-                value={values.min_salary}
-                onChange={handleChange("min_salary")}
-                placeholder="Minimum"
-                endAdornment={
-                  <InputAdornment position="end">taka/month</InputAdornment>
-                }
-                aria-describedby="outlined-weight-helper-text"
-                inputProps={{
-                  "aria-label": "weight",
-                }}
-              />
-            </FormControl>
+            <div className="second_section_left_margin salary_space">
+              <FormControl
+                className="form_control"
+                variant="outlined"
+                fullWidth
+              >
+                <OutlinedInput
+                  type="number"
+                  value={values.min_salary}
+                  onChange={handleChange("min_salary")}
+                  placeholder="Minimum"
+                  endAdornment={
+                    <InputAdornment position="end">taka/month</InputAdornment>
+                  }
+                  aria-describedby="outlined-weight-helper-text"
+                  inputProps={{
+                    "aria-label": "weight",
+                  }}
+                />
+              </FormControl>
             </div>
           </Grid>
         </Grid>
