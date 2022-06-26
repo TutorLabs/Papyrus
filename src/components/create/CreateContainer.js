@@ -11,12 +11,12 @@ export default function CreateContainer() {
   return (
     <div className="create_container">
       <h4>Basic Information</h4>
-      <Grid container>
-        <Grid item sm={12} lg={5}>
-          <Picture />
-        </Grid>
-        <Grid item sm={12} lg={7} className="first_text_field">
+      <Grid container spacing={4}>
+        <Grid item sm={12} lg={8} className="first_text_field">
           <FirstSection />
+        </Grid>
+        <Grid item sm={12} lg={4}>
+          <Picture />
         </Grid>
       </Grid>
       <hr />

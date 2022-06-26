@@ -1,5 +1,6 @@
 .picture {
   text-align: center;
+  margin: auto;
 
   img {
     max-width: 100%;
@@ -7,6 +8,7 @@
   }
 
   p {
+    margin-top: 10px;
     margin-bottom: 20px;
     font-size: 17px;
     font-weight: 500;

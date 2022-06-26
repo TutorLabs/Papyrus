@@ -23,11 +23,6 @@ export default function Home() {
           title="Your Posts"
           subtitle="Postings you have made"
         />
-        <ActionBox
-          img={Saved}
-          title="Saved Posts"
-          subtitle="Postings you have saved"
-        />
       </div>
     </div>
   );
