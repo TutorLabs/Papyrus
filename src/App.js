@@ -9,7 +9,6 @@ import Home from "./pages/Home";
 import Create from "./pages/Create";
 import Apply from "./pages/Apply";
 import TutorList from "./pages/TutorList";
-import Edit from "./pages/Edit";
 import Profile from "./pages/Profile";
 
 function App() {
@@ -26,7 +25,6 @@ function App() {
           <Route path="/create" element={<Create />} exact></Route>
           <Route path="/apply" element={<Apply />} exact></Route>
           <Route path="/tutorlist" element={<TutorList />} exact></Route>
-          <Route path="/edit" element={<Edit />} exact></Route>
           <Route path="/profile" element={<Profile />} exact></Route>
         </Routes>
       </main>

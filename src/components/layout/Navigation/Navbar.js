@@ -3,7 +3,7 @@ import "./Navbar.scss";
 import { useState } from "react";
 import Badge from "@mui/material/Badge";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import NavBox from "./NotifBox";
+import NotifBox from "./NotifBox";
 
 function Navbar() {
   const [isActive, setActive] = useState(false);
@@ -27,7 +27,7 @@ function Navbar() {
       </div>
 
       <div className={isActive ? "active navbar-links" : "navbar-links"}>
-        <ul>
+        <ul onClick={toggleNavbar}>
           <li>
             <Link to="/">Landing</Link>
           </li>
@@ -50,9 +50,6 @@ function Navbar() {
             <Link to="/tutorlist">Tutor List</Link>
           </li>
           <li>
-            <Link to="/edit">Edit</Link>
-          </li>
-          <li>
             <Link to="/profile">Profile</Link>
           </li>
           <div className="notifications" onClick={showNotifications}>
@@ -60,7 +57,7 @@ function Navbar() {
               <NotificationsIcon sx={{ color: "#221F20" }} />
             </Badge>
           </div>
-          {notifications ? <NavBox /> : null}
+          {notifications ? <NotifBox /> : null}
         </ul>
       </div>
     </nav>

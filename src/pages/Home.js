@@ -2,7 +2,6 @@ import "./Home.scss";
 
 import Create from "../images/home/create.svg";
 import Tutors from "../images/home/tutors.svg";
-import Saved from "../images/home/saved.svg";
 
 import Header from "../components/layout/Header";
 import ActionBox from "../components/home/ActionBox";
