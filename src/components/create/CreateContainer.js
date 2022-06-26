@@ -42,7 +42,7 @@ export default function CreateContainer() {
           <Picture />
         </Grid>
       </Grid>
-      <hr />
+      <hr className="hr_margin"/>
       <h4 className="advanced_info_margin">Advanced Information</h4>
       <SecondSection formData={formData} setFormData={setFormData} />
       <div className="button_container" onClick={handleSubmit}>

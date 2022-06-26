@@ -1,5 +1,5 @@
 import "./Picture.scss";
-import ProfilePicture from "../../images/profile_picture_placeholder.png";
+import ProfilePicture from "../../images/user_avatar.png";
 export default function Picture() {
   return (
     <div className="picture">
