@@ -12,6 +12,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 
 import { authentication } from "../../firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import Cookies from 'universal-cookie';
 
 export default function AuthContainer() {
   // state management
@@ -39,6 +40,8 @@ export default function AuthContainer() {
     );
   };
 
+  const cookies = new Cookies();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(values);
@@ -47,6 +50,19 @@ export default function AuthContainer() {
     signInWithPhoneNumber(authentication, values.number, appVerifier)
       .then((confirmationResult) => {
         window.confirmationResult = confirmationResult;
+        fetch('/info', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            "CSRF-Token": cookies.get("XSRF-TOKEN")
+          },
+          body: JSON.stringify(values),
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success:', data);
+        })
         //window.location.href = "./verify"
       })
       .catch((error) => {
@@ -108,7 +124,7 @@ export default function AuthContainer() {
             id="outlined-adornment-amount"
             placeholder="Mobile Number"
             startAdornment={
-              <InputAdornment position="start">+88</InputAdornment>
+              <InputAdornment position="start"></InputAdornment>
             }
             value={values.number}
             onChange={handleChange("number")}
