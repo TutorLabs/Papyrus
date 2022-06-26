@@ -36,6 +36,17 @@
   background-color: #f8f9fa;
 }
 
+.mobile-notification {
+  position: absolute;
+  top: 1rem;
+  right: 4rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+
 .toggle-button {
   position: absolute;
   top: 1rem;
@@ -63,6 +74,7 @@
     cursor: pointer;
   }
 }
+
 @media (max-width: 900px) {
   .navbar {
     flex-direction: column;
@@ -77,6 +89,10 @@
 
   .toggle-button {
     display: flex;
+  }
+
+  .mobile-notification {
+    display: block;
   }
 
   .navbar-links {
@@ -99,5 +115,6 @@
 
   .navbar-links.active {
     display: flex;
+    margin-top: 3rem;
   }
 }

@@ -25,6 +25,13 @@ function Navbar() {
         <span className="bar"></span>
         <span className="bar"></span>
       </div>
+      <Link to="/notifications">
+        <div className="mobile-notification">
+          <Badge badgeContent={4} color="primary">
+            <NotificationsIcon sx={{ color: "#221F20" }} />
+          </Badge>
+        </div>
+      </Link>
 
       <div className={isActive ? "active navbar-links" : "navbar-links"}>
         <ul onClick={toggleNavbar}>

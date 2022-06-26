@@ -1,0 +1,21 @@
+.notif_page {
+  height: 100vh;
+  padding: 50px 2rem 50px 2rem;
+  background-color: #d1e6f6;
+  align-items: center;
+  overflow: scroll;
+  border-radius: 5px;
+  p {
+    padding-top: 15px;
+    font-size: 15px;
+    span {
+      font-weight: 600;
+    }
+  }
+  h6 {
+    color: #6e757c;
+    padding-bottom: 15px;
+    font-size: 15px;
+    font-weight: 400;
+  }
+}
