@@ -45,6 +45,17 @@ export default function SecondSection() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(values);
+    // fetch('/info', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(values),
+    // })
+    // .then(response => response.json())
+    // .then(data => {
+    //   console.log('Success:', data);
+    // })
   };
 
   return (
