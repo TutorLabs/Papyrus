@@ -2,7 +2,7 @@ import "./Home.scss";
 
 import Create from "../images/home/create.svg";
 import Tutors from "../images/home/tutors.svg";
-
+import Support from "../images/home/support.svg"
 import Header from "../components/layout/Header";
 import ActionBox from "../components/home/ActionBox";
 
@@ -18,9 +18,9 @@ export default function Home() {
           subtitle="View more Tutor profiles"
         />
         <ActionBox
-          img={Create}
-          title="Your Posts"
-          subtitle="Postings you have made"
+          img={Support}
+          title="Support"
+          subtitle="Send us an email"
         />
       </div>
     </div>
