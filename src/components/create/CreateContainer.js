@@ -7,6 +7,7 @@ import SecondSection from "./SecondSection";
 import Button from "../ui-components/Button";
 
 import Grid from "@mui/material/Grid";
+import Cookies from 'universal-cookie';
 
 export default function CreateContainer() {
   const [formData, setFormData] = useState({
@@ -27,8 +28,24 @@ export default function CreateContainer() {
     student_gender: "",
   });
 
+  const cookies = new Cookies();
+
   const handleSubmit = () => {
     console.log(formData);
+    fetch('/posting', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        "CSRF-Token": cookies.get("XSRF-TOKEN")
+      },
+      body: JSON.stringify(formData),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+    })
+
   };
 
   return (
