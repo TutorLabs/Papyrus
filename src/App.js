@@ -9,7 +9,7 @@ import Verify from "./pages/Verify";
 import Home from "./pages/Home";
 import Create from "./pages/Create";
 import Apply from "./pages/Apply";
-import TutorList from "./pages/TutorList";
+import Postings from "./pages/Postings";
 import Profile from "./pages/Profile";
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
           <Route path="/home" element={<Home />} exact></Route>
           <Route path="/create" element={<Create />} exact></Route>
           <Route path="/apply" element={<Apply />} exact></Route>
-          <Route path="/tutorlist" element={<TutorList />} exact></Route>
+          <Route path="/postings" element={<Postings />} exact></Route>
           <Route path="/profile" element={<Profile />} exact></Route>
         </Routes>
       </main>

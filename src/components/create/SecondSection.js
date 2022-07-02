@@ -156,7 +156,7 @@ export default function SecondSection({ formData, setFormData }) {
       <FormControl className="form_control" variant="outlined" fullWidth>
         <OutlinedInput
           type="number"
-          value={formData.min_salary}
+          value={formData.days}
           onChange={handleChange("days")}
           placeholder="Days"
           endAdornment={<InputAdornment position="end">/week</InputAdornment>}

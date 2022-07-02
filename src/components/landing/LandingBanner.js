@@ -11,9 +11,9 @@ export default function LandingBanner() {
         Learning.
       </h1>
       <p>
-        Find a private tutor to learn any subject you need. Be a part of our
+        Find a private tutor to learn any subject you need. 
         <br />
-        community and start your new learning journey!
+        Be a part of our community and start your new learning journey!
       </p>
       <div>
         <FirstButton />
