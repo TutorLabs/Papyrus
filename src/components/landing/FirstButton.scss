@@ -17,3 +17,9 @@
     background-color: #f8f9fa;
   }
 }
+
+@media only screen and (min-width: 1000px) {
+  .first_button {
+    padding: 14px 30px;
+  }
+}

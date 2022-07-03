@@ -17,3 +17,9 @@
     background-color: #280483;
   }
 }
+
+@media only screen and (min-width: 1000px) {
+  .second_button {
+    padding: 14px 30px;
+  }
+}
