@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./PostingsContainer.scss";
+import "./AppliedContainer.scss";
 
 import ApplyBox from "../apply/ApplyBox";
 
@@ -28,7 +28,7 @@ function TabPanel(props) {
   );
 }
 
-export default function PostingContainer() {
+export default function AppliedContainer() {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -37,7 +37,7 @@ export default function PostingContainer() {
   };
 
   return (
-    <div className="postings_container">
+    <div className="applied_container">
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs value={value} onChange={handleChange}>

@@ -54,7 +54,7 @@ function Navbar() {
             <Link to="/apply">Apply</Link>
           </li>
           <li>
-            <Link to="/postings">Postings</Link>
+            <Link to="/applied">Applied</Link>
           </li>
           <li>
             <Link to="/profile">Profile</Link>
