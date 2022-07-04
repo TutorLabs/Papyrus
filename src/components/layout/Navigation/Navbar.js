@@ -45,6 +45,9 @@ function Navbar() {
             <Link to="/signin">Sign In</Link>
           </li>
           <li>
+            <Link to="/verify">Verify</Link>
+          </li>
+          <li>
             <Link to="/home">Home</Link>
           </li>
           <li>

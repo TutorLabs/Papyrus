@@ -14,7 +14,7 @@ import { authentication } from "../../firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import Cookies from 'universal-cookie';
 
-export default function AuthContainer() {
+export default function SignUpContainer() {
   // state management
   const [values, setValues] = useState({
     first_name: "",

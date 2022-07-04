@@ -6,7 +6,7 @@ import FormControl from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputAdornment from "@mui/material/InputAdornment";
 
-export default function SignInContainer() {
+export default function VerifyContainer() {
   // state management
   const [number, setNumber] = useState("");
 
@@ -22,9 +22,9 @@ export default function SignInContainer() {
 
   return (
     <div className="auth_container">
-      <h1>Sign In</h1>
+      <h1>Verify</h1>
       <form onSubmit={handleSubmit}>
-        <h2>Phone Number</h2>
+        <h2>Verification Code</h2>
         <FormControl fullWidth variant="outlined">
           <OutlinedInput
             className="auth_text_field"
@@ -36,7 +36,7 @@ export default function SignInContainer() {
             required
           />
         </FormControl>
-        <button >Sign In</button>
+        <button>Verify</button>
       </form>
     </div>
   );
