@@ -34,7 +34,7 @@ export default function VerifyContainer() {
           <OutlinedInput
             className="auth_text_field"
             id="outlined-adornment-amount"
-            placeholder="Mobile Number"
+            placeholder="Code"
             startAdornment={<InputAdornment position="start"></InputAdornment>}
             value={number}
             onChange={handleChange}

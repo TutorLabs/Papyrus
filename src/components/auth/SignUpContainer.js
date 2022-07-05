@@ -1,5 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./AuthContainer.scss";
+
+// redux imports
+import { useDispatch } from "react-redux";
+import { updateVerifyCode } from "../../redux/verifyCode";
 
 // material-ui imports
 import TextField from "@mui/material/TextField";
@@ -12,10 +16,17 @@ import RadioGroup from "@mui/material/RadioGroup";
 
 import { authentication } from "../../firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
-import Cookies from 'universal-cookie';
+import Cookies from "universal-cookie";
 
 export default function SignUpContainer() {
-  let x = "up123";
+  const dispatch = useDispatch();
+
+  let x = "sign up"; // delete
+
+  useEffect(() => {
+    dispatch(updateVerifyCode(x)); // change x to whatever we want to pass
+  }, []);
+
   // state management
   const [values, setValues] = useState({
     first_name: "",
@@ -51,19 +62,19 @@ export default function SignUpContainer() {
     signInWithPhoneNumber(authentication, values.number, appVerifier)
       .then((confirmationResult) => {
         window.confirmationResult = confirmationResult;
-        fetch('/info', {
-          method: 'POST',
+        fetch("/info", {
+          method: "POST",
           headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            "CSRF-Token": cookies.get("XSRF-TOKEN")
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "CSRF-Token": cookies.get("XSRF-TOKEN"),
           },
           body: JSON.stringify(values),
         })
-        .then(response => response.json())
-        .then(data => {
-          console.log('Success:', data);
-        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Success:", data);
+          });
         //window.location.href = "./verify"
       })
       .catch((error) => {
@@ -124,9 +135,7 @@ export default function SignUpContainer() {
             className="auth_text_field"
             id="outlined-adornment-amount"
             placeholder="Mobile Number"
-            startAdornment={
-              <InputAdornment position="start"></InputAdornment>
-            }
+            startAdornment={<InputAdornment position="start"></InputAdornment>}
             value={values.number}
             onChange={handleChange("number")}
             required
