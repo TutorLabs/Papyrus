@@ -1,5 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./AuthContainer.scss";
+
+// redux imports
+import { useDispatch } from "react-redux";
+import { updateVerifyCode } from "../../redux/verifyCode";
 
 // material-ui imports
 import FormControl from "@mui/material/FormControl";
@@ -7,6 +11,14 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import InputAdornment from "@mui/material/InputAdornment";
 
 export default function SignInContainer() {
+  const dispatch = useDispatch();
+
+  let x = "log in"; // delete
+
+  useEffect(() => {
+    dispatch(updateVerifyCode(x)); // change x to whatever we want to pass
+  }, []);
+
   // state management
   const [number, setNumber] = useState("");
 
@@ -36,7 +48,7 @@ export default function SignInContainer() {
             required
           />
         </FormControl>
-        <button >Sign In</button>
+        <button>Sign In</button>
       </form>
     </div>
   );

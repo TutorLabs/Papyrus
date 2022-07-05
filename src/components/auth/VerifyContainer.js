@@ -1,12 +1,17 @@
 import { useState } from "react";
 import "./AuthContainer.scss";
 
+// redux
+import { useSelector } from "react-redux";
+
 // material-ui imports
 import FormControl from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputAdornment from "@mui/material/InputAdornment";
 
 export default function VerifyContainer() {
+  const { code } = useSelector((state) => state.verifyCode);
+  console.log(code);
   // state management
   const [number, setNumber] = useState("");
 
