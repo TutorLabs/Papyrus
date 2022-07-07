@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  code: "initial code",
+  code: {},
 };
 
 export const verifyCodeSlice = createSlice({

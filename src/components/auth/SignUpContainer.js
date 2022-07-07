@@ -20,12 +20,13 @@ import Cookies from "universal-cookie";
 
 export default function SignUpContainer() {
   const dispatch = useDispatch();
+  // const [confirmation, setConfirmation] = useState({})
 
-  let x = "sign up"; // delete
+  // let x = "sign up"; // delete
 
-  useEffect(() => {
-    dispatch(updateVerifyCode(x)); // change x to whatever we want to pass
-  }, []);
+  // useEffect(() => {
+  //   dispatch(updateVerifyCode(x)); // change x to whatever we want to pass
+  // }, []);
 
   // state management
   const [values, setValues] = useState({
@@ -61,7 +62,8 @@ export default function SignUpContainer() {
     let appVerifier = window.recaptchaVerifier;
     signInWithPhoneNumber(authentication, values.number, appVerifier)
       .then((confirmationResult) => {
-        window.confirmationResult = confirmationResult;
+        dispatch(updateVerifyCode(confirmationResult))
+        //window.confirmationResult = confirmationResult;
         fetch("/info", {
           method: "POST",
           headers: {

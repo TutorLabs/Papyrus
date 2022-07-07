@@ -8,21 +8,44 @@ import { useSelector } from "react-redux";
 import FormControl from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputAdornment from "@mui/material/InputAdornment";
+import Cookies from "universal-cookie";
 
 export default function VerifyContainer() {
   const { code } = useSelector((state) => state.verifyCode);
-  console.log(code);
-  // state management
   const [number, setNumber] = useState("");
 
   const handleChange = (event) => {
     event.preventDefault();
     setNumber(event.target.value);
   };
-
+  const cookies = new Cookies();
+  
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(number);
+    //console.log(number);
+    code
+    .confirm(number)
+    .then((result) => {
+      const user = result.user
+      console.log(result)
+      console.log(user)
+      fetch("/authenticate", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "CSRF-Token": cookies.get("XSRF-TOKEN"),
+        },
+        body: JSON.stringify(user),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Success:", data);
+        });
+    })
+    .catch((error) => {
+      console.log(error)
+    })
   };
 
   return (

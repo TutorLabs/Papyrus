@@ -5,4 +5,8 @@ export const store = configureStore({
   reducer: {
     verifyCode: verifyCode,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false
+    })
 });
