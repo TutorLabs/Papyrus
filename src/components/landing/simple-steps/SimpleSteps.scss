@@ -1,10 +1,17 @@
 .simple_steps {
-  padding: 40px;
+  padding: 40px 20px; // for mobile
   h1 {
     padding-bottom: 40px;
     font-weight: 600;
     font-size: 32px;
     font-weight: 600;
     text-align: center;
+  }
+}
+
+@media only screen and (min-width: 978px) {
+  // for desktop
+  .simple_steps {
+    padding: 40px 170px;
   }
 }
