@@ -4,7 +4,8 @@
 
 @media (min-width: 1200px) {
   .home {
-    .home_action_box {
+    .home_action_box,
+    .home_posting_box {
       margin-top: 20px;
       display: flex;
     }

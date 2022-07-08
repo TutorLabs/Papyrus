@@ -22,6 +22,8 @@ export default function Home() {
       </div>
       <div className="home_posting_box">
         <PostingBox />
+        <PostingBox />
+        <PostingBox />
       </div>
     </div>
   );

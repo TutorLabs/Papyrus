@@ -1,25 +1,25 @@
 .outlined_button {
   border-radius: 10px;
   background-color: transparent;
-  padding: 5px 6px;
+  padding: 3px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 15px;
   font-weight: 500;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   margin: 4px 2px;
   cursor: pointer;
 
   .button_container {
     display: flex;
     img {
-      width: 25px;
-      height: 25px;
+      width: 20px;
+      height: 20px;
       margin: auto 10px auto 0px;
     }
     p {
       line-height: 25px;
+      font-size: 12px;
     }
   }
 }
