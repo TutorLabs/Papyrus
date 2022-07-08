@@ -12,6 +12,7 @@ import Cookies from "universal-cookie";
 
 export default function VerifyContainer() {
   const { code } = useSelector((state) => state.verifyCode);
+  const { initial_info } = useSelector((state) => state.verifyCode)
   const [number, setNumber] = useState("");
 
   const handleChange = (event) => {
@@ -27,8 +28,8 @@ export default function VerifyContainer() {
     .confirm(number)
     .then((result) => {
       const user = result.user
-      console.log(result)
-      console.log(user)
+      // console.log(result)
+      // console.log(user)
       fetch("/authenticate", {
         method: "POST",
         headers: {
@@ -40,8 +41,23 @@ export default function VerifyContainer() {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log("Success:", data);
-        });
+          if (data && Object.keys(initial_info).length > 0) {
+            console.log('done')
+            fetch("/info", {
+              method: "POST",
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                "CSRF-Token": cookies.get("XSRF-TOKEN"),
+              },
+              body: JSON.stringify(initial_info),
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log("Success:", data);
+              })
+          }
+        })
     })
     .catch((error) => {
       console.log(error)

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import "./AuthContainer.scss";
 
 // redux imports
 import { useDispatch } from "react-redux";
-import { updateVerifyCode } from "../../redux/verifyCode";
+import { updateVerifyCode, updateInitialInfo } from "../../redux/verifyCode";
 
 // material-ui imports
 import TextField from "@mui/material/TextField";
@@ -16,17 +17,9 @@ import RadioGroup from "@mui/material/RadioGroup";
 
 import { authentication } from "../../firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
-import Cookies from "universal-cookie";
 
 export default function SignUpContainer() {
   const dispatch = useDispatch();
-  // const [confirmation, setConfirmation] = useState({})
-
-  // let x = "sign up"; // delete
-
-  // useEffect(() => {
-  //   dispatch(updateVerifyCode(x)); // change x to whatever we want to pass
-  // }, []);
 
   // state management
   const [values, setValues] = useState({
@@ -35,8 +28,6 @@ export default function SignUpContainer() {
     number: "",
     role: "student",
   });
-  // Will move to verify code
-  const [code, setCode] = useState("");
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
@@ -53,54 +44,22 @@ export default function SignUpContainer() {
     );
   };
 
-  const cookies = new Cookies();
+  const navigate = useNavigate()
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
-    console.log(values);
+    // console.log(values);
     generateRecaptcha();
     let appVerifier = window.recaptchaVerifier;
     signInWithPhoneNumber(authentication, values.number, appVerifier)
       .then((confirmationResult) => {
         dispatch(updateVerifyCode(confirmationResult))
-        //window.confirmationResult = confirmationResult;
-        fetch("/info", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            "CSRF-Token": cookies.get("XSRF-TOKEN"),
-          },
-          body: JSON.stringify(values),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log("Success:", data);
-          });
-        //window.location.href = "./verify"
+        dispatch(updateInitialInfo(values))
+        navigate('/verify')
       })
       .catch((error) => {
         console.log(error);
       });
-  };
-  // Will move to verify code
-  const handleChange2 = (event) => {
-    event.preventDefault();
-    setCode(event.target.value);
-  };
-  // Will move to verify code
-  const handleSubmit2 = (event) => {
-    event.preventDefault();
-    console.log(code);
-    console.log(code.length);
-    let confirmationResult = window.confirmationResult;
-    confirmationResult
-      .confirm(code)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-      })
-      .catch((error) => {});
   };
 
   return (
@@ -194,16 +153,3 @@ export default function SignUpContainer() {
     </div>
   );
 }
-/*
-<form onSubmit={handleSubmit2}>
-        <h2>Verification Code</h2>
-        <TextField
-          id="outlined-name"
-          label="Code"
-          value={code}
-          onChange={handleChange2}
-        />
-
-        <button id="get-otp">Verify</button>
-      </form>
-*/

@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router";
 import "./AuthContainer.scss";
 
 // redux imports
@@ -10,14 +11,14 @@ import FormControl from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputAdornment from "@mui/material/InputAdornment";
 
+import Cookies from "universal-cookie";
+
+import { authentication } from "../../firebase";
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+
 export default function SignInContainer() {
   const dispatch = useDispatch();
-
-  let x = "log in"; // delete
-
-  useEffect(() => {
-    dispatch(updateVerifyCode(x)); // change x to whatever we want to pass
-  }, []);
+  const cookies = new Cookies();
 
   // state management
   const [number, setNumber] = useState("");
@@ -27,9 +28,50 @@ export default function SignInContainer() {
     setNumber(event.target.value);
   };
 
+  const generateRecaptcha = () => {
+    window.recaptchaVerifier = new RecaptchaVerifier(
+      "sign-in",
+      {
+        size: "invisible",
+        callback: (response) => {},
+      },
+      authentication
+    );
+  };
+
+  const navigate = useNavigate()
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(number);
+    const data = {
+      number: number
+    }
+    fetch("/exists", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "CSRF-Token": cookies.get("XSRF-TOKEN"),
+      },
+      body: JSON.stringify(data),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data === true) {
+        generateRecaptcha();
+        let appVerifier = window.recaptchaVerifier;
+        signInWithPhoneNumber(authentication, number, appVerifier)
+          .then((confirmationResult) => {
+            dispatch(updateVerifyCode(confirmationResult))
+            navigate('/verify')
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } else {
+        navigate('/signup')
+      }
+    });
   };
 
   return (
@@ -48,7 +90,7 @@ export default function SignInContainer() {
             required
           />
         </FormControl>
-        <button>Sign In</button>
+        <button id="sign-in">Sign In</button>
       </form>
     </div>
   );
