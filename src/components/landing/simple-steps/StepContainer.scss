@@ -1,0 +1,19 @@
+.step_container {
+  border: 2px solid #91d7c5;
+  border-radius: 30px;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  padding: 25px 60px 70px 60px;
+  h2 {
+    color: #91d7c5;
+    font-size: 70px;
+    margin-bottom: 20px;
+  }
+  h3 {
+    font-weight: 600;
+    font-size: 35px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+}
