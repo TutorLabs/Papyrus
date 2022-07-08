@@ -53,11 +53,12 @@ export default function VerifyContainer() {
       <h1>Verify</h1>
       <form onSubmit={handleSubmit}>
         <h2>Verification Code</h2>
+        <p>Enter the 6 digit code sent to your mobile</p>
         <FormControl fullWidth variant="outlined">
           <OutlinedInput
             className="auth_text_field"
             id="outlined-adornment-amount"
-            placeholder="Code"
+            placeholder="Enter your code here"
             startAdornment={<InputAdornment position="start"></InputAdornment>}
             value={number}
             onChange={handleChange}
