@@ -2,9 +2,10 @@ import "./Home.scss";
 
 import Create from "../images/home/create.svg";
 import Tutors from "../images/home/tutors.svg";
-import Support from "../images/home/support.svg"
+import Support from "../images/home/support.svg";
 import Header from "../components/layout/Header";
 import ActionBox from "../components/home/ActionBox";
+import PostingBox from "../components/home/PostingBox";
 
 export default function Home() {
   return (
@@ -17,11 +18,10 @@ export default function Home() {
           title="Tutors"
           subtitle="View more Tutor profiles"
         />
-        <ActionBox
-          img={Support}
-          title="Support"
-          subtitle="Send us an email"
-        />
+        <ActionBox img={Support} title="Support" subtitle="Send us an email" />
+      </div>
+      <div className="home_posting_box">
+        <PostingBox />
       </div>
     </div>
   );
