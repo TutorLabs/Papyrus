@@ -5,6 +5,7 @@ import "./AuthContainer.scss";
 // redux imports
 import { useDispatch } from "react-redux";
 import { updateVerifyCode } from "../../redux/verifyCode";
+import { updateRole } from "../../redux/auth";
 
 // material-ui imports
 import FormControl from "@mui/material/FormControl";
@@ -57,12 +58,14 @@ export default function SignInContainer() {
     })
     .then((response) => response.json())
     .then((data) => {
-      if (data === true) {
+      console.log(data)
+      if (data.exists === true) {
         generateRecaptcha();
         let appVerifier = window.recaptchaVerifier;
         signInWithPhoneNumber(authentication, number, appVerifier)
           .then((confirmationResult) => {
             dispatch(updateVerifyCode(confirmationResult))
+            dispatch(updateRole(data.role))
             navigate('/verify')
           })
           .catch((error) => {

@@ -11,6 +11,7 @@ import Create from "./pages/Create";
 import Apply from "./pages/Apply";
 import Applied from "./pages/Applied";
 import Profile from "./pages/Profile";
+import PrivateRoutes from "./utils/PrivateRoutes";
 
 function App() {
   return (
@@ -18,13 +19,15 @@ function App() {
       <Navbar />
       <main>
         <Routes>
+          <Route element={<PrivateRoutes correctRole = 'student' />}>
+            <Route path="/create" element={<Create />} exact></Route>
+          </Route>
           <Route path="/" element={<Landing />} exact></Route>
           <Route path="/notifications" element={<Notifications />} exact></Route>
           <Route path="/signup" element={<SignUp />} exact></Route>
           <Route path="/signin" element={<SignIn />} exact></Route>
           <Route path="/verify" element={<Verify />} exact></Route>
           <Route path="/home" element={<Home />} exact></Route>
-          <Route path="/create" element={<Create />} exact></Route>
           <Route path="/apply" element={<Apply />} exact></Route>
           <Route path="/applied" element={<Applied />} exact></Route>
           <Route path="/profile" element={<Profile />} exact></Route>

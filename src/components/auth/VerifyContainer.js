@@ -3,6 +3,8 @@ import "./AuthContainer.scss";
 
 // redux
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { updateToken, updateRole, updateSignedIn } from "../../redux/auth";
 
 // material-ui imports
 import FormControl from "@mui/material/FormControl";
@@ -13,6 +15,7 @@ import Cookies from "universal-cookie";
 export default function VerifyContainer() {
   const { code } = useSelector((state) => state.verifyCode);
   const { initial_info } = useSelector((state) => state.verifyCode)
+  const dispatch = useDispatch();
   const [number, setNumber] = useState("");
 
   const handleChange = (event) => {
@@ -23,13 +26,10 @@ export default function VerifyContainer() {
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    //console.log(number);
     code
     .confirm(number)
     .then((result) => {
       const user = result.user
-      // console.log(result)
-      // console.log(user)
       fetch("/authenticate", {
         method: "POST",
         headers: {
@@ -41,8 +41,12 @@ export default function VerifyContainer() {
       })
         .then((response) => response.json())
         .then((data) => {
+          dispatch(updateToken(user.accessToken))
+          if (Object.keys(initial_info).length > 0) {
+            dispatch(updateRole(initial_info.role))
+          }
+          dispatch(updateSignedIn(true))
           if (data && Object.keys(initial_info).length > 0) {
-            console.log('done')
             fetch("/info", {
               method: "POST",
               headers: {
