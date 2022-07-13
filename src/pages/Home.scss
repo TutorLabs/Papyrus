@@ -1,5 +1,17 @@
 .home {
   margin: 40px;
+  .sub_header {
+    font-weight: 600;
+    font-size: 25px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+  }
+
+  hr {
+    background-color: rgba(0, 0, 0, 0.12);
+    height: 1px;
+    border: 0;
+  }
 }
 
 @media (min-width: 1200px) {

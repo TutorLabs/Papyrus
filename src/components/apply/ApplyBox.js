@@ -13,7 +13,7 @@ export default function ApplyBox(props) {
         </Grid>
         <Grid item sm={12} lg={8} className="content">
           <h1>{props.name} </h1>
-          <h3>🏫 {props.school} <span>| Jun 25, 2022</span></h3>
+          <h3>🏫 {props.school} |<span> Jun 25, 2022</span></h3>
           <div className="tags">
             <TagBox emoji="✏️" text="Class 8" />
             <TagBox emoji="💸" text={props.salary} />
