@@ -3,6 +3,7 @@ import "./Filter.scss";
 import TagBox from "../ui-components/TagBox";
 
 export default function Filter() {
+  // change this
   return (
     <div className="filter">
       <h4>Filter by:</h4>

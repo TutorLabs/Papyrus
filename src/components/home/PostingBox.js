@@ -4,7 +4,6 @@ import Eye from "../../images/home/eye.svg";
 import Edit from "../../images/home/edit.svg";
 import Delete from "../../images/home/delete.svg";
 import Cursor from "../../images/home/cursor.svg";
-import Avatar from "@mui/material/Avatar";
 
 export default function PostingBox(props) {
   return (
@@ -73,7 +72,7 @@ export default function PostingBox(props) {
 
         <div className="posting_buttons">
           <button className="applicants_button">
-            <img src={Cursor} />
+            <img src={Cursor} alt="cursor" />
             <div className="apply_button_text">
               <p>Applicants</p>
               <h6>View tutors who applied to this posting</h6>

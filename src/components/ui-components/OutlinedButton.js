@@ -7,7 +7,7 @@ export default function Button(prop) {
   return (
     <button className="outlined_button" style={changeColor}>
       <div className="button_container">
-        <img src={prop.icon} />
+        <img src={prop.icon} alt="" />
         <p>{prop.text}</p>
       </div>
     </button>
