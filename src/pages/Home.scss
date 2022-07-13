@@ -1,11 +1,22 @@
 .home {
   margin: 40px;
+  .sub_header {
+    font-weight: 600;
+    font-size: 25px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+  }
+
+  hr {
+    background-color: rgba(0, 0, 0, 0.12);
+    height: 1px;
+    border: 0;
+  }
 }
 
 @media (min-width: 1200px) {
   .home {
-    .home_action_box,
-    .home_posting_box {
+    .home_action_box {
       margin-top: 20px;
       display: flex;
     }

@@ -7,6 +7,8 @@ import Header from "../components/layout/Header";
 import ActionBox from "../components/home/ActionBox";
 import PostingBox from "../components/home/PostingBox";
 
+import Grid from "@mui/material/Grid";
+
 export default function Home() {
   return (
     <div className="home">
@@ -20,11 +22,24 @@ export default function Home() {
         />
         <ActionBox img={Support} title="Support" subtitle="Send us an email" />
       </div>
-      <div className="home_posting_box">
-        <PostingBox />
-        <PostingBox />
-        <PostingBox />
-      </div>
+
+      <h2 className="sub_header">Postings you have created:</h2>
+      <hr />
+
+      <Grid container>
+        <Grid item sm={12} lg={6}>
+          <PostingBox />
+        </Grid>
+        <Grid item sm={12} lg={6}>
+          <PostingBox />
+        </Grid>
+        <Grid item sm={12} lg={6}>
+          <PostingBox />
+        </Grid>
+        <Grid item sm={12} lg={6}>
+          <PostingBox />
+        </Grid>
+      </Grid>
     </div>
   );
 }
