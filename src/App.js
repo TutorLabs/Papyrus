@@ -19,9 +19,10 @@ function App() {
       <Navbar />
       <main>
         <Routes>
-          <Route element={<PrivateRoutes correctRole = 'student' />}>
+          {/* <Route element={<PrivateRoutes correctRole = 'student' />}>
             <Route path="/create" element={<Create />} exact></Route>
-          </Route>
+          </Route> */}
+          <Route path="/create" element={<Create />} exact></Route>
           <Route path="/" element={<Landing />} exact></Route>
           <Route path="/notifications" element={<Notifications />} exact></Route>
           <Route path="/signup" element={<SignUp />} exact></Route>
