@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./ProfileContainer.scss";
 
-import Picture from "./Picture";
+import Picture from "../ui-components/Picture";
 import FirstSection from "./FirstSection";
 import SecondSection from "./SecondSection";
 import Button from "../ui-components/Button";
@@ -15,6 +15,7 @@ export default function ProfileContainer() {
     last_name: "",
     email: "",
     phone_number: "",
+    photo: null,
     university: "",
     major: "",
     school: "",
@@ -61,7 +62,7 @@ export default function ProfileContainer() {
           <FirstSection formData={formData} setFormData={setFormData} />
         </Grid>
         <Grid item sm={12} lg={4}>
-          <Picture />
+          <Picture formData={formData} setFormData={setFormData} />
         </Grid>
       </Grid>
       <hr className="hr_margin" />

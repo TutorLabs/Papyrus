@@ -1,0 +1,27 @@
+.picture {
+  text-align: center;
+
+  #file {
+    display: none;
+  }
+
+  label {
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    p {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 25px;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .picture {
+    margin-top: 45px;
+  }
+}

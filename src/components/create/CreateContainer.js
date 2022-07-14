@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./CreateContainer.scss";
 
-import Picture from "./Picture";
+import Picture from "../ui-components/Picture";
 import FirstSection from "./FirstSection";
 import SecondSection from "./SecondSection";
 import Button from "../ui-components/Button";
@@ -15,6 +15,7 @@ export default function CreateContainer() {
     last_name: "",
     email: "",
     phone_number: "",
+    photo: null,
     school: "",
     class: "",
     medium: "",
@@ -56,8 +57,8 @@ export default function CreateContainer() {
           <FirstSection formData={formData} setFormData={setFormData} />
         </Grid>
         <Grid item sm={12} lg={4}>
-          <Picture />
-        </Grid>
+        <Picture formData={formData} setFormData={setFormData} />
+        </Grid> 
       </Grid>
       <hr className="hr_margin"/>
       <h4 className="advanced_info_margin">Advanced Information</h4>
