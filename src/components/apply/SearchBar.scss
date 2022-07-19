@@ -1,0 +1,23 @@
+.search_bar {
+  margin-top: 20px;
+  .form {
+    display: flex;
+
+    width: 100%;
+    border-radius: 10px;
+
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    .search_icon {
+      background-color: #91d7c5;
+      align-items: center;
+      width: 60px;
+      padding: 6px 4px;
+      border-radius: 0px 10px 10px 0px;
+      display: inline-flex;
+      justify-content: center;
+    }
+    .input_base {
+      padding: 6px 4px;
+    }
+  }
+}
