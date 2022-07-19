@@ -4,7 +4,6 @@ import "./Apply.scss";
 import Header from "../components/layout/Header";
 import ApplyBox from "../components/apply/ApplyBox";
 import SearchBar from "../components/apply/SearchBar";
-import Filter from "../components/apply/Filter";
 
 const postings = [
   {
@@ -126,7 +125,6 @@ export default function Apply() {
     <div className="apply">
       <Header title="Apply" subtitle="Apply to postings which suit you" />
       <SearchBar postings={postings} inputHandler={inputHandler} />
-      <Filter />
       {filteredPostings.map((posting) => (
         <ApplyBox
           key={posting.id}
