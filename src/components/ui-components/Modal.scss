@@ -1,0 +1,22 @@
+.modal_button_container {
+  display: flex;
+  justify-content: center;
+  p {
+    margin: auto 0px auto 20px;
+    cursor: pointer;
+    color: #6f7070;
+    font-weight: 500;
+  }
+}
+
+.modal_box {
+  h1 {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 36px;
+    margin-bottom: 10px;
+  }
+  p {
+    margin-bottom: 10px;
+  }
+}

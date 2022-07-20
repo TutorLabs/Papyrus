@@ -5,7 +5,11 @@ export default function Button(prop) {
   };
 
   return (
-    <button className="outlined_button" style={changeColor}>
+    <button
+      className="outlined_button"
+      style={changeColor}
+      onClick={prop.click}
+    >
       <div className="button_container">
         <img src={prop.icon} alt="" />
         <p>{prop.text}</p>

@@ -1,13 +1,27 @@
+import { useState } from "react";
 import "./PostingBox.scss";
 import OutlinedButtom from "../ui-components/OutlinedButton";
 import Eye from "../../images/home/eye.svg";
 import Edit from "../../images/home/edit.svg";
 import Delete from "../../images/home/delete.svg";
 import Cursor from "../../images/home/cursor.svg";
+import Modal from "../ui-components/Modal";
 
 export default function PostingBox(props) {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+
+  const handleClose = () => setOpen(false);
+
+  const handleDelete = () => {
+    alert("deleted posting")
+  }
+
   return (
     <div className="posting_box">
+      <Modal handleClose={handleClose} handleOpen={handleOpen} open={open} handleDelete={handleDelete} />
+
       <div className="posting_header">
         <div className="avatar">
           <img
@@ -81,7 +95,12 @@ export default function PostingBox(props) {
           <div className="other_buttons">
             <OutlinedButtom icon={Eye} text="View Details" green={true} />
             <OutlinedButtom icon={Edit} text="Edit Posting" green={true} />
-            <OutlinedButtom icon={Delete} text="Delete Posting" green={false} />
+            <OutlinedButtom
+              icon={Delete}
+              text="Delete Posting"
+              green={false}
+              click={handleOpen}
+            />
           </div>
         </div>
       </div>
