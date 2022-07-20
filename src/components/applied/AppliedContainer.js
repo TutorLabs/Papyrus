@@ -47,34 +47,39 @@ export default function AppliedContainer() {
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          <ApplyBox
-            img="https://images.pexels.com/photos/10698547/pexels-photo-10698547.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-            name="Idk "
-            school="Mastermind"
-            subjects="English, Mathematics, Biology, Chemistry, Bangla, Science, Computer Science"
-            locations="Dhanmondi, Gulshan, Banani"
-            salary="6,000-15,000"
-          />
+          <div>
+            <h1>Inqiyad</h1>
+            <p>Education: University of Waterloo</p>
+            <p>Major: Computer Science</p>
+            <p>School: Sunnydale</p>
+          </div>
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <ApplyBox
-            img="https://images.pexels.com/photos/10698547/pexels-photo-10698547.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-            name="Inqiyad Patwary"
-            school="Mastermind"
-            subjects="English, Mathematics, Biology, Chemistry, Bangla, Science, Computer Science"
-            locations="Dhanmondi, Gulshan, Banani"
-            salary="6,000-15,000"
-          />
+          <div>
+            <h1>Sadman</h1>
+            <p>Education: University of Waterloo</p>
+            <p>Major: Computer Science</p>
+            <p>School: Sunnydale</p>
+            <button>Like</button>
+            <button>Reject</button>
+          </div>
+          <br />
+          <div>
+            <h1>Fariha</h1>
+            <p>Education: University of Waterloo</p>
+            <p>Major: Computer Science</p>
+            <p>School: Sunnydale</p>
+            <button>Like</button>
+            <button>Reject</button>
+          </div>
         </TabPanel>
         <TabPanel value={value} index={2}>
-          <ApplyBox
-            img="https://images.pexels.com/photos/10698547/pexels-photo-10698547.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-            name="Mahzabin Rashid"
-            school="Mastermind"
-            subjects="English, Mathematics, Biology, Chemistry, Bangla, Science, Computer Science"
-            locations="Dhanmondi, Gulshan, Banani"
-            salary="6,000-15,000"
-          />
+          <div>
+            <h1>Mahzabin</h1>
+            <p>Education: University of Waterloo</p>
+            <p>Major: Computer Science</p>
+            <p>School: Sunnydale</p>
+          </div>
         </TabPanel>
       </Box>
     </div>

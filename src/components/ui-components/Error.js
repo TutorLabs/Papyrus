@@ -30,7 +30,7 @@ export default function Error() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style} className="modal_box">
-          <h1>Something went wrong</h1>
+          <h1>Something went wrong!</h1>
           <p>{text} Please refresh your page and try again.</p>
           <div className="modal_button_container">
             <Button

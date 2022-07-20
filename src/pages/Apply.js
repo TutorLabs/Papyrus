@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./Apply.scss";
 
 import Header from "../components/layout/Header";
@@ -104,7 +104,7 @@ export default function Apply() {
     }
   });
 
- /* const [arr, setArr] = useState([]);
+  /* const [arr, setArr] = useState([]);
 
   useEffect(() => {
     const allDetails = async () => {
