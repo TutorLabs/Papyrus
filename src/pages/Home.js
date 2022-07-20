@@ -1,5 +1,6 @@
 import "./Home.scss";
-
+import { useDispatch } from "react-redux"; // for error demonstration
+import { updateText } from "../redux/error"; // for error demonstration
 import Create from "../images/home/create.svg";
 import Tutors from "../images/home/tutors.svg";
 import Support from "../images/home/support.svg";
@@ -10,6 +11,7 @@ import PostingBox from "../components/home/PostingBox";
 import Grid from "@mui/material/Grid";
 
 export default function Home() {
+  const dispatch = useDispatch(); // for error demonstration
   return (
     <div className="home">
       <Header title="Home" subtitle="View information important to you" />
@@ -40,6 +42,13 @@ export default function Home() {
           <PostingBox />
         </Grid>
       </Grid>
+      <p // for error demonstration
+        onClick={() => {
+          dispatch(updateText("Server failed to fetch data."));
+        }}
+      >
+        click me for error
+      </p>
     </div>
   );
 }

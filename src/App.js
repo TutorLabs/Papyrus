@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-
 import Navbar from "./components/layout/Navigation/Navbar";
+import Error from "./components/ui-components/Error";
 import Notifications from "./pages/Notifications";
 import Landing from "./pages/Landing";
 import SignUp from "./pages/SignUp";
@@ -17,6 +17,7 @@ function App() {
   return (
     <div>
       <Navbar />
+      <Error />
       <main>
         <Routes>
           {/* <Route element={<PrivateRoutes correctRole = 'student' />}>
@@ -24,7 +25,11 @@ function App() {
           </Route> */}
           <Route path="/create" element={<Create />} exact></Route>
           <Route path="/" element={<Landing />} exact></Route>
-          <Route path="/notifications" element={<Notifications />} exact></Route>
+          <Route
+            path="/notifications"
+            element={<Notifications />}
+            exact
+          ></Route>
           <Route path="/signup" element={<SignUp />} exact></Route>
           <Route path="/signin" element={<SignIn />} exact></Route>
           <Route path="/verify" element={<Verify />} exact></Route>
