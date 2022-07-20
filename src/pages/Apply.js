@@ -13,13 +13,12 @@ const postings = [
     school: "Sunnydale",
     subjects:
       "English, Mathematics, Biology, Chemistry, Bangla, Science, Computer Science",
-    locations: "Dhanmondi, Gulshan, Banani",
     salary: "6,000-15,000",
     days: "3",
     student_gender: "Female",
     preferred_gender: "N/A",
     class: "Class 8",
-    medium: "English Medium",
+    medium: "Bangla Medium",
     location: "Dhanmondi",
     online: "Online",
   },
@@ -29,7 +28,6 @@ const postings = [
     name: "Inqiyad Patwary",
     school: "Mastermind",
     subjects: "English, Mathematics, Biology, Chemistry",
-    locations: "Dhanmondi, Gulshan, Banani",
     salary: "6,000-15,000",
     days: "5",
     student_gender: "Male",
@@ -59,7 +57,6 @@ export default function Apply() {
           name={posting.name}
           school={posting.school}
           subjects={posting.subjects}
-          locations={posting.locations}
           salary={posting.salary}
           days={posting.days}
           preferred_gender={posting.preferred_gender}
@@ -77,7 +74,6 @@ export default function Apply() {
         posting.name.toLowerCase().includes(inputText) ||
         posting.school.toLowerCase().includes(inputText) ||
         posting.subjects.toLowerCase().includes(inputText) ||
-        posting.locations.toLowerCase().includes(inputText) ||
         posting.salary.toLowerCase().includes(inputText) ||
         posting.days.toLowerCase().includes(inputText) ||
         posting.class.toLowerCase().includes(inputText) ||
@@ -94,7 +90,6 @@ export default function Apply() {
             name={posting.name}
             school={posting.school}
             subjects={posting.subjects}
-            locations={posting.locations}
             salary={posting.salary}
             days={posting.days}
             preferred_gender={posting.preferred_gender}
@@ -132,7 +127,6 @@ export default function Apply() {
           name={posting.name}
           school={posting.school}
           subjects={posting.subjects}
-          locations={posting.locations}
           salary={posting.salary}
           days={posting.days}
           preferred_gender={posting.preferred_gender}
@@ -159,7 +153,7 @@ export default function Apply() {
               name={name}
               school={post.preferred_institution}
               subjects={post.subjects}
-              locations={post.location}
+              location={post.location}
               salary={salary_range}
               days={post.availability_days}
             />

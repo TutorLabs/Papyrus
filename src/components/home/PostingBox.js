@@ -88,8 +88,8 @@ export default function PostingBox(props) {
           <button className="applicants_button">
             <img src={Cursor} alt="cursor" />
             <div className="apply_button_text">
-              <p>Applicants</p>
-              <h6>View tutors who applied to this posting</h6>
+              <p>View Applicants</p>
+              <h6>See tutors who applied to this posting</h6>
             </div>
           </button>
           <div className="other_buttons">

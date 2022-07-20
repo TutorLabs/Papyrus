@@ -26,9 +26,6 @@ export default function ApplyBox(props) {
               <span>Subjects:</span> {props.subjects}
             </p>
             <p>
-              <span>Locations:</span> {props.locations}
-            </p>
-            <p>
               <span>Days:</span> {props.days} days/week
             </p>
             <p>
