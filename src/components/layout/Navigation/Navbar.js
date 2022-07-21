@@ -3,8 +3,9 @@ import "./Navbar.scss";
 import { useState } from "react";
 import Badge from "@mui/material/Badge";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import Switch from "@mui/material/Switch";
 import NotifBox from "./NotifBox";
-
+import LanguageToggle from "./LanguageToggle";
 function Navbar() {
   const [isActive, setActive] = useState(false);
   const [notifications, setNotifications] = useState(false);
@@ -32,6 +33,9 @@ function Navbar() {
           </Badge>
         </div>
       </Link>
+      <div className="mobile_language_toggle">
+        <LanguageToggle />
+      </div>
 
       <div className={isActive ? "active navbar-links" : "navbar-links"}>
         <ul onClick={toggleNavbar}>
@@ -62,6 +66,10 @@ function Navbar() {
           <li>
             <Link to="/profile">Profile</Link>
           </li>
+          <div className="desktop_language_toggle">
+            <LanguageToggle />
+          </div>
+
           <div className="notifications" onClick={showNotifications}>
             <Badge badgeContent={4} color="primary">
               <NotificationsIcon sx={{ color: "#221F20" }} />

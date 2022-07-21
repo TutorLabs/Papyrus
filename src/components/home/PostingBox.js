@@ -7,7 +7,10 @@ import Delete from "../../images/home/delete.svg";
 import Cursor from "../../images/home/cursor.svg";
 import Modal from "../ui-components/Modal";
 
+import { useTranslation } from "react-i18next"; // for translation demonstration
+
 export default function PostingBox(props) {
+  const { t } = useTranslation(); // for translation demonstration
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);
@@ -15,12 +18,17 @@ export default function PostingBox(props) {
   const handleClose = () => setOpen(false);
 
   const handleDelete = () => {
-    alert("deleted posting")
-  }
+    alert("deleted posting");
+  };
 
   return (
     <div className="posting_box">
-      <Modal handleClose={handleClose} handleOpen={handleOpen} open={open} handleDelete={handleDelete} />
+      <Modal
+        handleClose={handleClose}
+        handleOpen={handleOpen}
+        open={open}
+        handleDelete={handleDelete}
+      />
 
       <div className="posting_header">
         <div className="avatar">
@@ -40,7 +48,7 @@ export default function PostingBox(props) {
       <div className="posting_content">
         <div className="posting_text">
           <p>
-            <span>📚 Subjects to teach:</span>
+            <span>📚 {t("Subjects to teach")}:</span>
             <br /> English, Mathematics, Biology, Chemistry
           </p>
           <hr />

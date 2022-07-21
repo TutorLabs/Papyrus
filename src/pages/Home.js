@@ -10,11 +10,14 @@ import PostingBox from "../components/home/PostingBox";
 
 import Grid from "@mui/material/Grid";
 
+import { useTranslation } from "react-i18next"; // for translation demonstration
+
 export default function Home() {
   const dispatch = useDispatch(); // for error demonstration
+  const { t } = useTranslation(); // for translation demonstration
   return (
     <div className="home">
-      <Header title="Home" subtitle="View information important to you" />
+      <Header title={t("Home")} subtitle="View information important to you" />
       <div className="home_action_box">
         <ActionBox img={Create} title="Create" subtitle="Make a new post" />
         <ActionBox
@@ -24,8 +27,7 @@ export default function Home() {
         />
         <ActionBox img={Support} title="Support" subtitle="Send us an email" />
       </div>
-
-      <h2 className="sub_header">Postings you have created:</h2>
+      <h2 className="sub_header">{t("Postings you have created")}:</h2>
       <hr />
 
       <Grid container>

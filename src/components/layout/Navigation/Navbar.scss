@@ -48,10 +48,10 @@
 }
 
 .toggle-button {
+  display: none;
   position: absolute;
   top: 1rem;
   right: 1rem;
-  display: none;
   flex-direction: column;
   justify-content: space-between;
   width: 30px;
@@ -75,16 +75,42 @@
   }
 }
 
+.mobile_language_toggle {
+  display: none;
+  position: absolute;
+  top: 0.5rem;
+  right: 6rem;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.desktop_language_toggle {
+  display: flex;
+  align-items: center;
+  &:hover {
+    background-color: #f8f9fa;
+  }
+}
+
 @media (max-width: 900px) {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
     border-bottom: none;
     position: relative;
+    box-shadow: none;
   }
 
   .notifications {
     display: none;
+  }
+
+  .desktop_language_toggle {
+    display: none;
+  }
+
+  .mobile_language_toggle {
+    display: block;
   }
 
   .toggle-button {
