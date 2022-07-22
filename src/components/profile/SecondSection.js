@@ -344,6 +344,16 @@ export default function SecondSection({ formData, setFormData }) {
         rows={3}
         onChange={handleChange("experience")}
       />
+      <h2>Anything else you would like students to know?</h2>
+      <TextField
+        className="text_field"
+        id="outlined-multiline-flexible"
+        placeholder="Ex: If there’s a particular time of any day you cannot teach, mention it here..."
+        fullWidth
+        multiline
+        rows={3}
+        onChange={handleChange("other")}
+      />
     </div>
   );
 }

@@ -33,6 +33,7 @@ export default function ProfileContainer() {
     eca: "",
     hobbies: "",
     experience: "",
+    other: "",
   });
 
   const cookies = new Cookies();
