@@ -6,9 +6,11 @@ import { BrowserRouter } from "react-router-dom";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
 import "./i18next";
+import Loader from "./components/loader/Loader";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Suspense fallback={<div>Loading...</div>}>
+  <Suspense fallback={<Loader/>}>
     <Provider store={store}>
       <BrowserRouter>
         <App />

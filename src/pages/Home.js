@@ -16,7 +16,7 @@ export default function Home() {
   const dispatch = useDispatch(); // for error demonstration
   const { t } = useTranslation(); // for translation demonstration
   return (
-    <div className="home">
+    <div className="home"> 
       <Header title={t("Home")} subtitle="View information important to you" />
       <div className="home_action_box">
         <ActionBox img={Create} title="Create" subtitle="Make a new post" />
