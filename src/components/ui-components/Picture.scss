@@ -1,9 +1,9 @@
 .picture {
   text-align: center;
 
-  /*#file {
-    display: none;
-  } */
+  #file {
+    display: none; // comment this out to see file upload
+  }
 
   label {
     cursor: pointer;

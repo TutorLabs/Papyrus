@@ -19,7 +19,7 @@ export default function Picture({ formData, setFormData }) {
         />
         <label htmlFor="file">
           <img src={ProfilePicture} alt="avatar"></img>
-          <p>Add Profile Picture</p>
+          <p>Upload Profile Picture</p>
         </label>
       </form>
     </div>
