@@ -12,6 +12,13 @@
     height: 1px;
     border: 0;
   }
+  a {
+    text-decoration: none;
+  }
+  a:link,
+  a:visited {
+    color: #221f20;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -19,6 +26,9 @@
     .home_action_box {
       margin-top: 20px;
       display: flex;
+      .home_action_box_link {
+        flex: 1;
+      }
     }
   }
 }

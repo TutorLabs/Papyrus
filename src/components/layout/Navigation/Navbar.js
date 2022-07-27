@@ -3,7 +3,6 @@ import "./Navbar.scss";
 import { useState } from "react";
 import Badge from "@mui/material/Badge";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import Switch from "@mui/material/Switch";
 import NotifBox from "./NotifBox";
 import LanguageToggle from "./LanguageToggle";
 function Navbar() {

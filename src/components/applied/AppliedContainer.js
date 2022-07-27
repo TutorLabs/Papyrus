@@ -1,8 +1,5 @@
 import { useState } from "react";
 import "./AppliedContainer.scss";
-
-import ApplyBox from "../apply/ApplyBox";
-
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
@@ -41,8 +38,8 @@ export default function AppliedContainer() {
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs value={value} onChange={handleChange}>
-            <Tab label="✅ Liked" />
             <Tab label="📝 Applied" />
+            <Tab label="✅ Liked" />
             <Tab label="❌ Rejected" />
           </Tabs>
         </Box>
