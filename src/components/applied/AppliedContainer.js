@@ -4,6 +4,26 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import AppliedBoxes from "./AppliedBoxes";
+const data = [
+  {
+    PostId: "69",
+    Tutors: [
+      {
+        Name: "Mahzabin",
+        School: "Sunnydale",
+        Class: "class 12",
+        Subject: ["English", "Bangla"],
+      },
+      {
+        Name: "Inqiyad",
+        School: "Mastermind",
+        Class: "class 12",
+        Subject: ["English", "Bangla"],
+      },
+    ],
+  },
+];
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -44,12 +64,7 @@ export default function AppliedContainer() {
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          <div>
-            <h1>Inqiyad</h1>
-            <p>Education: University of Waterloo</p>
-            <p>Major: Computer Science</p>
-            <p>School: Sunnydale</p>
-          </div>
+          <AppliedBoxes />
         </TabPanel>
         <TabPanel value={value} index={1}>
           <div>

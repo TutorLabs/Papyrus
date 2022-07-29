@@ -1,0 +1,30 @@
+.more_info {
+  border: 1px solid #e0e0e0;
+  padding: 20px 30px; // removed in tutor list
+  border-radius: 0px 20px 20px 0px;
+  height: 100%;
+
+  img {
+    width: 70%;
+    border-radius: 20px;
+  }
+  h1 {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 36px;
+    padding-top: 10px;
+  }
+  h2 {
+    font-weight: 600;
+    font-size: 20px;
+    padding-top: 10px;
+    span {
+      font-weight: 400;
+    }
+  }
+  p {
+    span {
+      font-weight: 600;
+    }
+  }
+}

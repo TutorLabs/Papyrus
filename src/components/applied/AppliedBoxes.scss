@@ -1,0 +1,10 @@
+.applied_boxes {
+  display: flex;
+  
+  &_tutor_list {
+    width: 50%;
+  }
+  &_more_info {
+    width: 50%;
+  }
+}
