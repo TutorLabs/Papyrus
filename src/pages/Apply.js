@@ -161,3 +161,22 @@ export default function Apply() {
         });
       })}
 */
+
+/*
+<ApplyBox
+              key={post._id}
+              id={post._id}
+              img="https://images.pexels.com/photos/10698547/pexels-photo-10698547.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              name={name}
+              school={post.preferred_institution}
+              subjects={post.subjects}
+              location={post.location}
+              salary={salary_range}
+              days={post.availability_days}
+              preferred_gender={post.tutor_gender}
+              student_gender={post.student_gender}
+              medium={post.medium}
+              online={post.presence}
+              class={post.class}
+            />
+          */

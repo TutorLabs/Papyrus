@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./PostingBox.scss";
 import OutlinedButtom from "../ui-components/OutlinedButton";
 import Eye from "../../images/home/eye.svg";
@@ -6,12 +6,17 @@ import Edit from "../../images/home/edit.svg";
 import Delete from "../../images/home/delete.svg";
 import Cursor from "../../images/home/cursor.svg";
 import Modal from "../ui-components/Modal";
+import Cookies from "universal-cookie";
+import { useSelector } from "react-redux";
 
 import { useTranslation } from "react-i18next"; // for translation demonstration
 
 export default function PostingBox(props) {
   const { t } = useTranslation(); // for translation demonstration
   const [open, setOpen] = useState(false);
+  const [arr, setArr] = useState([]);
+
+  const { token } = useSelector((state) => state.auth);
 
   const handleOpen = () => setOpen(true);
 
@@ -20,6 +25,22 @@ export default function PostingBox(props) {
   const handleDelete = () => {
     alert("deleted posting");
   };
+
+  useEffect(() => {
+    const allPosts = async () => {
+      const response = await fetch("/myposts", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const json = await response.json();
+      console.log(json);
+      setArr(json.data);
+    };
+    allPosts();
+  }, []);
 
   return (
     <div className="posting_box">

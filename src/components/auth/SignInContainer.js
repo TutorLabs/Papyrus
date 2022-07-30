@@ -40,13 +40,13 @@ export default function SignInContainer() {
     );
   };
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = {
-      number: number
-    }
+      number: number,
+    };
     fetch("/exists", {
       method: "POST",
       headers: {
@@ -56,25 +56,25 @@ export default function SignInContainer() {
       },
       body: JSON.stringify(data),
     })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data)
-      if (data.exists === true) {
-        generateRecaptcha();
-        let appVerifier = window.recaptchaVerifier;
-        signInWithPhoneNumber(authentication, number, appVerifier)
-          .then((confirmationResult) => {
-            dispatch(updateVerifyCode(confirmationResult))
-            dispatch(updateRole(data.role))
-            navigate('/verify')
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      } else {
-        navigate('/signup')
-      }
-    });
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        if (data.exists === true) {
+          generateRecaptcha();
+          let appVerifier = window.recaptchaVerifier;
+          signInWithPhoneNumber(authentication, number, appVerifier)
+            .then((confirmationResult) => {
+              dispatch(updateVerifyCode(confirmationResult));
+              dispatch(updateRole(data.role));
+              navigate("/verify");
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        } else {
+          navigate("/signup");
+        }
+      });
   };
 
   return (

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import "./CreateContainer.scss";
 
 import Picture from "../ui-components/Picture";
@@ -7,7 +8,7 @@ import SecondSection from "./SecondSection";
 import Button from "../ui-components/Button";
 
 import Grid from "@mui/material/Grid";
-import Cookies from 'universal-cookie';
+import Cookies from "universal-cookie";
 
 export default function CreateContainer() {
   const [formData, setFormData] = useState({
@@ -30,23 +31,23 @@ export default function CreateContainer() {
   });
 
   const cookies = new Cookies();
+  const navigate = useNavigate();
 
   const handleSubmit = () => {
     console.log(formData);
-    fetch('/posting', {
-      method: 'POST',
+    fetch("/posting", {
+      method: "POST",
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        "CSRF-Token": cookies.get("XSRF-TOKEN")
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "CSRF-Token": cookies.get("XSRF-TOKEN"),
       },
       body: JSON.stringify(formData),
     })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Success:', data);
-    })
-
+      .then((response) => {response.json()})
+      .then((data) => {
+        navigate('/home');
+      });
   };
 
   return (
@@ -57,8 +58,8 @@ export default function CreateContainer() {
           <FirstSection formData={formData} setFormData={setFormData} />
         </Grid>
         <Grid item sm={12} lg={4}>
-        <Picture formData={formData} setFormData={setFormData} />
-        </Grid> 
+          <Picture formData={formData} setFormData={setFormData} />
+        </Grid>
       </Grid>
       <hr className="hr_margin"/>
       <h4 className="advanced_info_margin">Advanced Information</h4>
