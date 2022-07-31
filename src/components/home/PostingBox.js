@@ -26,22 +26,21 @@ export default function PostingBox(props) {
     alert("deleted posting");
   };
 
-  useEffect(() => {
-    const allPosts = async () => {
-      const response = await fetch("/myposts", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      const json = await response.json();
-      console.log(json);
-      setArr(json.data);
-    };
-    allPosts();
-  }, []);
-
+  // useEffect(() => {
+  //   const allPosts = async () => {
+  //     const response = await fetch("/myposts", {
+  //       method: "GET",
+  //       headers: {
+  //         Accept: "application/json",
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     });
+  //     const json = await response.json();
+  //     console.log(json);
+  //     setArr(json.data);
+  //   };
+  //   allPosts();
+  // }, []);
   return (
     <div className="posting_box">
       <Modal
@@ -59,9 +58,9 @@ export default function PostingBox(props) {
           />
         </div>
         <div className="header_text">
-          <h1>Mahzabin Rashid</h1>
+          <h1>{props.name}</h1>
           <h3>
-            🏫 Sunnydale | <span>Jun 25, 2022</span>
+            🏫 {props.institution} | <span>Jun 25, 2022</span>
           </h3>
         </div>
       </div>
@@ -70,46 +69,50 @@ export default function PostingBox(props) {
         <div className="posting_text">
           <p>
             <span>📚 {t("Subjects to teach")}:</span>
-            <br /> English, Mathematics, Biology, Chemistry
+            <br />
+            {props.subjects.join(", ")}
           </p>
+
           <hr />
           <div className="sub_section">
             <p>
-              <span>✏️ Class:</span> Class 8
+              <span>✏️ Class:</span> {props.class}
             </p>
             <p className="second">
-              <span>📓 Medium:</span> English
+              <span>📓 Medium:</span> {props.medium}
             </p>
           </div>
           <hr />
 
           <p>
-            <span>💸 Salary Range:</span> 6,000-15,000 Tk/month
+            <span>💸 Salary Range:</span> {props.max_salary}-{props.min_salary}{" "}
+            Tk/month
           </p>
           <hr />
 
           <div className="sub_section">
             <p>
-              <span>📍 Location:</span> Dhanmondi
+              <span>📍 Location:</span> {props.location}
             </p>
             <p className="second">
-              <span>💃 Online/In-person:</span> In-person
+              <span>💃 Presence: </span>
+              {props.presence}
             </p>
           </div>
           <hr />
 
           <div className="sub_section">
             <p>
-              <span>👩‍🏫 Preferred Gender:</span> Female
+              <span>👩‍🏫 Preferred Gender:</span> {props.tutor_gender}
             </p>
             <p className="second">
-              <span>🙋‍♂️ Student's Gender:</span> Male
+              <span>🙋‍♂️ Student's Gender:</span> {props.student_gender}
             </p>
           </div>
           <hr />
 
           <p>
-            <span>🗓 Days:</span> 3 days/week
+            <span>🗓 Days:</span> {props.days} days/week
           </p>
         </div>
 
