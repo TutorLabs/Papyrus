@@ -23,24 +23,8 @@ export default function PostingBox(props) {
   const handleClose = () => setOpen(false);
 
   const handleDelete = () => {
-    alert("deleted posting");
+    alert(props.id);
   };
-
-  // useEffect(() => {
-  //   const allPosts = async () => {
-  //     const response = await fetch("/myposts", {
-  //       method: "GET",
-  //       headers: {
-  //         Accept: "application/json",
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     });
-  //     const json = await response.json();
-  //     console.log(json);
-  //     setArr(json.data);
-  //   };
-  //   allPosts();
-  // }, []);
   return (
     <div className="posting_box">
       <Modal

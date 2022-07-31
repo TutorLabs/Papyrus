@@ -57,6 +57,8 @@ export default function Home() {
           return (
             <Grid item sm={12} lg={6}>
               <PostingBox
+                key={post._id}
+                id={post._id}
                 name="{post.name}"
                 subjects={post.subjects}
                 class={post.class}
