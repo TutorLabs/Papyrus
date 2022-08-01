@@ -56,14 +56,14 @@ export default function SecondSection({ formData, setFormData }) {
                 onChange={handleChange("medium")}
                 value={formData.medium}
               >
-                <MenuItem value={"english_medium_cambridge"}>
+                <MenuItem value={"English Medium (Cambridge)"}>
                   English Medium (Cambridge)
                 </MenuItem>
-                <MenuItem value={"english_medium_edexcel"}>
+                <MenuItem value={"English Medium (Edexcel)"}>
                   English Medium (Edexcel)
                 </MenuItem>
-                <MenuItem value={"english_version"}>English Version</MenuItem>
-                <MenuItem value={"bangla_medium"}>Bangla Medium</MenuItem>
+                <MenuItem value={"English Version"}>English Version</MenuItem>
+                <MenuItem value={"Bangla Medium"}>Bangla Medium</MenuItem>
               </Select>
             </FormControl>
           </div>
@@ -90,8 +90,8 @@ export default function SecondSection({ formData, setFormData }) {
               fullWidth
             >
               <Select onChange={handleChange("online")} value={formData.online}>
-                <MenuItem value={"online"}>Online</MenuItem>
-                <MenuItem value={"in_person"}>In-person</MenuItem>
+                <MenuItem value={"Online"}>Online</MenuItem>
+                <MenuItem value={"In-Person"}>In-person</MenuItem>
               </Select>
             </FormControl>
           </div>
@@ -112,9 +112,9 @@ export default function SecondSection({ formData, setFormData }) {
                 onChange={handleChange("preferred_gender")}
                 value={formData.preferred_gender}
               >
-                <MenuItem value={"male"}>Male</MenuItem>
-                <MenuItem value={"female"}>Female</MenuItem>
-                <MenuItem value={"unstated"}>Won't state?</MenuItem>
+                <MenuItem value={"Male"}>Male</MenuItem>
+                <MenuItem value={"Female"}>Female</MenuItem>
+                <MenuItem value={"None"}>None</MenuItem>
               </Select>
             </FormControl>
           </div>
@@ -132,9 +132,9 @@ export default function SecondSection({ formData, setFormData }) {
                 onChange={handleChange("student_gender")}
                 value={formData.student_gender}
               >
-                <MenuItem value={"male"}>Male</MenuItem>
-                <MenuItem value={"female"}>Female</MenuItem>
-                <MenuItem value={"unstated"}>Won't state?</MenuItem>
+                <MenuItem value={"Male"}>Male</MenuItem>
+                <MenuItem value={"Female"}>Female</MenuItem>
+                <MenuItem value={"Other"}>Other</MenuItem>
               </Select>
             </FormControl>
           </div>

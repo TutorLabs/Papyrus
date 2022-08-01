@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./PostingBox.scss";
 import OutlinedButtom from "../ui-components/OutlinedButton";
 import Eye from "../../images/home/eye.svg";
@@ -6,21 +6,45 @@ import Edit from "../../images/home/edit.svg";
 import Delete from "../../images/home/delete.svg";
 import Cursor from "../../images/home/cursor.svg";
 import Modal from "../ui-components/Modal";
+import Cookies from "universal-cookie";
+import { useSelector } from "react-redux";
 
 import { useTranslation } from "react-i18next"; // for translation demonstration
 
 export default function PostingBox(props) {
   const { t } = useTranslation(); // for translation demonstration
   const [open, setOpen] = useState(false);
+  const cookies = new Cookies();
+  // const [arr, setArr] = useState([]);
+
+  // const { token } = useSelector((state) => state.auth);
 
   const handleOpen = () => setOpen(true);
 
   const handleClose = () => setOpen(false);
 
   const handleDelete = () => {
-    alert("deleted posting");
+    // alert(props.id);
+    fetch(`/post/${props.id}`, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "CSRF-Token": cookies.get("XSRF-TOKEN"),
+      },
+    })
+      .then((response) => {
+        response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      });
   };
 
+  const handleEdit = () => {
+    alert("edit");
+  };
+  
   return (
     <div className="posting_box">
       <Modal
@@ -38,9 +62,9 @@ export default function PostingBox(props) {
           />
         </div>
         <div className="header_text">
-          <h1>Mahzabin Rashid</h1>
+          <h1>{props.name}</h1>
           <h3>
-            🏫 Sunnydale | <span>Jun 25, 2022</span>
+            🏫 {props.institution} | <span>Jun 25, 2022</span>
           </h3>
         </div>
       </div>
@@ -49,46 +73,50 @@ export default function PostingBox(props) {
         <div className="posting_text">
           <p>
             <span>📚 {t("Subjects to teach")}:</span>
-            <br /> English, Mathematics, Biology, Chemistry
+            <br />
+            {props.subjects.join(", ")}
           </p>
+
           <hr />
           <div className="sub_section">
             <p>
-              <span>✏️ Class:</span> Class 8
+              <span>✏️ Class:</span> {props.class}
             </p>
             <p className="second">
-              <span>📓 Medium:</span> English
+              <span>📓 Medium:</span> {props.medium}
             </p>
           </div>
           <hr />
 
           <p>
-            <span>💸 Salary Range:</span> 6,000-15,000 Tk/month
+            <span>💸 Salary Range:</span> {props.max_salary}-{props.min_salary}{" "}
+            Tk/month
           </p>
           <hr />
 
           <div className="sub_section">
             <p>
-              <span>📍 Location:</span> Dhanmondi
+              <span>📍 Location:</span> {props.location}
             </p>
             <p className="second">
-              <span>💃 Online/In-person:</span> In-person
+              <span>💃 Presence: </span>
+              {props.presence}
             </p>
           </div>
           <hr />
 
           <div className="sub_section">
             <p>
-              <span>👩‍🏫 Preferred Gender:</span> Female
+              <span>👩‍🏫 Preferred Gender:</span> {props.tutor_gender}
             </p>
             <p className="second">
-              <span>🙋‍♂️ Student's Gender:</span> Male
+              <span>🙋‍♂️ Student's Gender:</span> {props.student_gender}
             </p>
           </div>
           <hr />
 
           <p>
-            <span>🗓 Days:</span> 3 days/week
+            <span>🗓 Days:</span> {props.days} days/week
           </p>
         </div>
 
@@ -102,7 +130,12 @@ export default function PostingBox(props) {
           </button>
           <div className="other_buttons">
             <OutlinedButtom icon={Eye} text="View Details" green={true} />
-            <OutlinedButtom icon={Edit} text="Edit Posting" green={true} />
+            <OutlinedButtom
+              icon={Edit}
+              text="Edit Posting"
+              green={true}
+              click={handleEdit}
+            />
             <OutlinedButtom
               icon={Delete}
               text="Delete Posting"

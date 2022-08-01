@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import "./CreateContainer.scss";
+import "../create/CreateContainer.scss";
 
 import Picture from "../ui-components/Picture";
-import FirstSection from "./FirstSection";
-import SecondSection from "./SecondSection";
+import FirstSection from "../create/FirstSection";
+import SecondSection from "../create/SecondSection";
 import Button from "../ui-components/Button";
 
 import Grid from "@mui/material/Grid";
 import Cookies from "universal-cookie";
 
-export default function CreateContainer() {
+export default function EditContainer() {
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -50,6 +50,8 @@ export default function CreateContainer() {
       });
   };
 
+  console.log(formData);
+
   return (
     <div className="create_container">
       <h4>Basic Information</h4>
@@ -65,7 +67,7 @@ export default function CreateContainer() {
       <h4 className="advanced_info_margin">Advanced Information</h4>
       <SecondSection formData={formData} setFormData={setFormData} />
       <div className="button_container" onClick={handleSubmit}>
-        <Button text="Create" />
+        <Button text="Edit" />
       </div>
     </div>
   );

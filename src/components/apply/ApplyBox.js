@@ -3,8 +3,31 @@ import "./ApplyBox.scss";
 import TagBox from "../ui-components/TagBox";
 import Grid from "@mui/material/Grid";
 import Button from "../ui-components/Button";
+import Cookies from "universal-cookie";
+import { useSelector } from "react-redux";
 
 export default function ApplyBox(props) {
+  const cookies = new Cookies();
+  const { token } = useSelector((state) => state.auth);
+  //console.log(token);
+//  console.log(props.id);
+  const handleChange = () => {
+    //alert("hi");
+    //console.log(props.id);
+    const data = {
+      token: token,
+    };
+    // fetch('/apply', {
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //     "CSRF-Token": cookies.get("XSRF-TOKEN"),
+    //   },
+    //   body: JSON.stringify(data),
+    // })
+    // .then((response) => response.json())
+  };
   return (
     <div className="apply_box">
       <Grid container>
@@ -13,7 +36,9 @@ export default function ApplyBox(props) {
         </Grid>
         <Grid item sm={12} lg={8} className="content">
           <h1>{props.name} </h1>
-          <h3>🏫 {props.school} |<span> Jun 25, 2022</span></h3>
+          <h3>
+            🏫 {props.school} |<span> Jun 25, 2022</span>
+          </h3>
           <div className="tags">
             <TagBox emoji="✏️" text={`Class ${props.class}`} />
             <TagBox emoji="💸" text={`${props.max_salary} - ${props.min_salary}`} />
@@ -35,7 +60,7 @@ export default function ApplyBox(props) {
               <span>Student's Gender:</span> {props.student_gender}
             </p>
           </div>
-          <Button text="Apply" />
+          <Button text="Apply" click={handleChange} />
         </Grid>
       </Grid>
     </div>

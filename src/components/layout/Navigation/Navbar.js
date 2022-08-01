@@ -65,6 +65,9 @@ function Navbar() {
           <li>
             <Link to="/profile">Profile</Link>
           </li>
+          <li>
+            <Link to="/edit">Edit</Link>
+          </li>
           <div className="desktop_language_toggle">
             <LanguageToggle />
           </div>

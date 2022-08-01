@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import "./AuthContainer.scss";
 
 // redux
@@ -14,7 +15,7 @@ import Cookies from "universal-cookie";
 
 export default function VerifyContainer() {
   const { code } = useSelector((state) => state.verifyCode);
-  const { initial_info } = useSelector((state) => state.verifyCode)
+  const { initial_info } = useSelector((state) => state.verifyCode);
   const dispatch = useDispatch();
   const [number, setNumber] = useState("");
 
@@ -23,49 +24,52 @@ export default function VerifyContainer() {
     setNumber(event.target.value);
   };
   const cookies = new Cookies();
-  
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     code
-    .confirm(number)
-    .then((result) => {
-      const user = result.user
-      fetch("/authenticate", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          "CSRF-Token": cookies.get("XSRF-TOKEN"),
-        },
-        body: JSON.stringify(user),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          dispatch(updateToken(user.accessToken))
-          if (Object.keys(initial_info).length > 0) {
-            dispatch(updateRole(initial_info.role))
-          }
-          dispatch(updateSignedIn(true))
-          if (data && Object.keys(initial_info).length > 0) {
-            fetch("/info", {
-              method: "POST",
-              headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-                "CSRF-Token": cookies.get("XSRF-TOKEN"),
-              },
-              body: JSON.stringify(initial_info),
-            })
-              .then((response) => response.json())
-              .then((data) => {
-                console.log("Success:", data);
-              })
-          }
+      .confirm(number)
+      .then((result) => {
+        const user = result.user;
+        fetch("/authenticate", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "CSRF-Token": cookies.get("XSRF-TOKEN"),
+          },
+          body: JSON.stringify(user),
         })
-    })
-    .catch((error) => {
-      console.log(error)
-    })
+          .then((response) => response.json())
+          .then((data) => {
+            dispatch(updateToken(user.accessToken));
+            if (Object.keys(initial_info).length > 0) {
+              dispatch(updateRole(initial_info.role));
+            }
+            dispatch(updateSignedIn(true));
+            if (data && Object.keys(initial_info).length > 0) {
+              fetch("/info", {
+                method: "POST",
+                headers: {
+                  Accept: "application/json",
+                  "Content-Type": "application/json",
+                  "CSRF-Token": cookies.get("XSRF-TOKEN"),
+                },
+                body: JSON.stringify(initial_info),
+              })
+              .then((response) => {
+                response.json()
+                navigate('/home')
+              })
+            } else {
+              navigate('/home')
+            }
+          });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
