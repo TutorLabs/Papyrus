@@ -15,15 +15,15 @@ export default function ApplyBox(props) {
           <h1>{props.name} </h1>
           <h3>🏫 {props.school} |<span> Jun 25, 2022</span></h3>
           <div className="tags">
-            <TagBox emoji="✏️" text={props.class} />
-            <TagBox emoji="💸" text={props.salary} />
+            <TagBox emoji="✏️" text={`Class ${props.class}`} />
+            <TagBox emoji="💸" text={`${props.max_salary} - ${props.min_salary}`} />
             <TagBox emoji="📓" text={props.medium} />
             <TagBox emoji="📍" text={props.location} />
-            <TagBox emoji="💃" text={props.online} />
+            <TagBox emoji="💃" text={props.presence} />
           </div>
           <div className="text">
             <p>
-              <span>Subjects:</span> {props.subjects}
+              <span>Subjects:</span> {props.subjects.join(", ")}
             </p>
             <p>
               <span>Days:</span> {props.days} days/week
