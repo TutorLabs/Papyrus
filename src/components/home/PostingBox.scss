@@ -49,9 +49,9 @@
         }
       }
       .sub_section {
-        display: flex;
+        display: block;
         .second {
-          margin-left: 12px;
+          margin-left: 0px;
         }
       }
     }
@@ -123,6 +123,14 @@
     }
 
     .posting_content {
+      .posting_text {
+        .sub_section {
+          display: flex;
+          .second {
+            margin-left: 12px;
+          }
+        }
+      }
       .posting_buttons {
         .other_buttons {
           display: flex;

@@ -59,7 +59,7 @@ export default function Home() {
               <PostingBox
                 key={post._id}
                 id={post._id}
-                name="{post.name}"
+                name={`${post.firstname} ${post.lastname}`}
                 subjects={post.subjects}
                 class={post.class}
                 medium={post.medium}

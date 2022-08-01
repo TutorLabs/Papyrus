@@ -1,3 +1,11 @@
 .create {
-    margin: 40px;
+    margin: 20px;
 }
+
+@media only screen and (min-width: 978px) {
+    // for desktop
+    .create {
+      margin: 40px;
+    }
+  }
+  

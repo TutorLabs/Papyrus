@@ -129,7 +129,7 @@ export default function PostingBox(props) {
             </div>
           </button>
           <div className="other_buttons">
-            <OutlinedButtom icon={Eye} text="View Details" green={true} />
+            
             <OutlinedButtom
               icon={Edit}
               text="Edit Posting"

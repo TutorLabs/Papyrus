@@ -1,5 +1,5 @@
 .home {
-  margin: 40px;
+  margin: 10px;
   .sub_header {
     font-weight: 600;
     font-size: 25px;
@@ -20,6 +20,14 @@
     color: #221f20;
   }
 }
+
+@media only screen and (min-width: 978px) {
+  // for desktop
+  .home {
+    margin: 40px;
+  }
+}
+
 
 @media (min-width: 1200px) {
   .home {
