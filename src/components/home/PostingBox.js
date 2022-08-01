@@ -14,17 +14,37 @@ import { useTranslation } from "react-i18next"; // for translation demonstration
 export default function PostingBox(props) {
   const { t } = useTranslation(); // for translation demonstration
   const [open, setOpen] = useState(false);
-  const [arr, setArr] = useState([]);
+  const cookies = new Cookies();
+  // const [arr, setArr] = useState([]);
 
-  const { token } = useSelector((state) => state.auth);
+  // const { token } = useSelector((state) => state.auth);
 
   const handleOpen = () => setOpen(true);
 
   const handleClose = () => setOpen(false);
 
   const handleDelete = () => {
-    alert(props.id);
+    // alert(props.id);
+    fetch(`/post/${props.id}`, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "CSRF-Token": cookies.get("XSRF-TOKEN"),
+      },
+    })
+      .then((response) => {
+        response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      });
   };
+
+  const handleEdit = () => {
+    alert("edit");
+  };
+  
   return (
     <div className="posting_box">
       <Modal
@@ -110,7 +130,12 @@ export default function PostingBox(props) {
           </button>
           <div className="other_buttons">
             <OutlinedButtom icon={Eye} text="View Details" green={true} />
-            <OutlinedButtom icon={Edit} text="Edit Posting" green={true} />
+            <OutlinedButtom
+              icon={Edit}
+              text="Edit Posting"
+              green={true}
+              click={handleEdit}
+            />
             <OutlinedButtom
               icon={Delete}
               text="Delete Posting"
