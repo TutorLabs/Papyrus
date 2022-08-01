@@ -8,6 +8,7 @@ import SignIn from "./pages/SignIn";
 import Verify from "./pages/Verify";
 import Home from "./pages/Home";
 import Create from "./pages/Create";
+import Edit from "./pages/Edit";
 import Apply from "./pages/Apply";
 import Applied from "./pages/Applied";
 import Profile from "./pages/Profile";
@@ -37,6 +38,7 @@ function App() {
           <Route path="/apply" element={<Apply />} exact></Route>
           <Route path="/applied" element={<Applied />} exact></Route>
           <Route path="/profile" element={<Profile />} exact></Route>
+          <Route path="/edit" element={<Edit />} exact></Route>
         </Routes>
       </main>
     </div>
