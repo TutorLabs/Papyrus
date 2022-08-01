@@ -10,7 +10,7 @@ export default function ApplyBox(props) {
   const cookies = new Cookies();
   const { token } = useSelector((state) => state.auth);
   //console.log(token);
-//  console.log(props.id);
+  //  console.log(props.id);
   const handleChange = () => {
     //alert("hi");
     //console.log(props.id);
@@ -37,11 +37,14 @@ export default function ApplyBox(props) {
         <Grid item sm={12} lg={8} className="content">
           <h1>{props.name} </h1>
           <h3>
-            🏫 {props.school} |<span> Jun 25, 2022</span>
+            🏫 {props.school} |<span> {props.date}</span>
           </h3>
           <div className="tags">
             <TagBox emoji="✏️" text={`Class ${props.class}`} />
-            <TagBox emoji="💸" text={`${props.max_salary} - ${props.min_salary}`} />
+            <TagBox
+              emoji="💸"
+              text={`${props.max_salary} - ${props.min_salary}`}
+            />
             <TagBox emoji="📓" text={props.medium} />
             <TagBox emoji="📍" text={props.location} />
             <TagBox emoji="💃" text={props.presence} />
