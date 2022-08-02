@@ -12,8 +12,8 @@ import Cookies from "universal-cookie";
 
 export default function CreateContainer() {
   const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
+    firstname: "",
+    lastname: "",
     email: "",
     phone_number: "",
     photo: null,
@@ -23,7 +23,7 @@ export default function CreateContainer() {
     online: "",
     location: "",
     days: "",
-    subject: [],
+    subjects: [],
     max_salary: "",
     min_salary: "",
     preferred_gender: "",

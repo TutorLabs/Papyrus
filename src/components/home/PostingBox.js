@@ -7,14 +7,20 @@ import Delete from "../../images/home/delete.svg";
 import Cursor from "../../images/home/cursor.svg";
 import Modal from "../ui-components/Modal";
 import Cookies from "universal-cookie";
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
 import { useTranslation } from "react-i18next"; // for translation demonstration
+
+// redux imports
+import { useDispatch } from "react-redux";
+import { updatePostId } from "../../redux/postid";
 
 export default function PostingBox(props) {
   const { t } = useTranslation(); // for translation demonstration
   const [open, setOpen] = useState(false);
   const cookies = new Cookies();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   // const [arr, setArr] = useState([]);
 
   // const { token } = useSelector((state) => state.auth);
@@ -41,8 +47,10 @@ export default function PostingBox(props) {
       });
   };
 
-  const handleEdit = () => {
-    alert("edit");
+  const handleEdit = async () => {
+    console.log(props.id);
+    dispatch(updatePostId(props.id));
+    navigate("/edit");
   };
   
   return (

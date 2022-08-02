@@ -16,8 +16,8 @@ export default function FirstTextField({ formData, setFormData }) {
         placeholder="First Name"
         variant="outlined"
         fullWidth
-        value={formData.first_name}
-        onChange={handleChange("first_name")}
+        value={formData.firstname}
+        onChange={handleChange("firstname")}
         required
       />
       <h2>Last Name</h2>
@@ -26,8 +26,8 @@ export default function FirstTextField({ formData, setFormData }) {
         placeholder="Last Name"
         variant="outlined"
         fullWidth
-        value={formData.last_name}
-        onChange={handleChange("last_name")}
+        value={formData.lastname}
+        onChange={handleChange("lastname")}
         required
       />
       <h2>Email</h2>

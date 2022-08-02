@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import "../create/CreateContainer.scss";
 
@@ -10,10 +10,14 @@ import Button from "../ui-components/Button";
 import Grid from "@mui/material/Grid";
 import Cookies from "universal-cookie";
 
+// redux
+import { useSelector } from "react-redux";
+
 export default function EditContainer() {
+  const { postid } = useSelector((state) => state.postid);
   const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
+    firstname: "",
+    lastname: "",
     email: "",
     phone_number: "",
     photo: null,
@@ -23,7 +27,7 @@ export default function EditContainer() {
     online: "",
     location: "",
     days: "",
-    subject: [],
+    subjects: [],
     max_salary: "",
     min_salary: "",
     preferred_gender: "",
@@ -33,10 +37,20 @@ export default function EditContainer() {
   const cookies = new Cookies();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const allDetails = async () => {
+      const response = await fetch(`/post/${postid}`);
+      const json = await response.json();
+      const data = json.post;
+      setFormData(data);
+    };
+    allDetails();
+  }, []);
+
   const handleSubmit = () => {
     console.log(formData);
-    fetch("/posting", {
-      method: "POST",
+    fetch(`/post/${postid}`, {
+      method: "PUT",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -44,9 +58,12 @@ export default function EditContainer() {
       },
       body: JSON.stringify(formData),
     })
-      .then((response) => {response.json()})
+      .then((response) => {
+        response.json();
+      })
       .then((data) => {
-        navigate('/home');
+        // navigate("/home");
+        console.log(data)
       });
   };
 
@@ -63,9 +80,9 @@ export default function EditContainer() {
           <Picture formData={formData} setFormData={setFormData} />
         </Grid>
       </Grid>
-      <hr className="hr_margin"/>
+      <hr className="hr_margin" />
       <h4 className="advanced_info_margin">Advanced Information</h4>
-      <SecondSection formData={formData} setFormData={setFormData} />
+      {<SecondSection formData={formData} setFormData={setFormData} />}
       <div className="button_container" onClick={handleSubmit}>
         <Button text="Edit" />
       </div>

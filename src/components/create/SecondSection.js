@@ -25,7 +25,7 @@ export default function SecondSection({ formData, setFormData }) {
   const handleChange = (prop) => (event) => {
     setFormData({ ...formData, [prop]: event.target.value });
   };
-
+console.log(formData.subjects)
   return (
     <div className="create_second_section">
       <h1>Education</h1>
@@ -168,12 +168,12 @@ export default function SecondSection({ formData, setFormData }) {
       </FormControl>
 
       <h2>Which subjects do you want to learn?</h2>
-      <FormControl className="form_control" fullWidth>
+      { <FormControl className="form_control" fullWidth>
         <Select
           labelId="demo-multiple-chip-label"
           multiple
-          value={formData.subject}
-          onChange={handleChange("subject")}
+          value={formData.subjects}
+          onChange={handleChange("subjects")}
           input={<OutlinedInput />}
           renderValue={(selected) => (
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
@@ -189,7 +189,7 @@ export default function SecondSection({ formData, setFormData }) {
             </MenuItem>
           ))}
         </Select>
-      </FormControl>
+      </FormControl> }
 
       <h2>What is your preferred monthly salary?</h2>
       <Grid container>
