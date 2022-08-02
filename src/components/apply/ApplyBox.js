@@ -9,24 +9,21 @@ import { useSelector } from "react-redux";
 export default function ApplyBox(props) {
   const cookies = new Cookies();
   const { token } = useSelector((state) => state.auth);
-  //console.log(token);
-  //  console.log(props.id);
   const handleChange = () => {
-    //alert("hi");
-    //console.log(props.id);
     const data = {
-      token: token,
+      id: props.id,
     };
-    // fetch('/apply', {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //     "CSRF-Token": cookies.get("XSRF-TOKEN"),
-    //   },
-    //   body: JSON.stringify(data),
-    // })
-    // .then((response) => response.json())
+    fetch('/apply', {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "CSRF-Token": cookies.get("XSRF-TOKEN"),
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(data),
+    })
+    .then((response) => response.json())
   };
   return (
     <div className="apply_box">
