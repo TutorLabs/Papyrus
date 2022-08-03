@@ -1,20 +1,22 @@
 .tutor_list {
-  border-top: 1px solid #e0e0e0;
-  border-left: 1px solid #e0e0e0;
   border-bottom: 1px solid #e0e0e0;
-  border-radius: 20px 0px 0px 20px;
-  height: 100%;
   .tutor {
     padding: 15px;
-    display: flex;
-    border-bottom: 1px solid #e0e0e0;
-    img {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
+    display: block;
+
+    .user_img {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      img {
+        height: 100%;
+        width: 100%;
+        min-height: 160px;
+      }
     }
+
     .content {
-      padding-left: 20px;
+      padding-left: 2px;
       h1 {
         font-weight: 500;
         font-size: 25px;
@@ -32,10 +34,24 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 978px) {
   .tutor_list {
     .tutor {
+      padding: 15px;
+      display: flex;
+      .user_img {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        img {
+          width: 90px;
+          height: 90px;
+          border-radius: 50%;
+          min-height: 0px;
+        }
+      }
       .content {
+        padding-left: 20px;
       }
     }
   }

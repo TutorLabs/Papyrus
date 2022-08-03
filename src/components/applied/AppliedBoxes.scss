@@ -1,5 +1,14 @@
 .applied_boxes {
   display: block;
+  border: 1px solid #e0e0e0;
+
+  border-radius: 20px;
+  .applied_boxes_tutor_list {
+    min-height: 100%;
+  }
+  .applied_boxes_more_info {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 978px) {
@@ -11,6 +20,9 @@
     }
     &_more_info {
       width: 50%;
+    }
+    .applied_boxes_more_info {
+      display: block;
     }
   }
 }

@@ -1,12 +1,38 @@
 import "./MoreInfo.scss";
+import OutlinedButtom from "../ui-components/OutlinedButton";
+import Check from "../../images/check.svg";
+import Cross from "../../images/cross.svg";
+import { alignProperty } from "@mui/material/styles/cssUtils";
 
 export default function MoreInfo(props) {
+  const handleLike = () => {
+    alert("liked!");
+  };
+
+  const handleReject = () => {
+    alert("rejected :((");
+  };
+
   return (
     <div className="more_info">
       <img
         alt="user"
         src="https://images.pexels.com/photos/10698547/pexels-photo-10698547.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
       />
+      <div className="posting_buttons">
+        <OutlinedButtom
+          icon={Check}
+          text="Edit Posting"
+          green={true}
+          click={handleLike}
+        />
+        <OutlinedButtom
+          icon={Cross}
+          text="Delete Posting"
+          green={false}
+          click={handleReject}
+        />
+      </div>
 
       <h1>Mahzabin Rashid Fariha</h1>
       <h2>Education:</h2>

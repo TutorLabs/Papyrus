@@ -25,6 +25,7 @@ export default function ApplyBox(props) {
       body: JSON.stringify(data),
     }).then((response) => response.json());
   };
+  
   return (
     <div className="apply_box">
       <Grid container>

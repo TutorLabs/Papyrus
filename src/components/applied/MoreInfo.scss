@@ -1,12 +1,21 @@
 .more_info {
-  border: 1px solid #e0e0e0;
+  border-left: 0px;
+  border-top: 1px solid #e0e0e0;
   padding: 20px 30px; // removed in tutor list
-  border-radius: 0px 20px 20px 0px;
   height: 100%;
+
+  .posting_buttons {
+    display: flex;
+    width: 70%;
+  }
 
   img {
     width: 70%;
     border-radius: 20px;
+  }
+
+  svg {
+    color: red;
   }
   h1 {
     font-weight: 600;
@@ -26,5 +35,12 @@
     span {
       font-weight: 600;
     }
+  }
+}
+
+@media (min-width: 978px) {
+  .more_info {
+    border-left: 1px solid #e0e0e0;
+    border-top: 0px;
   }
 }
