@@ -56,7 +56,7 @@ export default function AppliedContainer() {
 
   useEffect(() => {
     const allDetails = async () => {
-      const response = await fetch(`/applicants/${postid}`);
+      const response = await fetch(`/api/applicants/${postid}`);
       const json = await response.json();
       console.log(json);
       // const data = json.post;

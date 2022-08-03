@@ -54,7 +54,7 @@ export default function PostingBox(props) {
   };
 
   const handleView = async() => {
-    navigate(`/api/applied/${props.id}`)
+    navigate(`/applied/${props.id}`)
   }
   
   return (
