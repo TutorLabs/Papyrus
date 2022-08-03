@@ -28,45 +28,48 @@ export default function VerifyContainer() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    code.confirm(number).then((result) => {
-      const user = result.user;
-      fetch("/api/authenticate", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          "CSRF-Token": cookies.get("XSRF-TOKEN"),
-        },
-        body: JSON.stringify(user),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          dispatch(updateToken(user.accessToken));
-          if (Object.keys(initial_info).length > 0) {
-            dispatch(updateRole(initial_info.role));
-          }
-          dispatch(updateSignedIn(true));
-          if (data && Object.keys(initial_info).length > 0) {
-            fetch("/api/info", {
-              method: "POST",
-              headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-                "CSRF-Token": cookies.get("XSRF-TOKEN"),
-              },
-              body: JSON.stringify(initial_info),
-            }).then((response) => {
-              response.json();
-              navigate("/home");
-            });
-          } else {
-            navigate("/home");
-          }
+    code
+      .confirm(number)
+      .then((result) => {
+        const user = result.user;
+        fetch("/api/authenticate", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "CSRF-Token": cookies.get("XSRF-TOKEN"),
+          },
+          body: JSON.stringify(user),
         })
-        .catch((error) => {
-          console.log(error);
-        });
-    });
+          .then((response) => response.json())
+          .then((data) => {
+            dispatch(updateToken(user.accessToken));
+            if (Object.keys(initial_info).length > 0) {
+              dispatch(updateRole(initial_info.role));
+            }
+            dispatch(updateSignedIn(true));
+            if (data && Object.keys(initial_info).length > 0) {
+              fetch("/api/register", {
+                method: "POST",
+                headers: {
+                  Accept: "application/json",
+                  "Content-Type": "application/json",
+                  "CSRF-Token": cookies.get("XSRF-TOKEN"),
+                },
+                body: JSON.stringify(initial_info),
+              })
+              .then((response) => {
+                response.json()
+                navigate('/home')
+              })
+            } else {
+              navigate('/home')
+            }
+          });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
