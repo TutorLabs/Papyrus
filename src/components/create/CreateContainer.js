@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import "./CreateContainer.scss";
 
@@ -9,6 +9,8 @@ import Button from "../ui-components/Button";
 
 import Grid from "@mui/material/Grid";
 import Cookies from "universal-cookie";
+
+import { useSelector } from "react-redux";
 
 export default function CreateContainer() {
   const [formData, setFormData] = useState({
@@ -30,11 +32,27 @@ export default function CreateContainer() {
     student_gender: "",
   });
 
+  const { token } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    const userPhoneNumber = async () => {
+      const response = await fetch("/api/phone", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const json = await response.json();
+      setFormData({ ...formData, phone_number: json.phone });
+    };
+    userPhoneNumber();
+  }, []);
+
   const cookies = new Cookies();
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    console.log(formData);
     fetch("/api/posting", {
       method: "POST",
       headers: {

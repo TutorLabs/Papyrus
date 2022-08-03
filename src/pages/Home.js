@@ -28,7 +28,6 @@ export default function Home() {
         },
       });
       const json = await response.json();
-      console.log(json);
       setArr(json.data);
     };
     allPosts();

@@ -21,10 +21,17 @@ function App() {
       <Error />
       <main>
         <Routes>
-          {/* <Route element={<PrivateRoutes correctRole = 'student' />}>
+          <Route element={<PrivateRoutes correctRole = 'student' />}>
             <Route path="/create" element={<Create />} exact></Route>
-          </Route> */}
-          <Route path="/create" element={<Create />} exact></Route>
+            <Route path="/home" element={<Home />} exact></Route>
+            <Route path="/applied/:id" element={<Applied />} exact></Route>
+            <Route path="/edit" element={<Edit />} exact></Route>
+          </Route>
+          <Route element={<PrivateRoutes correctRole = 'tutor' />}>
+            <Route path="/apply" element={<Apply />} exact></Route>
+            <Route path="/profile" element={<Profile />} exact></Route>
+          </Route>
+          {/* <Route path="/create" element={<Create />} exact></Route> */}
           <Route path="/" element={<Landing />} exact></Route>
           <Route
             path="/notifications"
@@ -34,11 +41,11 @@ function App() {
           <Route path="/signup" element={<SignUp />} exact></Route>
           <Route path="/signin" element={<SignIn />} exact></Route>
           <Route path="/verify" element={<Verify />} exact></Route>
-          <Route path="/home" element={<Home />} exact></Route>
+          {/* <Route path="/home" element={<Home />} exact></Route>
           <Route path="/apply" element={<Apply />} exact></Route>
-          <Route path="/applied/:id" element={<Applied />} exact></Route>
-          <Route path="/profile" element={<Profile />} exact></Route>
-          <Route path="/edit" element={<Edit />} exact></Route>
+          <Route path="/applied/:id" element={<Applied />} exact></Route> */}
+          {/* <Route path="/profile" element={<Profile />} exact></Route>
+          <Route path="/edit" element={<Edit />} exact></Route> */}
         </Routes>
       </main>
     </div>

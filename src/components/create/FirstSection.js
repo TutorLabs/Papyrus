@@ -41,13 +41,13 @@ export default function FirstTextField({ formData, setFormData }) {
       />
       <h2>Phone Number</h2>
       <TextField
+        disabled
         className="text_field"
         placeholder="Phone Number"
         label=""
         variant="outlined"
         fullWidth
         value={formData.phone_number}
-        onChange={handleChange("phone_number")}
       />
     </div>
   );
