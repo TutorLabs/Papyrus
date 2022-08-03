@@ -1,30 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux"; // for error demonstration
+import { updateText } from "../../redux/error"; // for error demonstration
 import "./AppliedContainer.scss";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import AppliedBoxes from "./AppliedBoxes";
-const data = [
-  {
-    PostId: "69",
-    Tutors: [
-      {
-        Name: "Mahzabin",
-        School: "Sunnydale",
-        Class: "class 12",
-        Subject: ["English", "Bangla"],
-      },
-      {
-        Name: "Inqiyad",
-        School: "Mastermind",
-        Class: "class 12",
-        Subject: ["English", "Bangla"],
-      },
-    ],
-  },
-];
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -47,27 +30,38 @@ function TabPanel(props) {
 }
 
 export default function AppliedContainer() {
-  const [value, setValue] = useState(0);
+  const dispatch = useDispatch();
   const params = useParams();
-
-  const postid = params.id;
-
-  console.log(postid);
-
-  useEffect(() => {
-    const allDetails = async () => {
-      const response = await fetch(`/api/applicants/${postid}`);
-      const json = await response.json();
-      console.log(json);
-      // const data = json.post;
-    };
-    allDetails();
-  }, []);
+  const [value, setValue] = useState(0);
+  const [tutors, setTutors] = useState([]);
 
   const handleChange = (event, newValue) => {
     event.preventDefault();
     setValue(newValue);
   };
+
+  const postid = params.id;
+
+  useEffect(() => {
+    const allDetails = async () => {
+      await fetch(`/api/applicants/${postid}`)
+        .then((response) => {
+          if (!response.ok) {
+            dispatch(
+              updateText("Server failed to get a response. Please try again")
+            );
+          }
+          return response.json();
+        })
+        .then((json) => {
+          setTutors(json.applicants);
+        })
+        .catch(() => {
+          dispatch(updateText("Server failed to fetch data. Please try again"));
+        });
+    };
+    allDetails();
+  }, []);
 
   return (
     <div className="applied_container">
@@ -80,34 +74,13 @@ export default function AppliedContainer() {
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          <AppliedBoxes />
+          <AppliedBoxes tutors={tutors} />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <div>
-            <h1>Sadman</h1>
-            <p>Education: University of Waterloo</p>
-            <p>Major: Computer Science</p>
-            <p>School: Sunnydale</p>
-            <button>Like</button>
-            <button>Reject</button>
-          </div>
-          <br />
-          <div>
-            <h1>Fariha</h1>
-            <p>Education: University of Waterloo</p>
-            <p>Major: Computer Science</p>
-            <p>School: Sunnydale</p>
-            <button>Like</button>
-            <button>Reject</button>
-          </div>
+          <AppliedBoxes />
         </TabPanel>
         <TabPanel value={value} index={2}>
-          <div>
-            <h1>Mahzabin</h1>
-            <p>Education: University of Waterloo</p>
-            <p>Major: Computer Science</p>
-            <p>School: Sunnydale</p>
-          </div>
+          <AppliedBoxes />
         </TabPanel>
       </Box>
     </div>

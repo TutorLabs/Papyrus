@@ -16,22 +16,40 @@ import { useTranslation } from "react-i18next"; // for translation demonstration
 export default function Home() {
   const dispatch = useDispatch(); // for error demonstration
   const { t } = useTranslation(); // for translation demonstration
-  const [arr, setArr] = useState([]);
+  const [postings, setPostings] = useState([]);
+  const [loading, setLoading] = useState(false);
   const { token } = useSelector((state) => state.auth);
-  useEffect(() => {
-    const allPosts = async () => {
-      const response = await fetch("/api/myposts", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`,
-        },
+
+  const getPostings = async () => {
+    setLoading(true);
+    await fetch("/api/myposts", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          dispatch(
+            updateText("Server failed to get a response. Please try again")
+          );
+        }
+        return response.json();
+      })
+      .then((json) => {
+        setPostings(json.data);
+        setLoading(false);
+      })
+      .catch(() => {
+        dispatch(updateText("Server failed to fetch data. Please try again"));
       });
-      const json = await response.json();
-      setArr(json.data);
-    };
-    allPosts();
+  };
+
+  useEffect(() => {
+    getPostings();
   }, []);
+
   return (
     <div className="home">
       <Header title={t("Home")} subtitle="View information important to you" />
@@ -40,7 +58,7 @@ export default function Home() {
           <ActionBox img={Create} title="Create" subtitle="Make a new post" />
         </Link>
 
-        <a href="mailto:mahzabin@gmail.com" className="home_action_box_link">
+        <a href="mailto:hello@tutorlab.io" className="home_action_box_link">
           <ActionBox
             img={Support}
             title="Support"
@@ -50,39 +68,37 @@ export default function Home() {
       </div>
       <h2 className="sub_header">{t("Postings you have created")}:</h2>
       <hr />
+      {loading === true && (
+        <h1 className="loading">Fetching your postings...</h1>
+      )}
 
-      <Grid container>
-        {arr.map((post) => {
-          return (
-            <Grid item sm={12} lg={6}>
-              <PostingBox
-                key={post._id}
-                id={post._id}
-                name={`${post.firstname} ${post.lastname}`}
-                subjects={post.subjects}
-                class={post.class}
-                medium={post.medium}
-                max_salary={post.max_salary}
-                min_salary={post.min_salary}
-                location={post.location}
-                tutor_gender={post.tutor_gender}
-                student_gender={post.student_gender}
-                availability_days={post.availability_days}
-                days={post.availability_days}
-                institution={post.preferred_institution}
-                presence={post.presence}
-              />
-            </Grid>
-          );
-        })}
-      </Grid>
-      <p // for error demonstration
-        onClick={() => {
-          dispatch(updateText("Server failed to fetch data."));
-        }}
-      >
-        click me for error
-      </p>
+      {loading === false && (
+        <Grid container>
+          {postings.map((post) => {
+            return (
+              <Grid item sm={12} lg={6} key={post._id}>
+                <PostingBox
+                  id={post._id}
+                  name={`${post.firstname} ${post.lastname}`}
+                  subjects={post.subjects}
+                  class={post.class}
+                  medium={post.medium}
+                  max_salary={post.max_salary}
+                  min_salary={post.min_salary}
+                  location={post.location}
+                  tutor_gender={post.tutor_gender}
+                  student_gender={post.student_gender}
+                  availability_days={post.availability_days}
+                  days={post.availability_days}
+                  institution={post.preferred_institution}
+                  presence={post.presence}
+                  getPostings={getPostings}
+                />
+              </Grid>
+            );
+          })}
+        </Grid>
+      )}
     </div>
   );
 }
