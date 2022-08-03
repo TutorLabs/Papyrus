@@ -58,7 +58,7 @@ export default function Home() {
           <ActionBox img={Create} title="Create" subtitle="Make a new post" />
         </Link>
 
-        <a href="mailto:mahzabin@gmail.com" className="home_action_box_link">
+        <a href="mailto:hello@tutorlab.io" className="home_action_box_link">
           <ActionBox
             img={Support}
             title="Support"
@@ -76,9 +76,8 @@ export default function Home() {
         <Grid container>
           {postings.map((post) => {
             return (
-              <Grid item sm={12} lg={6}>
+              <Grid item sm={12} lg={6} key={post._id}>
                 <PostingBox
-                  key={post._id}
                   id={post._id}
                   name={`${post.firstname} ${post.lastname}`}
                   subjects={post.subjects}

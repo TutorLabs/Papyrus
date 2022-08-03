@@ -1,10 +1,16 @@
 .applied_boxes {
-  display: flex;
-  
-  &_tutor_list {
-    width: 50%;
-  }
-  &_more_info {
-    width: 50%;
+  display: block;
+}
+
+@media only screen and (min-width: 978px) {
+  .applied_boxes {
+    display: flex;
+
+    &_tutor_list {
+      width: 50%;
+    }
+    &_more_info {
+      width: 50%;
+    }
   }
 }
