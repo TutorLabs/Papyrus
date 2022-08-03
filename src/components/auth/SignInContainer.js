@@ -47,7 +47,7 @@ export default function SignInContainer() {
     const data = {
       number: number,
     };
-    fetch("/exists", {
+    fetch("/api/exists", {
       method: "POST",
       headers: {
         Accept: "application/json",

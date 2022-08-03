@@ -20,7 +20,7 @@ export default function Home() {
   const { token } = useSelector((state) => state.auth);
   useEffect(() => {
     const allPosts = async () => {
-      const response = await fetch("/myposts", {
+      const response = await fetch("/api/myposts", {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -72,7 +72,6 @@ export default function Home() {
                 days={post.availability_days}
                 institution={post.preferred_institution}
                 presence={post.presence}
-                
               />
             </Grid>
           );

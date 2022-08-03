@@ -31,7 +31,7 @@ export default function PostingBox(props) {
 
   const handleDelete = () => {
     // alert(props.id);
-    fetch(`/post/${props.id}`, {
+    fetch(`/api/post/${props.id}`, {
       method: "DELETE",
       headers: {
         Accept: "application/json",
@@ -52,7 +52,7 @@ export default function PostingBox(props) {
     dispatch(updatePostId(props.id));
     navigate("/edit");
   };
-  
+
   return (
     <div className="posting_box">
       <Modal
@@ -137,7 +137,6 @@ export default function PostingBox(props) {
             </div>
           </button>
           <div className="other_buttons">
-            
             <OutlinedButtom
               icon={Edit}
               text="Edit Posting"

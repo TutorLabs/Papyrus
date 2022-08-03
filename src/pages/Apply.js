@@ -17,7 +17,7 @@ export default function Apply() {
 
   useEffect(() => {
     const allDetails = async () => {
-      const response = await fetch("/posting");
+      const response = await fetch("/api/posting");
       const json = await response.json();
       setPostings(json.postings);
     };
@@ -51,10 +51,9 @@ export default function Apply() {
 
   return (
     <div className="apply">
-      <Header title="Apply" subtitle="Apply to postings which suit you" />
+      <Header title="Apply Test" subtitle="Apply to postings which suit you" />
       <SearchBar postings={postings} inputHandler={inputHandler} />
-      {
-      filteredPostings.map((posting) => (
+      {filteredPostings.map((posting) => (
         <ApplyBox
           key={posting._id}
           img="https://images.pexels.com/photos/10698547/pexels-photo-10698547.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"

@@ -40,7 +40,7 @@ export default function ProfileContainer() {
 
   const handleSubmit = () => {
     console.log(formData);
-    fetch("/posting", {
+    fetch("/api/posting", {
       method: "POST",
       headers: {
         Accept: "application/json",

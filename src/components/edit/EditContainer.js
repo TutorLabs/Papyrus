@@ -39,7 +39,7 @@ export default function EditContainer() {
 
   useEffect(() => {
     const allDetails = async () => {
-      const response = await fetch(`/post/${postid}`);
+      const response = await fetch(`/api/post/${postid}`);
       const json = await response.json();
       const data = json.post;
       setFormData(data);
@@ -49,7 +49,7 @@ export default function EditContainer() {
 
   const handleSubmit = () => {
     console.log(formData);
-    fetch(`/post/${postid}`, {
+    fetch(`/api/post/${postid}`, {
       method: "PUT",
       headers: {
         Accept: "application/json",
@@ -63,7 +63,7 @@ export default function EditContainer() {
       })
       .then((data) => {
         // navigate("/home");
-        console.log(data)
+        console.log(data);
       });
   };
 

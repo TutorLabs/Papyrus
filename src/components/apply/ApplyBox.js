@@ -17,7 +17,7 @@ export default function ApplyBox(props) {
     const data = {
       token: token,
     };
-    // fetch('/apply', {
+    // fetch('/api/apply', {
     //   method: "POST",
     //   headers: {
     //     Accept: "application/json",

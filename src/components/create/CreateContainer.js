@@ -35,7 +35,7 @@ export default function CreateContainer() {
 
   const handleSubmit = () => {
     console.log(formData);
-    fetch("/posting", {
+    fetch("/api/posting", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -44,9 +44,11 @@ export default function CreateContainer() {
       },
       body: JSON.stringify(formData),
     })
-      .then((response) => {response.json()})
+      .then((response) => {
+        response.json();
+      })
       .then((data) => {
-        navigate('/home');
+        navigate("/home");
       });
   };
 
@@ -61,7 +63,7 @@ export default function CreateContainer() {
           <Picture formData={formData} setFormData={setFormData} />
         </Grid>
       </Grid>
-      <hr className="hr_margin"/>
+      <hr className="hr_margin" />
       <h4 className="advanced_info_margin">Advanced Information</h4>
       <SecondSection formData={formData} setFormData={setFormData} />
       <div className="button_container" onClick={handleSubmit}>
