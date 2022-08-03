@@ -5,9 +5,17 @@ import Badge from "@mui/material/Badge";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import NotifBox from "./NotifBox";
 import LanguageToggle from "./LanguageToggle";
+
+//redux
+import { useDispatch } from "react-redux";
+import { updateToken, updateRole, updateSignedIn } from "../../../redux/auth";
+
+import { useNavigate } from "react-router";
 function Navbar() {
   const [isActive, setActive] = useState(false);
   const [notifications, setNotifications] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const toggleNavbar = () => {
     setActive(!isActive);
@@ -15,6 +23,13 @@ function Navbar() {
 
   const showNotifications = () => {
     setNotifications((prevNotif) => !prevNotif);
+  };
+
+  const handleLogout = () => {
+    dispatch(updateToken({}));
+    dispatch(updateRole(''));
+    dispatch(updateSignedIn(false));
+    navigate("/signin")
   };
 
   return (
@@ -38,6 +53,9 @@ function Navbar() {
 
       <div className={isActive ? "active navbar-links" : "navbar-links"}>
         <ul onClick={toggleNavbar}>
+          <li>
+            <p onClick={handleLogout}>Sign out</p>
+          </li>
           <li>
             <Link to="/">Landing</Link>
           </li>
