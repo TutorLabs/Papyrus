@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { updateText } from "../../redux/error"; // for error demonstration
 import "./PostingBox.scss";
 import OutlinedButtom from "../ui-components/OutlinedButton";
-import Eye from "../../images/home/eye.svg";
 import Edit from "../../images/home/edit.svg";
 import Delete from "../../images/home/delete.svg";
 import Cursor from "../../images/home/cursor.svg";
@@ -12,14 +12,16 @@ import { useNavigate } from "react-router";
 import { useTranslation } from "react-i18next"; // for translation demonstration
 
 // redux imports
-import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux"; // for error demonstration
 import { updatePostId } from "../../redux/postid";
 
 export default function PostingBox(props) {
   const { t } = useTranslation(); // for translation demonstration
+  const dispatch = useDispatch();
+
   const [open, setOpen] = useState(false);
   const cookies = new Cookies();
-  const dispatch = useDispatch();
+
   const navigate = useNavigate();
   // const [arr, setArr] = useState([]);
 
@@ -30,7 +32,6 @@ export default function PostingBox(props) {
   const handleClose = () => setOpen(false);
 
   const handleDelete = () => {
-    // alert(props.id);
     fetch(`/api/post/${props.id}`, {
       method: "DELETE",
       headers: {
@@ -39,11 +40,12 @@ export default function PostingBox(props) {
         "CSRF-Token": cookies.get("XSRF-TOKEN"),
       },
     })
-      .then((response) => {
-        response.json();
+      .then(() => {
+        props.getPostings();
+        handleClose();
       })
-      .then((data) => {
-        console.log(data);
+      .catch(() => {
+        dispatch(updateText("Server failed to fetch data. Please try again"));
       });
   };
 
@@ -53,10 +55,10 @@ export default function PostingBox(props) {
     navigate("/edit");
   };
 
-  const handleView = async() => {
-    navigate(`/applied/${props.id}`)
-  }
-  
+  const handleView = async () => {
+    navigate(`/applied/${props.id}`);
+  };
+
   return (
     <div className="posting_box">
       <Modal
