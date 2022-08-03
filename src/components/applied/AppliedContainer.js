@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import "./AppliedContainer.scss";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -47,6 +48,21 @@ function TabPanel(props) {
 
 export default function AppliedContainer() {
   const [value, setValue] = useState(0);
+  const params = useParams();
+
+  const postid = params.id;
+
+  console.log(postid);
+
+  useEffect(() => {
+    const allDetails = async () => {
+      const response = await fetch(`/applicants/${postid}`);
+      const json = await response.json();
+      console.log(json);
+      // const data = json.post;
+    };
+    allDetails();
+  }, []);
 
   const handleChange = (event, newValue) => {
     event.preventDefault();

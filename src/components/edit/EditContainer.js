@@ -48,7 +48,6 @@ export default function EditContainer() {
   }, []);
 
   const handleSubmit = () => {
-    console.log(formData);
     fetch(`/api/post/${postid}`, {
       method: "PUT",
       headers: {
@@ -62,12 +61,9 @@ export default function EditContainer() {
         response.json();
       })
       .then((data) => {
-        // navigate("/home");
-        console.log(data);
+        navigate("/home");
       });
   };
-
-  console.log(formData);
 
   return (
     <div className="create_container">

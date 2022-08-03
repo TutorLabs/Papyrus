@@ -25,7 +25,6 @@ export default function SecondSection({ formData, setFormData }) {
   const handleChange = (prop) => (event) => {
     setFormData({ ...formData, [prop]: event.target.value });
   };
-console.log(formData.subjects)
   return (
     <div className="create_second_section">
       <h1>Education</h1>

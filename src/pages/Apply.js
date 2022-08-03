@@ -56,6 +56,7 @@ export default function Apply() {
       {filteredPostings.map((posting) => (
         <ApplyBox
           key={posting._id}
+          id={posting._id}
           img="https://images.pexels.com/photos/10698547/pexels-photo-10698547.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
           name={`${posting.firstname} ${posting.lastname}`}
           date={posting.date}

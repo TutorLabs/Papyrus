@@ -53,6 +53,10 @@ export default function PostingBox(props) {
     navigate("/edit");
   };
 
+  const handleView = async() => {
+    navigate(`/api/applied/${props.id}`)
+  }
+  
   return (
     <div className="posting_box">
       <Modal
@@ -129,7 +133,7 @@ export default function PostingBox(props) {
         </div>
 
         <div className="posting_buttons">
-          <button className="applicants_button">
+          <button className="applicants_button" onClick={handleView}>
             <img src={Cursor} alt="cursor" />
             <div className="apply_button_text">
               <p>View Applicants</p>
