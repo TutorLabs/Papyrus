@@ -36,7 +36,7 @@ function App() {
           <Route path="/verify" element={<Verify />} exact></Route>
           <Route path="/home" element={<Home />} exact></Route>
           <Route path="/apply" element={<Apply />} exact></Route>
-          <Route path="/applied" element={<Applied />} exact></Route>
+          <Route path="/applied/:id" element={<Applied />} exact></Route>
           <Route path="/profile" element={<Profile />} exact></Route>
           <Route path="/edit" element={<Edit />} exact></Route>
         </Routes>

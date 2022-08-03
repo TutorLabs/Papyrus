@@ -49,7 +49,7 @@ export default function VerifyContainer() {
             }
             dispatch(updateSignedIn(true));
             if (data && Object.keys(initial_info).length > 0) {
-              fetch("/info", {
+              fetch("/register", {
                 method: "POST",
                 headers: {
                   Accept: "application/json",
