@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 import "./AuthContainer.scss";
 
 // redux imports
@@ -95,6 +96,9 @@ export default function SignInContainer() {
         </FormControl>
         <button id="sign-in">Sign In</button>
       </form>
+      <h2>
+        Don't have an account? <Link to="/signup">Sign up now!</Link>
+      </h2>
     </div>
   );
 }

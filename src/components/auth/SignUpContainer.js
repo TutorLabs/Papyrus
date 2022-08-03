@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import "./AuthContainer.scss";
 
@@ -44,18 +45,18 @@ export default function SignUpContainer() {
     );
   };
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const handleSubmit = async(event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // console.log(values);
     generateRecaptcha();
     let appVerifier = window.recaptchaVerifier;
     signInWithPhoneNumber(authentication, values.number, appVerifier)
       .then((confirmationResult) => {
-        dispatch(updateVerifyCode(confirmationResult))
-        dispatch(updateInitialInfo(values))
-        navigate('/verify')
+        dispatch(updateVerifyCode(confirmationResult));
+        dispatch(updateInitialInfo(values));
+        navigate("/verify");
       })
       .catch((error) => {
         console.log(error);
@@ -150,6 +151,9 @@ export default function SignUpContainer() {
 
         <button id="get-code">Sign Up</button>
       </form>
+      <h2>
+        Already have an account? <Link to="/signin">Sign in now!</Link>
+      </h2>
     </div>
   );
 }

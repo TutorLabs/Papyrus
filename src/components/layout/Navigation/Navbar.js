@@ -5,10 +5,11 @@ import Badge from "@mui/material/Badge";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import NotifBox from "./NotifBox";
 import LanguageToggle from "./LanguageToggle";
-
+import Logo from "../../../images/logo.png";
 //redux
 import { useDispatch } from "react-redux";
 import { updateToken, updateRole, updateSignedIn } from "../../../redux/auth";
+import { useSelector } from "react-redux";
 
 import { useNavigate } from "react-router";
 function Navbar() {
@@ -16,6 +17,9 @@ function Navbar() {
   const [notifications, setNotifications] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { role, signedIn } = useSelector((state) => state.auth);
+
+  console.log(role, signedIn);
 
   const toggleNavbar = () => {
     setActive(!isActive);
@@ -27,14 +31,18 @@ function Navbar() {
 
   const handleLogout = () => {
     dispatch(updateToken({}));
-    dispatch(updateRole(''));
+    dispatch(updateRole(""));
     dispatch(updateSignedIn(false));
-    navigate("/signin")
+    navigate("/signin");
   };
 
   return (
     <nav className="navbar">
-      <div className="brand-title"></div>
+      <Link to="/">
+        <div className="brand-title">
+          <img alt="user" src={Logo} />
+        </div>
+      </Link>
       <div className="toggle-button" onClick={toggleNavbar}>
         <span className="bar"></span>
         <span className="bar"></span>
@@ -53,39 +61,37 @@ function Navbar() {
 
       <div className={isActive ? "active navbar-links" : "navbar-links"}>
         <ul onClick={toggleNavbar}>
-          <li>
-            <p onClick={handleLogout}>Sign out</p>
-          </li>
-          <li>
-            <Link to="/">Landing</Link>
-          </li>
-          <li>
-            <Link to="/signup">Sign Up</Link>
-          </li>
-          <li>
-            <Link to="/signin">Sign In</Link>
-          </li>
-          <li>
-            <Link to="/verify">Verify</Link>
-          </li>
-          <li>
-            <Link to="/home">Home</Link>
-          </li>
-          <li>
-            <Link to="/create">Create</Link>
-          </li>
-          <li>
-            <Link to="/apply">Apply</Link>
-          </li>
-          <li>
-            <Link to="/applied">Applied</Link>
-          </li>
-          <li>
-            <Link to="/profile">Profile</Link>
-          </li>
-          <li>
-            <Link to="/edit">Edit</Link>
-          </li>
+          {signedIn == true && role == "student" && (
+            <li>
+              <Link to="/home">Home</Link>
+            </li>
+          )}
+          {signedIn == true && role == "student" && (
+            <li>
+              <Link to="/create">Create</Link>
+            </li>
+          )}
+          {signedIn == true && role == "tutor" && (
+            <li>
+              <Link to="/apply">Apply</Link>
+            </li>
+          )}
+          {signedIn == true && role == "tutor" && (
+            <li>
+              <Link to="/profile">Profile</Link>
+            </li>
+          )}
+          {signedIn == false && (
+            <li>
+              <Link to="/signup">Sign up/Log in</Link>
+            </li>
+          )}
+          {signedIn == true && (
+            <li onClick={handleLogout}>
+              <Link to="/">Sign out</Link>
+            </li>
+          )}
+
           <div className="desktop_language_toggle">
             <LanguageToggle />
           </div>
