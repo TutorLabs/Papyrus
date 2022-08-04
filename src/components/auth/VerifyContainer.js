@@ -15,6 +15,7 @@ import Cookies from "universal-cookie";
 
 export default function VerifyContainer() {
   const { code } = useSelector((state) => state.verifyCode);
+  const { role } = useSelector((state) => state.auth);
   const { initial_info } = useSelector((state) => state.verifyCode);
   const dispatch = useDispatch();
   const [number, setNumber] = useState("");
@@ -57,19 +58,18 @@ export default function VerifyContainer() {
                   "CSRF-Token": cookies.get("XSRF-TOKEN"),
                 },
                 body: JSON.stringify(initial_info),
-              })
-              .then((response) => {
-                if (initial_info.role == 'student') {
-                  navigate('/home')
+              }).then((response) => {
+                if (initial_info.role == "student") {
+                  navigate("/home");
                 } else {
-                  navigate('/apply')
+                  navigate("/apply");
                 }
-              })
+              });
             } else {
-              if (initial_info.role == 'student') {
-                navigate('/home')
+              if (role == "student") {
+                navigate("/home");
               } else {
-                navigate('/apply')
+                navigate("/apply");
               }
             }
           });
