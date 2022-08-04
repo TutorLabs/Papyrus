@@ -1,4 +1,4 @@
-.home {
+.student_home {
   margin: 10px;
   .sub_header {
     font-weight: 600;
@@ -28,16 +28,9 @@
   }
 }
 
-@media only screen and (min-width: 978px) {
-  // for desktop
-  .home {
-    margin: 40px;
-  }
-}
-
-
 @media (min-width: 1200px) {
-  .home {
+  .student_home {
+    margin: 40px;
     .home_action_box {
       margin-top: 20px;
       display: flex;

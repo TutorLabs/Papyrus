@@ -7,7 +7,7 @@ import Create from "../images/home/create.svg";
 import Support from "../images/home/support.svg";
 import Header from "../components/layout/Header";
 import ActionBox from "../components/home/ActionBox";
-import PostingBox from "../components/home/PostingBox";
+import PostingBox from "../components/home/Student/PostingBox";
 
 import Grid from "@mui/material/Grid";
 
@@ -51,7 +51,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="home">
+    <div className="student_home">
       <Header title={t("Home")} subtitle="View information important to you" />
       <div className="home_action_box">
         <Link to="/create" className="home_action_box_link">

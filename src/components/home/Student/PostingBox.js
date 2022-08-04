@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { updateText } from "../../redux/error"; // for error demonstration
+import { updateText } from "../../../redux/error"; // for error demonstration
 import "./PostingBox.scss";
-import OutlinedButtom from "../ui-components/OutlinedButton";
-import Edit from "../../images/home/edit.svg";
-import Delete from "../../images/home/delete.svg";
-import Cursor from "../../images/home/cursor.svg";
-import Modal from "../ui-components/Modal";
+import OutlinedButtom from "../../ui-components/OutlinedButton";
+import Edit from "../../../images/home/edit.svg";
+import Delete from "../../../images/home/delete.svg";
+import Cursor from "../../../images/home/cursor.svg";
+import Modal from "../../ui-components/Modal";
 import Cookies from "universal-cookie";
 import { useNavigate } from "react-router";
 
