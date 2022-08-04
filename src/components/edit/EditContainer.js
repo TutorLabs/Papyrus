@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "../create/CreateContainer.scss";
 
 import Picture from "../ui-components/Picture";
@@ -10,11 +12,7 @@ import Button from "../ui-components/Button";
 import Grid from "@mui/material/Grid";
 import Cookies from "universal-cookie";
 
-// redux
-import { useSelector } from "react-redux";
-
 export default function EditContainer() {
-  const { postid } = useSelector((state) => state.postid);
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -30,16 +28,28 @@ export default function EditContainer() {
     subjects: [],
     max_salary: "",
     min_salary: "",
-    preferred_gender: "",
+    tutor_gender: "",
     student_gender: "",
   });
 
+  const { token } = useSelector((state) => state.auth);
+
   const cookies = new Cookies();
   const navigate = useNavigate();
+  const params = useParams();
+
+  const postid = params.id;
 
   useEffect(() => {
     const allDetails = async () => {
-      const response = await fetch(`/api/post/${postid}`);
+      // const response = await fetch(`/api/post/${postid}`);
+      const response = await fetch(`/api/post/${postid}`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const json = await response.json();
       const data = json.post;
       setFormData(data);
@@ -56,13 +66,9 @@ export default function EditContainer() {
         "CSRF-Token": cookies.get("XSRF-TOKEN"),
       },
       body: JSON.stringify(formData),
-    })
-      .then((response) => {
-        response.json();
-      })
-      .then((data) => {
-        navigate("/home");
-      });
+    }).then(() => {
+      navigate("/home");
+    });
   };
 
   return (

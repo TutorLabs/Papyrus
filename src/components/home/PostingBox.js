@@ -50,9 +50,7 @@ export default function PostingBox(props) {
   };
 
   const handleEdit = async () => {
-    console.log(props.id);
-    dispatch(updatePostId(props.id));
-    navigate("/edit");
+    navigate(`/edit/${props.id}`);
   };
 
   const handleView = async () => {

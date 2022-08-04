@@ -108,8 +108,8 @@ export default function SecondSection({ formData, setFormData }) {
               fullWidth
             >
               <Select
-                onChange={handleChange("preferred_gender")}
-                value={formData.preferred_gender}
+                onChange={handleChange("tutor_gender")}
+                value={formData.tutor_gender}
               >
                 <MenuItem value={"Male"}>Male</MenuItem>
                 <MenuItem value={"Female"}>Female</MenuItem>

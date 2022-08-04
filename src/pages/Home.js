@@ -91,7 +91,7 @@ export default function Home() {
                   availability_days={post.availability_days}
                   days={post.availability_days}
                   institution={post.preferred_institution}
-                  presence={post.presence}
+                  presence={post.online}
                   getPostings={getPostings}
                 />
               </Grid>
