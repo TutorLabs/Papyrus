@@ -59,11 +59,18 @@ export default function VerifyContainer() {
                 body: JSON.stringify(initial_info),
               })
               .then((response) => {
-                response.json()
-                navigate('/home')
+                if (initial_info.role == 'student') {
+                  navigate('/home')
+                } else {
+                  navigate('/apply')
+                }
               })
             } else {
-              navigate('/home')
+              if (initial_info.role == 'student') {
+                navigate('/home')
+              } else {
+                navigate('/apply')
+              }
             }
           });
       })

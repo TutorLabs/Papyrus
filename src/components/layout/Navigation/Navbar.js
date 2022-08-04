@@ -19,8 +19,6 @@ function Navbar() {
   const navigate = useNavigate();
   const { role, signedIn } = useSelector((state) => state.auth);
 
-  console.log(role, signedIn);
-
   const toggleNavbar = () => {
     setActive(!isActive);
   };
@@ -61,32 +59,32 @@ function Navbar() {
 
       <div className={isActive ? "active navbar-links" : "navbar-links"}>
         <ul onClick={toggleNavbar}>
-          {signedIn == true && role == "student" && (
+          {signedIn === true && role === "student" && (
             <li>
               <Link to="/home">Home</Link>
             </li>
           )}
-          {signedIn == true && role == "student" && (
+          {signedIn === true && role === "student" && (
             <li>
               <Link to="/create">Create</Link>
             </li>
           )}
-          {signedIn == true && role == "tutor" && (
+          {signedIn === true && role === "tutor" && (
             <li>
               <Link to="/apply">Apply</Link>
             </li>
           )}
-          {signedIn == true && role == "tutor" && (
+          {signedIn === true && role === "tutor" && (
             <li>
               <Link to="/profile">Profile</Link>
             </li>
           )}
-          {signedIn == false && (
+          {signedIn === false && (
             <li>
               <Link to="/signup">Sign up/Log in</Link>
             </li>
           )}
-          {signedIn == true && (
+          {signedIn === true && (
             <li onClick={handleLogout}>
               <Link to="/">Sign out</Link>
             </li>
