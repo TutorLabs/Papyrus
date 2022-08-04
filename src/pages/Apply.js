@@ -52,7 +52,7 @@ export default function Apply() {
 
   return (
     <div className="apply">
-      <Header title="Apply Test" subtitle="Apply to postings which suit you" />
+      <Header title="Apply" subtitle="Apply to postings which suit you" />
       <SearchBar postings={postings} inputHandler={inputHandler} />
       {filteredPostings.map((posting) => (
         <ApplyBox

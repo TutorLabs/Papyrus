@@ -61,7 +61,7 @@ function Navbar() {
         <ul onClick={toggleNavbar}>
           {signedIn === true && role === "student" && (
             <li>
-              <Link to="/home">Home</Link>
+              <Link to="/studenthome">Home</Link>
             </li>
           )}
           {signedIn === true && role === "student" && (
@@ -71,12 +71,12 @@ function Navbar() {
           )}
           {signedIn === true && role === "tutor" && (
             <li>
-              <Link to="/apply">Apply</Link>
+              <Link to="/tutorhome">Home</Link>
             </li>
           )}
           {signedIn === true && role === "tutor" && (
             <li>
-              <Link to="/profile">Profile</Link>
+              <Link to="/apply">Apply</Link>
             </li>
           )}
           {signedIn === false && (

@@ -1,4 +1,4 @@
-import "./Home.scss";
+import "./StudentHome.scss";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"; // for error demonstration
 import { updateText } from "../redux/error"; // for error demonstration

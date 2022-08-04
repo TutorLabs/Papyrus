@@ -17,14 +17,9 @@ import { useDispatch } from "react-redux"; // for error demonstration
 export default function PostingBox(props) {
   const { t } = useTranslation(); // for translation demonstration
   const dispatch = useDispatch();
-
   const [open, setOpen] = useState(false);
   const cookies = new Cookies();
-
   const navigate = useNavigate();
-  // const [arr, setArr] = useState([]);
-
-  // const { token } = useSelector((state) => state.auth);
 
   const handleOpen = () => setOpen(true);
 
@@ -49,7 +44,7 @@ export default function PostingBox(props) {
   };
 
   const handleEdit = async () => {
-    navigate(`/edit/${props.id}`);
+    navigate(`/studentedit/${props.id}`);
   };
 
   const handleView = async () => {

@@ -7,9 +7,11 @@ import Landing from "./pages/Landing";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Verify from "./pages/Verify";
-import Home from "./pages/Home";
+import StudentHome from "./pages/StudentHome";
+import TutorHome from "./pages/TutorHome";
 import Create from "./pages/Create";
-import Edit from "./pages/Edit";
+import StudentEdit from "./pages/StudentEdit";
+import TutorEdit from "./pages/TutorEdit";
 import Apply from "./pages/Apply";
 import Applied from "./pages/Applied";
 import Profile from "./pages/Profile";
@@ -22,15 +24,16 @@ function App() {
       <Error />
       <main>
         <Routes>
-          <Route element={<PrivateRoutes correctRole = 'student' />}>
+          <Route element={<PrivateRoutes correctRole="student" />}>
             <Route path="/create" element={<Create />} exact></Route>
-            <Route path="/home" element={<Home />} exact></Route>
+            <Route path="/studenthome" element={<StudentHome />} exact></Route>
             <Route path="/applied/:id" element={<Applied />} exact></Route>
-            <Route path="/edit/:id" element={<Edit />} exact></Route>
+            <Route path="/studentedit/:id" element={<StudentEdit />} exact></Route>
           </Route>
-          <Route element={<PrivateRoutes correctRole = 'tutor' />}>
+          <Route element={<PrivateRoutes correctRole="tutor" />}>
             <Route path="/apply" element={<Apply />} exact></Route>
             <Route path="/profile" element={<Profile />} exact></Route>
+            <Route path="/tutorhome" element={<TutorHome />} exact></Route>
           </Route>
           <Route path="/" element={<Landing />} exact></Route>
           <Route
@@ -41,9 +44,12 @@ function App() {
           <Route path="/signup" element={<SignUp />} exact></Route>
           <Route path="/signin" element={<SignIn />} exact></Route>
           <Route path="/verify" element={<Verify />} exact></Route>
+          <Route path="/tutoredit" element={<TutorEdit />} exact></Route>
         </Routes>
       </main>
-      <footer><Footer/></footer>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }
