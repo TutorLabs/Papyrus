@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import "./ProfileContainer.scss";
 
 import Picture from "../ui-components/Picture";
@@ -8,6 +9,8 @@ import Button from "../ui-components/Button";
 
 import Grid from "@mui/material/Grid";
 import Cookies from "universal-cookie";
+
+import { useSelector } from "react-redux";
 
 export default function ProfileContainer() {
   const [formData, setFormData] = useState({
@@ -23,12 +26,11 @@ export default function ProfileContainer() {
     medium: "",
     online: "",
     bio: "",
-    location: [],
+    locations: [],
     days: "",
-    subject: [],
+    subjects: [],
     max_salary: "",
     min_salary: "",
-    preferred_gender: "",
     tutor_gender: "",
     eca: "",
     hobbies: "",
@@ -37,10 +39,33 @@ export default function ProfileContainer() {
   });
 
   const cookies = new Cookies();
+  const navigate = useNavigate();
+
+  const { token } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    const userPhoneNumber = async () => {
+      const response = await fetch("/api/profileinfo", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const json = await response.json();
+      const data = json.data;
+      setFormData({
+        ...formData,
+        phone_number: data.phone,
+        first_name: data.firstname,
+        last_name: data.lastname,
+      });
+    };
+    userPhoneNumber();
+  }, []);
 
   const handleSubmit = () => {
-    console.log(formData);
-    fetch("/api/posting", {
+    fetch("/api/profile", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -51,7 +76,7 @@ export default function ProfileContainer() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Success:", data);
+        navigate("/apply");
       });
   };
 

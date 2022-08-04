@@ -12,6 +12,7 @@ export default function FirstTextField({ formData, setFormData }) {
     <div className="profile_first_section">
       <h2>First Name</h2>
       <TextField
+        disabled
         className="text_field"
         placeholder="First Name"
         variant="outlined"
@@ -22,6 +23,7 @@ export default function FirstTextField({ formData, setFormData }) {
       />
       <h2>Last Name</h2>
       <TextField
+        disabled
         className="text_field"
         placeholder="Last Name"
         variant="outlined"
@@ -41,6 +43,7 @@ export default function FirstTextField({ formData, setFormData }) {
       />
       <h2>Phone Number</h2>
       <TextField
+        disabled
         className="text_field"
         placeholder="Phone Number"
         label=""
