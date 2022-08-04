@@ -3,13 +3,39 @@ import OutlinedButtom from "../ui-components/OutlinedButton";
 import Check from "../../images/check.svg";
 import Cross from "../../images/cross.svg";
 
+import { useParams } from "react-router-dom";
+import Cookies from "universal-cookie";
+
 export default function MoreInfo({ tutor }) {
+  const cookies = new Cookies();
+  const params = useParams();
+
+  const postid = params.id;
+  const data = {
+    tutor_id: tutor._id,
+  };
   const handleLike = () => {
-    alert("liked!");
+    fetch(`/api/likedtutor/${postid}`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "CSRF-Token": cookies.get("XSRF-TOKEN"),
+      },
+      body: JSON.stringify(data),
+    });
   };
 
   const handleReject = () => {
-    alert("rejected :((");
+    fetch(`/api/rejectedtutor/${postid}`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "CSRF-Token": cookies.get("XSRF-TOKEN"),
+      },
+      body: JSON.stringify(data),
+    });
   };
 
   return (
@@ -21,13 +47,13 @@ export default function MoreInfo({ tutor }) {
       <div className="posting_buttons">
         <OutlinedButtom
           icon={Check}
-          text="Edit Posting"
+          text="Like"
           green={true}
           click={handleLike}
         />
         <OutlinedButtom
           icon={Cross}
-          text="Delete Posting"
+          text="Reject"
           green={false}
           click={handleReject}
         />
