@@ -45,7 +45,7 @@ export default function ApplyBox(props) {
             />
             <TagBox emoji="📓" text={props.medium} />
             <TagBox emoji="📍" text={props.location} />
-            <TagBox emoji="💃" text={props.presence} />
+            <TagBox emoji="💃" text={props.online} />
           </div>
           <div className="text">
             <p>

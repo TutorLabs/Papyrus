@@ -25,26 +25,27 @@ export default function Apply() {
   }, []);
 
   const filteredPostings = postings.filter((posting) => {
+    console.log(posting.school);
     let name = `${posting.firstname} ${posting.lastname}`;
     if (inputText === "") {
       return posting;
     } else
       return (
         (name.toLowerCase().includes(inputText) ||
-          posting.preferred_institution.toLowerCase().includes(inputText) ||
+          posting.school?.toLowerCase().includes(inputText) ||
           posting.subjects
-            .map((sub) => sub.toLowerCase())
+            .map((sub) => sub?.toLowerCase())
             .toString()
             .includes(inputText) ||
-          posting.max_salary.toLowerCase().includes(inputText) ||
-          posting.min_salary.toLowerCase().includes(inputText) ||
-          posting.availability_days.toLowerCase().includes(inputText) ||
-          `class ${posting.class}`.toLowerCase().includes(inputText) ||
-          posting.medium.toLowerCase().includes(inputText) ||
-          posting.location.toLowerCase().includes(inputText) ||
-          posting.presence.toLowerCase().includes(inputText) ||
-          posting.tutor_gender.toLowerCase() === inputText ||
-          posting.student_gender.toLowerCase() === inputText) &&
+          posting.max_salary?.toLowerCase().includes(inputText) ||
+          posting.min_salary?.toLowerCase().includes(inputText) ||
+          posting.availability_days?.toLowerCase().includes(inputText) ||
+          `class ${posting.class}`?.toLowerCase().includes(inputText) ||
+          posting.medium?.toLowerCase().includes(inputText) ||
+          posting.location?.toLowerCase().includes(inputText) ||
+          posting.online?.toLowerCase().includes(inputText) ||
+          posting.tutor_gender?.toLowerCase() === inputText ||
+          posting.student_gender?.toLowerCase() === inputText) &&
         posting
       );
   });
@@ -60,7 +61,7 @@ export default function Apply() {
           img="https://images.pexels.com/photos/10698547/pexels-photo-10698547.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
           name={`${posting.firstname} ${posting.lastname}`}
           date={posting.date}
-          school={posting.preferred_institution}
+          school={posting.school}
           subjects={posting.subjects}
           max_salary={posting.max_salary}
           min_salary={posting.min_salary}
@@ -70,7 +71,7 @@ export default function Apply() {
           class={posting.class}
           medium={posting.medium}
           location={posting.location}
-          presence={posting.presence}
+          online={posting.online}
         />
       ))}
     </div>
