@@ -161,48 +161,22 @@ export default function SecondSection({ formData, setFormData }) {
         onChange={handleChange("bio")}
       />
 
-      <Grid container>
-        <Grid item sm={12} lg={6} className="second_text_field">
-          <div>
-            <h2>Preferred Gender</h2>
-            <FormControl
-              className="form_control"
-              required
-              variant="outlined"
-              fullWidth
-            >
-              <Select
-                onChange={handleChange("preferred_gender")}
-                value={formData.preferred_gender}
-              >
-                <MenuItem value={"male"}>Male</MenuItem>
-                <MenuItem value={"female"}>Female</MenuItem>
-                <MenuItem value={"unstated"}>Won't state?</MenuItem>
-              </Select>
-            </FormControl>
-          </div>
-        </Grid>
-        <Grid item sm={12} lg={6} className="second_text_field">
-          <div className="second_section_left_margin">
-            <h2>Tutor's Gender</h2>
-            <FormControl
-              className="form_control"
-              required
-              variant="outlined"
-              fullWidth
-            >
-              <Select
-                onChange={handleChange("tutor_gender")}
-                value={formData.tutor_gender}
-              >
-                <MenuItem value={"male"}>Male</MenuItem>
-                <MenuItem value={"female"}>Female</MenuItem>
-                <MenuItem value={"unstated"}>Won't state?</MenuItem>
-              </Select>
-            </FormControl>
-          </div>
-        </Grid>
-      </Grid>
+      <h2>Tutor's Gender</h2>
+      <FormControl
+        className="form_control"
+        required
+        variant="outlined"
+        fullWidth
+      >
+        <Select
+          onChange={handleChange("tutor_gender")}
+          value={formData.tutor_gender}
+        >
+          <MenuItem value={"male"}>Male</MenuItem>
+          <MenuItem value={"female"}>Female</MenuItem>
+          <MenuItem value={"unstated"}>Won't state?</MenuItem>
+        </Select>
+      </FormControl>
 
       <h2>Which locations are you willing to commute to?</h2>
 
@@ -210,8 +184,8 @@ export default function SecondSection({ formData, setFormData }) {
         <Select
           labelId="demo-multiple-chip-label"
           multiple
-          value={formData.location}
-          onChange={handleChange("location")}
+          value={formData.locations}
+          onChange={handleChange("locations")}
           input={<OutlinedInput />}
           renderValue={(selected) => (
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
@@ -249,8 +223,8 @@ export default function SecondSection({ formData, setFormData }) {
         <Select
           labelId="demo-multiple-chip-label"
           multiple
-          value={formData.subject}
-          onChange={handleChange("subject")}
+          value={formData.subjects}
+          onChange={handleChange("subjects")}
           input={<OutlinedInput />}
           renderValue={(selected) => (
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
