@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navigation/Navbar";
+import Footer from "./components/layout/Footer";
 import Error from "./components/ui-components/Error";
 import Notifications from "./pages/Notifications";
 import Landing from "./pages/Landing";
@@ -42,6 +43,7 @@ function App() {
           <Route path="/verify" element={<Verify />} exact></Route>
         </Routes>
       </main>
+      <footer><Footer/></footer>
     </div>
   );
 }
