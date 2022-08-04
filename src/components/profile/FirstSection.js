@@ -17,8 +17,8 @@ export default function FirstTextField({ formData, setFormData }) {
         placeholder="First Name"
         variant="outlined"
         fullWidth
-        value={formData.first_name}
-        onChange={handleChange("first_name")}
+        value={formData.firstname}
+        onChange={handleChange("firstname")}
         
       />
       <h2>Last Name</h2>
@@ -28,8 +28,8 @@ export default function FirstTextField({ formData, setFormData }) {
         placeholder="Last Name"
         variant="outlined"
         fullWidth
-        value={formData.last_name}
-        onChange={handleChange("last_name")}
+        value={formData.lastname}
+        onChange={handleChange("lastname")}
         
       />
       <h2>Email</h2>
@@ -49,8 +49,8 @@ export default function FirstTextField({ formData, setFormData }) {
         label=""
         variant="outlined"
         fullWidth
-        value={formData.phone_number}
-        onChange={handleChange("phone_number")}
+        value={formData.phone}
+        onChange={handleChange("phone")}
       />
     </div>
   );

@@ -1,13 +1,13 @@
 import "./Create.scss";
 
 import Header from "../components/layout/Header";
-import StudentEditContainer from "../components/edit/StudentEditContainer";
+import EditContainer from "../components/edit/EditContainer";
 
-export default function StudentEdit() {
+export default function Edit() {
   return (
     <div className="create">
       <Header title="Edit" subtitle="Edit your posting" />
-      <StudentEditContainer/>
+      <EditContainer />
     </div>
   );
 }

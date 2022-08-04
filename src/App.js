@@ -10,8 +10,7 @@ import Verify from "./pages/Verify";
 import StudentHome from "./pages/StudentHome";
 import TutorHome from "./pages/TutorHome";
 import Create from "./pages/Create";
-import StudentEdit from "./pages/StudentEdit";
-import TutorEdit from "./pages/TutorEdit";
+import Edit from "./pages/Edit";
 import Apply from "./pages/Apply";
 import Applied from "./pages/Applied";
 import Profile from "./pages/Profile";
@@ -28,7 +27,7 @@ function App() {
             <Route path="/create" element={<Create />} exact></Route>
             <Route path="/studenthome" element={<StudentHome />} exact></Route>
             <Route path="/applied/:id" element={<Applied />} exact></Route>
-            <Route path="/studentedit/:id" element={<StudentEdit />} exact></Route>
+            <Route path="/edit/:id" element={<Edit />} exact></Route>
           </Route>
           <Route element={<PrivateRoutes correctRole="tutor" />}>
             <Route path="/apply" element={<Apply />} exact></Route>
@@ -44,7 +43,6 @@ function App() {
           <Route path="/signup" element={<SignUp />} exact></Route>
           <Route path="/signin" element={<SignIn />} exact></Route>
           <Route path="/verify" element={<Verify />} exact></Route>
-          <Route path="/tutoredit" element={<TutorEdit />} exact></Route>
         </Routes>
       </main>
       <footer>

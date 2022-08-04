@@ -144,6 +144,7 @@ export default function SecondSection({ formData, setFormData }) {
         fullWidth
         multiline
         rows={3}
+        value={formData.bio}
         onChange={handleChange("bio")}
       />
 
@@ -273,6 +274,7 @@ export default function SecondSection({ formData, setFormData }) {
         fullWidth
         multiline
         rows={3}
+        value={formData.eca}
         onChange={handleChange("eca")}
       />
       <h2>
@@ -285,6 +287,7 @@ export default function SecondSection({ formData, setFormData }) {
         fullWidth
         multiline
         rows={3}
+        value={formData.hobbies}
         onChange={handleChange("hobbies")}
       />
       <h2>
@@ -297,6 +300,7 @@ export default function SecondSection({ formData, setFormData }) {
         fullWidth
         multiline
         rows={3}
+        value={formData.experience}
         onChange={handleChange("experience")}
       />
       <h2>Anything else you would like students to know?</h2>
@@ -307,6 +311,7 @@ export default function SecondSection({ formData, setFormData }) {
         fullWidth
         multiline
         rows={3}
+        value={formData.other}
         onChange={handleChange("other")}
       />
     </div>
