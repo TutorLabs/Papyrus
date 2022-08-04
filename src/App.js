@@ -26,7 +26,7 @@ function App() {
             <Route path="/create" element={<Create />} exact></Route>
             <Route path="/home" element={<Home />} exact></Route>
             <Route path="/applied/:id" element={<Applied />} exact></Route>
-            <Route path="/edit" element={<Edit />} exact></Route>
+            <Route path="/edit/:id" element={<Edit />} exact></Route>
           </Route>
           <Route element={<PrivateRoutes correctRole = 'tutor' />}>
             <Route path="/apply" element={<Apply />} exact></Route>
