@@ -18,7 +18,6 @@ export default function FirstTextField({ formData, setFormData }) {
         fullWidth
         value={formData.firstname}
         onChange={handleChange("firstname")}
-        required
       />
       <h2>Last Name</h2>
       <TextField
@@ -28,7 +27,6 @@ export default function FirstTextField({ formData, setFormData }) {
         fullWidth
         value={formData.lastname}
         onChange={handleChange("lastname")}
-        required
       />
       <h2>Email</h2>
       <TextField

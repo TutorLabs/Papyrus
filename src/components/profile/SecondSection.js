@@ -63,7 +63,6 @@ export default function SecondSection({ formData, setFormData }) {
             fullWidth
             onChange={handleChange("university")}
             value={formData.university}
-            required
           />
         </Grid>
         <Grid item sm={12} lg={6} className="second_text_field">
@@ -76,7 +75,6 @@ export default function SecondSection({ formData, setFormData }) {
               fullWidth
               onChange={handleChange("major")}
               value={formData.major}
-              required
             />
           </div>
         </Grid>
@@ -89,18 +87,12 @@ export default function SecondSection({ formData, setFormData }) {
             fullWidth
             onChange={handleChange("school")}
             value={formData.school}
-            required
           />
         </Grid>
         <Grid item sm={12} lg={6} className="second_text_field">
           <div className="second_section_left_margin">
             <h2>Medium</h2>
-            <FormControl
-              className="form_control"
-              required
-              variant="outlined"
-              fullWidth
-            >
+            <FormControl className="form_control" variant="outlined" fullWidth>
               <Select
                 labelId="demo-simple-select-outlined-label"
                 onChange={handleChange("medium")}
@@ -129,18 +121,12 @@ export default function SecondSection({ formData, setFormData }) {
             fullWidth
             onChange={handleChange("class")}
             value={formData.class}
-            required
           />
         </Grid>
         <Grid item sm={12} lg={6} className="second_text_field">
           <div className="second_section_left_margin">
             <h2>Online/In-person</h2>
-            <FormControl
-              className="form_control"
-              required
-              variant="outlined"
-              fullWidth
-            >
+            <FormControl className="form_control" variant="outlined" fullWidth>
               <Select onChange={handleChange("online")} value={formData.online}>
                 <MenuItem value={"online"}>Online</MenuItem>
                 <MenuItem value={"in_person"}>In-person</MenuItem>
@@ -162,12 +148,7 @@ export default function SecondSection({ formData, setFormData }) {
       />
 
       <h2>Tutor's Gender</h2>
-      <FormControl
-        className="form_control"
-        required
-        variant="outlined"
-        fullWidth
-      >
+      <FormControl className="form_control" variant="outlined" fullWidth>
         <Select
           onChange={handleChange("tutor_gender")}
           value={formData.tutor_gender}

@@ -19,7 +19,7 @@ export default function FirstTextField({ formData, setFormData }) {
         fullWidth
         value={formData.first_name}
         onChange={handleChange("first_name")}
-        required
+        
       />
       <h2>Last Name</h2>
       <TextField
@@ -30,7 +30,7 @@ export default function FirstTextField({ formData, setFormData }) {
         fullWidth
         value={formData.last_name}
         onChange={handleChange("last_name")}
-        required
+        
       />
       <h2>Email</h2>
       <TextField

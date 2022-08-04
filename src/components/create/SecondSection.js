@@ -38,18 +38,12 @@ export default function SecondSection({ formData, setFormData }) {
             fullWidth
             onChange={handleChange("school")}
             value={formData.school}
-            required
           />
         </Grid>
         <Grid item sm={12} lg={6} className="second_text_field">
           <div className="second_section_left_margin">
             <h2>Medium</h2>
-            <FormControl
-              className="form_control"
-              required
-              variant="outlined"
-              fullWidth
-            >
+            <FormControl className="form_control" variant="outlined" fullWidth>
               <Select
                 labelId="demo-simple-select-outlined-label"
                 onChange={handleChange("medium")}
@@ -76,18 +70,12 @@ export default function SecondSection({ formData, setFormData }) {
             fullWidth
             onChange={handleChange("class")}
             value={formData.class}
-            required
           />
         </Grid>
         <Grid item sm={12} lg={6} className="second_text_field">
           <div className="second_section_left_margin">
             <h2>Online/In-person</h2>
-            <FormControl
-              className="form_control"
-              required
-              variant="outlined"
-              fullWidth
-            >
+            <FormControl className="form_control" variant="outlined" fullWidth>
               <Select onChange={handleChange("online")} value={formData.online}>
                 <MenuItem value={"Online"}>Online</MenuItem>
                 <MenuItem value={"In-Person"}>In-person</MenuItem>
@@ -101,12 +89,7 @@ export default function SecondSection({ formData, setFormData }) {
         <Grid item sm={12} lg={6} className="second_text_field">
           <div>
             <h2>Preferred Gender</h2>
-            <FormControl
-              className="form_control"
-              required
-              variant="outlined"
-              fullWidth
-            >
+            <FormControl className="form_control" variant="outlined" fullWidth>
               <Select
                 onChange={handleChange("tutor_gender")}
                 value={formData.tutor_gender}
@@ -121,12 +104,7 @@ export default function SecondSection({ formData, setFormData }) {
         <Grid item sm={12} lg={6} className="second_text_field">
           <div className="second_section_left_margin">
             <h2>Student's Gender</h2>
-            <FormControl
-              className="form_control"
-              required
-              variant="outlined"
-              fullWidth
-            >
+            <FormControl className="form_control" variant="outlined" fullWidth>
               <Select
                 onChange={handleChange("student_gender")}
                 value={formData.student_gender}
@@ -148,7 +126,6 @@ export default function SecondSection({ formData, setFormData }) {
         fullWidth
         onChange={handleChange("location")}
         value={formData.location}
-        required
       />
 
       <h2>How many days a week?</h2>
@@ -167,28 +144,30 @@ export default function SecondSection({ formData, setFormData }) {
       </FormControl>
 
       <h2>Which subjects do you want to learn?</h2>
-      { <FormControl className="form_control" fullWidth>
-        <Select
-          labelId="demo-multiple-chip-label"
-          multiple
-          value={formData.subjects}
-          onChange={handleChange("subjects")}
-          input={<OutlinedInput />}
-          renderValue={(selected) => (
-            <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-              {selected.map((value) => (
-                <Chip key={value} label={value} />
-              ))}
-            </Box>
-          )}
-        >
-          {subjects.map((subject) => (
-            <MenuItem key={subject} value={subject}>
-              {subject}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl> }
+      {
+        <FormControl className="form_control" fullWidth>
+          <Select
+            labelId="demo-multiple-chip-label"
+            multiple
+            value={formData.subjects}
+            onChange={handleChange("subjects")}
+            input={<OutlinedInput />}
+            renderValue={(selected) => (
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+                {selected.map((value) => (
+                  <Chip key={value} label={value} />
+                ))}
+              </Box>
+            )}
+          >
+            {subjects.map((subject) => (
+              <MenuItem key={subject} value={subject}>
+                {subject}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      }
 
       <h2>What is your preferred monthly salary?</h2>
       <Grid container>
