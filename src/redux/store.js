@@ -5,7 +5,6 @@ import thunk from "redux-thunk";
 import verifyCode from "./verifyCode";
 import auth from "./auth";
 import error from "./error";
-import postid from "./postid";
 
 const persistConfig = {
   key: "root",
@@ -19,7 +18,6 @@ export const store = configureStore({
     verifyCode: verifyCode,
     auth: persistedReducer,
     error: error,
-    postid: postid,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

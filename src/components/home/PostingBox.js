@@ -13,7 +13,6 @@ import { useTranslation } from "react-i18next"; // for translation demonstration
 
 // redux imports
 import { useDispatch } from "react-redux"; // for error demonstration
-import { updatePostId } from "../../redux/postid";
 
 export default function PostingBox(props) {
   const { t } = useTranslation(); // for translation demonstration
