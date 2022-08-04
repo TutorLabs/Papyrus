@@ -60,16 +60,16 @@ export default function VerifyContainer() {
                 body: JSON.stringify(initial_info),
               }).then((response) => {
                 if (initial_info.role == "student") {
-                  navigate("/home");
+                  navigate("/studenthome");
                 } else {
-                  navigate("/apply");
+                  navigate("/tutorhome");
                 }
               });
             } else {
               if (role == "student") {
-                navigate("/home");
+                navigate("/studenthome");
               } else {
-                navigate("/apply");
+                navigate("/tutorhome");
               }
             }
           });

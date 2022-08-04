@@ -66,7 +66,7 @@ export default function EditContainer() {
       },
       body: JSON.stringify(formData),
     }).then(() => {
-      navigate("/home");
+      navigate("/studenthome");
     });
   };
 

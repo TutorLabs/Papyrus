@@ -66,7 +66,7 @@ export default function CreateContainer() {
         response.json();
       })
       .then((data) => {
-        navigate("/home");
+        navigate("/studenthome");
       });
   };
 

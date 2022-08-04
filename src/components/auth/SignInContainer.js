@@ -48,6 +48,8 @@ export default function SignInContainer() {
     const data = {
       number: number,
     };
+    const temp = fetch("/testapi");
+    console.log(temp);
     fetch("/api/exists", {
       method: "POST",
       headers: {
