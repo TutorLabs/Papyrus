@@ -15,10 +15,10 @@ export default function TutorList(props) {
         <div className="content">
           <h1>{`${props.firstname} ${props.lastname}`}</h1>
           <div className="tags">
-            <TagBox emoji="🏫" text="Sunnydale" />
-            <TagBox emoji="✏️" text="Class 12" />
-            <TagBox emoji="💸" text="6,000-15,000" />
-            <TagBox emoji="👨" text="Female" />
+            <TagBox emoji="🏫" text={props.school} />
+            <TagBox emoji="✏️" text={props.class} />
+            <TagBox emoji="💸" text={`${props.max_salary} ${props.min_salary}`} />
+            <TagBox emoji="👨" text={props.tutor_gender} />
           </div>
         </div>
       </div>

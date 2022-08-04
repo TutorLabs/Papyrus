@@ -2,9 +2,8 @@ import "./MoreInfo.scss";
 import OutlinedButtom from "../ui-components/OutlinedButton";
 import Check from "../../images/check.svg";
 import Cross from "../../images/cross.svg";
-import { alignProperty } from "@mui/material/styles/cssUtils";
 
-export default function MoreInfo(props) {
+export default function MoreInfo({ tutor }) {
   const handleLike = () => {
     alert("liked!");
   };
@@ -34,69 +33,50 @@ export default function MoreInfo(props) {
         />
       </div>
 
-      <h1>Mahzabin Rashid Fariha</h1>
+      <h1>{`${tutor.firstname} ${tutor.lastname}`}</h1>
       <h2>Education:</h2>
       <p>
-        <span>University:</span> University of Waterloo
+        <span>University:</span> {tutor.university}
       </p>
       <p>
-        <span>Major:</span> Computer Science
+        <span>Major:</span> {tutor.major}
       </p>
       <p>
-        <span>School:</span> Sunnydale
+        <span>School:</span> {tutor.school}
       </p>
       <p>
-        <span>Medium:</span> English Medium
+        <span>Medium:</span> {tutor.medium}
       </p>
       <p>
-        <span>Class:</span>N/A
+        <span>Class:</span>
+        {tutor.class}
       </p>
       <h2>
-        Online/In-person: <span>Online</span>
+        Online/In-person: <span>{tutor.online}</span>
       </h2>
       <h2>
-        Tutor's Gender: <span>Female</span>
+        Tutor's Gender: <span>{tutor.tutor_gender}</span>
       </h2>
-      <h2>
-        Preferred Gender: <span>None</span>
-      </h2>
+
       <h2>Bio:</h2>
-      <p>
-        Second-year Computer Science student at University of Waterloo
-        interested in integrating technology with the creative arts and bringing
-        ideas to life through code and collaboration. If you think our interests
-        align, drop me a message!
-      </p>
+      <p>{tutor.bio}</p>
 
       <h2>Locations they are willing to commute to:</h2>
-      <p>Dhanmondi, Gulshan, Banani</p>
+      <p>{tutor.locations.join(", ")}</p>
       <h2>How many days a week?</h2>
-      <p>3/week</p>
+      <p>{tutor.days}/week</p>
       <h2>Subjects they are willing to teach:</h2>
-      <p>English, Bangla, Math, Biology</p>
+      <p>{tutor.subjects.join(", ")}</p>
       <h2>Preferred monthly salary:</h2>
-      <p>5,000 - 10,000 tk</p>
+      <p>
+        {tutor.max_salary} - {tutor.min_salary} tk
+      </p>
       <h2>Extra Curricular Activities (ECAs):</h2>
-      <p>
-        Second-year Computer Science student at University of Waterloo
-        interested in integrating technology with the creative arts and bringing
-        ideas to life through code and collaboration. If you think our interests
-        align, drop me a message!
-      </p>
+      <p>{tutor.eca}</p>
       <h2>Hobbies:</h2>
-      <p>
-        Second-year Computer Science student at University of Waterloo
-        interested in integrating technology with the creative arts and bringing
-        ideas to life through code and collaboration. If you think our interests
-        align, drop me a message!
-      </p>
+      <p>{tutor.hobbies}</p>
       <h2>Previous Experience:</h2>
-      <p>
-        Second-year Computer Science student at University of Waterloo
-        interested in integrating technology with the creative arts and bringing
-        ideas to life through code and collaboration. If you think our interests
-        align, drop me a message!
-      </p>
+      <p>{tutor.experience}</p>
     </div>
   );
 }
