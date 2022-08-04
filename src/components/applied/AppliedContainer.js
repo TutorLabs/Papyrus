@@ -79,10 +79,10 @@ export default function AppliedContainer() {
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          <AppliedBoxes tutors={applied} />
+          <AppliedBoxes tutors={applied} applied={true} />
         </TabPanel>
         <TabPanel value={value} index={1}>
-        <AppliedBoxes tutors={liked} />
+        <AppliedBoxes tutors={liked} applied={false}/>
         </TabPanel>
         <TabPanel value={value} index={2}>
         <AppliedBoxes tutors={rejected} />

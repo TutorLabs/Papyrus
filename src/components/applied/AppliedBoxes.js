@@ -52,7 +52,7 @@ export default function AppliedBoxes(props) {
         ))}
       </div>
       <div className="applied_boxes_more_info">
-        <MoreInfo tutor={selectedTutor} />
+        <MoreInfo tutor={selectedTutor} applied={props.applied}/>
       </div>
     </div>
   );

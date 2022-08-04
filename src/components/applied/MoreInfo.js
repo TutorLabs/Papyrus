@@ -1,4 +1,5 @@
 import "./MoreInfo.scss";
+import { useState } from "react";
 import OutlinedButtom from "../ui-components/OutlinedButton";
 import Check from "../../images/check.svg";
 import Cross from "../../images/cross.svg";
@@ -6,7 +7,15 @@ import Cross from "../../images/cross.svg";
 import { useParams } from "react-router-dom";
 import Cookies from "universal-cookie";
 
-export default function MoreInfo({ tutor }) {
+import TemporaryAcceptModal from "../ui-components/TemporaryAcceptModal";
+
+export default function MoreInfo({ tutor, applied }) {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+
+  const handleClose = () => setOpen(false);
+
   const cookies = new Cookies();
   const params = useParams();
 
@@ -38,25 +47,46 @@ export default function MoreInfo({ tutor }) {
     });
   };
 
+  const handleAccept = () => {
+    setOpen(true);
+  };
+
   return (
     <div className="more_info">
+      <TemporaryAcceptModal
+        handleClose={handleClose}
+        handleOpen={handleOpen}
+        open={open}
+      />
       <img
         alt="user"
         src="https://images.pexels.com/photos/10698547/pexels-photo-10698547.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
       />
       <div className="posting_buttons">
-        <OutlinedButtom
-          icon={Check}
-          text="Like"
-          green={true}
-          click={handleLike}
-        />
-        <OutlinedButtom
-          icon={Cross}
-          text="Reject"
-          green={false}
-          click={handleReject}
-        />
+        {applied === true && (
+          <OutlinedButtom
+            icon={Check}
+            text="Like"
+            green={true}
+            click={handleLike}
+          />
+        )}
+        {applied === true && (
+          <OutlinedButtom
+            icon={Cross}
+            text="Reject"
+            green={false}
+            click={handleReject}
+          />
+        )}
+        {applied === false && (
+          <OutlinedButtom
+            icon={Check}
+            text="Send this tutor a message!"
+            green={true}
+            click={handleAccept}
+          />
+        )}
       </div>
 
       <h1>{`${tutor.firstname} ${tutor.lastname}`}</h1>
