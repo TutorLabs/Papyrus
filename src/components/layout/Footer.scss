@@ -1,22 +1,23 @@
 .footer {
   &-title {
     font-size: 18px;
-    
+
     @media (max-width: 650px) {
       font-size: 16px;
     }
   }
   &-container {
     height: 100px;
-    background-color: #1f026b;
+    background-color: #91d7c5;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     p {
+      text-align: center;
       padding-top: 5px;
       font-size: 14px;
-      color: white;
+      color: #1f026b;
       @media (max-width: 650px) {
         font-size: 16px;
       }
@@ -25,11 +26,8 @@
       margin-top: 5px;
       font-size: 14px;
       text-decoration: underline;
-      text-decoration-color: white;
+      text-decoration-color: #1f026b;
       color: inherit;
-    }
-    @media (max-width: 650px) {
-      height: 55px;
     }
   }
 }

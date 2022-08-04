@@ -84,8 +84,8 @@ export default function PostingBox(props) {
       <div className="posting_content">
         <div className="posting_text">
           <p>
-            <span>📚 {t("Subjects to teach")}:</span>
-            <br />
+            <span>📚 {t("Subjects to teach")}: </span>
+
             {props.subjects.join(", ")}
           </p>
 

@@ -90,7 +90,7 @@ export default function Home() {
                   student_gender={post.student_gender}
                   availability_days={post.availability_days}
                   days={post.availability_days}
-                  institution={post.preferred_institution}
+                  institution={post.school}
                   presence={post.online}
                   getPostings={getPostings}
                 />
