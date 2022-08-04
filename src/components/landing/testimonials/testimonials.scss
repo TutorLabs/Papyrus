@@ -1,0 +1,31 @@
+.story-container {
+  h1 {
+    font-weight: 600;
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+  }
+}
+
+.section-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  .section-container {
+    width: 1435px;
+    padding-top: 20px;
+    padding-bottom: 16px;
+    @media (max-width: 900px) {
+      width: 100%;
+    }
+    @media (max-width: 650) {
+      padding-top: 70px;
+    }
+  }
+  .section-content {
+    padding: 0 100px;
+    @media (max-width: 900px) {
+      padding: 0 30px;
+    }
+  }
+}
