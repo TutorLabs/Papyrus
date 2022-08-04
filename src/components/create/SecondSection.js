@@ -132,8 +132,8 @@ export default function SecondSection({ formData, setFormData }) {
       <FormControl className="form_control" variant="outlined" fullWidth>
         <OutlinedInput
           type="number"
-          value={formData.days}
-          onChange={handleChange("days")}
+          value={formData.availability_days}
+          onChange={handleChange("availability_days")}
           placeholder="Days"
           endAdornment={<InputAdornment position="end">/week</InputAdornment>}
           aria-describedby="outlined-weight-helper-text"

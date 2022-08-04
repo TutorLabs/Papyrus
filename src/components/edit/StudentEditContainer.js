@@ -24,7 +24,7 @@ export default function StudentEditContainer() {
     medium: "",
     online: "",
     location: "",
-    days: "",
+    availability_days: "",
     subjects: [],
     max_salary: "",
     min_salary: "",
