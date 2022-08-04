@@ -79,6 +79,11 @@ function Navbar() {
               <Link to="/apply">Apply</Link>
             </li>
           )}
+          {signedIn === true && role === "tutor" && (
+            <li>
+              <Link to="/profile">Profile</Link>
+            </li>
+          )}
           {signedIn === false && (
             <li>
               <Link to="/signup">Sign up/Log in</Link>

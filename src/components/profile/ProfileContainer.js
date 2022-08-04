@@ -14,10 +14,10 @@ import { useSelector } from "react-redux";
 
 export default function ProfileContainer() {
   const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
+    firstname: "",
+    lastname: "",
     email: "",
-    phone_number: "",
+    phone: "",
     photo: null,
     university: "",
     major: "",
@@ -44,7 +44,7 @@ export default function ProfileContainer() {
   const { token } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    const userPhoneNumber = async () => {
+    const userInfo = async () => {
       const response = await fetch("/api/profileinfo", {
         method: "GET",
         headers: {
@@ -53,15 +53,10 @@ export default function ProfileContainer() {
         },
       });
       const json = await response.json();
-      const data = json.data;
-      setFormData({
-        ...formData,
-        phone_number: data.phone,
-        first_name: data.firstname,
-        last_name: data.lastname,
-      });
+      const data = json.tutorInfo;
+      setFormData(data);
     };
-    userPhoneNumber();
+    userInfo();
   }, []);
 
   const handleSubmit = () => {
@@ -76,7 +71,7 @@ export default function ProfileContainer() {
     })
       .then((response) => response.json())
       .then((data) => {
-        navigate("/apply");
+        navigate("/tutorhome");
       });
   };
 

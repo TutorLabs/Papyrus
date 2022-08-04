@@ -12,7 +12,7 @@ import Button from "../ui-components/Button";
 import Grid from "@mui/material/Grid";
 import Cookies from "universal-cookie";
 
-export default function StudentEditContainer() {
+export default function EditContainer() {
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
