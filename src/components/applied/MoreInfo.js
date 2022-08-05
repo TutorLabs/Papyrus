@@ -113,7 +113,7 @@ export default function MoreInfo({ tutor, applied }) {
           <hr />
           <div className="sub_section">
             <p>
-              <span>👩‍🏫 Tutor's Gender:</span> {tutor.gender}
+              <span>👩‍🏫 Tutor's Gender:</span> {tutor.tutor_gender}
             </p>
             <p className="second">
               <span>💃 Online/In-person: </span>
