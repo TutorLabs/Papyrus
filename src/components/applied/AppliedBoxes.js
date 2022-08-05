@@ -39,6 +39,7 @@ export default function AppliedBoxes(props) {
             }}
           >
             <TutorList
+              id={tutor._id}
               firstname={tutor.firstname}
               lastname={tutor.lastname}
               class={tutor.class}

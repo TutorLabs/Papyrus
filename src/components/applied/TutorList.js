@@ -8,7 +8,7 @@ export default function TutorList(props) {
   const navigate = useNavigate();
 
   const handleView = () => {
-    navigate("/tutor");
+    navigate(`/tutor/${props.id}`);
   };
 
   return (
