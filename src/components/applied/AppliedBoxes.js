@@ -1,5 +1,5 @@
 import "./AppliedBoxes.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MoreInfo from "./MoreInfo";
 import TutorList from "./TutorList";
 
@@ -28,6 +28,12 @@ const initialTutor = {
 export default function AppliedBoxes(props) {
   const [selectedTutor, setSelectedTutor] = useState(initialTutor);
 
+  useEffect(() => {
+    if (props.tutors[0]) {
+      setSelectedTutor(props?.tutors[0]);
+    }
+  }, [props.tutors]);
+
   return (
     <div className="applied_boxes">
       <div className="applied_boxes_tutor_list">
@@ -53,7 +59,7 @@ export default function AppliedBoxes(props) {
         ))}
       </div>
       <div className="applied_boxes_more_info">
-        <MoreInfo tutor={selectedTutor} applied={props.applied}/>
+        <MoreInfo tutor={selectedTutor} applied={props.applied} />
       </div>
     </div>
   );
