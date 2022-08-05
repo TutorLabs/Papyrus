@@ -31,6 +31,18 @@ export default function AppliedBoxes(props) {
   useEffect(() => {
     if (props.tutors[0]) {
       setSelectedTutor(props?.tutors[0]);
+
+      props.tutors.map((tutor) => {
+        if (
+          tutor.university !== "NA" &&
+          tutor.university !== "N/A" &&
+          tutor.university !== ""
+        ) {
+          console.log(tutor.university);
+        } else {
+          console.log(tutor.school);
+        }
+      });
     }
   }, [props.tutors]);
 
@@ -48,10 +60,22 @@ export default function AppliedBoxes(props) {
               id={tutor._id}
               firstname={tutor.firstname}
               lastname={tutor.lastname}
-              class={tutor.class}
               min_salary={tutor.min_salary}
               max_salary={tutor.max_salary}
-              school={tutor.school}
+              school={
+                tutor.university !== "NA" &&
+                tutor.university !== "N/A" &&
+                tutor.university !== ""
+                  ? `${tutor.university}`
+                  : `${tutor.school}`
+              }
+              class={
+                tutor.university !== "NA" &&
+                tutor.university !== "N/A" &&
+                tutor.university !== ""
+                  ? `${tutor.major}`
+                  : `${tutor.class}`
+              }
               tutor_gender={tutor.tutor_gender}
               img="https://images.pexels.com/photos/10698547/pexels-photo-10698547.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
             />
