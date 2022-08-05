@@ -22,6 +22,14 @@ import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 export default function SignUpContainer() {
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    const allDetails = async () => {
+      const response = await fetch("/api/posting");
+      const json = await response.json();
+    };
+    allDetails();
+  }, []);
+
   // state management
   const [values, setValues] = useState({
     first_name: "",
