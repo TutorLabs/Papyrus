@@ -23,9 +23,10 @@ function App() {
       <Error />
       <main>
         <Routes>
+          <Route path="/studenthome" element={<StudentHome />} exact></Route>
           <Route element={<PrivateRoutes correctRole="student" />}>
             <Route path="/create" element={<Create />} exact></Route>
-            <Route path="/studenthome" element={<StudentHome />} exact></Route>
+
             <Route path="/applied/:id" element={<Applied />} exact></Route>
             <Route path="/edit/:id" element={<Edit />} exact></Route>
           </Route>

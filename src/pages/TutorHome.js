@@ -8,12 +8,32 @@ import Cover from "../components/home/Tutor/Cover";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-
+const initialTutor = {
+  _id: "",
+  firstname: "",
+  lastname: "",
+  university: "",
+  major: "",
+  school: "",
+  medium: "",
+  class: "",
+  online: "",
+  tutor_gender: "",
+  bio: "",
+  locations: [],
+  days: "",
+  subjects: [],
+  max_salary: "",
+  min_salary: "",
+  eca: "",
+  hobbies: "",
+  experience: "",
+};
 export default function TutorHome() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { token } = useSelector((state) => state.auth);
-  const [user, setUser] = useState({})
+  const [tutor, setTutor] = useState(initialTutor);
 
   useEffect(() => {
     const userInfo = async () => {
@@ -26,12 +46,12 @@ export default function TutorHome() {
       });
       const json = await response.json();
       const data = json.tutorInfo;
-      setUser(data);
+      setTutor(data);
     };
     userInfo();
   }, []);
 
-  console.log(user)
+  console.log(tutor);
 
   const handleEdit = () => {
     navigate("/profile");
@@ -64,6 +84,63 @@ export default function TutorHome() {
         </div>
         <h2 className="sub_header">{t("View your Information")}:</h2>
         <hr />
+        <div className="tutor_home_info">
+          <h1>{`${tutor.firstname} ${tutor.lastname}`}</h1>
+
+          <h2>Education:</h2>
+          <hr />
+          <p className="first_p">
+            <span>University:</span> {tutor.university}
+          </p>
+          <p>
+            <span>Major:</span> {tutor.major}
+          </p>
+          <p>
+            <span>School:</span> {tutor.school}
+          </p>
+          <p>
+            <span>Medium:</span> {tutor.medium}
+          </p>
+          <p>
+            <span>Class:</span> {tutor.class}
+          </p>
+          <hr />
+          <h2>
+            Online/In-person: <span>{tutor.online}</span>
+          </h2>
+          <hr />
+          <h2>
+            Tutor's Gender: <span>{tutor.tutor_gender}</span>
+          </h2>
+          <hr />
+          <h2>Bio:</h2>
+          <p>{tutor.bio}</p>
+          <hr />
+
+          <h2>Locations they are willing to commute to:</h2>
+          <p>{tutor.locations.join(", ")}</p>
+          <hr />
+          <h2>How many days a week?</h2>
+          <p>{tutor.days}/week</p>
+          <hr />
+          <h2>Subjects they are willing to teach:</h2>
+          <p>{tutor.subjects.join(", ")}</p>
+          <hr />
+          <h2>Preferred monthly salary:</h2>
+          <p>
+            {tutor.max_salary} - {tutor.min_salary} tk
+          </p>
+          <hr />
+          <h2>Extra Curricular Activities (ECAs):</h2>
+          <p>{tutor.eca}</p>
+          <hr />
+          <h2>Hobbies:</h2>
+          <p>{tutor.hobbies}</p>
+          <hr />
+          <h2>Previous Experience:</h2>
+          <p>{tutor.experience}</p>
+          
+        </div>
       </div>
     </div>
   );
