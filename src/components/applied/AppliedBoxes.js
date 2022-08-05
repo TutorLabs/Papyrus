@@ -27,8 +27,13 @@ const initialTutor = {
 
 export default function AppliedBoxes(props) {
   const [selectedTutor, setSelectedTutor] = useState(initialTutor);
+  const [empty, setEmpty] = useState(true);
 
   useEffect(() => {
+    if (props.tutors.length !== 0) {
+      setEmpty(false);
+    }
+    console.log(props.tutors.length);
     if (props.tutors[0]) {
       setSelectedTutor(props?.tutors[0]);
 
@@ -46,6 +51,9 @@ export default function AppliedBoxes(props) {
     }
   }, [props.tutors]);
 
+  if (empty) {
+    return <h1 className="empty">No tutors have applied to your posting yet!</h1>;
+  }
   return (
     <div className="applied_boxes">
       <div className="applied_boxes_tutor_list">

@@ -44,7 +44,7 @@ export default function PostingBox(props) {
   };
 
   const handleEdit = async () => {
-    navigate(`/studentedit/${props.id}`);
+    navigate(`/edit/${props.id}`);
   };
 
   const handleView = async () => {

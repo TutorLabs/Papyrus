@@ -46,6 +46,7 @@ export default function TutorHome() {
       });
       const json = await response.json();
       const data = json.tutorInfo;
+      console.log(json.tutorInfo);
       setTutor(data);
     };
     userInfo();
@@ -154,6 +155,9 @@ export default function TutorHome() {
                 </p>
                 <p>
                   <span>👔 Previous Experience:</span> {tutor.experience}
+                </p>
+                <p>
+                  <span>➕ Additional Information:</span>  {tutor.other}
                 </p>
               </div>
             </div>
