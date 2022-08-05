@@ -26,6 +26,9 @@
         max-width: 100%;
         flex-wrap: wrap;
       }
+      .outlined_button {
+        display: block;
+      }
     }
     &:hover {
       background-color: #d0e6f0;
@@ -52,6 +55,9 @@
       }
       .content {
         padding-left: 20px;
+        .outlined_button {
+          display: none;
+        }
       }
     }
   }
