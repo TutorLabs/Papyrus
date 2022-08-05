@@ -105,8 +105,8 @@ export default function PostingBox(props) {
               <span>📍 Location:</span> {props.location}
             </p>
             <p className="second">
-              <span>💃 Presence: </span>
-              {props.presence}
+              <span>💃 Online/In-person: </span>
+              {props.online}
             </p>
           </div>
           <hr />

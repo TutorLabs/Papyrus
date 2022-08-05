@@ -98,14 +98,14 @@ export default function SecondSection({ formData, setFormData }) {
                 onChange={handleChange("medium")}
                 value={formData.medium}
               >
-                <MenuItem value={"english_medium_cambridge"}>
+                <MenuItem value={"English Medium (Cambridge)"}>
                   English Medium (Cambridge)
                 </MenuItem>
-                <MenuItem value={"english_medium_edexcel"}>
+                <MenuItem value={"English Medium (Edexcel)"}>
                   English Medium (Edexcel)
                 </MenuItem>
-                <MenuItem value={"english_version"}>English Version</MenuItem>
-                <MenuItem value={"bangla_medium"}>Bangla Medium</MenuItem>
+                <MenuItem value={"English Version"}>English Version</MenuItem>
+                <MenuItem value={"Bangla Medium"}>Bangla Medium</MenuItem>
               </Select>
             </FormControl>
           </div>

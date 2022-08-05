@@ -13,3 +13,9 @@ h3,
 p {
   color: #221f20;
 }
+
+hr {
+  background-color: rgba(0, 0, 0, 0.12);
+  height: 1px;
+  border: 0;
+}

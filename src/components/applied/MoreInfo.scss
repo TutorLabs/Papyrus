@@ -14,9 +14,34 @@
     border-radius: 20px;
   }
 
-  svg {
-    color: red;
+  .tutorinfo_content {
+    padding: 20px 0px;
+    .tutorinfo_text {
+      h2 {
+        font-weight: 500;
+        font-size: 20px;
+      }
+      p {
+        margin: 20px 0px;
+        span {
+          font-weight: 500;
+        }
+      }
+      .sub_section {
+        display: block;
+        p {
+          margin-bottom: 0px;
+        }
+        .second {
+          margin-left: 0px;
+        }
+        .extra_margin {
+          margin-bottom: 20px;
+        }
+      }
+    }
   }
+
   h1 {
     font-weight: 600;
     font-size: 28px;
@@ -42,5 +67,15 @@
   .more_info {
     border-left: 1px solid #e0e0e0;
     border-top: 0px;
+    .tutorinfo_content {
+      .tutorinfo_text {
+        .sub_section {
+          display: flex;
+          .second {
+            margin-left: 12px;
+          }
+        }
+      }
+    }
   }
 }
