@@ -154,9 +154,9 @@ export default function SecondSection({ formData, setFormData }) {
           onChange={handleChange("tutor_gender")}
           value={formData.tutor_gender}
         >
-          <MenuItem value={"male"}>Male</MenuItem>
-          <MenuItem value={"female"}>Female</MenuItem>
-          <MenuItem value={"unstated"}>Won't state?</MenuItem>
+          <MenuItem value={"Male"}>Male</MenuItem>
+          <MenuItem value={"Female"}>Female</MenuItem>
+          <MenuItem value={"Other"}>Other</MenuItem>
         </Select>
       </FormControl>
 
