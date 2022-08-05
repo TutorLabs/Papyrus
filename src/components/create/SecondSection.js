@@ -169,7 +169,7 @@ export default function SecondSection({ formData, setFormData }) {
         </FormControl>
       }
 
-      <h2>What is your preferred monthly salary?</h2>
+      <h2>How much are you willing to pay?</h2>
       <Grid container>
         <Grid item sm={12} lg={6}>
           <FormControl className="form_control" variant="outlined" fullWidth>
