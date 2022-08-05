@@ -88,7 +88,7 @@ export default function SecondSection({ formData, setFormData }) {
       <Grid container>
         <Grid item sm={12} lg={6} className="second_text_field">
           <div>
-            <h2>Preferred Gender</h2>
+            <h2>Tutor Gender</h2>
             <FormControl className="form_control" variant="outlined" fullWidth>
               <Select
                 onChange={handleChange("tutor_gender")}
