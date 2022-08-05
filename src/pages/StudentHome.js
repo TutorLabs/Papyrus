@@ -89,7 +89,6 @@ export default function Home() {
                   tutor_gender={post.tutor_gender}
                   student_gender={post.student_gender}
                   availability_days={post.availability_days}
-                  days={post.availability_days}
                   institution={post.school}
                   online={post.online}
                   getPostings={getPostings}

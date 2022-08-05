@@ -122,7 +122,7 @@ export default function PostingBox(props) {
           <hr />
 
           <p>
-            <span>🗓 Days:</span> {props.days} days/week
+            <span>🗓 Days:</span> {props.availability_days} days/week
           </p>
         </div>
 
