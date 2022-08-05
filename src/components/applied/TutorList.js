@@ -1,14 +1,11 @@
 import "./TutorList.scss";
-import { useNavigate } from "react-router";
 import TagBox from "../ui-components/TagBox";
 import OutlinedButtom from "../ui-components/OutlinedButton";
 import Eye from "../../images/eye.svg";
 
 export default function TutorList(props) {
-  const navigate = useNavigate();
-
   const handleView = () => {
-    navigate(`/tutor/${props.id}`);
+    window.open(`/tutor/${props.id}`, "_blank");
   };
 
   return (
