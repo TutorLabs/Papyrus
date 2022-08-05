@@ -128,8 +128,8 @@ export default function SecondSection({ formData, setFormData }) {
             <h2>Online/In-person</h2>
             <FormControl className="form_control" variant="outlined" fullWidth>
               <Select onChange={handleChange("online")} value={formData.online}>
-                <MenuItem value={"online"}>Online</MenuItem>
-                <MenuItem value={"in_person"}>In-person</MenuItem>
+                <MenuItem value={"Online"}>Online</MenuItem>
+                <MenuItem value={"In Person"}>In-person</MenuItem>
               </Select>
             </FormControl>
           </div>
