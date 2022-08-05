@@ -89,10 +89,9 @@ export default function MoreInfo({ tutor, applied }) {
         )}
       </div>
 
-     
       <div className="tutorinfo_content">
         <div className="tutorinfo_text">
-           <h1>{`${tutor.firstname} ${tutor.lastname}`}</h1>
+          <h1>{`${tutor.firstname} ${tutor.lastname}`}</h1>
 
           <h2>📚 Education:</h2>
           <div className="sub_section">
@@ -152,6 +151,9 @@ export default function MoreInfo({ tutor, applied }) {
           </p>
           <p>
             <span>👔 Previous Experience:</span> {tutor.experience}
+          </p>
+          <p>
+            <span>➕ Additional Information:</span> {tutor.other}
           </p>
         </div>
       </div>

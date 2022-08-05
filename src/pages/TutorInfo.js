@@ -117,6 +117,9 @@ export default function TutorInfo() {
             <p>
               <span>👔 Previous Experience:</span> {tutor.experience}
             </p>
+            <p>
+              <span>➕ Additional Information:</span> {tutor.other}
+            </p>
           </div>
         </div>
       </div>
