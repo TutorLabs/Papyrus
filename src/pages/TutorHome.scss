@@ -4,42 +4,17 @@
     margin: 10px;
   }
 
+  .tutor_info {
+    .tutorinfo_box {
+      margin-top: 20px;
+    }
+  }
+
   .sub_header {
     font-weight: 600;
     font-size: 25px;
     padding-bottom: 20px;
     padding-top: 10px;
-  }
-
-  .tutor_home_info {
-    background-color: #d1e6f6;
-    border-radius: 15px;
-    margin: 20px 0px;
-    padding: 25px;
-    h1 {
-      font-weight: 600;
-      font-size: 28px;
-      line-height: 36px;
-      padding-bottom: 10px;
-    }
-    h2 {
-      font-weight: 600;
-      font-size: 20px;
-      padding: 8px 0px;
-
-      span {
-        font-weight: 400;
-      }
-    }
-    p {
-      padding-bottom: 8px;
-      span {
-        font-weight: 600;
-      }
-    }
-    .first_p {
-      padding-top: 8px;
-    }
   }
 
   hr {

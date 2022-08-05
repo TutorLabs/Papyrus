@@ -84,62 +84,80 @@ export default function TutorHome() {
         </div>
         <h2 className="sub_header">{t("View your Information")}:</h2>
         <hr />
-        <div className="tutor_home_info">
-          <h1>{`${tutor.firstname} ${tutor.lastname}`}</h1>
+        <div className="tutor_info">
+          <div className="tutorinfo_box">
+            <div className="tutorinfo_header">
+              
+              <div className="header_text">
+                <h1>{`${tutor.firstname} ${tutor.lastname}`}</h1>
+                <h3>🏫 {tutor.school}</h3>
+              </div>
+            </div>
 
-          <h2>Education:</h2>
-          <hr />
-          <p className="first_p">
-            <span>University:</span> {tutor.university}
-          </p>
-          <p>
-            <span>Major:</span> {tutor.major}
-          </p>
-          <p>
-            <span>School:</span> {tutor.school}
-          </p>
-          <p>
-            <span>Medium:</span> {tutor.medium}
-          </p>
-          <p>
-            <span>Class:</span> {tutor.class}
-          </p>
-          <hr />
-          <h2>
-            Online/In-person: <span>{tutor.online}</span>
-          </h2>
-          <hr />
-          <h2>
-            Tutor's Gender: <span>{tutor.tutor_gender}</span>
-          </h2>
-          <hr />
-          <h2>Bio:</h2>
-          <p>{tutor.bio}</p>
-          <hr />
+            <div className="tutorinfo_content">
+              <div className="tutorinfo_text">
+                <h2>📚 Education:</h2>
+                <div className="sub_section">
+                  <p>
+                    <span>🎓 University:</span> {tutor.university}
+                  </p>
+                  <p className="second">
+                    <span>📖 Major:</span> {tutor.major}
+                  </p>
+                </div>
+                <div className="sub_section">
+                  <p className="extra_margin">
+                    <span>📓 Medium:</span> {tutor.medium}
+                  </p>
+                  <p className="second extra_margin">
+                    <span>✏️ Class:</span> {tutor.class}
+                  </p>
+                </div>
+                <hr />
+                <div className="sub_section">
+                  <p>
+                    <span>👩‍🏫 Tutor's Gender:</span> {tutor.gender}
+                  </p>
+                  <p className="second">
+                    <span>💃 Online/In-person: </span>
+                    {tutor.online}
+                  </p>
+                </div>
 
-          <h2>Locations they are willing to commute to:</h2>
-          <p>{tutor.locations.join(", ")}</p>
-          <hr />
-          <h2>How many days a week?</h2>
-          <p>{tutor.days}/week</p>
-          <hr />
-          <h2>Subjects they are willing to teach:</h2>
-          <p>{tutor.subjects.join(", ")}</p>
-          <hr />
-          <h2>Preferred monthly salary:</h2>
-          <p>
-            {tutor.max_salary} - {tutor.min_salary} tk
-          </p>
-          <hr />
-          <h2>Extra Curricular Activities (ECAs):</h2>
-          <p>{tutor.eca}</p>
-          <hr />
-          <h2>Hobbies:</h2>
-          <p>{tutor.hobbies}</p>
-          <hr />
-          <h2>Previous Experience:</h2>
-          <p>{tutor.experience}</p>
-          
+                <p>
+                  <span>📚 Subjects they are willing to teach:</span>{" "}
+                  {tutor.locations.join(", ")}
+                </p>
+                <p>
+                  <span>💸 Subjects they are willing to teach:</span>{" "}
+                  {tutor.max_salary} - {tutor.min_salary} tk
+                </p>
+                <hr />
+
+                <p>
+                  <span>📍 Locations they are willing to commute to:</span>{" "}
+                  {tutor.locations.join(", ")}
+                </p>
+                <p>
+                  <span>🗓 How many days a week?:</span> {tutor.days} days/week
+                </p>
+
+                <hr />
+                <p>
+                  <span>🎉 Bio:</span> {tutor.bio}
+                </p>
+                <p>
+                  <span>🗣 Extra Curricular Activities (ECAs):</span> {tutor.eca}
+                </p>
+                <p>
+                  <span>🏃‍♀️ Hobbies:</span> {tutor.hobbies}
+                </p>
+                <p>
+                  <span>👔 Previous Experience:</span> {tutor.experience}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
