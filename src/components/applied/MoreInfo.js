@@ -33,6 +33,7 @@ export default function MoreInfo({ tutor, applied }) {
       },
       body: JSON.stringify(data),
     });
+    window.location.reload(false);
   };
 
   const handleReject = () => {
@@ -45,6 +46,7 @@ export default function MoreInfo({ tutor, applied }) {
       },
       body: JSON.stringify(data),
     });
+    window.location.reload(false);
   };
 
   const handleAccept = () => {
