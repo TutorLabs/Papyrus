@@ -52,7 +52,7 @@ export default function AppliedBoxes(props) {
   }, [props.tutors]);
 
   if (empty) {
-    return <h1 className="empty">No tutors have applied to your posting yet!</h1>;
+    return <h1 className="empty">No tutors to show</h1>;
   }
   return (
     <div className="applied_boxes">
