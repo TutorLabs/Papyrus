@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/layout/Navigation/Navbar";
 import Footer from "./components/layout/Footer";
 import Error from "./components/ui-components/Error";
@@ -18,6 +18,7 @@ import PrivateRoutes from "./utils/PrivateRoutes";
 import TutorInfo from "./pages/TutorInfo";
 
 function App() {
+  const location = useLocation();
   return (
     <div>
       <Navbar />
@@ -49,7 +50,7 @@ function App() {
         </Routes>
       </main>
       <footer>
-        <Footer />
+        {location.pathname !== "/signup" && location.pathname !== "/signin" && location.pathname !== "/verify" && <Footer />}
       </footer>
     </div>
   );

@@ -1,10 +1,10 @@
 import "./TagBox.scss";
 
-export default function TagBox(props) {
+export default function TagBox({ emoji, text }) {
   return (
     <div className="tag_box">
       <p>
-        {props.emoji} {props.text}
+        {emoji} {text}
       </p>
     </div>
   );
