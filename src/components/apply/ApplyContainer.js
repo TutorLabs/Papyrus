@@ -114,7 +114,7 @@ export default function ApplyContainer() {
           </div>
         </TabPanel>
         <TabPanel value={value} index={1}>
-          {/* <AppliedBoxes tutors={liked} applied={false} /> */}
+         
         </TabPanel>
       </Box>
     </div>

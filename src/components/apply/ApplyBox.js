@@ -6,10 +6,16 @@ import Button from "../ui-components/Button";
 import Cookies from "universal-cookie";
 import { useSelector } from "react-redux";
 
+import { useDispatch } from "react-redux"; // for snackbar demonstration
+import { updateText } from "../../redux/snackbar"; // for snackbar demonstration
+
 export default function ApplyBox(props) {
+  const dispatch = useDispatch(); // for snackbar demonstration
   const cookies = new Cookies();
   const { token } = useSelector((state) => state.auth);
+
   const handleChange = () => {
+    dispatch(updateText("Successfully applied to this posting!"));
     const data = {
       id: props.id,
     };
@@ -23,9 +29,11 @@ export default function ApplyBox(props) {
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(data),
-    }).then((response) => response.json());
-  };
-  
+    }).then((response) => {
+      response.json();
+     // dispatch(updateText("Successfully applied to this posting!"));
+    });
+  }; 
   return (
     <div className="apply_box">
       <Grid container>

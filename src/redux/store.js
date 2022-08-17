@@ -5,6 +5,7 @@ import thunk from "redux-thunk";
 import verifyCode from "./verifyCode";
 import auth from "./auth";
 import error from "./error";
+import snackbar from "./snackbar";
 
 const persistConfig = {
   key: "root",
@@ -18,6 +19,7 @@ export const store = configureStore({
     verifyCode: verifyCode,
     auth: persistedReducer,
     error: error,
+    snackbar: snackbar,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -26,4 +28,4 @@ export const store = configureStore({
   middleware: [thunk]
 });
 
-export const persistor = persistStore(store)
+export const persistor = persistStore(store);
