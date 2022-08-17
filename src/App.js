@@ -34,7 +34,7 @@ function App() {
             <Route path="/tutor/:id" element={<TutorInfo />} exact></Route>
           </Route>
           <Route element={<PrivateRoutes correctRole="tutor" />}>
-            <Route path="/apply" element={<Apply />} exact></Route>
+            
             <Route path="/profile" element={<Profile />} exact></Route>
             <Route path="/tutorhome" element={<TutorHome />} exact></Route>
           </Route>
@@ -45,6 +45,7 @@ function App() {
             exact
           ></Route>
           <Route path="/signup" element={<SignUp />} exact></Route>
+          <Route path="/apply" element={<Apply />} exact></Route>
           <Route path="/signin" element={<SignIn />} exact></Route>
           <Route path="/verify" element={<Verify />} exact></Route>
         </Routes>
