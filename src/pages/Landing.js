@@ -8,7 +8,7 @@ export default function Landing() {
     <div className="landing">
       <LandingBanner />
       <SimpleSteps/>
-      <Testimonials/>
+      {/* <Testimonials/> */}
     </div>
   );
 }
