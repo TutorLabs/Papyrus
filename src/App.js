@@ -1,4 +1,5 @@
 import { Routes, Route, useLocation } from "react-router-dom";
+import ReactGa from "react-ga";
 import Navbar from "./components/layout/Navigation/Navbar";
 import Footer from "./components/layout/Footer";
 import Error from "./components/ui-components/Error";
@@ -17,9 +18,15 @@ import Applied from "./pages/Applied";
 import Profile from "./pages/Profile";
 import PrivateRoutes from "./utils/PrivateRoutes";
 import TutorInfo from "./pages/TutorInfo";
+import { useEffect } from "react";
 
 function App() {
   const location = useLocation();
+  useEffect(() => {
+    ReactGa.initialize(process.env.REACT_APP_GA_MEASUREMENT_ID);
+    ReactGa.pageview(window.location.pathname + window.location.search);
+  }, []);
+
   return (
     <div>
       <Navbar />
@@ -30,7 +37,7 @@ function App() {
           <Route path="/studenthome" element={<StudentHome />} exact></Route>
           <Route element={<PrivateRoutes correctRole="student" />}>
             <Route path="/create" element={<Create />} exact></Route>
-           
+
             <Route path="/applied/:id" element={<Applied />} exact></Route>
             <Route path="/edit/:id" element={<Edit />} exact></Route>
             <Route path="/tutor/:id" element={<TutorInfo />} exact></Route>
