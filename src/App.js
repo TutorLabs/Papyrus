@@ -24,6 +24,7 @@ function App() {
   const location = useLocation();
   useEffect(() => {
     ReactGa.initialize(process.env.REACT_APP_GA_MEASUREMENT_ID);
+    console.log(window.location.pathname)
     ReactGa.pageview(window.location.pathname + window.location.search);
   }, []);
 
