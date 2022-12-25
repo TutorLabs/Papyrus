@@ -23,9 +23,11 @@ import { useEffect } from "react";
 function App() {
   const location = useLocation();
   useEffect(() => {
-    ReactGa.initialize(process.env.REACT_APP_GA_MEASUREMENT_ID);
-    console.log(window.location.pathname)
-    ReactGa.pageview(window.location.pathname + window.location.search);
+    // ReactGa.initialize(process.env.REACT_APP_GA_MEASUREMENT_ID);
+    ReactGa.initialize("G-83CJL41JJKD");
+    ReactGa.pageview("/");
+    // console.log(window.location.pathname)
+    // ReactGa.pageview(window.location.pathname + window.location.search);
   }, []);
 
   return (
