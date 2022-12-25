@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app"
 import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth"
+import { getStorage } from "firebase/storage"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -11,9 +12,11 @@ const firebaseConfig = {
   projectId: "tutorlab-cbc12",
   storageBucket: "tutorlab-cbc12.appspot.com",
   messagingSenderId: "139698875677",
-  appId: "1:139698875677:web:b1cf5521f436152d7085f4"
+  appId: "1:139698875677:web:b1cf5521f436152d7085f4",
+  storageBucket: "gs://tutorlab-139a3.appspot.com"
 }
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const storage = getStorage(app)
 export const authentication = getAuth(app)

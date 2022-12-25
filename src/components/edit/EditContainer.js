@@ -18,7 +18,7 @@ export default function EditContainer() {
     lastname: "",
     email: "",
     phone_number: "",
-    photo: null,
+    photoUrl: "",
     school: "",
     class: "",
     medium: "",
@@ -78,7 +78,7 @@ export default function EditContainer() {
           <FirstSection formData={formData} setFormData={setFormData} />
         </Grid>
         <Grid item sm={12} lg={4}>
-          <Picture formData={formData} setFormData={setFormData} />
+          <Picture formData={formData} role = 'student' />
         </Grid>
       </Grid>
       <hr className="hr_margin" />

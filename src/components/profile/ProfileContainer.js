@@ -17,8 +17,8 @@ export default function ProfileContainer() {
     firstname: "",
     lastname: "",
     email: "",
-    phone: "",
-    photo: null,
+    phone_number: "",
+    photoUrl: "",
     university: "",
     major: "",
     school: "",
@@ -83,7 +83,7 @@ export default function ProfileContainer() {
           <FirstSection formData={formData} setFormData={setFormData} />
         </Grid>
         <Grid item sm={12} lg={4}>
-          <Picture formData={formData} setFormData={setFormData} />
+          <Picture formData={formData} role='tutor' />
         </Grid>
       </Grid>
       <hr className="hr_margin" />
