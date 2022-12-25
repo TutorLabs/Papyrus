@@ -1,5 +1,4 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import ReactGa from "react-ga";
 import Navbar from "./components/layout/Navigation/Navbar";
 import Footer from "./components/layout/Footer";
 import Error from "./components/ui-components/Error";
@@ -18,20 +17,9 @@ import Applied from "./pages/Applied";
 import Profile from "./pages/Profile";
 import PrivateRoutes from "./utils/PrivateRoutes";
 import TutorInfo from "./pages/TutorInfo";
-import { useEffect } from "react";
-const TRACKING_ID = "G-83CJL41JJKD"; // OUR_TRACKING_ID
-
-ReactGa.initialize(TRACKING_ID);
 
 function App() {
   const location = useLocation();
-  useEffect(() => {
-    // ReactGa.initialize(process.env.REACT_APP_GA_MEASUREMENT_ID);
-    // ReactGa.initialize("G-83CJL41JJKD");
-    ReactGa.pageview("/");
-    // console.log(window.location.pathname)
-    // ReactGa.pageview(window.location.pathname + window.location.search);
-  }, []);
 
   return (
     <div>
