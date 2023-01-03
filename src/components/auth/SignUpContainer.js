@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import "./AuthContainer.scss";
@@ -16,19 +16,22 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 
+import Cookies from "universal-cookie";
+
 import { authentication } from "../../firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 
 export default function SignUpContainer() {
   const dispatch = useDispatch();
+  const cookies = new Cookies();
 
-  useEffect(() => {
-    const allDetails = async () => {
-      const response = await fetch("/api/posting");
-      const json = await response.json();
-    };
-    allDetails();
-  }, []);
+  // useEffect(() => {
+  //   const allDetails = async () => {
+  //     const response = await fetch("/api/posting");
+  //     const json = await response.json();
+  //   };
+  //   allDetails();
+  // }, []);
 
   // state management
   const [values, setValues] = useState({
@@ -57,18 +60,35 @@ export default function SignUpContainer() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // console.log(values);
-    generateRecaptcha();
-    let appVerifier = window.recaptchaVerifier;
-    signInWithPhoneNumber(authentication, values.number, appVerifier)
-      .then((confirmationResult) => {
-        dispatch(updateVerifyCode(confirmationResult));
-        dispatch(updateInitialInfo(values));
-        navigate("/verify");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    console.log(values);
+    const data = {
+      number: values.number
+    };
+    fetch("/api/exists", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "CSRF-Token": cookies.get("XSRF-TOKEN"),
+      },
+      body: JSON.stringify(data),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.exists === false) {
+        generateRecaptcha();
+        let appVerifier = window.recaptchaVerifier;
+        signInWithPhoneNumber(authentication, values.number, appVerifier)
+          .then((confirmationResult) => {
+            dispatch(updateVerifyCode(confirmationResult));
+            dispatch(updateInitialInfo(values));
+            navigate("/verify");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    })
   };
 
   return (
