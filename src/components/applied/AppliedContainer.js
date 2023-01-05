@@ -35,7 +35,6 @@ export default function AppliedContainer() {
   const [value, setValue] = useState(0);
   const [applied, setApplied] = useState([]);
   const [liked, setLiked] = useState([]);
-  const [rejected, setRejected] = useState([]);
 
   const handleChange = (event, newValue) => {
     event.preventDefault();
@@ -56,10 +55,9 @@ export default function AppliedContainer() {
           return response.json();
         })
         .then((json) => {
-          const allApplicants = json.allApplicants
+          const allApplicants = json.allApplicants;
           setApplied(allApplicants.applied);
-          setLiked(allApplicants.liked)
-          setRejected(allApplicants.rejected)
+          setLiked(allApplicants.liked);
         })
         .catch(() => {
           dispatch(updateText("Server failed to fetch data. Please try again"));
@@ -75,17 +73,13 @@ export default function AppliedContainer() {
           <Tabs value={value} onChange={handleChange}>
             <Tab label="📝 Applied" />
             <Tab label="✅ Liked" />
-            <Tab label="❌ Rejected" />
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
           <AppliedBoxes tutors={applied} applied={true} />
         </TabPanel>
         <TabPanel value={value} index={1}>
-        <AppliedBoxes tutors={liked} applied={false}/>
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-        <AppliedBoxes tutors={rejected} />
+          <AppliedBoxes tutors={liked} applied={false} />
         </TabPanel>
       </Box>
     </div>

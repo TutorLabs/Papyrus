@@ -36,19 +36,6 @@ export default function MoreInfo({ tutor, applied }) {
     window.location.reload(true);
   };
 
-  const handleReject = () => {
-    fetch(`/api/rejectedtutor/${postid}`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        "CSRF-Token": cookies.get("XSRF-TOKEN"),
-      },
-      body: JSON.stringify(data),
-    });
-    window.location.reload(true);
-  };
-
   const handleAccept = () => {
     setOpen(true);
   };
@@ -68,17 +55,9 @@ export default function MoreInfo({ tutor, applied }) {
         {applied === true && (
           <OutlinedButtom
             icon={Check}
-            text="Like"
+            text="Add this tutor to your Liked List!"
             green={true}
             click={handleLike}
-          />
-        )}
-        {applied === true && (
-          <OutlinedButtom
-            icon={Cross}
-            text="Reject"
-            green={false}
-            click={handleReject}
           />
         )}
         {applied === false && (
