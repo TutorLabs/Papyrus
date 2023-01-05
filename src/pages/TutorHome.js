@@ -61,7 +61,7 @@ export default function TutorHome() {
   return (
     <div className="tutor_home">
       <Cover
-        image="https://images.pexels.com/photos/10698547/pexels-photo-10698547.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        image={tutor.photoUrl}
         cover="https://images.pexels.com/photos/137618/pexels-photo-137618.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
       />
       <div className="tutor_home_content">
@@ -88,7 +88,6 @@ export default function TutorHome() {
         <div className="tutor_info">
           <div className="tutorinfo_box">
             <div className="tutorinfo_header">
-              
               <div className="header_text">
                 <h1>{`${tutor.firstname} ${tutor.lastname}`}</h1>
                 <h3>🏫 {tutor.school}</h3>
@@ -157,7 +156,7 @@ export default function TutorHome() {
                   <span>👔 Previous Experience:</span> {tutor.experience}
                 </p>
                 <p>
-                  <span>➕ Additional Information:</span>  {tutor.other}
+                  <span>➕ Additional Information:</span> {tutor.other}
                 </p>
               </div>
             </div>
