@@ -13,7 +13,7 @@ const firebaseConfig = {
   storageBucket: "tutorlab-cbc12.appspot.com",
   messagingSenderId: "139698875677",
   appId: "1:139698875677:web:b1cf5521f436152d7085f4",
-  storageBucket: "gs://tutorlab-139a3.appspot.com"
+  storageBucket: "gs://tutorlab-cbc12.appspot.com"
 }
 
 // Initialize Firebase
