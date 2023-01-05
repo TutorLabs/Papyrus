@@ -3,6 +3,7 @@ import "./Modal.scss";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import RedButton from "../ui-components/RedButton";
+import GreenButton from "../ui-components/Button";
 
 const style = {
   position: "absolute",
@@ -14,7 +15,14 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal({ handleClose, open, handleDelete }) {
+export default function BasicModal({
+  handleClose,
+  open,
+  red,
+  handleUpload,
+  handleDelete,
+  text,
+}) {
   return (
     <div className="modal">
       <Modal
@@ -25,12 +33,13 @@ export default function BasicModal({ handleClose, open, handleDelete }) {
       >
         <Box sx={style} className="modal_box">
           <h1> Are you sure?</h1>
-          <p>
-            Are you sure you want to delete this posting? This action is
-            irreversible.
-          </p>
+          <p>{text}</p>
           <div className="modal_button_container">
-            <RedButton text="Delete" click={handleDelete} />
+            {red ? (
+              <RedButton text="Delete" click={handleDelete} />
+            ) : (
+              <GreenButton text="Okay" click={handleUpload} />
+            )}
             <p onClick={handleClose}>Cancel</p>
           </div>
         </Box>
