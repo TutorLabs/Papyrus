@@ -3,7 +3,6 @@ import Navbar from "./components/layout/Navigation/Navbar";
 import Footer from "./components/layout/Footer";
 import Error from "./components/ui-components/Error";
 import Snackbar from "./components/ui-components/Snackbar";
-import Notifications from "./pages/Notifications";
 import Landing from "./pages/Landing";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
@@ -42,11 +41,6 @@ function App() {
             <Route path="/tutorhome" element={<TutorHome />} exact></Route>
           </Route>
           <Route path="/" element={<Landing />} exact></Route>
-          <Route
-            path="/notifications"
-            element={<Notifications />}
-            exact
-          ></Route>
           <Route path="/signup" element={<SignUp />} exact></Route>
           <Route path="/signin" element={<SignIn />} exact></Route>
           <Route path="/verify" element={<Verify />} exact></Route>

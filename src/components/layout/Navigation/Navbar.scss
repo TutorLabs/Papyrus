@@ -42,17 +42,6 @@
   background-color: #f8f9fa;
 }
 
-.mobile-notification {
-  position: absolute;
-  top: 1rem;
-  right: 4rem;
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 21px;
-}
-
 .toggle-button {
   display: none;
   position: absolute;
@@ -69,16 +58,6 @@
   width: 100%;
   background-color: #221f20;
   border-radius: 10px;
-}
-
-.notifications {
-  display: block;
-  margin: auto;
-  padding: 1rem 2rem;
-  &:hover {
-    background-color: #f8f9fa;
-    cursor: pointer;
-  }
 }
 
 .mobile_language_toggle {
@@ -107,10 +86,6 @@
     box-shadow: none;
   }
 
-  .notifications {
-    display: none;
-  }
-
   .desktop_language_toggle {
     display: none;
   }
@@ -121,10 +96,6 @@
 
   .toggle-button {
     display: flex;
-  }
-
-  .mobile-notification {
-    display: block;
   }
 
   .navbar-links {

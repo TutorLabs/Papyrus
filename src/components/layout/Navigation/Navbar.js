@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import { useState } from "react";
-import Badge from "@mui/material/Badge";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import NotifBox from "./NotifBox";
 import LanguageToggle from "./LanguageToggle";
 import Logo from "../../../images/logo.png";
 //redux
@@ -14,17 +11,13 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 function Navbar() {
   const [isActive, setActive] = useState(false);
-  const [notifications, setNotifications] = useState(false);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { role, signedIn } = useSelector((state) => state.auth);
 
   const toggleNavbar = () => {
     setActive(!isActive);
-  };
-
-  const showNotifications = () => {
-    setNotifications((prevNotif) => !prevNotif);
   };
 
   const handleLogout = () => {
@@ -46,13 +39,7 @@ function Navbar() {
         <span className="bar"></span>
         <span className="bar"></span>
       </div>
-      <Link to="/notifications">
-        <div className="mobile-notification">
-          <Badge badgeContent={4} color="primary">
-            <NotificationsIcon sx={{ color: "#221F20" }} />
-          </Badge>
-        </div>
-      </Link>
+
       <div className="mobile_language_toggle">
         <LanguageToggle />
       </div>
@@ -98,13 +85,6 @@ function Navbar() {
           <div className="desktop_language_toggle">
             <LanguageToggle />
           </div>
-
-          <div className="notifications" onClick={showNotifications}>
-            <Badge badgeContent={4} color="primary">
-              <NotificationsIcon sx={{ color: "#221F20" }} />
-            </Badge>
-          </div>
-          {notifications ? <NotifBox /> : null}
         </ul>
       </div>
     </nav>
