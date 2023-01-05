@@ -1,5 +1,9 @@
 .student_home {
-  margin: 10px;
+  .student_home_content {
+    padding-top: 360px;
+    margin: 10px;
+  }
+
   .sub_header {
     font-weight: 600;
     font-size: 25px;
@@ -25,7 +29,9 @@
 
 @media (min-width: 1200px) {
   .student_home {
-    margin: 40px;
+    .student_home_content {
+      margin: 40px;
+    }
     .home_action_box {
       margin-top: 20px;
       display: flex;

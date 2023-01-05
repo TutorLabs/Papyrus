@@ -8,6 +8,7 @@ import Support from "../images/home/support.svg";
 import Header from "../components/layout/Header";
 import ActionBox from "../components/home/ActionBox";
 import PostingBox from "../components/home/Student/PostingBox";
+import Cover from "../components/home/Tutor/Cover";
 
 import Grid from "@mui/material/Grid";
 
@@ -52,52 +53,61 @@ export default function Home() {
 
   return (
     <div className="student_home">
-      <Header title={t("Home")} subtitle="View information important to you" />
-      <div className="home_action_box">
-        <Link to="/create" className="home_action_box_link">
-          <ActionBox img={Create} title="Create" subtitle="Make a new post" />
-        </Link>
+      <Cover
+        image="https://images.pexels.com/photos/10698547/pexels-photo-10698547.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        cover="https://images.pexels.com/photos/137618/pexels-photo-137618.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+      />
+      <div className="student_home_content">
+        <Header
+          title={t("Home")}
+          subtitle="View information important to you"
+        />
+        <div className="home_action_box">
+          <Link to="/create" className="home_action_box_link">
+            <ActionBox img={Create} title="Create" subtitle="Make a new post" />
+          </Link>
 
-        <a href="mailto:hello@tutorlab.io" className="home_action_box_link">
-          <ActionBox
-            img={Support}
-            title="Support"
-            subtitle="Send us an email"
-          />
-        </a>
+          <a href="mailto:hello@tutorlab.io" className="home_action_box_link">
+            <ActionBox
+              img={Support}
+              title="Support"
+              subtitle="Send us an email"
+            />
+          </a>
+        </div>
+        <h2 className="sub_header">{t("Postings you have created")}:</h2>
+        <hr />
+        {loading === true && (
+          <h1 className="loading">Fetching your postings...</h1>
+        )}
+
+        {loading === false && (
+          <Grid container>
+            {postings.map((post) => {
+              return (
+                <Grid item sm={12} lg={6} key={post._id}>
+                  <PostingBox
+                    id={post._id}
+                    name={`${post.firstname} ${post.lastname}`}
+                    subjects={post.subjects}
+                    class={post.class}
+                    medium={post.medium}
+                    max_salary={post.max_salary}
+                    min_salary={post.min_salary}
+                    location={post.location}
+                    tutor_gender={post.tutor_gender}
+                    student_gender={post.student_gender}
+                    availability_days={post.availability_days}
+                    institution={post.school}
+                    online={post.online}
+                    getPostings={getPostings}
+                  />
+                </Grid>
+              );
+            })}
+          </Grid>
+        )}
       </div>
-      <h2 className="sub_header">{t("Postings you have created")}:</h2>
-      <hr />
-      {loading === true && (
-        <h1 className="loading">Fetching your postings...</h1>
-      )}
-
-      {loading === false && (
-        <Grid container>
-          {postings.map((post) => {
-            return (
-              <Grid item sm={12} lg={6} key={post._id}>
-                <PostingBox
-                  id={post._id}
-                  name={`${post.firstname} ${post.lastname}`}
-                  subjects={post.subjects}
-                  class={post.class}
-                  medium={post.medium}
-                  max_salary={post.max_salary}
-                  min_salary={post.min_salary}
-                  location={post.location}
-                  tutor_gender={post.tutor_gender}
-                  student_gender={post.student_gender}
-                  availability_days={post.availability_days}
-                  institution={post.school}
-                  online={post.online}
-                  getPostings={getPostings}
-                />
-              </Grid>
-            );
-          })}
-        </Grid>
-      )}
     </div>
   );
 }
