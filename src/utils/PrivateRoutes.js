@@ -6,7 +6,7 @@ const PrivateRoutes = (correctRole) => {
     const { role } = useSelector((state) => state.auth)
     
     return(
-        signedIn && correctRole.correctRole == role ? <Outlet/> : <Navigate to="/signin" />
+        signedIn && correctRole.correctRole === role ? <Outlet/> : <Navigate to="/signin" />
     )
 }
 
