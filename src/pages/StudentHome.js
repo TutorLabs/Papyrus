@@ -18,6 +18,7 @@ export default function Home() {
   const dispatch = useDispatch(); // for error demonstration
   const { t } = useTranslation(); // for translation demonstration
   const [postings, setPostings] = useState([]);
+  const [photo, setPhoto] = useState("");
   const [loading, setLoading] = useState(false);
   const { token } = useSelector((state) => state.auth);
 
@@ -46,15 +47,27 @@ export default function Home() {
         dispatch(updateText("Server failed to fetch data. Please try again"));
       });
   };
+  const userInfo = async () => {
+    const response = await fetch("/api/phone", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const json = await response.json();
+    setPhoto(json.photoUrl);
+  };
 
   useEffect(() => {
     getPostings();
+    userInfo();
   }, []);
 
   return (
     <div className="student_home">
       <Cover
-        image="https://images.pexels.com/photos/10698547/pexels-photo-10698547.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        image={photo}
         cover="https://images.pexels.com/photos/137618/pexels-photo-137618.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
       />
       <div className="student_home_content">
