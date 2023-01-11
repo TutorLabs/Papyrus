@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import "./AuthContainer.scss";
@@ -43,13 +43,14 @@ export default function SignInContainer() {
 
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const allDetails = async () => {
-  //     const response = await fetch("/api/posting");
-  //     const json = await response.json();
-  //   };
-  //   allDetails();
-  // }, []);
+  // To offset invalid csrf token with inital post request
+  useEffect(() => {
+    const allDetails = async () => {
+      const response = await fetch("/testapi");
+      const json = await response.json();
+    };
+    allDetails();
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();

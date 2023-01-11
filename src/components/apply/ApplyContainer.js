@@ -49,7 +49,6 @@ export default function ApplyContainer() {
   }, []);
 
   const filteredPostings = postings.filter((posting) => {
-    console.log(posting.school);
     let name = `${posting.firstname} ${posting.lastname}`;
     if (inputText === "") {
       return posting;

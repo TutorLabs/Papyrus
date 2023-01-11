@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import "./AuthContainer.scss";
@@ -25,13 +25,14 @@ export default function SignUpContainer() {
   const dispatch = useDispatch();
   const cookies = new Cookies();
 
-  // useEffect(() => {
-  //   const allDetails = async () => {
-  //     const response = await fetch("/api/posting");
-  //     const json = await response.json();
-  //   };
-  //   allDetails();
-  // }, []);
+  // To offset invalid csrf token with inital post request
+  useEffect(() => {
+    const allDetails = async () => {
+      const response = await fetch("/testapi");
+      const json = await response.json();
+    };
+    allDetails();
+  }, []);
 
   // state management
   const [values, setValues] = useState({

@@ -33,7 +33,6 @@ export default function AppliedBoxes(props) {
     if (props.tutors.length !== 0) {
       setEmpty(false);
     }
-    console.log(props.tutors.length);
     if (props.tutors[0]) {
       setSelectedTutor(props?.tutors[0]);
 
