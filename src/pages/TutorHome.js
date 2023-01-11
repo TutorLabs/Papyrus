@@ -52,8 +52,6 @@ export default function TutorHome() {
     userInfo();
   }, []);
 
-  console.log(tutor);
-
   const handleEdit = () => {
     navigate("/profile");
   };

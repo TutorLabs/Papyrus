@@ -10,6 +10,9 @@ import ActionBox from "../components/home/ActionBox";
 import PostingBox from "../components/home/Student/PostingBox";
 import Cover from "../components/home/Tutor/Cover";
 
+import { getAuth} from "firebase/auth"
+import { updateToken } from "../redux/auth";
+
 import Grid from "@mui/material/Grid";
 
 import { useTranslation } from "react-i18next"; // for translation demonstration
@@ -21,6 +24,15 @@ export default function Home() {
   const [photo, setPhoto] = useState("");
   const [loading, setLoading] = useState(false);
   const { token } = useSelector((state) => state.auth);
+
+  // To be finished
+  const refreshToken = () => {
+    getAuth().onIdTokenChanged(function(user) {
+      if (user.accessToken !== token) {
+        dispatch(updateToken(user.accessToken))
+      }
+    })
+  }
 
   const getPostings = async () => {
     setLoading(true);
@@ -60,6 +72,7 @@ export default function Home() {
   };
 
   useEffect(() => {
+    refreshToken()
     getPostings();
     userInfo();
   }, []);

@@ -38,6 +38,44 @@ export default function MoreInfo({ tutor, applied }) {
 
   const handleAccept = () => {
     setOpen(true);
+    const tutorid = {
+      tutor_id: tutor._id,
+    };
+    fetch(`/api/connected/${postid}`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "CSRF-Token": cookies.get("XSRF-TOKEN"),
+      },
+      body: JSON.stringify(tutorid)
+    })
+    .then((response) => response.json())
+    .then((smsContent) => {
+      const APIKEY = 'bokMHdSKvyUvSbHXxZ64'
+      const SenderID = '8809617611064'
+
+      const StudentMessage = `Congratulations! You have been connected with a tutor.
+      Student Name: ${smsContent.studentFullName} 
+      Tutor Name: ${smsContent.tutorFullName}
+      Tutor Phone Number: ${smsContent.tutorPhoneNumber}`
+
+      const TutorMessage = `Congratulations! You have been connected with a student.
+      Student Name: ${smsContent.studentFullName} 
+      Tutor Name: ${smsContent.tutorFullName}
+      Student Phone Number: ${smsContent.studentPhoneNumber}`
+
+      console.log(smsContent.tutorPhoneNumber)
+      console.log(smsContent)
+
+      fetch(`https://bulksmsbd.net/api/smsapi?api_key=${APIKEY}&type=text&number=${smsContent.studentPhoneNumber}&senderid=${SenderID}&message=${StudentMessage}`)
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+
+      fetch(`https://bulksmsbd.net/api/smsapi?api_key=${APIKEY}&type=text&number=${smsContent.tutorPhoneNumber}&senderid=${SenderID}&message=${TutorMessage}`)
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+    })
   };
 
   return (

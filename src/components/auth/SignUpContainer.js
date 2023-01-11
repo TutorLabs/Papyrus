@@ -60,7 +60,6 @@ export default function SignUpContainer() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(values);
     const data = {
       number: values.number
     };
