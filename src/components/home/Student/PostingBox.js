@@ -63,12 +63,6 @@ export default function PostingBox(props) {
       />
 
       <div className="posting_header">
-        <div className="avatar">
-          <img
-            alt="avatar"
-            src="https://images.pexels.com/photos/10698547/pexels-photo-10698547.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-          />
-        </div>
         <div className="header_text">
           <h1>{props.name}</h1>
           <h3>
