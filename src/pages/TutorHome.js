@@ -46,7 +46,6 @@ export default function TutorHome() {
       });
       const json = await response.json();
       const data = json.tutorInfo;
-      console.log(json.tutorInfo);
       setTutor(data);
     };
     userInfo();
