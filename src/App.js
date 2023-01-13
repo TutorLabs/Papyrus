@@ -3,7 +3,7 @@ import Navbar from "./components/layout/Navigation/Navbar";
 import Footer from "./components/layout/Footer";
 import Error from "./components/ui-components/Error";
 import Snackbar from "./components/ui-components/Snackbar";
-import Landing from "./pages/Landing";
+import Landing from "./pages/1Landing";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Verify from "./pages/Verify";
