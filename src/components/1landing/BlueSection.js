@@ -5,7 +5,9 @@ export default function BlueSection() {
     <div className="blue_section">
       <p className="title">Ready to learn?</p>
       <p className="content">Let us introduce you to some tutors we think you'd like</p>
+      <div className="button_container">
       <button className="button">Get help finding a tutor</button>
+      </div>
     </div>
   );
 }

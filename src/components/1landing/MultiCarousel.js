@@ -20,7 +20,8 @@ const responsive = {
 
 export default function MultiCarousel() {
   return (
-    <div>
+    <div className="multi_carousel">
+      <p>Connect with tutors from top universities</p>
       <Carousel
         responsive={responsive}
         autoPlay={true}

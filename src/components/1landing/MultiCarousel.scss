@@ -1,9 +1,19 @@
-.carousel {
+.multi_carousel {
   background-color: #f3f4f6;
-  height: 25vh;
-  img {
-    width: 130px;
-    height: 140px;
+  p {
+    padding-top: 2rem;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    text-align: center;
+    color: #555d6a;
+  }
+
+  .carousel {
+    height: 20vh;
+    img {
+      width: 130px;
+      height: 140px;
+    }
   }
 }
-
