@@ -12,8 +12,9 @@
   .carousel {
     height: 20vh;
     img {
-      width: 130px;
       height: 140px;
+      max-width: 204px;
+      padding: 10px;
     }
   }
 }
