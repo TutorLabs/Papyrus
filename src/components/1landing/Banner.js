@@ -20,7 +20,7 @@ export default function Banner() {
           className="typist"
         />
       </p>
-      <button className="button">Request invitation to waitlist</button>
+      <button className="button" onClick={() => window.open("https://mahzabin-rashid.com")}>Request invitation to waitlist</button>
     </div>
   );
 }

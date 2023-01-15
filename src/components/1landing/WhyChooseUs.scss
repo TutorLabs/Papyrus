@@ -1,0 +1,57 @@
+.why_choose_us {
+  padding: 1.5rem 1rem;
+  h1 {
+    text-align: left;
+  }
+  .content {
+    border-radius: 0.75rem;
+    padding: 20px;
+
+    .title {
+      color: #000;
+      letter-spacing: -0.025em;
+      font-weight: 800;
+      font-size: 1.35rem;
+      line-height: 2.5rem;
+    }
+
+    .circle {
+      background-color: white;
+      height: 60px;
+      width: 60px;
+      padding: 12px;
+      font-size: 30px;
+      border-radius: 50%;
+      text-align: center;
+      text-decoration: none;
+      color: #1f026b;
+      margin: auto auto 10px auto;
+
+      box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+  }
+  .first {
+    background-color: #ffdbdf;
+  }
+  .second {
+    background-color: #dfffec;
+  }
+  .third {
+    background-color: #d5f7ff;
+  }
+  .fourth {
+    background-color: #fdf5cc;
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  // for desktop
+  .why_choose_us {
+    padding: 3rem 11rem;
+  }
+}
