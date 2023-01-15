@@ -38,6 +38,7 @@ export default function MultiCarousel() {
         centerMode={true}
         draggable={true}
         containerClass="carousel"
+        itemClass="carousel_item"
         shouldResetAutoplay={true}
       >
         <img src={Sunnydale} />

@@ -17,4 +17,17 @@
       padding: 10px;
     }
   }
+  .carousel_item {
+    width: 200px !important;
+  }
+}
+
+@media (min-width: 640px) {
+  .multi_carousel {
+    .carousel {
+      img {
+        margin-right: 0px;
+      }
+    }
+  }
 }
