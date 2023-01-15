@@ -6,13 +6,15 @@ export default function Banner() {
   return (
     <div className="banner">
       <p className="title">
-        Find a great private <br/> <span>tutor online</span>
+        Experience better <br /> <span>learning</span>
       </p>
       <p className="content">
-        Prepare to succeed and get help with{" "}
+        Say goodbye to struggling, and hello to success with the right tutor
+        <br />
+        Get help with{" "}
         <Typed
           loop
-          strings={["Math", "Physics", "Chemistry"]}
+          strings={["Math", "Physics", "Economics", "Chemistry", "Accounting", "Biology", "Business Studies"]}
           typeSpeed={40}
           backSpeed={50}
           className="typist"
