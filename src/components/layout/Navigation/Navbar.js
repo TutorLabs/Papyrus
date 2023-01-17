@@ -73,7 +73,7 @@ function Navbar() {
           )}
           {signedIn === false && (
             <li>
-              <Link to="/signup">Sign up/Log in</Link>
+              {/* <Link to="/signup">Sign up/Log in</Link> */}
             </li>
           )}
           {signedIn === true && (
