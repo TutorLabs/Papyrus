@@ -10,7 +10,7 @@ import {
 export default function WhyChooseUs(props) {
   return (
     <div className="why_choose_us">
-      <h1>Why Choose Us</h1>
+      <h1>Why Choose TutorLab</h1>
       <Grid container spacing={4}>
         <Grid item xs={12} lg={3}>
           <div className="content first">

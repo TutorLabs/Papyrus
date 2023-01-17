@@ -25,7 +25,7 @@ export default function SimpleSteps() {
           <StepContainer
             num="3"
             title="Start learning with  TutorLab!"
-            text="Get the best learning experience from our tutors. Click here to get started!"
+            text="Get the best learning experience from our tutors." //Click here to get started!"
           />
         </Grid>
       </Grid>
