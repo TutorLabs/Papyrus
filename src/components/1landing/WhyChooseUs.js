@@ -20,7 +20,7 @@ export default function WhyChooseUs(props) {
             <p className="title">0% Commission</p>
             <p>
               Tutors rejoice! We don’t keep your monthly salary. All of it goes
-              directly to you.
+              to you.
               <br />
               <br />
               <br />
