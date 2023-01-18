@@ -32,9 +32,9 @@ export default function Banner() {
           </p>
           <button
             className="button"
-            onClick={() => window.open("https://mahzabin-rashid.com")}
+            onClick={() => window.open("https://forms.gle/LoVWjKzL8NkXQ2XJ6")}
           >
-            Request invitation to waitlist
+            Join waitlist now!
           </button>
         </Grid>
         <Grid item xs={12} md={6}>

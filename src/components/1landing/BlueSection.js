@@ -10,7 +10,7 @@ export default function BlueSection() {
       <div className="button_container">
         <button
           className="button"
-          onClick={() => window.open("https://mahzabin-rashid.com")}
+          onClick={() => window.open("https://forms.gle/LoVWjKzL8NkXQ2XJ6")}
         >
           Sign up for our waitlist
         </button>
