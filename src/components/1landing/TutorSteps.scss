@@ -1,0 +1,34 @@
+.tutor_steps {
+  padding: 1.5rem 1rem;
+  h1 {
+    text-align: left;
+  }
+  .text {
+    .title {
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+    }
+    p {
+      margin: 0px;
+      font-size: 1.35rem;
+      line-height: 2.5rem;
+    }
+  }
+  .image {
+    text-align: center;
+    margin-top: 2rem;
+    img {
+      height: 200px;
+    }
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  // for desktop
+  .tutor_steps {
+    padding: 3rem 11rem;
+    .image {
+      margin-top: 0rem;
+    }
+  }
+}
