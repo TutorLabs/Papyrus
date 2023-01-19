@@ -1,7 +1,7 @@
 import "./Banner.scss";
 import Grid from "@mui/material/Grid";
 import Typed from "react-typed";
-import BannerImg from "../../images/banner.png";
+import BannerImg from "../../images/landing/banner.png";
 export default function Banner() {
   return (
     <div className="banner">

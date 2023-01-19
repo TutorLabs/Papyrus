@@ -1,6 +1,6 @@
 import "./1Landing.scss";
 import Banner from "../components/1landing/Banner";
-import Carousel from "../components/1landing/MultiCarousel";
+import Carousel from "../components/1landing/Universities";
 import SimpleSteps from "../components/1landing/SimpleSteps";
 import WhyChooseUs from "../components/1landing/WhyChooseUs";
 import BlueSection from "../components/1landing/BlueSection";
@@ -19,8 +19,8 @@ export default function Landing() {
       <TutorSteps />
       <StudentSteps />
       <BlueSection />
-      <MissAnything />
       <Questions />
+      <MissAnything />
     </div>
   );
 }

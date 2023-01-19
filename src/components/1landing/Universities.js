@@ -1,4 +1,4 @@
-import "./MultiCarousel.scss";
+import "./Universities.scss";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -6,11 +6,9 @@ import Brac from "../../images/landing/brac.png";
 import NorthSouth from "../../images/landing/north_south.png";
 import BUET from "../../images/landing/buet.png";
 import DU from "../../images/landing/dhaka_university.png";
-
-// import Sunnydale from "../../images/landing/sunnydale.png";
-// import Mastermind from "../../images/landing/mastermind.png";
-// import Scholastica from "../../images/landing/scholastica.png";
-// import MapleLeaf from "../../images/landing/maple_leaf.png";
+import EW from "../../images/landing/east_west.png";
+import ULAB from "../../images/landing/ulab.png";
+import IUB from "../../images/landing/independent.png";
 
 const responsive = {
   desktop: {
@@ -43,14 +41,13 @@ export default function MultiCarousel() {
         itemClass="carousel_item"
         shouldResetAutoplay={true}
       >
-        {/* <img src={Sunnydale} />
-        <img src={Mastermind} />
-        <img src={MapleLeaf} />
-         <img src={Scholastica} /> */}
         <img src={BUET} />
         <img src={DU} />
         <img src={NorthSouth} />
         <img src={Brac} />
+        <img src={EW} />
+        <img src={ULAB} />
+        <img src={IUB} />
       </Carousel>
     </div>
   );
