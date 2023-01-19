@@ -2,10 +2,7 @@
   padding: 1.5rem 1rem;
   .faq-row-wrapper {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding: 2.5rem 2rem;
     .faq-title {
       font-size: 2.25rem;
       line-height: 2.5rem;
@@ -14,17 +11,18 @@
     }
 
     .faq-body {
-      //   padding-top: 1.5rem;
       .faq-row {
         padding: 1rem 0rem;
         .row-title {
+          font-weight: 600;
+          font-size: 1.125rem;
+          line-height: 1.75rem;
         }
-
         .row-content {
-          //   padding-top: 1.5rem;
           .row-content-text {
             font-size: 1.125rem;
             line-height: 1.75rem;
+            color: #797e8a;
           }
         }
       }
