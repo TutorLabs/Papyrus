@@ -3,9 +3,9 @@ import Grid from "@mui/material/Grid";
 import Carousel from "react-multi-carousel";
 import StudentImg from "../../images/landing/student_img.png";
 import "react-multi-carousel/lib/styles.css";
+
 const responsive = {
   superLargeDesktop: {
-    // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 0 },
     items: 1,
   },
@@ -13,19 +13,22 @@ const responsive = {
 
 export default function StudentSteps() {
   return (
-    <div className="tutor_steps">
-      <h1>Get started as a Student</h1>
+    <div className="tutor_steps student_steps">
+      <h2>Want to Learn as a student?</h2>
       <Grid container>
+        <Grid item xs={12} md={6} className="image">
+          <img src={StudentImg} />
+        </Grid>
         <Grid item xs={12} md={6} className="content">
           <Carousel
             responsive={responsive}
             draggable={true}
-            showDots={true}
+            showDots={false}
+            arrows={true}
             autoPlay={true}
             autoPlaySpeed={5000}
             keyBoardControl={true}
             removeArrowOnDeviceType={["tablet", "mobile"]}
-            // arrows={false}
             itemClass="item_class"
           >
             <div className="text">
@@ -52,9 +55,6 @@ export default function StudentSteps() {
               </p>
             </div>
           </Carousel>
-        </Grid>
-        <Grid item xs={12} md={6} className="image">
-          <img src={StudentImg} />
         </Grid>
       </Grid>
     </div>
