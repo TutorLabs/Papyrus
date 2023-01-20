@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import { useState } from "react";
 import LanguageToggle from "./LanguageToggle";
-import Logo from "../../../images/logo.png";
+import Logo from "../../../images/logo.svg";
 //redux
 import { useDispatch } from "react-redux";
 import { updateToken, updateRole, updateSignedIn } from "../../../redux/auth";
@@ -73,7 +73,7 @@ function Navbar() {
           )}
           {signedIn === false && (
             <li>
-              <Link to="/signup">Sign up/Log in</Link>
+              {/* <Link to="/signup">Sign up/Log in</Link> */}
             </li>
           )}
           {signedIn === true && (

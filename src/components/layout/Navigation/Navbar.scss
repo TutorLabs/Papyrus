@@ -5,12 +5,14 @@
   top: 0;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
   font-family: "Fira Code", monospace;
   background-color: white;
   z-index: 1;
+  border-bottom: 1px solid #e3e3e3;
+
   img {
-    height: 50px;
+    height: 40px;
     width: 50px;
     margin-left: 2px;
     margin-top: 2px;
@@ -63,8 +65,7 @@
 .mobile_language_toggle {
   display: none;
   position: absolute;
-  top: 0.5rem;
-  right: 6rem;
+  right: 0rem;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -81,9 +82,7 @@
   .navbar {
     flex-direction: column;
     align-items: flex-start;
-    border-bottom: none;
     position: relative;
-    box-shadow: none;
   }
 
   .desktop_language_toggle {
@@ -95,7 +94,8 @@
   }
 
   .toggle-button {
-    display: flex;
+    display: none;
+    // flex; // disabled for initial launch
   }
 
   .navbar-links {

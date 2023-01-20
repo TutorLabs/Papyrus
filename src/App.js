@@ -3,7 +3,7 @@ import Navbar from "./components/layout/Navigation/Navbar";
 import Footer from "./components/layout/Footer";
 import Error from "./components/ui-components/Error";
 import Snackbar from "./components/ui-components/Snackbar";
-import Landing from "./pages/Landing";
+import Landing from "./pages/1Landing";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Verify from "./pages/Verify";
@@ -27,10 +27,9 @@ function App() {
       <Snackbar />
       <main>
         <Routes>
-          <Route path="/studenthome" element={<StudentHome />} exact></Route>
           <Route element={<PrivateRoutes correctRole="student" />}>
             <Route path="/create" element={<Create />} exact></Route>
-
+            <Route path="/studenthome" element={<StudentHome />} exact></Route>
             <Route path="/applied/:id" element={<Applied />} exact></Route>
             <Route path="/edit/:id" element={<Edit />} exact></Route>
             <Route path="/tutor/:id" element={<TutorInfo />} exact></Route>
@@ -41,9 +40,9 @@ function App() {
             <Route path="/tutorhome" element={<TutorHome />} exact></Route>
           </Route>
           <Route path="/" element={<Landing />} exact></Route>
-          <Route path="/signup" element={<SignUp />} exact></Route>
+          {/* <Route path="/signup" element={<SignUp />} exact></Route>
           <Route path="/signin" element={<SignIn />} exact></Route>
-          <Route path="/verify" element={<Verify />} exact></Route>
+          <Route path="/verify" element={<Verify />} exact></Route> */}
         </Routes>
       </main>
       <footer>
