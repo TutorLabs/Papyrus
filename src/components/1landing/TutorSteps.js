@@ -15,9 +15,9 @@ export default function TutorSteps() {
   return (
     <div className="tutor_steps">
       <h1>Get started with TutorLab</h1>
-      <h2>How does Tutoring work?</h2>
+      <h2 className="tutor_title">How does Tutoring work?</h2>
       <Grid container>
-        <Grid item xs={12} md={6} className="content">
+        <Grid item xs={12} md={6}>
           <Carousel
             responsive={responsive}
             draggable={true}

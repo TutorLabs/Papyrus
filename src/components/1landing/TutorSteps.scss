@@ -1,17 +1,30 @@
 .tutor_steps {
   padding: 1.5rem 1rem;
-  h1 {
-    text-align: left;
+  .item_class {
+    background-color: #f3f4f6;
+    padding: 3rem 2rem;
+    border-radius: 20px;
   }
+  h1 {
+    text-align: center;
+  }
+
   h2 {
     text-align: center;
     margin-bottom: 1.5rem;
+  }
+  .tutor_title {
+    text-align: left;
+  }
+  .student_title {
+    text-align: left;
   }
   .text {
     .title {
       margin: 0rem;
       padding-bottom: 0.5rem;
       font-size: 2rem;
+      text-align: left;
     }
     p {
       margin: 0px;
@@ -26,18 +39,12 @@
       height: 200px;
     }
   }
-
-  .content {
-    background-color: #f3f4f6;
-    padding: 3rem;
-    border-radius: 20px;
-  }
 }
 
 @media only screen and (min-width: 640px) {
   // for desktop
   .student_steps {
-    padding: 0rem 11rem 3rem 11rem!important;
+    padding: 0rem 11rem 3rem 11rem !important;
   }
   .tutor_steps {
     padding: 3rem 11rem;
