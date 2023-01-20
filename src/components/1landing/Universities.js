@@ -6,6 +6,8 @@ import Brac from "../../images/landing/brac.png";
 import NorthSouth from "../../images/landing/north_south.png";
 import BUET from "../../images/landing/buet.png";
 import DU from "../../images/landing/dhaka_university.png";
+
+import { useTranslation } from "react-i18next";
 import EW from "../../images/landing/east_west.png";
 import ULAB from "../../images/landing/ulab.png";
 import IUB from "../../images/landing/independent.png";
@@ -26,9 +28,10 @@ const responsive = {
 };
 
 export default function MultiCarousel() {
+  const { t } = useTranslation();
   return (
     <div className="multi_carousel">
-      <p>Connect with tutors from top universities</p>
+      <p>{t('Connect with tutors from top universities')}</p>
       <Carousel
         responsive={responsive}
         autoPlay={true}

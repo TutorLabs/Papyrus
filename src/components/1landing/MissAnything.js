@@ -5,13 +5,15 @@ import {
   faInstagram,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
+import { useTranslation } from "react-i18next";
 
 export default function MissAnything() {
+  const { t } = useTranslation();
   return (
     <div className="miss_anything">
-      <p className="title">Did we miss anything?</p>
+      <p className="title">{t('Did we miss anything?')}</p>
       <p className="content">
-        Reach out to us at{" "}
+        {t('Reach out to us at')} {" "}
         <a href="mailto:hello@tutorlab.io">hello@tutorlab.io</a>
       </p>
       <div className="icons">

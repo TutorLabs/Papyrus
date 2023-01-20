@@ -1,5 +1,6 @@
 import "./Questions.scss";
 import Faq from "react-faq-component";
+import { useTranslation } from "react-i18next";
 
 const data = {
   title: "Frequently asked questions",
@@ -23,6 +24,7 @@ const data = {
 };
 
 export default function Questions() {
+  const { t } = useTranslation();
   return (
     <div className="questions">
       <Faq data={data} />

@@ -2,18 +2,20 @@ import "./Banner.scss";
 import Grid from "@mui/material/Grid";
 import Typed from "react-typed";
 import BannerImg from "../../images/landing/banner.png";
+import { useTranslation } from "react-i18next";
 export default function Banner() {
+  const { t } = useTranslation();
   return (
     <div className="banner">
       <Grid container>
         <Grid item xs={12} md={6} className="banner_text">
           <p className="title">
-            Experience better <br /> <span>learning</span>
+            {t('Experience better')}<br /> <span>{t('learning')}</span>
           </p>
           <p className="content">
-            Say goodbye to struggling, and hello to success with the right tutor
+            {t('Say Goodbye to struggling, and Hello to success with the right tutor')}
             <br />
-            Get help with{" "}
+            {t('Get help with')} {" "}
             <Typed
               loop
               strings={[
@@ -34,7 +36,7 @@ export default function Banner() {
             className="button"
             onClick={() => window.open("https://forms.gle/LoVWjKzL8NkXQ2XJ6")}
           >
-            Join waitlist now!
+            {t('Join waitlist now!')}
           </button>
         </Grid>
         <Grid item xs={12} md={6}>

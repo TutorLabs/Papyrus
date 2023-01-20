@@ -7,20 +7,23 @@ import {
   faForward,
   faRobot,
 } from "@fortawesome/fontawesome-free-solid";
+
+import { useTranslation } from "react-i18next";
+
 export default function WhyChooseUs(props) {
+  const { t } = useTranslation();
   return (
     <div className="why_choose_us">
-      <h1>Why Choose TutorLab</h1>
+      <h1>{t('Why Choose TutorLab')}</h1>
       <Grid container spacing={4}>
         <Grid item xs={12} lg={3}>
           <div className="content first">
             <div className="circle">
               <FontAwesomeIcon icon={faMoneyBill} />
             </div>
-            <p className="title">0% Commission</p>
+            <p className="title">{t('0% Commission')}</p>
             <p>
-              Tutors rejoice! We don’t keep your monthly salary. All of it goes
-              to you.
+              {t('Tutors rejoice! We don’t keep your monthly salary. All of it goes to you')}
               <br />
               <br />
               <br />
@@ -32,9 +35,9 @@ export default function WhyChooseUs(props) {
             <div className="circle">
               <FontAwesomeIcon icon={faBolt} />
             </div>
-            <p className="title">Fast & Free Sign Up</p>
+            <p className="title">{t('Fast & Free Sign Up')}</p>
             <p>
-              Register for free using only your phone number
+              {t('Register for free using only your phone number')} 
               <br />
               <br />
               <br />
@@ -47,9 +50,9 @@ export default function WhyChooseUs(props) {
             <div className="circle">
               <FontAwesomeIcon icon={faForward} />
             </div>
-            <p className="title">Skilled Tutors</p>
+            <p className="title">{t('Skilled Tutors')}</p>
             <p>
-              Improve your education with the guidance of professional tutors
+              {t('Improve your education with the guidance of professional tutors')} 
               <br />
               <br />
               <br />
@@ -61,10 +64,9 @@ export default function WhyChooseUs(props) {
             <div className="circle">
               <FontAwesomeIcon icon={faRobot} />
             </div>
-            <p className="title">Fully Automated</p>
+            <p className="title">{t('Fully Automated')}</p>
             <p>
-              There is no need to contact us. Simply sign up, create a posting,
-              wait for tutors to apply and connect with them!
+              {t('There is no need to contact us. Simply sign up, create a posting, wait for tutors to apply and connect with them!')}
             </p>
           </div>
         </Grid>
