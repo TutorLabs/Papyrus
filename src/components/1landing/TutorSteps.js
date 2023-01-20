@@ -15,8 +15,8 @@ export default function TutorSteps() {
   const { t } = useTranslation();
   return (
     <div className="tutor_steps">
-      <h1>Get started with TutorLab</h1>
-      <h2 className="tutor_title">How does Tutoring work?</h2>
+      <h1>{t('Get started with TutorLab')}</h1>
+      <h2 className="tutor_title">{t('How does tutoring work?')}</h2>
       <Grid container>
         <Grid item xs={12} md={6}>
           <Carousel

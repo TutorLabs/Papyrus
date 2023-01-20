@@ -15,14 +15,12 @@ export default function StudentSteps() {
   const { t } = useTranslation();
   return (
     <div className="tutor_steps student_steps">
-      <h2>{t('Want to learn as a student?')}</h2>
       <Grid container>
         <Grid item xs={12} md={6} className="image">
           <img src={StudentImg} />
         </Grid>
-
         <Grid item xs={12} md={6}>
-          <h2 className="student_title">Want to Learn as a student?</h2>
+          <h2 className="student_title">{t('Want to learn as a student?')}</h2>
           <Carousel
             responsive={responsive}
             draggable={true}
