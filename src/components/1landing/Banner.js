@@ -19,13 +19,13 @@ export default function Banner() {
             <Typed
               loop
               strings={[
-                "Math",
-                "Physics",
-                "Economics",
-                "Chemistry",
-                "Accounting",
-                "Biology",
-                "Business Studies",
+                `${t("Math")}`,
+                `${t("Physics")}`,
+                `${t('Economics')}`,
+                `${t("Chemistry")}`,
+                `${t("Accounting")}`,
+                `${t("Biology")}`,
+                `${t("English")}`,
               ]}
               typeSpeed={40}
               backSpeed={50}

@@ -46,5 +46,21 @@
   "Step 4": "স্টেপ ৪",
   "Get started with TutorLab" : "টিউটরল্যাব ব্যবহার করা শুরু করুন",
   "How does tutoring work?": "কীভাবে টিউটর করবেন?",
-  "Want to learn as a student?": "শিখতে চান?"
+  "Want to learn as a student?": "শিখতে চান?",
+  "Frequently asked questions": "ফ্রিকুয়েন্টলি আস্কেড কোশ্চেন্স",
+  "How fast can I get a tutor?": "আমি কত দ্রুত একজন টিউটর পেতে পারি?",
+  "Experience better": "এক্সপেরিয়েন্স বেটার",
+  "learning": "লার্নিং",
+  "On average, it takes 24-48 hours to connect with a tutor, however, it can sometimes be faster. We understand the importance of finding a tutor as soon as possible and we make every effort to make the process as fast and seamless as possible. Once you create a posting looking for a tutor after signing up, you will see tutors applying to your posting from which you can connect with a tutor of your choosing": "গড়ে, একজন টিউটর সাথে সংযোগ করতে 24-48 ঘন্টা সময় লাগে, তবে কখনও কখনও এটি দ্রুত হতে পারে। আমরা একজন শিক্ষক খোঁজার গুরুত্ব বুঝতে পারি এবং আমরা প্রক্রিয়াটিকে যতটা সম্ভব দ্রুত এবং নির্বিঘ্ন করার জন্য সর্বাত্মক প্রচেষ্টা করি। সাইন আপ করার পরে আপনি একবার একজন শিক্ষকের সন্ধানে একটি পোস্টিং তৈরি করলে, আপনি আপনার পোস্টিংয়ে টিউটরদের আবেদন করতে দেখতে পাবেন যা আপনি আপনার পছন্দের একজন  টিউটার এর সাথে সংযোগ করতে পারেন",
+  "Can you help me find a tutor?": "আপনি আমাকে একজন টিউটর খুঁজে পেতে সাহায্য করতে পারেন?",
+  "Yes, we can help you find a tutor. We understand how important it is to find the right tutor for your needs, and we are here to help. If you are looking for a tutor, you can email us at hello@tutorlab.io and we will get you started on the process": "হ্যাঁ আমরা আপনাকে একজন টিউটর খুঁজে পেতে সাহায্য করতে পারি। আমরা বুঝতে পারি যে আপনার প্রয়োজনের জন্য সঠিক টিউটর খুঁজে পাওয়া কতটা গুরুত্বপূর্ণ এবং আমরা সাহায্য করতে এখানে আছি। আপনি যদি একজন টিউটর খুঁজছেন তাহলে আপনি আমাদের ইমেল করতে পারেন hello@tutorlab.io এবং আমরা আপনার প্রক্রিয়া শুরু করব",
+  "Why did you start TutorLab?": "আপনি টিউটরল্যাব কেন শুরু করেছেন?",
+  "We started TutorLab because we noticed a gap in the market for a large-scale tutoring service that could efficiently connect students with qualified tutors. We had been receiving requests from parents who were struggling to find reliable tutors for their children, and at the same time, we were hearing from tutors who were having difficulty finding students. We saw an opportunity to bridge this gap by creating a platform that could streamline the process of finding the right tutor for each student, and vice versa. We wanted to create a service that would make it easier for parents to find the right tutors for their children and for tutors to find students who needed their help. And thus, this platform was born": "আমরা টিউটরল্যাব শুরু করেছি কারণ আমরা একটি বৃহৎ স্কেল টিউটরিং পরিষেবার জন্য বাজারে একটি ফাঁক লক্ষ্য করেছি যা দক্ষতার সাথে শিক্ষার্থীদের যোগ্য টিউটরদের সাথে সংযুক্ত করতে পারে। আমরা অভিভাবকদের কাছ থেকে অনুরোধ পেয়েছিলাম যারা তাদের সন্তানদের জন্য নির্ভরযোগ্য টিউটর খুঁজে পেতে সংগ্রাম করছিলেন, এবং একই সময়ে আমরা এমন শিক্ষকদের কাছ থেকে শুনছিলাম যারা ছাত্রদের খুঁজে পেতে সমস্যায় পড়েছিল। আমরা একটি প্ল্যাটফর্ম তৈরি করে এই ব্যবধান পূরণ করার একটি সুযোগ দেখেছি যা প্রতিটি শিক্ষার্থীর জন্য সঠিক টিউটর খুঁজে বের করার প্রক্রিয়াটিকে প্রবাহিত করতে পারে এবং তদ্বিপরীত। আমরা এমন একটি পরিষেবা তৈরি করতে চেয়েছিলাম যা অভিভাবকদের, তাদের সন্তানদের জন্য সঠিক টিউটর খুঁজে পাওয়া সহজ করে তুলবে এবং টিউটরদের থেকে যাদের সাহায্য প্রয়োজন তা খুঁজে বের করতে এই এপটি সাহায্য করবে। এবং এইভাবে এই প্ল্যাটফর্মের তৈরি হয়েছিল",
+  "Math": "গণিত",
+  "Physics": "পদার্থবিজ্ঞান",
+  "Economics": "অর্থনীতি",
+  "Chemistry": "রসায়নবিজ্ঞান",
+  "Accounting": "একাউন্টিং",
+  "Biology": "জীববিজ্ঞান",
+  "English": "ইংরেজি"
 }
