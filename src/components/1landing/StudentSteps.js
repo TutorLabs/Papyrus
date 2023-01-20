@@ -18,9 +18,10 @@ export default function StudentSteps() {
       <Grid container>
         <Grid item xs={12} md={6} className="image student_img">
           <img src={StudentImg} />
+          <hr className="student_hr"/>
         </Grid>
         <Grid item xs={12} md={6}>
-          <h2 className="student_title">{t('Want to learn as a student?')}</h2>
+          <h2 className="tutor_title">{t("Want to learn as a student?")}</h2>
           <Carousel
             responsive={responsive}
             draggable={true}
@@ -33,20 +34,29 @@ export default function StudentSteps() {
             itemClass="item_class"
           >
             <div className="text">
-              <h1 className="title">{t('Step 1')}</h1>
-              <p>{t('Signup and make a posting for the kind of tutor you are looking for - include all your information for a higher match rate')}</p>
+              <h2 className="title">{t("Step 1")}</h2>
+              <p>
+                {t(
+                  "Signup and make a posting for the kind of tutor you are looking for - include all your information for a higher match rate"
+                )}
+              </p>
             </div>
             <div className="text">
-              <h1 className="title">{t('Step 2')}</h1>
-              <p>{t('Wait for tutors to apply to your posting')}</p>
+              <h2 className="title">{t("Step 2")}</h2>
+              <p>{t("Wait for tutors to apply to your posting")}</p>
             </div>
             <div className="text">
-              <h1 className="title">{t('Step 3')}</h1>
-              <p>{t('Select the tutor you like after looking at their profile')}</p>
+              <h2 className="title">{t("Step 3")}</h2>
+              <p>
+                {t("Select the tutor you like after looking at their profile")}
+              </p>
             </div>
             <div className="text">
-              <h1 className="title">{t('Step 4')}</h1>
-              <p>{t('After successfully matching, a SMS is sent to you with the details on how to contact your tutor, after which you can set up your first class')}
+              <h2 className="title">{t("Step 4")}</h2>
+              <p>
+                {t(
+                  "After successfully matching, a SMS is sent to you with the details on how to contact your tutor, after which you can set up your first class"
+                )}
               </p>
             </div>
           </Carousel>

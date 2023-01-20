@@ -50,6 +50,7 @@ export default function TutorSteps() {
         </Grid>
         <Grid item xs={12} md={6} className="image">
           <img src={TutorImg} />
+          <hr/>
         </Grid>
       </Grid>
     </div>

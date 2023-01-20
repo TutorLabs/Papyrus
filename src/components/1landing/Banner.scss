@@ -1,5 +1,5 @@
 .banner {
-  padding: 4rem 1rem;
+  padding: 2.5rem 1rem;
   margin-top: 70px;
 
   .title {
@@ -53,7 +53,6 @@
 
   .banner_text {
     margin: auto;
-    padding-left: 5%;
   }
 }
 
@@ -67,6 +66,9 @@
     .content {
       font-size: 1.125rem;
       line-height: 1.75rem;
+    }
+    .banner_text {
+      padding-left: 5%;
     }
   }
 }

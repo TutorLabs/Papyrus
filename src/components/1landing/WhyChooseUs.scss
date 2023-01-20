@@ -3,7 +3,6 @@
   .content {
     border-radius: 0.75rem;
     padding: 20px;
-    height: 300px;
 
     .title {
       color: #000;
@@ -50,5 +49,8 @@
   // for desktop
   .why_choose_us {
     padding: 3rem 11rem;
+    .content {
+      height: 300px;
+    }
   }
 }

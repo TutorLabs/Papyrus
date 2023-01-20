@@ -10,7 +10,7 @@
   }
 
   .student_img {
-    margin-top: 6rem!important;
+    margin-top: 0rem!important;
   }
 
   h2 {
@@ -19,15 +19,14 @@
   }
   .tutor_title {
     text-align: left;
+    font-weight: 800;
   }
-  .student_title {
-    text-align: left;
-  }
+
   .text {
     .title {
       margin: 0rem;
       padding-bottom: 0.5rem;
-      font-size: 2rem;
+      font-size: 1.5rem;
       text-align: left;
     }
     p {
@@ -43,6 +42,9 @@
       height: 200px;
     }
   }
+  .student_hr {
+    background-color: white;
+  }
 }
 
 @media only screen and (min-width: 640px) {
@@ -52,11 +54,14 @@
   }
   .tutor_steps {
     padding: 3rem 11rem;
-    h2 {
-      margin-bottom: 3rem;
+    .student_img {
+      margin-top: 6rem !important;
     }
     .image {
       margin-top: 3rem;
+    }
+    .student_hr {
+      background-color: rgba(0, 0, 0, 0.12);
     }
   }
 }
