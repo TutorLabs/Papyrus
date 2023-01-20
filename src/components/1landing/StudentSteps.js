@@ -16,7 +16,7 @@ export default function StudentSteps() {
   return (
     <div className="tutor_steps student_steps">
       <Grid container>
-        <Grid item xs={12} md={6} className="image">
+        <Grid item xs={12} md={6} className="image student_img">
           <img src={StudentImg} />
         </Grid>
         <Grid item xs={12} md={6}>
