@@ -57,7 +57,6 @@ const LangSwitch = styled((props) => (
 export default function LanguageToggle() {
   const { i18n } = useTranslation();
   const handleChange = (event) => {
-    console.log(event.target.checked);
     if (event.target.checked) {
       i18n.changeLanguage("en");
     } else {
