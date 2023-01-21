@@ -36,7 +36,7 @@ export default function MissAnything() {
           </div>
         </a>
         <a
-          href="https://www.linkedin.com/in/mahzabin-rashid/"
+          href="https://www.linkedin.com/company/tutorlab-io/"
           target="_blank"
           rel="noopener noreferrer"
         >
