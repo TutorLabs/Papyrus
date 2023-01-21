@@ -28,7 +28,7 @@ export default function StudentSteps() {
             showDots={false}
             arrows={true}
             autoPlay={true}
-            autoPlaySpeed={5000}
+            autoPlaySpeed={8000}
             keyBoardControl={true}
             removeArrowOnDeviceType={["tablet", "mobile"]}
             itemClass="item_class"
