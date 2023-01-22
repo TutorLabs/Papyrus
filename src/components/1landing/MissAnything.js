@@ -18,7 +18,7 @@ export default function MissAnything() {
       </p>
       <div className="icons">
         <a
-          href="https://www.linkedin.com/in/mahzabin-rashid/"
+          href="https://www.instagram.com/tutorlab.io/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -27,7 +27,7 @@ export default function MissAnything() {
           </div>
         </a>
         <a
-          href="https://www.linkedin.com/in/mahzabin-rashid/"
+          href="https://www.facebook.com/tutorlab.io"
           target="_blank"
           rel="noopener noreferrer"
         >
