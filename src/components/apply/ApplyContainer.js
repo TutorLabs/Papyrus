@@ -8,6 +8,8 @@ import Box from "@mui/material/Box";
 import SearchBar from "./SearchBar";
 import ApplyBox from "./ApplyBox";
 
+import { useSelector } from "react-redux";
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -32,6 +34,8 @@ export default function ApplyContainer() {
   const [value, setValue] = useState(0);
   const [inputText, setInputText] = useState("");
   const [postings, setPostings] = useState([]);
+  const [appliedPostings, setAppliedPostings] = useState([])
+  const {token} = useSelector((state) => state.auth)
 
   let inputHandler = (event) => {
     // convert input text to lower case
@@ -41,14 +45,46 @@ export default function ApplyContainer() {
 
   useEffect(() => {
     const allDetails = async () => {
-      const response = await fetch("/api/posting");
+      const response = await fetch("/api/posting", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`
+        }
+      })
       const json = await response.json();
       setPostings(json.postings);
+      setAppliedPostings(json.appliedPostings)
     };
     allDetails();
   }, []);
 
   const filteredPostings = postings.filter((posting) => {
+    let name = `${posting.firstname} ${posting.lastname}`;
+    if (inputText === "") {
+      return posting;
+    } else
+      return (
+        (name.toLowerCase().includes(inputText) ||
+          posting.school?.toLowerCase().includes(inputText) ||
+          posting.subjects
+            .map((sub) => sub?.toLowerCase())
+            .toString()
+            .includes(inputText) ||
+          posting.max_salary?.toLowerCase().includes(inputText) ||
+          posting.min_salary?.toLowerCase().includes(inputText) ||
+          posting.availability_days?.toLowerCase().includes(inputText) ||
+          `class ${posting.class}`?.toLowerCase().includes(inputText) ||
+          posting.medium?.toLowerCase().includes(inputText) ||
+          posting.location?.toLowerCase().includes(inputText) ||
+          posting.online?.toLowerCase().includes(inputText) ||
+          posting.tutor_gender?.toLowerCase() === inputText ||
+          posting.student_gender?.toLowerCase() === inputText) &&
+        posting
+      );
+  });
+
+  const filteredAppliedPostings = appliedPostings.filter((posting) => {
     let name = `${posting.firstname} ${posting.lastname}`;
     if (inputText === "") {
       return posting;
@@ -113,7 +149,29 @@ export default function ApplyContainer() {
           </div>
         </TabPanel>
         <TabPanel value={value} index={1}>
-         
+          <div>
+            <SearchBar postings={appliedPostings} inputHandler={inputHandler} />
+            {filteredAppliedPostings.map((posting) => (
+              <ApplyBox
+                key={posting._id}
+                id={posting._id}
+                img = {posting.photoUrl}
+                name={`${posting.firstname} ${posting.lastname}`}
+                date={posting.date}
+                school={posting.school}
+                subjects={posting.subjects}
+                max_salary={posting.max_salary}
+                min_salary={posting.min_salary}
+                days={posting.availability_days}
+                preferred_gender={posting.tutor_gender}
+                student_gender={posting.student_gender}
+                class={posting.class}
+                medium={posting.medium}
+                location={posting.location}
+                online={posting.online}
+              />
+            ))}
+          </div>
         </TabPanel>
       </Box>
     </div>

@@ -40,9 +40,9 @@ function App() {
             <Route path="/tutorhome" element={<TutorHome />} exact></Route>
           </Route>
           <Route path="/" element={<Landing />} exact></Route>
-          {/* <Route path="/signup" element={<SignUp />} exact></Route>
+          <Route path="/signup" element={<SignUp />} exact></Route>
           <Route path="/signin" element={<SignIn />} exact></Route>
-          <Route path="/verify" element={<Verify />} exact></Route> */}
+          <Route path="/verify" element={<Verify />} exact></Route>
         </Routes>
       </main>
       <footer>
