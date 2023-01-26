@@ -6,6 +6,7 @@ import "./AuthContainer.scss";
 // redux imports
 import { useDispatch } from "react-redux";
 import { updateVerifyCode, updateInitialInfo } from "../../redux/verifyCode";
+import { updateText } from "../../redux/error";
 
 // material-ui imports
 import TextField from "@mui/material/TextField";
@@ -85,8 +86,10 @@ export default function SignUpContainer() {
             navigate("/verify");
           })
           .catch((error) => {
-            console.log(error);
+            dispatch(updateText("Invalid phone number format."))
           });
+      } else {
+        dispatch(updateText("This phone number already exists."))
       }
     })
   };

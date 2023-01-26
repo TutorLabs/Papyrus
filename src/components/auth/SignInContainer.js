@@ -7,6 +7,7 @@ import "./AuthContainer.scss";
 import { useDispatch } from "react-redux";
 import { updateVerifyCode } from "../../redux/verifyCode";
 import { updateRole } from "../../redux/auth";
+import { updateText } from "../../redux/error";
 
 // material-ui imports
 import FormControl from "@mui/material/FormControl";
@@ -81,7 +82,7 @@ export default function SignInContainer() {
               console.log(error);
             });
         } else {
-          navigate("/signup");
+          dispatch(updateText("This phone number does not exist."))
         }
       });
   };

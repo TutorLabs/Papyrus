@@ -6,6 +6,7 @@ import "./AuthContainer.scss";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { updateToken, updateRole, updateSignedIn } from "../../redux/auth";
+import { updateText } from "../../redux/error";
 
 // material-ui imports
 import FormControl from "@mui/material/FormControl";
@@ -75,7 +76,8 @@ export default function VerifyContainer() {
           });
       })
       .catch((error) => {
-        console.log(error);
+        dispatch(updateText("Invalid verification code. Please signin again."))
+        navigate("/signin")
       });
   };
 
