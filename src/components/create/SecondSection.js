@@ -82,6 +82,7 @@ export default function SecondSection({ formData, setFormData }) {
               <Select onChange={handleChange("online")} value={formData.online}>
                 <MenuItem value={"Online"}>Online</MenuItem>
                 <MenuItem value={"In-Person"}>In-person</MenuItem>
+                <MenuItem value={"Hybrid"}>Hybrid</MenuItem>
               </Select>
             </FormControl>
           </div>
