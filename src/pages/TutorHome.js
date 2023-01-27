@@ -1,6 +1,7 @@
 import "./TutorHome.scss";
 import { useEffect, useState } from "react";
 import Edit from "../images/home/tutoredit.svg";
+import Apply from "../images/home/pointer.svg";
 import Support from "../images/home/support.svg";
 import Header from "../components/layout/Header";
 import ActionBox from "../components/home/ActionBox";
@@ -55,6 +56,10 @@ export default function TutorHome() {
     navigate("/profile");
   };
 
+  const handleApply = () => {
+    navigate("/apply");
+  };
+
   return (
     <div className="tutor_home">
       <Cover
@@ -67,6 +72,15 @@ export default function TutorHome() {
           subtitle="View information important to you"
         />
         <div className="home_action_box">
+          <div className="home_action_box_link">
+            <div onClick={handleApply}>
+              <ActionBox
+                img={Apply}
+                title="Apply"
+                subtitle="Apply to postings"
+              />
+            </div>
+          </div>
           <div className="home_action_box_link">
             <div onClick={handleEdit}>
               <ActionBox img={Edit} title="Edit" subtitle="Edit your profile" />

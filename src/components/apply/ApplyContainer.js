@@ -59,7 +59,7 @@ export default function ApplyContainer() {
     allDetails();
   }, []);
 
-  const filteredPostings = postings.filter((posting) => {
+  const filteredPostings = postings?.filter((posting) => {
     let name = `${posting.firstname} ${posting.lastname}`;
     if (inputText === "") {
       return posting;
@@ -84,7 +84,7 @@ export default function ApplyContainer() {
       );
   });
 
-  const filteredAppliedPostings = appliedPostings.filter((posting) => {
+  const filteredAppliedPostings = appliedPostings?.filter((posting) => {
     let name = `${posting.firstname} ${posting.lastname}`;
     if (inputText === "") {
       return posting;
@@ -126,7 +126,7 @@ export default function ApplyContainer() {
         <TabPanel value={value} index={0}>
           <div>
             <SearchBar postings={postings} inputHandler={inputHandler} />
-            {filteredPostings.map((posting) => (
+            {filteredPostings?.map((posting) => (
               <ApplyBox
                 key={posting._id}
                 id={posting._id}
@@ -151,7 +151,7 @@ export default function ApplyContainer() {
         <TabPanel value={value} index={1}>
           <div>
             <SearchBar postings={appliedPostings} inputHandler={inputHandler} />
-            {filteredAppliedPostings.map((posting) => (
+            {filteredAppliedPostings?.map((posting) => (
               <ApplyBox
                 key={posting._id}
                 id={posting._id}
