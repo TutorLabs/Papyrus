@@ -74,24 +74,24 @@ export default function SignUpContainer() {
       },
       body: JSON.stringify(data),
     })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.exists === false) {
-        generateRecaptcha();
-        let appVerifier = window.recaptchaVerifier;
-        signInWithPhoneNumber(authentication, values.number, appVerifier)
-          .then((confirmationResult) => {
-            dispatch(updateVerifyCode(confirmationResult));
-            dispatch(updateInitialInfo(values));
-            navigate("/verify");
-          })
-          .catch((error) => {
-            dispatch(updateText("Invalid phone number format."))
-          });
-      } else {
-        dispatch(updateText("This phone number already exists."))
-      }
-    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.exists === false) {
+          generateRecaptcha();
+          let appVerifier = window.recaptchaVerifier;
+          signInWithPhoneNumber(authentication, values.number, appVerifier)
+            .then((confirmationResult) => {
+              dispatch(updateVerifyCode(confirmationResult));
+              dispatch(updateInitialInfo(values));
+              navigate("/verify");
+            })
+            .catch((error) => {
+              dispatch(updateText("Invalid phone number format."));
+            });
+        } else {
+          dispatch(updateText("This phone number already exists."));
+        }
+      });
   };
 
   return (
@@ -132,6 +132,7 @@ export default function SignUpContainer() {
               <InputAdornment position="start">+88</InputAdornment>
             }
             value={values.number}
+            type="number"
             onChange={handleChange("number")}
             required
           />

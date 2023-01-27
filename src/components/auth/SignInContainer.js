@@ -96,8 +96,11 @@ export default function SignInContainer() {
             className="auth_text_field"
             id="outlined-adornment-amount"
             placeholder="Mobile Number"
-            startAdornment={<InputAdornment position="start">+88</InputAdornment>}
+            startAdornment={
+              <InputAdornment position="start">+88</InputAdornment>
+            }
             value={number}
+            type="number"
             onChange={handleChange}
             required
           />
