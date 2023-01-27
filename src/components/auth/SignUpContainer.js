@@ -62,7 +62,7 @@ export default function SignUpContainer() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = {
-      number: values.number
+      number: `+88${values.number}`,
     };
     fetch("/api/exists", {
       method: "POST",
@@ -73,22 +73,22 @@ export default function SignUpContainer() {
       },
       body: JSON.stringify(data),
     })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.exists === false) {
-        generateRecaptcha();
-        let appVerifier = window.recaptchaVerifier;
-        signInWithPhoneNumber(authentication, values.number, appVerifier)
-          .then((confirmationResult) => {
-            dispatch(updateVerifyCode(confirmationResult));
-            dispatch(updateInitialInfo(values));
-            navigate("/verify");
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
-    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.exists === false) {
+          generateRecaptcha();
+          let appVerifier = window.recaptchaVerifier;
+          signInWithPhoneNumber(authentication, values.number, appVerifier)
+            .then((confirmationResult) => {
+              dispatch(updateVerifyCode(confirmationResult));
+              dispatch(updateInitialInfo(values));
+              navigate("/verify");
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        }
+      });
   };
 
   return (
@@ -125,7 +125,9 @@ export default function SignUpContainer() {
             className="auth_text_field"
             id="outlined-adornment-amount"
             placeholder="Mobile Number"
-            startAdornment={<InputAdornment position="start"></InputAdornment>}
+            startAdornment={
+              <InputAdornment position="start">+88</InputAdornment>
+            }
             value={values.number}
             onChange={handleChange("number")}
             required

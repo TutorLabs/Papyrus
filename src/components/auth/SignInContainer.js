@@ -55,7 +55,7 @@ export default function SignInContainer() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = {
-      number: number,
+      number: `+88${values.number}`,
     };
     fetch("/api/exists", {
       method: "POST",
@@ -96,7 +96,9 @@ export default function SignInContainer() {
             className="auth_text_field"
             id="outlined-adornment-amount"
             placeholder="Mobile Number"
-            startAdornment={<InputAdornment position="start"></InputAdornment>}
+            startAdornment={
+              <InputAdornment position="start">+88</InputAdornment>
+            }
             value={number}
             onChange={handleChange}
             required
