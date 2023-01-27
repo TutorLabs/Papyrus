@@ -36,17 +36,17 @@ export default function AppliedBoxes(props) {
     if (props.tutors[0]) {
       setSelectedTutor(props?.tutors[0]);
 
-      props.tutors.map((tutor) => {
-        if (
-          tutor.university !== "NA" &&
-          tutor.university !== "N/A" &&
-          tutor.university !== ""
-        ) {
-          console.log(tutor.university);
-        } else {
-          console.log(tutor.school);
-        }
-      });
+      // props.tutors.map((tutor) => {
+      //   if (
+      //     tutor.university !== "NA" &&
+      //     tutor.university !== "N/A" &&
+      //     tutor.university !== ""
+      //   ) {
+      //     console.log(tutor.university);
+      //   } else {
+      //     console.log(tutor.school);
+      //   }
+      // });
     }
   }, [props.tutors]);
 
@@ -84,7 +84,7 @@ export default function AppliedBoxes(props) {
                   : `${tutor.class}`
               }
               tutor_gender={tutor.tutor_gender}
-              img="https://images.pexels.com/photos/10698547/pexels-photo-10698547.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              photoUrl = {tutor.photoUrl}
             />
           </div>
         ))}
