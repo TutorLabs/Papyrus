@@ -7,7 +7,6 @@ import "./AuthContainer.scss";
 import { useDispatch } from "react-redux";
 import { updateVerifyCode } from "../../redux/verifyCode";
 import { updateRole } from "../../redux/auth";
-import { updateText } from "../../redux/error";
 
 // material-ui imports
 import FormControl from "@mui/material/FormControl";
@@ -56,7 +55,7 @@ export default function SignInContainer() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = {
-      number: `+88${values.number}`,
+      number: `+88${number}`,
     };
     fetch("/api/exists", {
       method: "POST",
@@ -82,7 +81,7 @@ export default function SignInContainer() {
               console.log(error);
             });
         } else {
-          dispatch(updateText("This phone number does not exist."))
+          navigate("/signup");
         }
       });
   };
@@ -97,9 +96,7 @@ export default function SignInContainer() {
             className="auth_text_field"
             id="outlined-adornment-amount"
             placeholder="Mobile Number"
-            startAdornment={
-              <InputAdornment position="start">+88</InputAdornment>
-            }
+            startAdornment={<InputAdornment position="start">+88</InputAdornment>}
             value={number}
             onChange={handleChange}
             required
