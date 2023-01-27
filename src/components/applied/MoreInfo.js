@@ -87,7 +87,7 @@ export default function MoreInfo({ tutor, applied }) {
       />
       <img
         alt="user"
-        src="https://images.pexels.com/photos/10698547/pexels-photo-10698547.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        src={tutor.photoUrl}
       />
       <div className="posting_buttons">
         {applied === true && (

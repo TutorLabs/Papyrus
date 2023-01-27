@@ -5,6 +5,7 @@ import Eye from "../../images/eye.svg";
 
 export default function TutorList(props) {
   const handleView = () => {
+    console.log(props)
     window.open(`/tutor/${props.id}`, "_blank");
   };
 
@@ -14,7 +15,7 @@ export default function TutorList(props) {
         <div className="user_img">
           <img
             alt="user"
-            src="https://images.pexels.com/photos/10698547/pexels-photo-10698547.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            src={props.photoUrl}
           />
         </div>
         <div className="content">

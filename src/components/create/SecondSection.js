@@ -12,13 +12,16 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Box from "@mui/material/Box";
 
 const subjects = [
-  "All",
   "Mathematics",
   "Biology",
   "Chemistry",
   "Physics",
   "English",
-  "Bengali",
+  "Bangla",
+  "Economics",
+  "Accounting",
+  "Business Studies",
+  ""
 ];
 
 export default function SecondSection({ formData, setFormData }) {
@@ -96,7 +99,7 @@ export default function SecondSection({ formData, setFormData }) {
               >
                 <MenuItem value={"Male"}>Male</MenuItem>
                 <MenuItem value={"Female"}>Female</MenuItem>
-                <MenuItem value={"None"}>None</MenuItem>
+                <MenuItem value={"No Preference"}>No Preference</MenuItem>
               </Select>
             </FormControl>
           </div>

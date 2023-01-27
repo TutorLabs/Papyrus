@@ -6,6 +6,7 @@ import "./AuthContainer.scss";
 // redux imports
 import { useDispatch } from "react-redux";
 import { updateVerifyCode, updateInitialInfo } from "../../redux/verifyCode";
+import { updateText } from "../../redux/error";
 
 // material-ui imports
 import TextField from "@mui/material/TextField";
@@ -73,22 +74,24 @@ export default function SignUpContainer() {
       },
       body: JSON.stringify(data),
     })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.exists === false) {
-          generateRecaptcha();
-          let appVerifier = window.recaptchaVerifier;
-          signInWithPhoneNumber(authentication, values.number, appVerifier)
-            .then((confirmationResult) => {
-              dispatch(updateVerifyCode(confirmationResult));
-              dispatch(updateInitialInfo(values));
-              navigate("/verify");
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-        }
-      });
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.exists === false) {
+        generateRecaptcha();
+        let appVerifier = window.recaptchaVerifier;
+        signInWithPhoneNumber(authentication, values.number, appVerifier)
+          .then((confirmationResult) => {
+            dispatch(updateVerifyCode(confirmationResult));
+            dispatch(updateInitialInfo(values));
+            navigate("/verify");
+          })
+          .catch((error) => {
+            dispatch(updateText("Invalid phone number format."))
+          });
+      } else {
+        dispatch(updateText("This phone number already exists."))
+      }
+    })
   };
 
   return (

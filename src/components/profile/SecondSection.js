@@ -43,6 +43,11 @@ const locations = [
   "Elephant Road",
   "Shyamoli",
   "Adabor",
+  "Kalabagan",
+  "RayerBazar",
+  "Green Road",
+  "Eskaton",
+  "Paribagh"
 ];
 
 export default function SecondSection({ formData, setFormData }) {
