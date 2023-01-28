@@ -62,8 +62,12 @@ export default function SignUpContainer() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    // comment the next two lines out and uncomment the 3rd line to test without +88. Remove +88 from text and comment out type="number" on line 139 for testing.
+    const countrycode = '+88'
+    const phoneNumber = countrycode.concat(values.number)
+    // const phoneNumber = number
     const data = {
-      number: `+88${values.number}`,
+      number: phoneNumber
     };
     fetch("/api/exists", {
       method: "POST",
@@ -79,7 +83,7 @@ export default function SignUpContainer() {
         if (data.exists === false) {
           generateRecaptcha();
           let appVerifier = window.recaptchaVerifier;
-          signInWithPhoneNumber(authentication, values.number, appVerifier)
+          signInWithPhoneNumber(authentication, phoneNumber, appVerifier)
             .then((confirmationResult) => {
               dispatch(updateVerifyCode(confirmationResult));
               dispatch(updateInitialInfo(values));

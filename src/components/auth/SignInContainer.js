@@ -17,6 +17,7 @@ import Cookies from "universal-cookie";
 
 import { authentication } from "../../firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import { updateText } from "../../redux/error";
 
 export default function SignInContainer() {
   const dispatch = useDispatch();
@@ -54,8 +55,12 @@ export default function SignInContainer() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    // comment the next two lines out and uncomment the 3rd line to test without +88. Remove +88 from text and comment out type="number" on line 107 for testing.
+    const countrycode = '+88'
+    const phoneNumber = countrycode.concat(number)
+    // const phoneNumber = number
     const data = {
-      number: `+88${number}`,
+      number: phoneNumber
     };
     fetch("/api/exists", {
       method: "POST",
@@ -71,7 +76,7 @@ export default function SignInContainer() {
         if (data.exists === true) {
           generateRecaptcha();
           let appVerifier = window.recaptchaVerifier;
-          signInWithPhoneNumber(authentication, number, appVerifier)
+          signInWithPhoneNumber(authentication, phoneNumber, appVerifier)
             .then((confirmationResult) => {
               dispatch(updateVerifyCode(confirmationResult));
               dispatch(updateRole(data.role));
@@ -81,7 +86,7 @@ export default function SignInContainer() {
               console.log(error);
             });
         } else {
-          navigate("/signup");
+          dispatch(updateText("This phone number does not exist."))
         }
       });
   };
