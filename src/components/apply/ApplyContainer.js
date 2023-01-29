@@ -1,18 +1,17 @@
 import { useState, useEffect } from "react";
-
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
+import { useSelector } from "react-redux";
 
 import SearchBar from "./SearchBar";
 import ApplyBox from "./ApplyBox";
 
-import { useSelector } from "react-redux";
+// mui
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
 
+// mui
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-
   return (
     <div
       role="tabpanel"
@@ -21,11 +20,7 @@ function TabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
+      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
     </div>
   );
 }
@@ -34,8 +29,8 @@ export default function ApplyContainer() {
   const [value, setValue] = useState(0);
   const [inputText, setInputText] = useState("");
   const [postings, setPostings] = useState([]);
-  const [appliedPostings, setAppliedPostings] = useState([])
-  const {token} = useSelector((state) => state.auth)
+  const [appliedPostings, setAppliedPostings] = useState([]);
+  const { token } = useSelector((state) => state.auth);
 
   let inputHandler = (event) => {
     // convert input text to lower case
@@ -49,12 +44,12 @@ export default function ApplyContainer() {
         method: "GET",
         headers: {
           Accept: "application/json",
-          Authorization: `Bearer ${token}`
-        }
-      })
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const json = await response.json();
       setPostings(json.postings);
-      setAppliedPostings(json.appliedPostings)
+      setAppliedPostings(json.appliedPostings);
     };
     allDetails();
   }, []);
@@ -130,7 +125,7 @@ export default function ApplyContainer() {
               <ApplyBox
                 key={posting._id}
                 id={posting._id}
-                img = {posting.photoUrl}
+                img={posting.photoUrl}
                 name={`${posting.firstname} ${posting.lastname}`}
                 date={posting.date}
                 school={posting.school}
@@ -155,7 +150,7 @@ export default function ApplyContainer() {
               <ApplyBox
                 key={posting._id}
                 id={posting._id}
-                img = {posting.photoUrl}
+                img={posting.photoUrl}
                 name={`${posting.firstname} ${posting.lastname}`}
                 date={posting.date}
                 school={posting.school}
@@ -169,6 +164,7 @@ export default function ApplyContainer() {
                 medium={posting.medium}
                 location={posting.location}
                 online={posting.online}
+                applied={true}
               />
             ))}
           </div>

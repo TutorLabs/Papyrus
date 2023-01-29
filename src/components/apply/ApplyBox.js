@@ -31,16 +31,16 @@ export default function ApplyBox(props) {
       body: JSON.stringify(data),
     }).then((response) => {
       response.json();
-     // dispatch(updateText("Successfully applied to this posting!"));
+      // dispatch(updateText("Successfully applied to this posting!"));
     });
-  }; 
+  };
   return (
     <div className="apply_box">
       <Grid container>
-        <Grid item sm={12} lg={4} className="user_img">
+        <Grid item sm={12} lg={3} className="user_img">
           <img alt="user" src={props.img} />
         </Grid>
-        <Grid item sm={12} lg={8} className="content">
+        <Grid item sm={12} lg={9} className="content">
           <h1>{props.name} </h1>
           <h3>
             🏫 {props.school} |<span> {props.date}</span>
@@ -69,7 +69,7 @@ export default function ApplyBox(props) {
               <span>Student's Gender:</span> {props.student_gender}
             </p>
           </div>
-          <Button text="Apply" click={handleChange} />
+          {!props.applied && <Button text="Apply" click={handleChange} />}
         </Grid>
       </Grid>
     </div>
