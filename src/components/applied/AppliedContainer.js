@@ -10,7 +10,7 @@ import Box from "@mui/material/Box";
 import AppliedBoxes from "./AppliedBoxes";
 import Snackbar, { SnackbarOrigin } from "@mui/material/Snackbar";
 import SnackbarContent from "@mui/material/SnackbarContent";
-import Help from "./Help";
+// import Help from "./Help";
 import TutorHome from "../../pages/TutorHome";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -71,7 +71,7 @@ export default function AppliedContainer() {
 
   return (
     <div className="applied_container">
-      <Help />
+      {/* <Help /> */}
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs value={value} onChange={handleChange}>
