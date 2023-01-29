@@ -1,20 +1,18 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux"; // for error demonstration
-import { updateText } from "../../redux/error"; // for error demonstration
 import "./AppliedContainer.scss";
+import { useState, useEffect } from "react";
+
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { updateText } from "../../redux/error";
+
+import AppliedBoxes from "./AppliedTab";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import AppliedBoxes from "./AppliedBoxes";
-import Snackbar, { SnackbarOrigin } from "@mui/material/Snackbar";
-import SnackbarContent from "@mui/material/SnackbarContent";
-// import Help from "./Help";
-import TutorHome from "../../pages/TutorHome";
+
+// mui
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-
   return (
     <div
       role="tabpanel"
@@ -23,11 +21,7 @@ function TabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
+      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
     </div>
   );
 }
@@ -39,16 +33,15 @@ export default function AppliedContainer() {
   const [applied, setApplied] = useState([]);
   const [liked, setLiked] = useState([]);
 
+  // mui
   const handleChange = (event, newValue) => {
     event.preventDefault();
     setValue(newValue);
   };
 
-  const postid = params.id;
-
   useEffect(() => {
     const allDetails = async () => {
-      await fetch(`/api/applicants/${postid}`)
+      await fetch(`/api/applicants/${params.id}`)
         .then((response) => {
           if (!response.ok) {
             dispatch(
@@ -71,7 +64,6 @@ export default function AppliedContainer() {
 
   return (
     <div className="applied_container">
-      {/* <Help /> */}
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs value={value} onChange={handleChange}>

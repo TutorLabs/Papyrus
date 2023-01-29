@@ -1,8 +1,9 @@
-import "./AppliedBoxes.scss";
+import "./AppliedTab.scss";
 import { useState, useEffect } from "react";
-import MoreInfo from "./MoreInfo";
-import TutorList from "./TutorList";
+import MoreInfoDesktop from "./MoreInfoDesktop";
+import TutorInfo from "./TutorInfo";
 
+// Fariha: check why you need this again
 const initialTutor = {
   _id: "",
   firstname: "",
@@ -25,25 +26,24 @@ const initialTutor = {
   experience: "",
 };
 
-export default function AppliedBoxes(props) {
+export default function AppliedTab(props) {
   const [selectedTutor, setSelectedTutor] = useState(initialTutor);
   const [empty, setEmpty] = useState(true);
+  // Fariha: try to say "fetching postings instead of "no tutors to show" when it is rendering
 
   useEffect(() => {
     if (props.tutors.length !== 0) {
       setEmpty(false);
-    }
-    if (props.tutors[0]) {
-      setSelectedTutor(props?.tutors[0]);
+      setSelectedTutor(props.tutors[0]);
     }
   }, [props.tutors]);
 
   if (empty) {
-    return <h1 className="empty">No tutors to show</h1>;
+    return <p className="empty">No tutors to show</p>;
   }
   return (
-    <div className="applied_boxes">
-      <div className="applied_boxes_tutor_list">
+    <div className="applied_tab">
+      <div className="applied_tab_tutor_list">
         {props.tutors.map((tutor) => {
           if (tutor) {
             return (
@@ -53,7 +53,7 @@ export default function AppliedBoxes(props) {
                   setSelectedTutor(tutor);
                 }}
               >
-                <TutorList
+                <TutorInfo
                   id={tutor._id}
                   firstname={tutor.firstname}
                   lastname={tutor.lastname}
@@ -75,14 +75,17 @@ export default function AppliedBoxes(props) {
                   }
                   tutor_gender={tutor.tutor_gender}
                   photoUrl={tutor.photoUrl}
+                  applied={props.applied}
                 />
               </div>
             );
           }
         })}
       </div>
-      <div className="applied_boxes_more_info">
-        <MoreInfo tutor={selectedTutor} applied={props.applied} />
+      <div className="applied_tab_more_info">
+        {props.tutors && (
+          <MoreInfoDesktop tutor={selectedTutor} applied={props.applied} />
+        )}
       </div>
     </div>
   );

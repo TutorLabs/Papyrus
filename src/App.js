@@ -15,7 +15,6 @@ import Apply from "./pages/Apply";
 import Applied from "./pages/Applied";
 import Profile from "./pages/Profile";
 import PrivateRoutes from "./utils/PrivateRoutes";
-import TutorInfo from "./pages/TutorInfo";
 
 function App() {
   const location = useLocation();
@@ -32,7 +31,6 @@ function App() {
             <Route path="/studenthome" element={<StudentHome />} exact></Route>
             <Route path="/applied/:id" element={<Applied />} exact></Route>
             <Route path="/edit/:id" element={<Edit />} exact></Route>
-            <Route path="/tutor/:id" element={<TutorInfo />} exact></Route>
           </Route>
           <Route element={<PrivateRoutes correctRole="tutor" />}>
             <Route path="/profile" element={<Profile />} exact></Route>

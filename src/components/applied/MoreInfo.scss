@@ -1,16 +1,14 @@
 .more_info {
   border-left: 0px;
-  border-top: 1px solid #e0e0e0;
-  padding: 20px 30px; // removed in tutor list
-  height: 100%;
-
+  padding: 20px 0px;
   .posting_buttons {
     display: flex;
-    width: 70%;
+    width: 100%;
   }
 
   img {
-    width: 70%;
+    max-width: 65%;
+    height: 300px;
     border-radius: 20px;
   }
 
@@ -63,10 +61,15 @@
   }
 }
 
+// for desktop
 @media (min-width: 978px) {
   .more_info {
+    padding: 20px 30px;
     border-left: 1px solid #e0e0e0;
     border-top: 0px;
+    .posting_buttons {
+      width: 70%;
+    }
     .tutorinfo_content {
       .tutorinfo_text {
         .sub_section {

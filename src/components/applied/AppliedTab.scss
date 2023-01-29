@@ -1,24 +1,25 @@
 .empty {
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 36px;
-  padding-top: 10px;
+  p {
+    margin: 0px;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }
-.applied_boxes {
+.applied_tab {
   display: block;
   border: 1px solid #e0e0e0;
 
   border-radius: 20px;
-  .applied_boxes_tutor_list {
+  .applied_tab_tutor_list {
     min-height: 100%;
   }
-  .applied_boxes_more_info {
+  .applied_tab_more_info {
     display: none;
   }
 }
 
 @media only screen and (min-width: 978px) {
-  .applied_boxes {
+  .applied_tab {
     display: flex;
 
     &_tutor_list {
@@ -27,7 +28,7 @@
     &_more_info {
       width: 50%;
     }
-    .applied_boxes_more_info {
+    .applied_tab_more_info {
       display: block;
     }
   }
