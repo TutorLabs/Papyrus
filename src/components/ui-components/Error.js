@@ -31,7 +31,7 @@ export default function Error() {
       >
         <Box sx={style} className="modal_box">
           <h1>Something went wrong!</h1>
-          <p>{text} Please refresh your page and try again.</p>
+          <p>{text}</p>
           <div className="modal_button_container">
             <Button
               text="Okay"

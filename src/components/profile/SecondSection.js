@@ -47,7 +47,7 @@ const locations = [
   "RayerBazar",
   "Green Road",
   "Eskaton",
-  "Paribagh"
+  "Paribagh",
 ];
 
 export default function SecondSection({ formData, setFormData }) {
@@ -135,7 +135,9 @@ export default function SecondSection({ formData, setFormData }) {
               <Select onChange={handleChange("online")} value={formData.online}>
                 <MenuItem value={"Online"}>Online</MenuItem>
                 <MenuItem value={"In Person"}>In-person</MenuItem>
-                <MenuItem value={"Both"}>Okay with both in-person and online</MenuItem>
+                <MenuItem value={"Both"}>
+                  Okay with both in-person and online
+                </MenuItem>
               </Select>
             </FormControl>
           </div>
