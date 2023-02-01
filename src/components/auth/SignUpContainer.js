@@ -30,6 +30,7 @@ export default function SignUpContainer() {
   useEffect(() => {
     const allDetails = async () => {
       const response = await fetch("/testapi");
+      console.log(response)
       const json = await response.json();
     };
     allDetails();
