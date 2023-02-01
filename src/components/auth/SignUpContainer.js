@@ -93,6 +93,7 @@ export default function SignUpContainer() {
               navigate("/verify");
             })
             .catch((error) => {
+              console.log(error)
               dispatch(updateText("Invalid phone number format."));
             });
         } else {
