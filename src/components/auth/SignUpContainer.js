@@ -65,10 +65,12 @@ export default function SignUpContainer() {
     // comment the next two lines out and uncomment the 3rd line to test without +88. Remove +88 from text and comment out type="number" on line 139 for testing.
     const countrycode = '+88'
     const phoneNumber = countrycode.concat(values.number)
-    // const phoneNumber = number
+    // const phoneNumber = values.number
     const data = {
       number: phoneNumber
     };
+    let values_updated = values
+    values_updated = {...values_updated, number: phoneNumber}
     fetch("/api/exists", {
       method: "POST",
       headers: {
@@ -86,7 +88,7 @@ export default function SignUpContainer() {
           signInWithPhoneNumber(authentication, phoneNumber, appVerifier)
             .then((confirmationResult) => {
               dispatch(updateVerifyCode(confirmationResult));
-              dispatch(updateInitialInfo(values));
+              dispatch(updateInitialInfo(values_updated));
               navigate("/verify");
             })
             .catch((error) => {
