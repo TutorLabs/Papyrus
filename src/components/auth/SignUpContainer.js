@@ -85,10 +85,8 @@ export default function SignUpContainer() {
         if (data.exists === false) {
           generateRecaptcha();
           let appVerifier = window.recaptchaVerifier;
-          console.log(phoneNumber)
           signInWithPhoneNumber(authentication, phoneNumber, appVerifier)
             .then((confirmationResult) => {
-              console.log(confirmationResult)
               dispatch(updateVerifyCode(confirmationResult));
               dispatch(updateInitialInfo(values_updated));
               navigate("/verify");
