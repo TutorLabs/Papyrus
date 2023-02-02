@@ -48,7 +48,6 @@ export default function SignInContainer() {
   useEffect(() => {
     const allDetails = async () => {
       const response = await fetch("/api/testapi");
-      console.log(response)
       const json = await response.json();
     };
     allDetails();
