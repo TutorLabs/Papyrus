@@ -20,6 +20,7 @@ export default function VerifyContainer() {
   const { initial_info } = useSelector((state) => state.verifyCode);
   const dispatch = useDispatch();
   const [number, setNumber] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -30,6 +31,10 @@ export default function VerifyContainer() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (loading) {
+      return;
+    }
+    setLoading(true);
     code
       .confirm(number)
       .then((result) => {
@@ -76,8 +81,10 @@ export default function VerifyContainer() {
           });
       })
       .catch((error) => {
-        dispatch(updateText("Invalid verification code. Please signin again."))
-        navigate("/signin")
+        dispatch(
+          updateText("Invalid verification code. Please sign in again.")
+        );
+        navigate("/signin");
       });
   };
 
@@ -98,7 +105,7 @@ export default function VerifyContainer() {
             required
           />
         </FormControl>
-        <button>Verify</button>
+        <button>{loading ? "Loading..." : "Verify"}</button>
       </form>
     </div>
   );

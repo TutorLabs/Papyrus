@@ -25,6 +25,7 @@ import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 export default function SignUpContainer() {
   const dispatch = useDispatch();
   const cookies = new Cookies();
+  const [loading, setLoading] = useState(false);
 
   // To offset invalid csrf token with inital post request
   useEffect(() => {
@@ -62,12 +63,16 @@ export default function SignUpContainer() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (loading) {
+      return;
+    }
+    setLoading(true);
     // comment the next two lines out and uncomment the 3rd line to test without +88. Remove +88 from text and comment out type="number" on line 139 for testing.
-    const countrycode = '+88'
-    const phoneNumber = countrycode.concat(values.number)
-    // const phoneNumber = number
+    const countrycode = "+88";
+    const phoneNumber = countrycode.concat(values.number);
+    // const phoneNumber = values.number;
     const data = {
-      number: phoneNumber
+      number: phoneNumber,
     };
     fetch("/api/exists", {
       method: "POST",
@@ -91,9 +96,11 @@ export default function SignUpContainer() {
             })
             .catch((error) => {
               dispatch(updateText("Invalid phone number format."));
+              setLoading(false);
             });
         } else {
           dispatch(updateText("This phone number already exists."));
+          setLoading(false);
         }
       });
   };
@@ -186,8 +193,7 @@ export default function SignUpContainer() {
             />
           </RadioGroup>
         </FormControl>
-
-        <button id="get-code">Sign Up</button>
+        <button id="get-code">{loading ? "Loading..." : "Sign Up"}</button>
       </form>
       <h2>
         Already have an account? <Link to="/signin">Sign in now!</Link>

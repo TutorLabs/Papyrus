@@ -25,6 +25,7 @@ export default function SignInContainer() {
 
   // state management
   const [number, setNumber] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -55,13 +56,17 @@ export default function SignInContainer() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (loading) {
+      return;
+    }
+    setLoading(true);
     // comment the next two lines out and uncomment the 3rd line to test without +88. Remove +88 from text and comment out type="number" on line 107 for testing.
-    const countrycode = '+88'
-    const phoneNumber = countrycode.concat(number)
-    // const phoneNumber = number
-    const data = {
-      number: phoneNumber
-    };
+    const countrycode = "+88";
+    const phoneNumber = countrycode.concat(number);
+    // const phoneNumber = number;
+    // const data = {
+    //   number: phoneNumber,
+    // };
     fetch("/api/exists", {
       method: "POST",
       headers: {
@@ -84,9 +89,11 @@ export default function SignInContainer() {
             })
             .catch((error) => {
               console.log(error);
+              setLoading(false);
             });
         } else {
-          dispatch(updateText("This phone number does not exist."))
+          dispatch(updateText("This phone number does not exist."));
+          setLoading(false);
         }
       });
   };
@@ -110,7 +117,7 @@ export default function SignInContainer() {
             required
           />
         </FormControl>
-        <button id="sign-in">Sign In</button>
+        <button id="sign-in">{loading ? "Loading..." : "Sign In"}</button>
       </form>
       <h2>
         Don't have an account? <Link to="/signup">Sign up now!</Link>
