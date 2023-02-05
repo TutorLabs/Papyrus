@@ -64,9 +64,9 @@ export default function SignInContainer() {
     const countrycode = "+88";
     const phoneNumber = countrycode.concat(number);
     // const phoneNumber = number;
-    // const data = {
-    //   number: phoneNumber,
-    // };
+    const data = {
+      number: phoneNumber,
+    };
     fetch("/api/exists", {
       method: "POST",
       headers: {
