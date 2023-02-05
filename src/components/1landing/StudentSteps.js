@@ -17,7 +17,7 @@ export default function StudentSteps() {
     <div className="tutor_steps student_steps">
       <Grid container>
         <Grid item xs={12} md={6} className="image student_img">
-          <img src={StudentImg} />
+          <img src={StudentImg} alt=""/>
           <hr className="student_hr"/>
         </Grid>
         <Grid item xs={12} md={6}>

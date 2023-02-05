@@ -41,7 +41,7 @@ export default function Banner() {
         </Grid>
         <Grid item xs={12} md={6}>
           <div className="img_container">
-            <img className="banner_img" src={BannerImg} />
+            <img className="banner_img" src={BannerImg} alt=""/>
           </div>
         </Grid>
       </Grid>

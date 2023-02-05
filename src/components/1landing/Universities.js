@@ -31,7 +31,7 @@ export default function MultiCarousel() {
   const { t } = useTranslation();
   return (
     <div className="multi_carousel">
-      <p>{t('Connect with tutors from top universities')}</p>
+      <p>{t("Connect with tutors from top universities")}</p>
       <Carousel
         responsive={responsive}
         autoPlay={true}
@@ -44,13 +44,13 @@ export default function MultiCarousel() {
         itemClass="carousel_item"
         shouldResetAutoplay={true}
       >
-        <img src={BUET} />
-        <img src={DU} />
-        <img src={NorthSouth} />
-        <img src={Brac} />
-        <img src={EW} />
-        <img src={ULAB} />
-        <img src={IUB} />
+        <img src={BUET} alt="BUET logo" />
+        <img src={DU} alt="DU logo" />
+        <img src={NorthSouth} alt="NSU logo" />
+        <img src={Brac} alt="BracU logo" />
+        <img src={EW} alt="EWU logo" />
+        <img src={ULAB} alt="ULAB logo" />
+        <img src={IUB} alt="IUB logo" />
       </Carousel>
     </div>
   );

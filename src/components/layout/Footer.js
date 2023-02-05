@@ -11,7 +11,6 @@ const Footer = () => (
       </p>
       <p>© TutorLab 2022</p>
     </div>
-    <a href="tel:+8801854795992">+8801854795992</a>
   </React.Fragment>
 );
 

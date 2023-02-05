@@ -49,7 +49,7 @@ export default function TutorSteps() {
           </Carousel>
         </Grid>
         <Grid item xs={12} md={6} className="image">
-          <img src={TutorImg} />
+          <img src={TutorImg} alt=""/>
           <hr/>
         </Grid>
       </Grid>
