@@ -48,7 +48,7 @@ export default function SignInContainer() {
   // To offset invalid csrf token with inital post request
   useEffect(() => {
     const allDetails = async () => {
-      const response = await fetch("/testapi");
+      const response = await fetch("/api/testapi");
       const json = await response.json();
     };
     allDetails();

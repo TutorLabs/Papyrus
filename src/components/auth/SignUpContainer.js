@@ -30,7 +30,7 @@ export default function SignUpContainer() {
   // To offset invalid csrf token with inital post request
   useEffect(() => {
     const allDetails = async () => {
-      const response = await fetch("/testapi");
+      const response = await fetch("/api/testapi");
       const json = await response.json();
     };
     allDetails();
@@ -68,12 +68,14 @@ export default function SignUpContainer() {
     }
     setLoading(true);
     // comment the next two lines out and uncomment the 3rd line to test without +88. Remove +88 from text and comment out type="number" on line 139 for testing.
-    const countrycode = "+88";
-    const phoneNumber = countrycode.concat(values.number);
-    // const phoneNumber = values.number;
+    const countrycode = '+88'
+    const phoneNumber = countrycode.concat(values.number)
+    // const phoneNumber = values.number
     const data = {
       number: phoneNumber,
     };
+    let values_updated = values
+    values_updated = {...values_updated, number: phoneNumber}
     fetch("/api/exists", {
       method: "POST",
       headers: {
@@ -91,10 +93,11 @@ export default function SignUpContainer() {
           signInWithPhoneNumber(authentication, phoneNumber, appVerifier)
             .then((confirmationResult) => {
               dispatch(updateVerifyCode(confirmationResult));
-              dispatch(updateInitialInfo(values));
+              dispatch(updateInitialInfo(values_updated));
               navigate("/verify");
             })
             .catch((error) => {
+              console.log(error)
               dispatch(updateText("Invalid phone number format."));
               setLoading(false);
             });
