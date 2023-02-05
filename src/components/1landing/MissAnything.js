@@ -11,12 +11,18 @@ export default function MissAnything() {
   const { t } = useTranslation();
   return (
     <div className="miss_anything">
-      <p className="title">{t('Did we miss anything?')}</p>
+      <p className="title">{t("Did we miss anything?")}</p>
       <p className="content">
-        {t('Reach out to us at')} {" "}
-        <a href="mailto:hello@tutorlab.io">hello@tutorlab.io</a>
+        Call us at <a href="tel:+8801854795992">+8801854795992</a> or{" "}
+        {t("reach out to us at")}{" "}
+        <a href="mailto:hello@tutorlab.io">hello@tutorlab.io</a>.
       </p>
       <div className="icons">
+        <a href="tel:+8801854795992">
+          <div className="circle" id="arrow">
+            <FontAwesomeIcon icon="fa-solid fa-phone" />
+          </div>
+        </a>
         <a
           href="https://www.instagram.com/tutorlab.io/"
           target="_blank"
