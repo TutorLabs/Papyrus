@@ -70,7 +70,7 @@ export default function PostingBox(props) {
           </h3>
         </div>
       </div>
-
+      <hr />
       <div className="posting_content">
         <div className="posting_text">
           <p>
@@ -79,49 +79,17 @@ export default function PostingBox(props) {
             {props.subjects.join(", ")}
           </p>
 
-          <hr />
           <div className="sub_section">
             <p>
               <span>✏️ Class:</span> {props.class}
             </p>
             <p className="second">
-              <span>📓 Medium:</span> {props.medium}
+              <span>💸 Salary Range:</span> {props.max_salary}-
+              {props.min_salary} Tk/month
             </p>
           </div>
-          <hr />
-
-          <p>
-            <span>💸 Salary Range:</span> {props.max_salary}-{props.min_salary}{" "}
-            Tk/month
-          </p>
-          <hr />
-
-          <div className="sub_section">
-            <p>
-              <span>📍 Location:</span> {props.location}
-            </p>
-            <p className="second">
-              <span>💃 Online/In-person: </span>
-              {props.online}
-            </p>
-          </div>
-          <hr />
-
-          <div className="sub_section">
-            <p>
-              <span>👩‍🏫 Preferred Gender:</span> {props.tutor_gender}
-            </p>
-            <p className="second">
-              <span>🙋‍♂️ Student's Gender:</span> {props.student_gender}
-            </p>
-          </div>
-          <hr />
-
-          <p>
-            <span>🗓 Days:</span> {props.availability_days} days/week
-          </p>
         </div>
-
+        <hr />
         <div className="posting_buttons">
           <button className="applicants_button" onClick={handleView}>
             <img src={Cursor} alt="cursor" />

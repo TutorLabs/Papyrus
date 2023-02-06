@@ -108,10 +108,10 @@ export default function Home() {
         )}
 
         {loading === false && (
-          <Grid container>
+          <Grid container className="postings">
             {postings.map((post) => {
               return (
-                <Grid item sm={12} lg={6} key={post._id}>
+                <Grid item sm={12} lg={4} key={post._id}>
                   <PostingBox
                     id={post._id}
                     name={`${post.firstname} ${post.lastname}`}
