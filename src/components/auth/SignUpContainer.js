@@ -68,9 +68,9 @@ export default function SignUpContainer() {
     }
     setLoading(true);
     // comment the next two lines out and uncomment the 3rd line to test without +88. Remove +88 from text and comment out type="number" on line 139 for testing.
-    // const countrycode = '+88'
-    // const phoneNumber = countrycode.concat(values.number)
-    const phoneNumber = values.number
+    const countrycode = '+88'
+    const phoneNumber = countrycode.concat(values.number)
+    // const phoneNumber = values.number
     const data = {
       number: phoneNumber,
     };
@@ -146,7 +146,7 @@ export default function SignUpContainer() {
               <InputAdornment position="start">+88</InputAdornment>
             }
             value={values.number}
-            // type="number"
+            type="number"
             onChange={handleChange("number")}
             required
           />
