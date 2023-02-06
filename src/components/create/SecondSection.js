@@ -21,7 +21,6 @@ const subjects = [
   "Economics",
   "Accounting",
   "Business Studies",
-  ""
 ];
 
 export default function SecondSection({ formData, setFormData }) {

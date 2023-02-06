@@ -69,71 +69,48 @@ export default function PostingBox(props) {
             🏫 {props.institution} | <span>Jun 25, 2022</span>
           </h3>
         </div>
-      </div>
 
+        <div className="apply_button">
+          {/* <button className="applicants_button" onClick={handleView}>
+            <img src={Cursor} alt="cursor" />
+            <div className="apply_button_text">
+              <p>See tutors who have applied</p>
+              <h6>See tutors who applied to this posting</h6>
+            </div>
+          </button> */}
+          <OutlinedButtom
+            icon={Cursor}
+            text="See tutors who Applied"
+            green={true}
+            click={handleView}
+          />
+        </div>
+      </div>
+      <hr />
       <div className="posting_content">
         <div className="posting_text">
           <p>
-            <span>📚 {t("Subjects to teach")}: </span>
+            <span>📚 {t("Subjects")}: </span>
 
             {props.subjects.join(", ")}
           </p>
 
-          <hr />
           <div className="sub_section">
             <p>
               <span>✏️ Class:</span> {props.class}
             </p>
             <p className="second">
-              <span>📓 Medium:</span> {props.medium}
+              <span>💸 Salary Range:</span> {props.max_salary}-
+              {props.min_salary} Tk/month
             </p>
           </div>
-          <hr />
-
-          <p>
-            <span>💸 Salary Range:</span> {props.max_salary}-{props.min_salary}{" "}
-            Tk/month
-          </p>
-          <hr />
-
-          <div className="sub_section">
-            <p>
-              <span>📍 Location:</span> {props.location}
-            </p>
-            <p className="second">
-              <span>💃 Online/In-person: </span>
-              {props.online}
-            </p>
-          </div>
-          <hr />
-
-          <div className="sub_section">
-            <p>
-              <span>👩‍🏫 Preferred Gender:</span> {props.tutor_gender}
-            </p>
-            <p className="second">
-              <span>🙋‍♂️ Student's Gender:</span> {props.student_gender}
-            </p>
-          </div>
-          <hr />
-
-          <p>
-            <span>🗓 Days:</span> {props.availability_days} days/week
-          </p>
         </div>
-
+        <hr />
         <div className="posting_buttons">
-          <button className="applicants_button" onClick={handleView}>
-            <img src={Cursor} alt="cursor" />
-            <div className="apply_button_text">
-              <p>View Applicants</p>
-              <h6>See tutors who applied to this posting</h6>
-            </div>
-          </button>
           <div className="other_buttons">
             <OutlinedButtom
               icon={Edit}
-              text="Edit Posting"
+              text="Edit or View Posting"
               green={true}
               click={handleEdit}
             />

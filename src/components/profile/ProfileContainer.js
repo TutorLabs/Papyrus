@@ -26,7 +26,7 @@ export default function ProfileContainer() {
     medium: "",
     online: "",
     bio: "",
-    locations: [],
+    locations: "",
     days: "",
     subjects: [],
     max_salary: "",
@@ -83,7 +83,7 @@ export default function ProfileContainer() {
           <FirstSection formData={formData} setFormData={setFormData} />
         </Grid>
         <Grid item sm={12} lg={4}>
-          <Picture formData={formData} role='tutor' />
+          <Picture formData={formData} role="tutor" />
         </Grid>
       </Grid>
       <hr className="hr_margin" />

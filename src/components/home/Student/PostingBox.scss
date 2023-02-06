@@ -1,39 +1,46 @@
 .posting_box {
-  background-color: #d0e6f0;
-  border-radius: 10px;
+  border: 1px solid var(--color-border, rgba(0, 0, 0, 0.1));
+  border-radius: 6px;
   margin: 20px;
+  &:hover {
+    background-color: #e4eff5;
+  }
 
   .posting_header {
     display: block;
-    background-color: #e1eff6;
-    padding: 10px 20px;
+    padding: 15px;
     border-radius: 10px 10px 0px 0px;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-
     .header_text {
       margin: auto 0px;
       h1 {
         font-weight: 600;
-        font-size: 25px;
+        font-size: 20px;
         line-height: 36px;
-        padding-top: 10px;
       }
       h3 {
         font-weight: 400;
-        font-size: 19px;
+        font-size: 15px;
         color: #6f7070;
-        padding: 5px 0px;
-        span {
-          font-size: 18px;
+      }
+    }
+    .apply_button {
+      margin-top: 10px;
+      button {
+        background-color: #2cc3a0;
+        &:hover {
+          background-color: rgb(78, 204, 175);
         }
       }
     }
   }
+
   .posting_content {
-    padding: 20px;
+    padding: 15px;
+    font-size: 14px;
     .posting_text {
+      margin-bottom: 15px;
       p {
-        margin: 20px 0px;
+        margin: 7px 0px;
         span {
           font-weight: 500;
         }
@@ -45,49 +52,11 @@
         }
       }
     }
+
     .posting_buttons {
-      margin-top: 10px;
+      padding-top: 15px;
       .other_buttons {
         display: block;
-      }
-
-      .applicants_button {
-        width: 100%;
-        border: 1.5px solid #2cc3a0;
-        border-radius: 10px;
-        background-color: transparent;
-        text-decoration: none;
-        font-weight: 500;
-        cursor: pointer;
-        display: flex;
-        margin: 4px 10px 4px 2px;
-        padding: 8px 10px;
-
-        &:hover {
-          background-color: #daebf3;
-        }
-
-        .apply_button_text {
-          text-align: left;
-          h6 {
-            display: none;
-            color: rgba(0, 0, 0, 0.6);
-            font-weight: 400;
-            font-size: 14px;
-          }
-          p {
-            font-weight: 500;
-            font-size: 15px;
-          }
-        }
-        img {
-          width: 25px;
-          height: 25px;
-          margin: auto 4px auto 0px;
-        }
-        p {
-          line-height: 25px;
-        }
       }
     }
   }
@@ -97,6 +66,12 @@
   .posting_box {
     .posting_header {
       display: flex;
+      .apply_button {
+        display: flex;
+        justify-content: space-around;
+
+        margin: auto 6px auto auto;
+      }
     }
 
     .posting_content {
@@ -112,14 +87,6 @@
         .other_buttons {
           display: flex;
           justify-content: space-around;
-        }
-        .applicants_button {
-          border-radius: 40px;
-          .apply_button_text {
-            h6 {
-              display: block;
-            }
-          }
         }
       }
     }

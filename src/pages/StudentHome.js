@@ -108,7 +108,7 @@ export default function Home() {
         )}
 
         {loading === false && (
-          <Grid container>
+          <Grid container className="postings">
             {postings.map((post) => {
               return (
                 <Grid item sm={12} lg={6} key={post._id}>

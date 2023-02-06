@@ -143,17 +143,17 @@ export default function MoreInfo({ tutor, applied }) {
 
           <p>
             <span>📚 Subjects they are willing to teach:</span>{" "}
-            {tutor.locations.join(", ")}
+            {tutor.subjects.join(", ")}
           </p>
           <p>
-            <span>💸 Subjects they are willing to teach:</span>{" "}
-            {tutor.max_salary} - {tutor.min_salary} tk
+            <span>💸 Preferred monthly salary range:</span> {tutor.max_salary} -{" "}
+            {tutor.min_salary} tk
           </p>
           <hr />
 
           <p>
             <span>📍 Locations they are willing to commute to:</span>{" "}
-            {tutor.locations.join(", ")}
+            {tutor.locations}
           </p>
           <p>
             <span>🗓 How many days a week?:</span> {tutor.days} days/week
