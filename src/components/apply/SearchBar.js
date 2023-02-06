@@ -9,7 +9,7 @@ export default function SearchBar({ inputHandler }) {
       <form className="form">
         <InputBase
           sx={{ ml: 1, flex: 1 }}
-          placeholder="Search using the student's name, school, maximum salary, subjects to teach, etc..."
+          placeholder="Search using the student's name, school, maximum salary, subjects, etc..."
           className="input_base"
           onChange={inputHandler}
         />
