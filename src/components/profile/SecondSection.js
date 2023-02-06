@@ -21,35 +21,6 @@ const subjects = [
   "Bengali",
 ];
 
-const locations = [
-  "Dhanmondi",
-  "Gulshan 1",
-  "Gulshan 2",
-  "Banani",
-  "Baridhara",
-  "Lalmatia",
-  "Uttara",
-  "Badda",
-  "Bashundhara R/A",
-  "Mohammadpur",
-  "Mirpur DOHS",
-  "Mohakhali DOHS",
-  "Bailey Road",
-  "Santinagar",
-  "Mohakhali",
-  "Mirpur",
-  "Khilgaon",
-  "Dhaka University Campus",
-  "Elephant Road",
-  "Shyamoli",
-  "Adabor",
-  "Kalabagan",
-  "RayerBazar",
-  "Green Road",
-  "Eskaton",
-  "Paribagh",
-];
-
 export default function SecondSection({ formData, setFormData }) {
   const handleChange = (prop) => (event) => {
     setFormData({ ...formData, [prop]: event.target.value });
@@ -168,30 +139,19 @@ export default function SecondSection({ formData, setFormData }) {
         </Select>
       </FormControl>
 
-      <h2>Which locations are you willing to commute to?</h2>
+      <h2>
+        Which locations are you willing to commute to? (separate locations with
+        a comma)
+      </h2>
 
-      <FormControl className="form_control" fullWidth>
-        <Select
-          labelId="demo-multiple-chip-label"
-          multiple
-          value={formData.locations}
-          onChange={handleChange("locations")}
-          input={<OutlinedInput />}
-          renderValue={(selected) => (
-            <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-              {selected.map((value) => (
-                <Chip key={value} label={value} />
-              ))}
-            </Box>
-          )}
-        >
-          {locations.map((location) => (
-            <MenuItem key={location} value={location}>
-              {location}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+      <TextField
+        className="text_field"
+        placeholder="Locations"
+        variant="outlined"
+        fullWidth
+        onChange={handleChange("locations")}
+        value={formData.locations}
+      />
 
       <h2>How many days a week?</h2>
       <FormControl className="form_control" variant="outlined" fullWidth>

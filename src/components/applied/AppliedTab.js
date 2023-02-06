@@ -16,7 +16,7 @@ const initialTutor = {
   online: "",
   tutor_gender: "",
   bio: "",
-  locations: [],
+  locations: "",
   days: "",
   subjects: [],
   max_salary: "",
