@@ -19,6 +19,11 @@ const subjects = [
   "Physics",
   "English",
   "Bengali",
+  "Accounting",
+  "Economics",
+  "Geography",
+  "History",
+  "Business Studies"
 ];
 
 export default function SecondSection({ formData, setFormData }) {
@@ -31,7 +36,7 @@ export default function SecondSection({ formData, setFormData }) {
       <h1>Education</h1>
       <Grid container>
         <Grid item sm={12} lg={6} className="second_text_field">
-          <h2>University</h2>
+          <h2>University [Write N/A if you are currently not in University]</h2>
           <TextField
             className="text_field"
             placeholder="University"
@@ -43,7 +48,7 @@ export default function SecondSection({ formData, setFormData }) {
         </Grid>
         <Grid item sm={12} lg={6} className="second_text_field">
           <div className="second_section_left_margin">
-            <h2>Major</h2>
+            <h2>Major [Write N/A if you are currently not in University]</h2>
             <TextField
               className="text_field"
               placeholder="Major"
@@ -55,7 +60,7 @@ export default function SecondSection({ formData, setFormData }) {
           </div>
         </Grid>
         <Grid item sm={12} lg={6} className="second_text_field">
-          <h2>School</h2>
+          <h2>School [Write the name of the school you studied at]</h2>
           <TextField
             className="text_field"
             placeholder="School"
@@ -88,7 +93,7 @@ export default function SecondSection({ formData, setFormData }) {
         </Grid>
         <Grid item sm={12} lg={6} className="second_text_field">
           <h2>
-            Class <span>[Write N/A if not applicable]</span>
+            Class <span>[Write N/A if currently not in school]</span>
           </h2>
           <TextField
             className="text_field"
@@ -106,7 +111,7 @@ export default function SecondSection({ formData, setFormData }) {
               <Select onChange={handleChange("online")} value={formData.online}>
                 <MenuItem value={"Online"}>Online</MenuItem>
                 <MenuItem value={"In Person"}>In-person</MenuItem>
-                <MenuItem value={"Both"}>
+                <MenuItem value={"Okay with both in-person and online"}>
                   Okay with both in-person and online
                 </MenuItem>
               </Select>
@@ -152,7 +157,7 @@ export default function SecondSection({ formData, setFormData }) {
       </FormControl>
 
       <h2>
-        Which locations are you willing to commute to? (separate locations with
+        Which locations are you willing to commute to? (Please include each separate location with
         a comma)
       </h2>
 

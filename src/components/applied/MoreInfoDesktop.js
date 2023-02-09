@@ -146,8 +146,12 @@ export default function MoreInfo({ tutor, applied }) {
             {tutor.subjects.join(", ")}
           </p>
           <p>
-            <span>💸 Preferred monthly salary range:</span> {tutor.max_salary} -{" "}
-            {tutor.min_salary} tk
+            <span>💸 Preferred monthly salary range:</span> {tutor.min_salary} -{" "}
+            {tutor.max_salary} tk
+          </p>
+          <p>
+            <span>📚 Their results: </span>
+            {tutor.result}
           </p>
           <hr />
 

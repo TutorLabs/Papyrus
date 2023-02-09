@@ -107,27 +107,27 @@ export default function TutorHome() {
 
             <div className="tutorinfo_content">
               <div className="tutorinfo_text">
-                <h2>📚 Education:</h2>
+                <h2>📚 Education: </h2>
                 <div className="sub_section">
                   <p>
-                    <span>🎓 University:</span> {tutor.university}
+                    <span>🎓 University: </span> {tutor.university}
                   </p>
                   <p className="second">
-                    <span>📖 Major:</span> {tutor.major}
+                    <span>📖 Major: </span> {tutor.major}
                   </p>
                 </div>
                 <div className="sub_section">
                   <p className="extra_margin">
-                    <span>📓 Medium:</span> {tutor.medium}
+                    <span>📓 Medium: </span> {tutor.medium}
                   </p>
                   <p className="second extra_margin">
-                    <span>✏️ Class:</span> {tutor.class}
+                    <span>✏️ Class: </span> {tutor.class}
                   </p>
                 </div>
                 <hr />
                 <div className="sub_section">
                   <p>
-                    <span>👩‍🏫 Tutor's Gender:</span> {tutor.tutor_gender}
+                    <span>👩‍🏫 Tutor's Gender: </span> {tutor.tutor_gender}
                   </p>
                   <p className="second">
                     <span>💃 Online/In-person: </span>
@@ -136,38 +136,42 @@ export default function TutorHome() {
                 </div>
 
                 <p>
-                  <span>📚 Subjects they are willing to teach:</span>{" "}
+                  <span>📚 Subjects they are willing to teach: </span>{" "}
                   {tutor.subjects.join(", ")}
                 </p>
                 <p>
-                  <span>💸 Preferred monthly salary range:</span>{" "}
-                  {tutor.max_salary} - {tutor.min_salary} tk
+                  <span>💸 Preferred monthly salary range: </span>{" "}
+                  {tutor.min_salary} - {tutor.max_salary} tk
+                </p>
+                <p>
+                  <span>📚 Your results: </span>
+                  {tutor.result}
                 </p>
                 <hr />
 
                 <p>
-                  <span>📍 Locations they are willing to commute to:</span>{" "}
+                  <span>📍 Locations they are willing to commute to: </span>{" "}
                   {tutor.locations}
                 </p>
                 <p>
-                  <span>🗓 How many days a week?:</span> {tutor.days} days/week
+                  <span>🗓 How many days a week?: </span> {tutor.days} days/week
                 </p>
 
                 <hr />
                 <p>
-                  <span>🎉 Bio:</span> {tutor.bio}
+                  <span>🎉 Bio: </span> {tutor.bio}
                 </p>
                 <p>
-                  <span>🗣 Extra Curricular Activities (ECAs):</span> {tutor.eca}
+                  <span>🗣 Extra Curricular Activities (ECAs): </span> {tutor.eca}
                 </p>
                 <p>
-                  <span>🏃‍♀️ Hobbies:</span> {tutor.hobbies}
+                  <span>🏃‍♀️ Hobbies: </span> {tutor.hobbies}
                 </p>
                 <p>
-                  <span>👔 Previous Experience:</span> {tutor.experience}
+                  <span>👔 Previous Experience: </span> {tutor.experience}
                 </p>
                 <p>
-                  <span>➕ Additional Information:</span> {tutor.other}
+                  <span>➕ Additional Information: </span> {tutor.other}
                 </p>
               </div>
             </div>
