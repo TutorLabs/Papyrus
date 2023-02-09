@@ -127,6 +127,18 @@ export default function SecondSection({ formData, setFormData }) {
         onChange={handleChange("bio")}
       />
 
+      <h2>Results (Ex: English (A*), Physics (95%))</h2>
+      <TextField
+        className="text_field"
+        id="outlined-multiline-flexible"
+        placeholder="Write your results..."
+        fullWidth
+        multiline
+        rows={3}
+        value={formData.result}
+        onChange={handleChange("result")}
+      />
+
       <h2>Tutor's Gender</h2>
       <FormControl className="form_control" variant="outlined" fullWidth>
         <Select

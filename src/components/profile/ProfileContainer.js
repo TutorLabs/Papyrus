@@ -26,6 +26,7 @@ export default function ProfileContainer() {
     medium: "",
     online: "",
     bio: "",
+    result: "",
     locations: "",
     days: "",
     subjects: [],
