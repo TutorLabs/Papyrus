@@ -29,10 +29,13 @@ export default function ApplyBox(props) {
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(data),
-    }).then((response) => {
-      response.json();
-      // dispatch(updateText("Successfully applied to this posting!"));
-    });
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data)
+      window.location.reload(true)
+      dispatch(updateText("Successfully applied to this posting!"));
+    })
   };
   return (
     <div className="apply_box">

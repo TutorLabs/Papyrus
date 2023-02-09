@@ -56,14 +56,14 @@ export default function MoreInfo({ tutor, applied }) {
         const SenderID = "8809617611064";
 
         const StudentMessage = `Congratulations! You have been connected with a tutor.
-      Student Name: ${smsContent.studentFullName} 
-      Tutor Name: ${smsContent.tutorFullName}
-      Tutor Phone Number: ${smsContent.tutorPhoneNumber}`;
+        Student Name: ${smsContent.studentFullName} 
+        Tutor Name: ${smsContent.tutorFullName}
+        Tutor Phone Number: ${smsContent.tutorPhoneNumber}`;
 
         const TutorMessage = `Congratulations! You have been connected with a student.
-      Student Name: ${smsContent.studentFullName} 
-      Tutor Name: ${smsContent.tutorFullName}
-      Student Phone Number: ${smsContent.studentPhoneNumber}`;
+        Student Name: ${smsContent.studentFullName} 
+        Tutor Name: ${smsContent.tutorFullName}
+        Student Phone Number: ${smsContent.studentPhoneNumber}`;
 
         console.log(smsContent.tutorPhoneNumber);
         console.log(smsContent);
