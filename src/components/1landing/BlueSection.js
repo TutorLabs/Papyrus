@@ -1,20 +1,22 @@
 import "./BlueSection.scss";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router";
 
 export default function BlueSection() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   return (
     <div className="blue_section">
       <p className="title">{t('Ready to learn?')}</p>
       <p className="content">
-        {t('Join our waitlist by clicking the link below')}
+        {t('Join us now by clicking the link below')}
       </p>
       <div className="button_container">
         <button
           className="button"
-          onClick={() => window.open("https://forms.gle/LoVWjKzL8NkXQ2XJ6")}
+          onClick={() => navigate("/signup")}
         >
-          {t('Sign up for our waitlist')}
+          {t('Start learning')}
         </button>
       </div>
     </div>
