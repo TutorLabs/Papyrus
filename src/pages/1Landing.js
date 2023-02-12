@@ -8,6 +8,8 @@ import MissAnything from "../components/1landing/MissAnything";
 import TutorSteps from "../components/1landing/TutorSteps";
 import StudentSteps from "../components/1landing/StudentSteps";
 import Questions from "../components/1landing/Questions";
+import HowTo from "../components/1landing/HowTo";
+
 export default function Landing() {
   return (
     <div className="landing">
@@ -15,7 +17,7 @@ export default function Landing() {
       <Carousel />
       <SimpleSteps />
       <WhyChooseUs />
-
+      <HowTo />
       <TutorSteps />
       <StudentSteps />
       <BlueSection />
