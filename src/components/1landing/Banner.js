@@ -3,8 +3,10 @@ import Grid from "@mui/material/Grid";
 import Typed from "react-typed";
 import BannerImg from "../../images/landing/banner.png";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router";
 export default function Banner() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   return (
     <div className="banner">
       <Grid container>
@@ -34,9 +36,9 @@ export default function Banner() {
           </p>
           <button
             className="button"
-            onClick={() => window.open("https://forms.gle/LoVWjKzL8NkXQ2XJ6")}
+            onClick={() => navigate("/signup")}
           >
-            {t('Join waitlist now!')}
+            {t('Sign Up Now!')}
           </button>
         </Grid>
         <Grid item xs={12} md={6}>

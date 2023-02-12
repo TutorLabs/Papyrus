@@ -66,7 +66,7 @@ export default function PostingBox(props) {
         <div className="header_text">
           <h1>{props.name}</h1>
           <h3>
-            🏫 {props.institution} | <span>Jun 25, 2022</span>
+            🏫 {props.institution}
           </h3>
         </div>
 

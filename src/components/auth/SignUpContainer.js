@@ -100,6 +100,8 @@ export default function SignUpContainer() {
               console.log(error)
               dispatch(updateText("Invalid phone number format."));
               setLoading(false);
+              // window.recaptchaVerifier.recaptcha.reset(window.recaptchaWidgetId)
+              // window.location.reload(true)
             });
         } else {
           dispatch(updateText("This phone number already exists."));

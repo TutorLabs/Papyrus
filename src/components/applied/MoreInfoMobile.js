@@ -144,7 +144,11 @@ export default function MoreInfo({ tutor, applied }) {
           </p>
           <p>
             <span>💸 Preferred monthly salary range:</span>{" "}
-            {tutor.max_salary} - {tutor.min_salary} tk
+            {tutor.min_salary} - {tutor.max_salary} tk
+          </p>
+          <p>
+            <span>📚 Their results: </span>
+            {tutor.result}
           </p>
           <hr />
 

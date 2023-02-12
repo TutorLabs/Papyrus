@@ -54,7 +54,6 @@ export default function Picture({ formData, role }) {
           .then((data) => {
             if (data.link != "https://firebasestorage.googleapis.com/v0/b/tutorlab-cbc12.appspot.com/o/user_default.png?alt=media&token=e4af10f1-b432-4d3f-a78d-9b09d950b120") {
               const old_image = ref(storage, data.link)
-              console.log(old_image._location.path_)
               deleteObject(old_image).then(() =>{
               }).catch((error) => {
                 console.log(error)
