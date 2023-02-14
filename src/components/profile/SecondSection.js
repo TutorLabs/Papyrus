@@ -41,7 +41,10 @@ export default function SecondSection({ formData, setFormData }) {
       <Grid container>
         <Grid item sm={12} lg={6} className="second_text_field">
           <h2>
-            University (Please include which Year you're currently enrolled in)
+            University{" "}
+            <span>
+              (Please include which Year you're currently enrolled in)
+            </span>
           </h2>
           <TextField
             className="text_field"
@@ -66,7 +69,9 @@ export default function SecondSection({ formData, setFormData }) {
           </div>
         </Grid>
         <Grid item sm={12} lg={6} className="second_text_field">
-          <h2>School [Write the name of the school you studied at]</h2>
+          <h2>
+            School <span>(Write the name of the school you studied at)</span>
+          </h2>
           <TextField
             className="text_field"
             placeholder="School"
@@ -99,7 +104,7 @@ export default function SecondSection({ formData, setFormData }) {
         </Grid>
         <Grid item sm={12} lg={6} className="second_text_field">
           <h2>
-            Class <span>[Write N/A if currently not in school]</span>
+            Class <span>(Write N/A if currently not in school)</span>
           </h2>
           <TextField
             className="text_field"
@@ -138,7 +143,9 @@ export default function SecondSection({ formData, setFormData }) {
         onChange={handleChange("bio")}
       />
 
-      <h2>Results (Ex: English (A*), Physics (95%))</h2>
+      <h2>
+        Results <span>(Ex: English (A*), Physics (95%))</span>
+      </h2>
       <TextField
         className="text_field"
         id="outlined-multiline-flexible"
@@ -150,7 +157,7 @@ export default function SecondSection({ formData, setFormData }) {
         onChange={handleChange("result")}
       />
 
-      <h2>Tutor's Gender</h2>
+      <h2>Your Gender</h2>
       <FormControl className="form_control" variant="outlined" fullWidth>
         <Select
           onChange={handleChange("tutor_gender")}
@@ -163,8 +170,8 @@ export default function SecondSection({ formData, setFormData }) {
       </FormControl>
 
       <h2>
-        Which locations are you willing to commute to? (Please include each
-        separate location with a comma)
+        Which locations are you willing to commute to?{" "}
+        <span>(Please include each separate location with a comma)</span>
       </h2>
 
       <TextField
@@ -256,7 +263,7 @@ export default function SecondSection({ formData, setFormData }) {
       </Grid>
 
       <h2>
-        Extra Curricular Activities (ECAs) <span>[Optional]</span>
+        Extra Curricular Activities (ECAs) <span>(Optional)</span>
       </h2>
       <TextField
         className="text_field"
@@ -269,7 +276,7 @@ export default function SecondSection({ formData, setFormData }) {
         onChange={handleChange("eca")}
       />
       <h2>
-        Hobbies <span>[Optional]</span>
+        Hobbies <span>(Optional)</span>
       </h2>
       <TextField
         className="text_field"
@@ -282,7 +289,7 @@ export default function SecondSection({ formData, setFormData }) {
         onChange={handleChange("hobbies")}
       />
       <h2>
-        Previous Experience <span>[Optional]</span>
+        Previous Experience <span>(Optional)</span>
       </h2>
       <TextField
         className="text_field"

@@ -127,7 +127,7 @@ export default function TutorHome() {
                 <hr />
                 <div className="sub_section">
                   <p>
-                    <span>👩‍🏫 Tutor's Gender: </span> {tutor.tutor_gender}
+                    <span>👩‍🏫 Your Gender: </span> {tutor.tutor_gender}
                   </p>
                   <p className="second">
                     <span>💃 Online/In-person: </span>
@@ -162,7 +162,8 @@ export default function TutorHome() {
                   <span>🎉 Bio: </span> {tutor.bio}
                 </p>
                 <p>
-                  <span>🗣 Extra Curricular Activities (ECAs): </span> {tutor.eca}
+                  <span>🗣 Extra Curricular Activities (ECAs): </span>{" "}
+                  {tutor.eca}
                 </p>
                 <p>
                   <span>🏃‍♀️ Hobbies: </span> {tutor.hobbies}
