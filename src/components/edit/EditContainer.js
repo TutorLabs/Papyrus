@@ -78,14 +78,14 @@ export default function EditContainer() {
           <FirstSection formData={formData} setFormData={setFormData} />
         </Grid>
         <Grid item sm={12} lg={4}>
-          <Picture formData={formData} role = 'student' />
+          <Picture formData={formData} role="student" />
         </Grid>
       </Grid>
       <hr className="hr_margin" />
       <h4 className="advanced_info_margin">Advanced Information</h4>
       {<SecondSection formData={formData} setFormData={setFormData} />}
-      <div className="button_container" onClick={handleSubmit}>
-        <Button text="Edit" />
+      <div className="button_container">
+        <Button text="Edit" click={handleSubmit} />
       </div>
     </div>
   );

@@ -13,18 +13,16 @@ export default function HowTo() {
           <iframe
             className="video"
             src="https://www.youtube.com/embed/EqQxq05cWY4"
-            frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope;"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         </Grid>
         <Grid item xs={12} lg={6}>
           <iframe
             className="video"
             src="https://www.youtube.com/embed/Jr3M4olet4U"
-            frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope;"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         </Grid>
       </Grid>

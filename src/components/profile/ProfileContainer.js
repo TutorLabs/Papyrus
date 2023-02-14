@@ -90,8 +90,8 @@ export default function ProfileContainer() {
       <hr className="hr_margin" />
       <h4 className="advanced_info_margin">Advanced Information</h4>
       <SecondSection formData={formData} setFormData={setFormData} />
-      <div className="button_container" onClick={handleSubmit}>
-        <Button text="Update" />
+      <div className="button_container">
+        <Button text="Update" click={handleSubmit} />
       </div>
     </div>
   );

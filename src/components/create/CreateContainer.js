@@ -44,7 +44,11 @@ export default function CreateContainer() {
         },
       });
       const json = await response.json();
-      setFormData({ ...formData, phone_number: json.phone, photoUrl: json.photoUrl });
+      setFormData({
+        ...formData,
+        phone_number: json.phone,
+        photoUrl: json.photoUrl,
+      });
     };
     userPhoneNumber();
   }, []);
@@ -78,14 +82,14 @@ export default function CreateContainer() {
           <FirstSection formData={formData} setFormData={setFormData} />
         </Grid>
         <Grid item sm={12} lg={4}>
-          <Picture formData={formData} role = 'student' />
+          <Picture formData={formData} role="student" />
         </Grid>
       </Grid>
       <hr className="hr_margin" />
       <h4 className="advanced_info_margin">Advanced Information</h4>
       <SecondSection formData={formData} setFormData={setFormData} />
-      <div className="button_container" onClick={handleSubmit}>
-        <Button text="Create" />
+      <div className="button_container">
+        <Button text="Create" click={handleSubmit} />
       </div>
     </div>
   );
