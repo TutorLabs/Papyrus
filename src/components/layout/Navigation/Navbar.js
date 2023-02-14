@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import { useState } from "react";
 import LanguageToggle from "./LanguageToggle";
+import Button from "../../ui-components/Button";
 import Logo from "../../../images/logo.svg";
 //redux
 import { useDispatch } from "react-redux";
@@ -32,6 +33,7 @@ function Navbar() {
       <Link to="/">
         <div className="brand-title">
           <img alt="user" src={Logo} />
+          <p>TutorLab</p>
         </div>
       </Link>
       <div className="toggle-button" onClick={toggleNavbar}>
@@ -81,6 +83,16 @@ function Navbar() {
               <Link to="/">Sign out</Link>
             </li>
           )}
+          <Button
+            text="Give Feedback"
+            click={() => {
+              window.open(
+                "https://docs.google.com/forms/d/e/1FAIpQLSdEpyJbDXU847_OxlKtgr4_0TNz39cnirFqfK3V92GgcFjfyw/viewform?usp=sf_link",
+                "_blank",
+                "noreferrer"
+              );
+            }}
+          />
 
           <div className="desktop_language_toggle">
             <LanguageToggle />
