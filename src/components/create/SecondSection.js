@@ -23,7 +23,7 @@ const subjects = [
   "Accounting",
   "Business Studies",
   "Sociology",
-  "ICT"
+  "ICT",
 ];
 
 export default function SecondSection({ formData, setFormData }) {
@@ -177,7 +177,7 @@ export default function SecondSection({ formData, setFormData }) {
 
       <h2>How much are you willing to pay?</h2>
       <Grid container>
-        <Grid item sm={12} lg={6}>
+        <Grid item sm={12} lg={6} className="grid_item">
           <FormControl className="form_control" variant="outlined" fullWidth>
             <OutlinedInput
               type="number"
@@ -194,7 +194,7 @@ export default function SecondSection({ formData, setFormData }) {
             />
           </FormControl>
         </Grid>
-        <Grid item sm={12} lg={6}>
+        <Grid item sm={12} lg={6} className="grid_item">
           <div className="second_section_left_margin salary_space">
             <FormControl className="form_control" variant="outlined" fullWidth>
               <OutlinedInput
