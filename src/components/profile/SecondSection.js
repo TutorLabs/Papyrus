@@ -40,7 +40,7 @@ export default function SecondSection({ formData, setFormData }) {
       <h1>Education</h1>
       <Grid container>
         <Grid item sm={12} lg={6} className="second_text_field">
-          <h2>University [Write N/A if you are currently not in University]</h2>
+          <h2>University (Please include which Year you're currently enrolled in)</h2>
           <TextField
             className="text_field"
             placeholder="University"
@@ -52,7 +52,7 @@ export default function SecondSection({ formData, setFormData }) {
         </Grid>
         <Grid item sm={12} lg={6} className="second_text_field">
           <div className="second_section_left_margin">
-            <h2>Major [Write N/A if you are currently not in University]</h2>
+            <h2>Major (Write N/A if you are currently not in University)</h2>
             <TextField
               className="text_field"
               placeholder="Major"
