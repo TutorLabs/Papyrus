@@ -21,11 +21,20 @@ import Cookies from "universal-cookie";
 
 import { authentication } from "../../firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import Modal from "../ui-components/Modal";
 
 export default function SignUpContainer() {
   const dispatch = useDispatch();
   const cookies = new Cookies();
   const [loading, setLoading] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = (event) => {
+    event.preventDefault();
+    setOpen(true);
+  };
+
+  const handleClose = () => setOpen(false);
 
   // To offset invalid csrf token with inital post request
   useEffect(() => {
@@ -68,14 +77,14 @@ export default function SignUpContainer() {
     }
     setLoading(true);
     // comment the next two lines out and uncomment the 3rd line to test without +88. Remove +88 from text and comment out type="number" on line 139 for testing.
-    const countrycode = '+88'
-    const phoneNumber = countrycode.concat(values.number)
+    const countrycode = "+88";
+    const phoneNumber = countrycode.concat(values.number);
     // const phoneNumber = values.number
     const data = {
       number: phoneNumber,
     };
-    let values_updated = values
-    values_updated = {...values_updated, number: phoneNumber}
+    let values_updated = values;
+    values_updated = { ...values_updated, number: phoneNumber };
     fetch("/api/exists", {
       method: "POST",
       headers: {
@@ -97,7 +106,7 @@ export default function SignUpContainer() {
               navigate("/verify");
             })
             .catch((error) => {
-              console.log(error)
+              console.log(error);
               dispatch(updateText("Invalid phone number format."));
               setLoading(false);
               // window.recaptchaVerifier.recaptcha.reset(window.recaptchaWidgetId)
@@ -112,8 +121,16 @@ export default function SignUpContainer() {
 
   return (
     <div className="auth_container">
+      <Modal
+        handleClose={handleClose}
+        handleOpen={handleOpen}
+        open={open}
+        handleUpload={handleSubmit}
+        red={false}
+        text={`Are you sure you want to register as a ${values.role}.`}
+      />
       <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
+      <form>
         <h2>First Name</h2>
         <TextField
           className="auth_text_field"
@@ -198,7 +215,9 @@ export default function SignUpContainer() {
             />
           </RadioGroup>
         </FormControl>
-        <button id="get-code">{loading ? "Loading..." : "Sign Up"}</button>
+        <button id="get-code" onClick={handleOpen}>
+          {loading ? "Loading..." : "Sign Up"}
+        </button>
       </form>
       <h2>
         Already have an account? <Link to="/signin">Sign in now!</Link>

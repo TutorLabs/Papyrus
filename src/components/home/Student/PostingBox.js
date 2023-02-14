@@ -50,7 +50,7 @@ export default function PostingBox(props) {
   const handleView = async () => {
     navigate(`/applied/${props.id}`);
   };
-
+//
   return (
     <div className="posting_box">
       <Modal
@@ -61,6 +61,7 @@ export default function PostingBox(props) {
         red={true}
         text="Are you sure you want to delete this posting? This action is irreversible."
       />
+    
 
       <div className="posting_header">
         <div className="header_text">

@@ -66,7 +66,7 @@ export default function Picture({ formData, role }) {
       });
     handleClose();
   };
-
+//
   return (
     <div className="picture">
       <Modal
