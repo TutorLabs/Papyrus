@@ -66,9 +66,9 @@ export default function VerifyContainer() {
                 body: JSON.stringify(initial_info),
               }).then((response) => {
                 if (initial_info.role == "student") {
-                  navigate("/studenthome");
+                  navigate("/create");
                 } else {
-                  navigate("/tutorhome");
+                  navigate("/profile");
                 }
               });
             } else {
