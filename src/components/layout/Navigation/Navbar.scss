@@ -73,21 +73,34 @@
   border-radius: 10px;
 }
 
-.mobile_language_toggle {
+.mobile_auth_buttons {
   display: none;
   position: absolute;
-  padding: 0.325rem 0rem;
-  right: 6rem;
-  flex-direction: column;
-  justify-content: space-between;
+  padding: 1.15rem 0rem;
+  right: 7rem;
+  text-decoration: none;
+  color: #221f20;
 }
 
-.desktop_language_toggle {
+.desktop_auth_buttons {
+  display: block !important;
+}
+
+.number {
+  margin: auto;
+}
+
+.language_toggle {
   display: flex;
   align-items: center;
+  margin: auto;
   &:hover {
     background-color: #f8f9fa;
   }
+}
+
+.ui_button {
+  margin: 4px 1rem!important;
 }
 
 @media (max-width: 900px) {
@@ -97,12 +110,16 @@
     position: relative;
   }
 
-  .desktop_language_toggle {
-    display: none;
+  .number {
+    padding-bottom: 10px;
   }
 
-  .mobile_language_toggle {
+  .mobile_auth_buttons {
     display: block;
+  }
+
+  .desktop_auth_buttons {
+    display: none !important;
   }
 
   .toggle-button {

@@ -42,9 +42,15 @@ function Navbar() {
         <span className="bar"></span>
       </div>
 
-      <div className="mobile_language_toggle">
-        <LanguageToggle />
+      <div className="number">
+        <p>Call us at: +8801854795992</p>
       </div>
+
+      {signedIn === false && (
+        <Link to="/signup" className="mobile_auth_buttons">
+          Sign up/Log in
+        </Link>
+      )}
 
       <div className={isActive ? "active navbar-links" : "navbar-links"}>
         <ul onClick={toggleNavbar}>
@@ -75,7 +81,9 @@ function Navbar() {
           )}
           {signedIn === false && (
             <li>
-              <Link to="/signup">Sign up/Log in</Link>
+              <Link to="/signup" className="desktop_auth_buttons">
+                Sign up/Log in
+              </Link>
             </li>
           )}
           {signedIn === true && (
@@ -83,6 +91,11 @@ function Navbar() {
               <Link to="/">Sign out</Link>
             </li>
           )}
+
+          <div className="language_toggle">
+            <LanguageToggle />
+          </div>
+
           <Button
             text="Give Feedback"
             click={() => {
@@ -93,10 +106,6 @@ function Navbar() {
               );
             }}
           />
-
-          <div className="desktop_language_toggle">
-            <LanguageToggle />
-          </div>
         </ul>
       </div>
     </nav>
