@@ -42,14 +42,31 @@ function Navbar() {
         <span className="bar"></span>
       </div>
 
-      <div className="number">
-        <p>Call us at: +8801854795992</p>
-      </div>
+      {signedIn === false && (
+        <div className="number">
+          <p>📞 01854795992</p>
+        </div>
+      )}
 
       {signedIn === false && (
         <Link to="/signup" className="mobile_auth_buttons">
           Sign up/Log in
         </Link>
+      )}
+
+      {signedIn === true && (
+        <div className="login_feedback">
+          <Button
+            text="Give Feedback"
+            click={() => {
+              window.open(
+                "https://docs.google.com/forms/d/e/1FAIpQLSdEpyJbDXU847_OxlKtgr4_0TNz39cnirFqfK3V92GgcFjfyw/viewform?usp=sf_link",
+                "_blank",
+                "noreferrer"
+              );
+            }}
+          />
+        </div>
       )}
 
       <div className={isActive ? "active navbar-links" : "navbar-links"}>
@@ -96,16 +113,18 @@ function Navbar() {
             <LanguageToggle />
           </div>
 
-          <Button
-            text="Give Feedback"
-            click={() => {
-              window.open(
-                "https://docs.google.com/forms/d/e/1FAIpQLSdEpyJbDXU847_OxlKtgr4_0TNz39cnirFqfK3V92GgcFjfyw/viewform?usp=sf_link",
-                "_blank",
-                "noreferrer"
-              );
-            }}
-          />
+          {signedIn === false && (
+            <Button
+              text="Give Feedback"
+              click={() => {
+                window.open(
+                  "https://docs.google.com/forms/d/e/1FAIpQLSdEpyJbDXU847_OxlKtgr4_0TNz39cnirFqfK3V92GgcFjfyw/viewform?usp=sf_link",
+                  "_blank",
+                  "noreferrer"
+                );
+              }}
+            />
+          )}
         </ul>
       </div>
     </nav>
