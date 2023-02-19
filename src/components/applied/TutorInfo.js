@@ -31,7 +31,7 @@ export default function TutorInfo(props) {
             <TagBox emoji="✏️" text={props.class} />
             <TagBox
               emoji="💸"
-              text={`${props.max_salary} ${props.min_salary}`}
+              text={`${props.max_salary}-${props.min_salary}`}
             />
             <TagBox emoji="👨" text={props.tutor_gender} />
           </div>
