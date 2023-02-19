@@ -40,7 +40,7 @@ export default function TutorSteps() {
             </div>
             <div className="text">
               <h1 className="title">{t('Step 3')}</h1>
-              <p>{t('Wait for the parent to connect with you, after which you will get a SMS listing the details on how to contact the parent')}</p>
+              <p>{t('Wait for the parent to connect with you, after which you will get an SMS listing the details on how to contact the parent')}</p>
             </div>
             <div className="text">
               <h1 className="title">{t('Step 4')}</h1>

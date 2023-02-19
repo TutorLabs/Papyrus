@@ -83,7 +83,7 @@
 }
 
 .login_feedback {
-  position: absolute;
+  position: static;
   padding: 0.3rem 0rem;
   right: 7rem;
 }
@@ -95,7 +95,6 @@
 .language_toggle {
   display: flex;
   align-items: center;
-  margin: auto;
   &:hover {
     background-color: #f8f9fa;
   }
@@ -103,6 +102,13 @@
 
 .ui_button {
   margin: 4px 1rem !important;
+}
+
+.number {
+  margin: 0px;
+  a {
+    color: black;
+  }
 }
 
 @media (max-width: 900px) {
@@ -113,11 +119,19 @@
   }
 
   .number {
-    margin: 10px 0px 0px 15px;
+    margin: 10px 0px 10px 15px;
   }
 
   .mobile_auth_buttons {
     display: block;
+  }
+
+  .login_feedback {
+    position: absolute;
+  }
+
+  .language_toggle {
+    margin: auto;
   }
 
   .desktop_auth_buttons {

@@ -44,7 +44,7 @@ function Navbar() {
 
       {signedIn === false && (
         <div className="number">
-          <p>📞 01854795992</p>
+          <a href="tel:+8801854795992">📞 01854795992</a>
         </div>
       )}
 

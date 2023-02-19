@@ -55,7 +55,7 @@ export default function StudentSteps() {
               <h2 className="title">{t("Step 4")}</h2>
               <p>
                 {t(
-                  "After successfully matching, a SMS is sent to you with the details on how to contact your tutor, after which you can set up your first class"
+                  "After successfully matching, an SMS is sent to you with the details on how to contact your tutor, after which you can set up your first class"
                 )}
               </p>
             </div>
