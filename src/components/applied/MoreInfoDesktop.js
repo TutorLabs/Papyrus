@@ -21,7 +21,7 @@ export default function MoreInfo({ tutor, applied }) {
 
   const postid = params.id;
   const data = {
-    tutor_id: tutor?._id,
+    tutor_id: tutor._id,
   };
   const handleLike = () => {
     fetch(`/api/likedtutor/${postid}`, {
