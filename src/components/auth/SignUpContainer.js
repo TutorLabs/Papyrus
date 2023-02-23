@@ -201,7 +201,7 @@ export default function SignUpContainer() {
         <button id="get-code">{loading ? "Loading..." : "Sign Up"}</button>
       </form>
       <h2>
-        Already have an account? <Link to="/signin">Sign in now!</Link>
+        Already have an account? <Link to="/signin">Sign In</Link>
       </h2>
     </div>
   );
