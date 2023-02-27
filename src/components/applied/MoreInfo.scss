@@ -1,16 +1,24 @@
 .more_info {
   border-left: 0px;
   padding: 20px 0px;
-  .posting_buttons {
+  .posting_button {
     display: flex;
-    width: 100%;
+    width: 75%;
+    button {
+      background-color: #2cc3a0;
+      &:hover {
+        background-color: rgb(78, 204, 175);
+      }
+    }
   }
-
-  .avatar {
-    max-width: 65%;
-    height: 300px;
-    border-radius: 20px;
-    border: 1px solid #e3e3e3; 
+  .avatar_container {
+    padding: 20px 0px;
+    .avatar {
+      max-width: 65%;
+      height: 300px;
+      border-radius: 20px;
+      border: 1px solid #e3e3e3;
+    }
   }
 
   .tutorinfo_content {
@@ -56,8 +64,8 @@
     padding: 20px 30px;
     border-left: 1px solid #e0e0e0;
     border-top: 0px;
-    .posting_buttons {
-      width: 70%;
+    .posting_button {
+      width: 52%;
     }
   }
 }

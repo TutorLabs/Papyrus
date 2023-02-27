@@ -71,8 +71,11 @@ export default function MoreInfo({ tutor }) {
         handleOpen={handleOpen}
         open={open}
       />
-      <img alt="user" src={tutor.photoUrl} className="avatar" />
-      <div className="posting_buttons">
+      <div className="avatar_container">
+        <img alt="user" src={tutor.photoUrl} className="avatar" />
+      </div>
+
+      <div className="posting_button">
         {
           <OutlinedButtom
             icon={Check}

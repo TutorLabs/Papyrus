@@ -1,5 +1,5 @@
 .header {
-  margin-top: 70px;
+  margin-top: 90px;
   h1 {
     font-weight: 600;
     font-size: 35px;
@@ -13,5 +13,12 @@
     font-size: 18px;
     padding-bottom: 20px;
     padding-top: 10px;
+  }
+}
+
+@media only screen and (min-width: 978px) {
+  // for desktop
+  .header {
+    margin-top: 70px;
   }
 }

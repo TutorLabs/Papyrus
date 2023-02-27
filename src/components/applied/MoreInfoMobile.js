@@ -88,7 +88,7 @@ export default function MoreInfo({ tutor }) {
         handleOpen={handleOpen}
         open={open}
       />
-      <div className="posting_buttons">
+      <div className="posting_button">
         {
           <OutlinedButtom
             icon={Check}

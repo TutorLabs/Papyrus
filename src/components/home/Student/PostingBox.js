@@ -65,19 +65,10 @@ export default function PostingBox(props) {
       <div className="posting_header">
         <div className="header_text">
           <h1>{props.name}</h1>
-          <h3>
-            🏫 {props.institution}
-          </h3>
+          <h3>🏫 {props.institution}</h3>
         </div>
 
         <div className="apply_button">
-          {/* <button className="applicants_button" onClick={handleView}>
-            <img src={Cursor} alt="cursor" />
-            <div className="apply_button_text">
-              <p>See tutors who have applied</p>
-              <h6>See tutors who applied to this posting</h6>
-            </div>
-          </button> */}
           <OutlinedButtom
             icon={Cursor}
             text="See tutors who Applied"
