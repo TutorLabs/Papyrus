@@ -68,14 +68,26 @@ export default function SecondSection({ formData, setFormData }) {
         </Grid>
         <Grid item sm={12} lg={6} className="second_text_field">
           <h2>Class</h2>
-          <TextField
-            className="text_field"
-            placeholder="Class"
-            variant="outlined"
-            fullWidth
-            onChange={handleChange("class")}
-            value={formData.class}
-          />
+          <FormControl className="form_control" variant="outlined" fullWidth>
+            <Select onChange={handleChange("class")} value={formData.class}>
+              <MenuItem value={"12"}>Class 12 (A2 Level)</MenuItem>
+              <MenuItem value={"11"}>Class 11 (AS Level)</MenuItem>
+              <MenuItem value={"10"}>Class 10 (O Level)</MenuItem>
+              <MenuItem value={"9"}>Class 9</MenuItem>
+              <MenuItem value={"8"}>Class 8</MenuItem>
+              <MenuItem value={"7"}>Class 7</MenuItem>
+              <MenuItem value={"6"}>Class 6</MenuItem>
+              <MenuItem value={"5"}>Class 5</MenuItem>
+              <MenuItem value={"4"}>Class 4</MenuItem>
+              <MenuItem value={"3"}>Class 3</MenuItem>
+              <MenuItem value={"2"}>Class 2</MenuItem>
+              <MenuItem value={"1"}>Class 1</MenuItem>
+              <MenuItem value={"kg1"}>Kindergarten II (KGII)</MenuItem>
+              <MenuItem value={"kg2"}>Kindergarten I (KGI)</MenuItem>
+              <MenuItem value={"nursery"}>Nursery</MenuItem>
+              <MenuItem value={"playgroup"}>Playgroup</MenuItem>
+            </Select>
+          </FormControl>
         </Grid>
         <Grid item sm={12} lg={6} className="second_text_field">
           <div className="second_section_left_margin">
