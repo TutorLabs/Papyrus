@@ -20,7 +20,7 @@ export default function MoreInfo({ tutor }) {
 
   const postid = params.id;
   const data = {
-    tutor_id: tutor?._id,
+    tutor_id: tutor._id,
   };
 
   const handleAccept = () => {
