@@ -1,83 +1,91 @@
 import "./AppliedContainer.scss";
 import { useState, useEffect } from "react";
+import MoreInfoDesktop from "./MoreInfoDesktop";
+import TutorInfo from "./TutorInfo";
 
-import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { updateText } from "../../redux/error";
+// Fariha: check why you need this again
+const initialTutor = {
+  _id: "",
+  firstname: "",
+  lastname: "",
+  university: "",
+  major: "",
+  school: "",
+  medium: "",
+  class: "",
+  online: "",
+  tutor_gender: "",
+  bio: "",
+  locations: "",
+  days: "",
+  subjects: [],
+  max_salary: "",
+  min_salary: "",
+  eca: "",
+  hobbies: "",
+  experience: "",
+};
 
-import AppliedBoxes from "./AppliedTab";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Box from "@mui/material/Box";
-
-// mui
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
-    </div>
-  );
-}
-
-export default function AppliedContainer() {
-  const dispatch = useDispatch();
-  const params = useParams();
-  const [value, setValue] = useState(0);
-  const [applied, setApplied] = useState([]);
-  const [liked, setLiked] = useState([]);
-
-  // mui
-  const handleChange = (event, newValue) => {
-    event.preventDefault();
-    setValue(newValue);
-  };
+export default function AppliedContainer(props) {
+  const [selectedTutor, setSelectedTutor] = useState(initialTutor);
+  const [empty, setEmpty] = useState(true);
+  // Fariha: try to say "fetching postings instead of "no tutors to show" when it is rendering
 
   useEffect(() => {
-    const allDetails = async () => {
-      await fetch(`/api/applicants/${params.id}`)
-        .then((response) => {
-          if (!response.ok) {
-            dispatch(
-              updateText("Server failed to get a response. Please try again")
-            );
-          }
-          return response.json();
-        })
-        .then((json) => {
-          const allApplicants = json.allApplicants;
-          setApplied(allApplicants.applied);
-          setLiked(allApplicants.liked);
-        })
-        .catch(() => {
-          dispatch(updateText("Server failed to fetch data. Please try again"));
-        });
-    };
-    allDetails();
-  }, []);
+    if (props.tutors.length !== 0) {
+      setEmpty(false);
+      setSelectedTutor(props.tutors[0]);
+    }
+  }, [props.tutors]);
 
+  if (empty) {
+    return <p className="empty">No tutors to show</p>;
+  }
   return (
     <div className="applied_container">
-      <Box sx={{ width: "100%" }}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <Tabs value={value} onChange={handleChange}>
-            <Tab label="📝 Applied" />
-            <Tab label="✅ Liked" />
-          </Tabs>
-        </Box>
-        <TabPanel value={value} index={0}>
-          <AppliedBoxes tutors={applied} applied={true} />
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          <AppliedBoxes tutors={liked} applied={false} />
-        </TabPanel>
-      </Box>
+      <div className="applied_container_tutor_list">
+        {props.tutors.map((tutor) => {
+          if (tutor) {
+            return (
+              <div
+                key={tutor._id}
+                onClick={() => {
+                  setSelectedTutor(tutor);
+                }}
+              >
+                <TutorInfo
+                  id={tutor._id}
+                  firstname={tutor.firstname}
+                  lastname={tutor.lastname}
+                  min_salary={tutor.min_salary}
+                  max_salary={tutor.max_salary}
+                  school={
+                    tutor.university !== "NA" &&
+                    tutor.university !== "N/A" &&
+                    tutor.university !== ""
+                      ? `${tutor.university}`
+                      : `${tutor.school}`
+                  }
+                  class={
+                    tutor.university !== "NA" &&
+                    tutor.university !== "N/A" &&
+                    tutor.university !== ""
+                      ? `${tutor.major}`
+                      : `${tutor.class}`
+                  }
+                  tutor_gender={tutor.tutor_gender}
+                  photoUrl={tutor.photoUrl}
+                />
+              </div>
+            );
+          }
+        })}
+      </div>
+      <div className="applied_container_more_info">
+        {props.tutors && (
+          <MoreInfoDesktop tutor={selectedTutor}  />
+        )}
+      </div>
     </div>
   );
 }

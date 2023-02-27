@@ -1,3 +1,36 @@
+.empty {
+  p {
+    margin: 0px;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
 .applied_container {
-    margin-top: 30px;
+  display: block;
+  border: 1px solid #e0e0e0;
+  margin: 20px 0px;
+  border-radius: 20px;
+  .applied_container_tutor_list {
+    min-height: 100%;
+  }
+  .applied_container_more_info {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 978px) {
+  .applied_container {
+    display: flex;
+
+    &_tutor_list {
+      width: 70%;
+    }
+    &_more_info {
+      width: 50%;
+    }
+    .applied_container_more_info {
+      display: block;
+    }
+  }
 }

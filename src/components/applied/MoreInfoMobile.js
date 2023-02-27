@@ -2,14 +2,13 @@ import "./MoreInfo.scss";
 import { useState } from "react";
 import OutlinedButtom from "../ui-components/OutlinedButton";
 import Check from "../../images/check.svg";
-import Cross from "../../images/cross.svg";
 
 import { useParams } from "react-router-dom";
 import Cookies from "universal-cookie";
 
 import TemporaryAcceptModal from "../ui-components/TemporaryAcceptModal";
 
-export default function MoreInfo({ tutor, applied }) {
+export default function MoreInfo({ tutor }) {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);
@@ -90,22 +89,14 @@ export default function MoreInfo({ tutor, applied }) {
         open={open}
       />
       <div className="posting_buttons">
-        {applied === true && (
-          <OutlinedButtom
-            icon={Check}
-            text="Add this tutor to your Liked List!"
-            green={true}
-            click={handleLike}
-          />
-        )}
-        {applied === false && (
+        {
           <OutlinedButtom
             icon={Check}
             text="Send this tutor a message!"
             green={true}
             click={handleAccept}
           />
-        )}
+        }
       </div>
 
       <div className="tutorinfo_content">
@@ -143,8 +134,8 @@ export default function MoreInfo({ tutor, applied }) {
             {tutor.subjects.join(", ")}
           </p>
           <p>
-            <span>💸 Preferred monthly salary range:</span>{" "}
-            {tutor.min_salary} - {tutor.max_salary} tk
+            <span>💸 Preferred monthly salary range:</span> {tutor.min_salary} -{" "}
+            {tutor.max_salary} tk
           </p>
           <p>
             <span>📚 Their results: </span>
