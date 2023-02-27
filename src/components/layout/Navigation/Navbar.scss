@@ -77,9 +77,16 @@
   display: none;
   position: absolute;
   padding: 1.15rem 0rem;
-  right: 7rem;
   text-decoration: none;
   color: #221f20;
+}
+
+.signup {
+  right: 5rem;
+}
+
+.signin {
+  right: 10rem;
 }
 
 .login_feedback {

@@ -49,8 +49,13 @@ function Navbar() {
       )}
 
       {signedIn === false && (
-        <Link to="/signup" className="mobile_auth_buttons">
-          Sign up/Log in
+        <Link to="/signup" className="mobile_auth_buttons signup">
+          Sign up
+        </Link>
+      )}
+      {signedIn === false && (
+        <Link to="/signin" className="mobile_auth_buttons signin">
+          Log in
         </Link>
       )}
 
@@ -99,7 +104,14 @@ function Navbar() {
           {signedIn === false && (
             <li>
               <Link to="/signup" className="desktop_auth_buttons">
-                Sign up/Log in
+                Sign up
+              </Link>
+            </li>
+          )}
+          {signedIn === false && (
+            <li>
+              <Link to="/signin" className="desktop_auth_buttons">
+                Log in
               </Link>
             </li>
           )}
