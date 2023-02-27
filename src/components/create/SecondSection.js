@@ -226,6 +226,18 @@ export default function SecondSection({ formData, setFormData }) {
           </div>
         </Grid>
       </Grid>
+
+      <h2>Anything else you would like to add?</h2>
+      <TextField
+        className="text_field"
+        id="outlined-multiline-flexible"
+        placeholder="Ex: If you would prefer a tutor from a certain school or university, mention it here..."
+        fullWidth
+        multiline
+        rows={3}
+        value={formData.other}
+        onChange={handleChange("other")}
+      />
     </div>
   );
 }
