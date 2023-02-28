@@ -139,6 +139,7 @@ export default function ApplyContainer() {
                 medium={posting.medium}
                 location={posting.location}
                 online={posting.online}
+                other="Hello I'm groot"
               />
             ))}
           </div>
@@ -165,6 +166,7 @@ export default function ApplyContainer() {
                 location={posting.location}
                 online={posting.online}
                 applied={true}
+                other="Hello I'm groot"
               />
             ))}
           </div>
