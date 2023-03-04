@@ -127,6 +127,7 @@ export default function Home() {
                     institution={post.school}
                     online={post.online}
                     getPostings={getPostings}
+                    other_info={post.other_info}
                   />
                 </Grid>
               );

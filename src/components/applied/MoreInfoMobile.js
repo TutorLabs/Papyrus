@@ -54,12 +54,12 @@ export default function MoreInfo({ tutor }) {
         const APIKEY = "bokMHdSKvyUvSbHXxZ64";
         const SenderID = "8809617611064";
 
-        const StudentMessage = `Congratulations! You have been connected with a tutor.
+        const StudentMessage = `TutorLab: Congratulations! You have been connected with a tutor.
       Student Name: ${smsContent.studentFullName} 
       Tutor Name: ${smsContent.tutorFullName}
       Tutor Phone Number: ${smsContent.tutorPhoneNumber}`;
 
-        const TutorMessage = `Congratulations! You have been connected with a student.
+        const TutorMessage = `TutorLab: Congratulations! You have been connected with a student.
       Student Name: ${smsContent.studentFullName} 
       Tutor Name: ${smsContent.tutorFullName}
       Student Phone Number: ${smsContent.studentPhoneNumber}`;

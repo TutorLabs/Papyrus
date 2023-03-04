@@ -30,7 +30,7 @@ export default function CreateContainer() {
     min_salary: "",
     preferred_gender: "",
     student_gender: "",
-    other: "",
+    other_info: "",
   });
 
   const { token } = useSelector((state) => state.auth);

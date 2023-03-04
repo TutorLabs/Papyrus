@@ -70,9 +70,15 @@ export default function SecondSection({ formData, setFormData }) {
           <h2>Class</h2>
           <FormControl className="form_control" variant="outlined" fullWidth>
             <Select onChange={handleChange("class")} value={formData.class}>
-              <MenuItem value={"12"}>Class 12 (A2 Level)</MenuItem>
-              <MenuItem value={"11"}>Class 11 (AS Level)</MenuItem>
-              <MenuItem value={"10"}>Class 10 (O Level)</MenuItem>
+              <MenuItem value={"SAT"}>SAT</MenuItem>
+              <MenuItem value={"IELTS"}>IELTS</MenuItem>
+              <MenuItem value={"Uni Admission"}>University Admission</MenuItem>
+              <MenuItem value={"11 HSC"}>Class 12 (HSC)</MenuItem>
+              <MenuItem value={"11 HSC"}>Class 11 (HSC)</MenuItem>
+              <MenuItem value={"10 SSC"}>Class 10 (SSC)</MenuItem>
+              <MenuItem value={"12 A2"}>Class 12 (A2 Level)</MenuItem>
+              <MenuItem value={"11 AS"}>Class 11 (AS Level)</MenuItem>
+              <MenuItem value={"10 O'level"}>Class 10 (O Level)</MenuItem>
               <MenuItem value={"9"}>Class 9</MenuItem>
               <MenuItem value={"8"}>Class 8</MenuItem>
               <MenuItem value={"7"}>Class 7</MenuItem>
@@ -235,8 +241,8 @@ export default function SecondSection({ formData, setFormData }) {
         fullWidth
         multiline
         rows={3}
-        value={formData.other}
-        onChange={handleChange("other")}
+        value={formData.other_info}
+        onChange={handleChange("other_info")}
       />
     </div>
   );

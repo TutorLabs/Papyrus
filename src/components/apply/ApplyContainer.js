@@ -139,6 +139,7 @@ export default function ApplyContainer() {
                 medium={posting.medium}
                 location={posting.location}
                 online={posting.online}
+                other_info={posting.other_info}
               />
             ))}
           </div>
@@ -165,6 +166,7 @@ export default function ApplyContainer() {
                 location={posting.location}
                 online={posting.online}
                 applied={true}
+                other_info={posting.other_info}
               />
             ))}
           </div>

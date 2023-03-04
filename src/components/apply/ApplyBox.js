@@ -71,6 +71,9 @@ export default function ApplyBox(props) {
             <p>
               <span>Student's Gender:</span> {props.student_gender}
             </p>
+            <p>
+              <span>Other Information:</span> {props.other_info}
+            </p>
           </div>
           {!props.applied && <Button text="Apply" click={handleChange} />}
         </Grid>

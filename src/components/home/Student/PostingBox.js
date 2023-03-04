@@ -94,6 +94,9 @@ export default function PostingBox(props) {
               <span>💸 Salary Range:</span> {props.max_salary}-
               {props.min_salary} Tk/month
             </p>
+            <p>
+              <span>ℹ️ Other Information:</span> {props.other_info}
+            </p>
           </div>
         </div>
         <hr />
