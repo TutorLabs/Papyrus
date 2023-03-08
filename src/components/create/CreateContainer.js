@@ -10,7 +10,9 @@ import Button from "../ui-components/Button";
 import Grid from "@mui/material/Grid";
 import Cookies from "universal-cookie";
 
-import { useSelector } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
+import { getAuth, onAuthStateChanged} from "firebase/auth"
+import { updateToken } from "../../redux/auth";
 
 export default function CreateContainer() {
   const [formData, setFormData] = useState({
@@ -32,8 +34,17 @@ export default function CreateContainer() {
     student_gender: "",
     other_info: "",
   });
-
+  const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
+  const auth = getAuth()
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      dispatch(updateToken(user.accessToken))
+      if (user.accessToken != token) {
+        window.location.reload(true)
+      }
+    }
+  })
 
   useEffect(() => {
     const userPhoneNumber = async () => {

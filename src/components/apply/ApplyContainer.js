@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import { getAuth, onAuthStateChanged} from "firebase/auth"
+import { updateToken } from "../../redux/auth";
 
 import SearchBar from "./SearchBar";
 import ApplyBox from "./ApplyBox";
@@ -31,6 +34,16 @@ export default function ApplyContainer() {
   const [postings, setPostings] = useState([]);
   const [appliedPostings, setAppliedPostings] = useState([]);
   const { token } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const auth = getAuth()
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      dispatch(updateToken(user.accessToken))
+      if (user.accessToken != token) {
+        window.location.reload(true)
+      }
+    }
+  })
 
   let inputHandler = (event) => {
     // convert input text to lower case

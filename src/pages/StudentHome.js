@@ -10,7 +10,7 @@ import ActionBox from "../components/home/ActionBox";
 import PostingBox from "../components/home/Student/PostingBox";
 import Cover from "../components/home/Tutor/Cover";
 
-import { getAuth} from "firebase/auth"
+import { getAuth, onAuthStateChanged} from "firebase/auth"
 import { updateToken } from "../redux/auth";
 
 import Grid from "@mui/material/Grid";
@@ -24,15 +24,15 @@ export default function Home() {
   const [photo, setPhoto] = useState("");
   const [loading, setLoading] = useState(false);
   const { token } = useSelector((state) => state.auth);
-
-  // To be finished
-  const refreshToken = () => {
-    getAuth().onIdTokenChanged(function(user) {
-      if (user.accessToken !== token) {
-        dispatch(updateToken(user.accessToken))
+  const auth = getAuth()
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      dispatch(updateToken(user.accessToken))
+      if (user.accessToken != token) {
+        window.location.reload(true)
       }
-    })
-  }
+    }
+  })
 
   const getPostings = async () => {
     setLoading(true);
@@ -72,7 +72,6 @@ export default function Home() {
   };
 
   useEffect(() => {
-    refreshToken()
     getPostings();
     userInfo();
   }, []);

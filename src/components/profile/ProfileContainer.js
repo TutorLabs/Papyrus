@@ -10,7 +10,9 @@ import Button from "../ui-components/Button";
 import Grid from "@mui/material/Grid";
 import Cookies from "universal-cookie";
 
-import { useSelector } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
+import { updateToken } from "../../redux/auth";
+import { getAuth, onAuthStateChanged} from "firebase/auth"
 
 export default function ProfileContainer() {
   const [formData, setFormData] = useState({
@@ -41,8 +43,17 @@ export default function ProfileContainer() {
 
   const cookies = new Cookies();
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
+  const auth = getAuth()
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      dispatch(updateToken(user.accessToken))
+      if (user.accessToken != token) {
+        window.location.reload(true)
+      }
+    }
+  })
 
   useEffect(() => {
     const userInfo = async () => {

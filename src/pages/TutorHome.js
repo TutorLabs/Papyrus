@@ -8,7 +8,11 @@ import ActionBox from "../components/home/ActionBox";
 import Cover from "../components/home/Tutor/Cover";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import {  useDispatch,useSelector } from "react-redux";
+
+import { getAuth, onAuthStateChanged} from "firebase/auth"
+import { updateToken } from "../redux/auth";
+
 const initialTutor = {
   _id: "",
   firstname: "",
@@ -32,9 +36,19 @@ const initialTutor = {
 };
 export default function TutorHome() {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { token } = useSelector((state) => state.auth);
   const [tutor, setTutor] = useState(initialTutor);
+  const auth = getAuth()
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      dispatch(updateToken(user.accessToken))
+      if (user.accessToken != token) {
+        window.location.reload(true)
+      }
+    }
+  })
 
   useEffect(() => {
     const userInfo = async () => {

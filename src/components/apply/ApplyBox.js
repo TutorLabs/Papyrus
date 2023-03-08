@@ -6,6 +6,9 @@ import Button from "../ui-components/Button";
 import Cookies from "universal-cookie";
 import { useSelector } from "react-redux";
 
+import { getAuth, onAuthStateChanged} from "firebase/auth"
+import { updateToken } from "../../redux/auth";
+
 import { useDispatch } from "react-redux"; // for snackbar demonstration
 import { updateText } from "../../redux/snackbar"; // for snackbar demonstration
 
@@ -13,6 +16,15 @@ export default function ApplyBox(props) {
   const dispatch = useDispatch(); // for snackbar demonstration
   const cookies = new Cookies();
   const { token } = useSelector((state) => state.auth);
+  const auth = getAuth()
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      dispatch(updateToken(user.accessToken))
+      if (user.accessToken != token) {
+        window.location.reload(true)
+      }
+    }
+  })
 
   const handleChange = () => {
     dispatch(updateText("Successfully applied to this posting!"));

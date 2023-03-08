@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
+
+import { getAuth, onAuthStateChanged} from "firebase/auth"
+import { updateToken } from "../../redux/auth";
+
 import "../create/CreateContainer.scss";
 
 import Picture from "../ui-components/Picture";
@@ -36,9 +40,19 @@ export default function EditContainer() {
 
   const cookies = new Cookies();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const params = useParams();
-
   const postid = params.id;
+  const auth = getAuth()
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      dispatch(updateToken(user.accessToken))
+      if (user.accessToken != token) {
+        window.location.reload(true)
+      }
+    }
+  })
+
 
   useEffect(() => {
     const allDetails = async () => {
