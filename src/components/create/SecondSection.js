@@ -35,7 +35,7 @@ export default function SecondSection({ formData, setFormData }) {
       <h1>Education</h1>
       <Grid container>
         <Grid item sm={12} lg={6} className="second_text_field">
-          <h2>School</h2>
+          <h2>Student's School</h2>
           <TextField
             className="text_field"
             placeholder="School"
@@ -47,7 +47,7 @@ export default function SecondSection({ formData, setFormData }) {
         </Grid>
         <Grid item sm={12} lg={6} className="second_text_field">
           <div className="second_section_left_margin">
-            <h2>Medium</h2>
+            <h2>Student's Medium</h2>
             <FormControl className="form_control" variant="outlined" fullWidth>
               <Select
                 labelId="demo-simple-select-outlined-label"
@@ -67,7 +67,7 @@ export default function SecondSection({ formData, setFormData }) {
           </div>
         </Grid>
         <Grid item sm={12} lg={6} className="second_text_field">
-          <h2>Class</h2>
+          <h2>Student's Class</h2>
           <FormControl className="form_control" variant="outlined" fullWidth>
             <Select onChange={handleChange("class")} value={formData.class}>
               <MenuItem value={"12"}>Class 12 (A2 Level)</MenuItem>
@@ -91,12 +91,13 @@ export default function SecondSection({ formData, setFormData }) {
         </Grid>
         <Grid item sm={12} lg={6} className="second_text_field">
           <div className="second_section_left_margin">
-            <h2>Online/In-person</h2>
+            <h2>Online/In-person Teaching</h2>
             <FormControl className="form_control" variant="outlined" fullWidth>
               <Select onChange={handleChange("online")} value={formData.online}>
                 <MenuItem value={"Online"}>Online</MenuItem>
                 <MenuItem value={"In-Person"}>In-person</MenuItem>
                 <MenuItem value={"Hybrid"}>Hybrid</MenuItem>
+                <MenuItem value={"No Preference"}>No Preference</MenuItem>
               </Select>
             </FormControl>
           </div>
@@ -136,7 +137,10 @@ export default function SecondSection({ formData, setFormData }) {
         </Grid>
       </Grid>
 
-      <h2>Location</h2>
+      <h2>
+        Enter student's residential location or N/A if you prefer online
+        tutoring.
+      </h2>
       <TextField
         className="text_field"
         placeholder="Location"
@@ -146,7 +150,7 @@ export default function SecondSection({ formData, setFormData }) {
         value={formData.location}
       />
 
-      <h2>How many days a week?</h2>
+      <h2>How many days do you want the tutor to teach?</h2>
       <FormControl className="form_control" variant="outlined" fullWidth>
         <OutlinedInput
           type="number"
@@ -187,7 +191,7 @@ export default function SecondSection({ formData, setFormData }) {
         </FormControl>
       }
 
-      <h2>How much are you willing to pay?</h2>
+      <h2>How much salary are you willing to pay?</h2>
       <Grid container>
         <Grid item sm={12} lg={6} className="grid_item">
           <FormControl className="form_control" variant="outlined" fullWidth>
@@ -195,7 +199,7 @@ export default function SecondSection({ formData, setFormData }) {
               type="number"
               value={formData.max_salary}
               onChange={handleChange("max_salary")}
-              placeholder="Maximum"
+              placeholder="Maximum Salary"
               endAdornment={
                 <InputAdornment position="end">taka/month</InputAdornment>
               }
@@ -213,7 +217,7 @@ export default function SecondSection({ formData, setFormData }) {
                 type="number"
                 value={formData.min_salary}
                 onChange={handleChange("min_salary")}
-                placeholder="Minimum"
+                placeholder="Minimum Salary"
                 endAdornment={
                   <InputAdornment position="end">taka/month</InputAdornment>
                 }

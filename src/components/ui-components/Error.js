@@ -17,7 +17,7 @@ const style = {
 
 export default function Error() {
   const dispatch = useDispatch();
-  const { text, open } = useSelector((state) => state.error);
+  const { text, title, open } = useSelector((state) => state.error);
 
   return (
     <div className="modal">
@@ -30,7 +30,7 @@ export default function Error() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style} className="modal_box">
-          <h1>Something went wrong!</h1>
+          <h1>{title}</h1>
           <p>{text}</p>
           <div className="modal_button_container">
             <Button

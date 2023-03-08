@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   text: "",
+  title: "Something went wrong", // optional
   open: false,
 };
 
@@ -13,11 +14,15 @@ export const errorSlice = createSlice({
       state.text = action.payload;
       state.open = true;
     },
+    updateTitle: (state, action) => {
+      state.title = action.payload;
+      state.open = true;
+    },
     handleClose: (state) => {
       state.open = false;
     },
   },
 });
 
-export const { updateText, handleClose } = errorSlice.actions;
+export const { updateText, handleClose, updateTitle } = errorSlice.actions;
 export default errorSlice.reducer;

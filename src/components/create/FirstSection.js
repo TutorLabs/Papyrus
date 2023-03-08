@@ -10,8 +10,8 @@ export default function FirstTextField({ formData, setFormData }) {
 
   return (
     <div className="create_first_section">
-      <h2>First Name</h2>
-      <TextField
+      <h2>Student's First Name</h2>
+      <TextField 
         className="text_field"
         placeholder="First Name"
         variant="outlined"
@@ -19,7 +19,7 @@ export default function FirstTextField({ formData, setFormData }) {
         value={formData.firstname}
         onChange={handleChange("firstname")}
       />
-      <h2>Last Name</h2>
+      <h2>Student's Last Name</h2>
       <TextField
         className="text_field"
         placeholder="Last Name"
@@ -28,7 +28,7 @@ export default function FirstTextField({ formData, setFormData }) {
         value={formData.lastname}
         onChange={handleChange("lastname")}
       />
-      <h2>Email</h2>
+      <h2>Email (optional)</h2>
       <TextField
         className="text_field"
         placeholder="Email"
