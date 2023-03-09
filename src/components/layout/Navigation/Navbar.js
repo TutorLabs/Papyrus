@@ -58,21 +58,17 @@ function Navbar() {
           Log in
         </Link>
       )}
-
-      {signedIn === true && (
-        <div className="login_feedback">
-          <Button
-            text="Give Feedback"
-            click={() => {
-              window.open(
-                "https://docs.google.com/forms/d/e/1FAIpQLSdEpyJbDXU847_OxlKtgr4_0TNz39cnirFqfK3V92GgcFjfyw/viewform?usp=sf_link",
-                "_blank",
-                "noreferrer"
-              );
-            }}
-          />
-        </div>
+      {signedIn === true && role === "student" && (
+        <Link to="/create" className="mobile_auth_buttons signup">
+          Create
+        </Link>
       )}
+      {signedIn === true && role === "tutor" && (
+        <Link to="/apply" className="mobile_auth_buttons signup">
+          Apply
+        </Link>
+      )}
+     
 
       <div className={isActive ? "active navbar-links" : "navbar-links"}>
         <ul onClick={toggleNavbar}>
@@ -124,19 +120,6 @@ function Navbar() {
           <div className="language_toggle">
             <LanguageToggle />
           </div>
-
-          {signedIn === false && (
-            <Button
-              text="Give Feedback"
-              click={() => {
-                window.open(
-                  "https://docs.google.com/forms/d/e/1FAIpQLSdEpyJbDXU847_OxlKtgr4_0TNz39cnirFqfK3V92GgcFjfyw/viewform?usp=sf_link",
-                  "_blank",
-                  "noreferrer"
-                );
-              }}
-            />
-          )}
         </ul>
       </div>
     </nav>

@@ -1,7 +1,7 @@
 .posting_box {
   border: 1px solid var(--color-border, rgba(0, 0, 0, 0.1));
   border-radius: 6px;
-  margin: 20px;
+  margin: 0px;
   &:hover {
     background-color: #e4eff5;
   }
@@ -64,6 +64,7 @@
 
 @media (min-width: 768px) {
   .posting_box {
+    margin: 20px;
     .posting_header {
       display: flex;
       .apply_button {
