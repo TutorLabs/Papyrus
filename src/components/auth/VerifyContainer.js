@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router";
 import "./AuthContainer.scss";
 
@@ -21,6 +21,16 @@ export default function VerifyContainer() {
   const dispatch = useDispatch();
   const [number, setNumber] = useState("");
   const [loading, setLoading] = useState(false);
+  const [timer, setTimer] = useState(60);
+
+  const timeOutCallback = useCallback(
+    () => setTimer((current_timer) => current_timer - 1),
+    []
+  );
+
+  useEffect(() => {
+    timer > 0 && setTimeout(timeOutCallback, 1000);
+  }, [timer, timeOutCallback]);
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -107,6 +117,7 @@ export default function VerifyContainer() {
         </FormControl>
         <button>{loading ? "Loading..." : "Verify"}</button>
       </form>
+      <p className="timer">Verification code will be sent in: {timer} seconds</p>
     </div>
   );
 }
