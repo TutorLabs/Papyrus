@@ -32,6 +32,10 @@ export default function VerifyContainer() {
     timer > 0 && setTimeout(timeOutCallback, 1000);
   }, [timer, timeOutCallback]);
 
+  useEffect(() => {
+    timer === 0 && navigate("/signup");
+  }, [timer]);
+
   const handleChange = (event) => {
     event.preventDefault();
     setNumber(event.target.value);
@@ -117,7 +121,9 @@ export default function VerifyContainer() {
         </FormControl>
         <button>{loading ? "Loading..." : "Verify"}</button>
       </form>
-      <p className="timer">Verification code will be sent in: {timer} seconds</p>
+      <p className="timer">
+        Verification code will be sent in: {timer} seconds
+      </p>
     </div>
   );
 }
