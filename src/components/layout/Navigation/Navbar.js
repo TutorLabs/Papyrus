@@ -59,13 +59,13 @@ function Navbar() {
         </Link>
       )}
       {signedIn === true && role === "student" && (
-        <Link to="/create" className="mobile_auth_buttons signup">
-          Create
+        <Link to="/studenthome" className="mobile_auth_buttons signup">
+          Home
         </Link>
       )}
       {signedIn === true && role === "tutor" && (
-        <Link to="/apply" className="mobile_auth_buttons signup">
-          Apply
+        <Link to="/tutorhome" className="mobile_auth_buttons signup">
+          Home
         </Link>
       )}
      
