@@ -12,7 +12,6 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Box from "@mui/material/Box";
 
 const subjects = [
-  "All",
   "Mathematics",
   "Biology",
   "Chemistry",
@@ -28,6 +27,9 @@ const subjects = [
   "Agricultural Studies",
   "Sociology",
   "Psychology",
+  "SAT",
+  "IELTS",
+  "University Admissions"
 ];
 
 export default function SecondSection({ formData, setFormData }) {
