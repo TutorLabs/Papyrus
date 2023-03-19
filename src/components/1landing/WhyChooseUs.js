@@ -24,7 +24,7 @@ export default function WhyChooseUs(props) {
             <p className="title">{t("0% Commission")}</p>
             <p>
               {t(
-                "Tutors rejoice! We don’t keep your monthly salary. All of it goes to you"
+                "Tutors rejoice! You get to keep more of your hard earned money. We only charge a small 500tk fee no matter your salary"
               )}
             </p>
           </div>
